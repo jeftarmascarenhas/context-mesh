@@ -1,12 +1,12 @@
-# LCF Security by Design
+# Context Mesh Security by Design
 
-Security in LCF is built into the framework from the ground up, not added as an afterthought. This document defines essential security principles for LCF.
+Security in Context Mesh is built into the framework from the ground up, not added as an afterthought. This document defines essential security principles for Context Mesh.
 
 ## Security Principles
 
 ### 1. Security by Design
 
-Security is considered at every step of the LCF workflow.
+Security is considered at every step of the Context Mesh workflow.
 
 **Implementation**:
 - Security requirements captured in Step 1 (Intent)

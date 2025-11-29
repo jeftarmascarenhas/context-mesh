@@ -1,4 +1,4 @@
-# LCF Framework Diagram
+# Context Mesh Framework Diagram
 
 ## Mermaid Diagram (for rendering)
 
@@ -31,7 +31,7 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph LCF["LCF - Living Context Framework"]
+    subgraph CM["Context Mesh"]
         direction TB
         Intent[Step 1: Intent] --> Build[Step 2: Build]
         Build --> Learn[Step 3: Learn]
@@ -59,8 +59,8 @@ If you want to create a visual diagram similar to the original circular design, 
 ### Circular Diagram Layout
 
 **Center Core:**
-- Text: "LCF - Living Context Framework"
-- Subtitle: "Living Context" (or "Context Mesh")
+- Text: "Context Mesh"
+- Subtitle: "Living Context"
 - Thin gray ring around the center
 
 **Three Main Steps (arranged in a circle, clockwise):**

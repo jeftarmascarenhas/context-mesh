@@ -1,4 +1,4 @@
-# Living Context Framework (LCF)
+# Context Mesh
 
 **The AI-First Development Framework for Sustainable Context Preservation**
 
@@ -6,13 +6,13 @@
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com)
 [![Philosophy](https://img.shields.io/badge/philosophy-Context--First-blue.svg)](https://github.com)
 
-> "In the AI era, context isn't supplementary to code—it's the primary creation. LCF makes this philosophy practical."
+> "In the AI era, context isn't supplementary to code—it's the primary creation. Context Mesh makes this philosophy practical."
 
-## 🎯 What is LCF?
+## 🎯 What is Context Mesh?
 
-The **Living Context Framework (LCF)** is an AI-First development framework that implements the [5 Philosophical Principles of AI-First Development](PRINCIPLES.md). Unlike traditional frameworks that treat documentation as an afterthought, LCF treats **context as the primary artifact** and code as its manifestation.
+**Context Mesh** is an AI-First development framework that implements the [5 Philosophical Principles of AI-First Development](PRINCIPLES.md). Unlike traditional frameworks that treat documentation as an afterthought, Context Mesh treats **context as the primary artifact** and code as its manifestation.
 
-**LCF is NOT a replacement for Scrum or Agile** - it's a complementary framework specifically designed for AI-First development that works alongside existing methodologies like Scrum, Kanban, or DevOps.
+**Context Mesh is NOT a replacement for Scrum or Agile** - it's a complementary framework specifically designed for AI-First development that works alongside existing methodologies like Scrum, Kanban, or DevOps.
 
 ## 🧠 The Core Philosophy
 
@@ -24,7 +24,7 @@ Traditional development treats code as primary and documentation as secondary. *
 - ✅ **Decisions preserve their philosophical context**
 - ✅ **Human-AI collaboration is seamless**
 
-## 🚀 Why LCF?
+## 🚀 Why Context Mesh?
 
 ### The Context Crisis
 
@@ -35,9 +35,9 @@ When AI generates code rapidly, context often disappears:
 - Critical decisions lose their reasoning, leading to costly reversals
 - AI assistance becomes dramatically less effective without historical context
 
-### The LCF Solution
+### The Context Mesh Solution
 
-LCF solves the context crisis by:
+Context Mesh solves the context crisis by:
 
 1. **Living Context**: Central knowledge repository that evolves with your system
 2. **Intent-Driven Development**: Everything flows from intent, not implementation
@@ -45,9 +45,9 @@ LCF solves the context crisis by:
 4. **Continuous Learning**: Production insights feed back into intent and context
 5. **Human-AI Collaboration**: Clear patterns for seamless human-AI teamwork
 
-## 📋 The 3-Step LCF Workflow
+## 📋 The 3-Step Context Mesh Workflow
 
-LCF is designed for simplicity and easy adoption, similar to Scrum:
+Context Mesh is designed for simplicity and easy adoption, similar to Scrum:
 
 1. **Intent** - Define intent and create living context
 2. **Build** - AI builds with context, human supervises, decisions documented
@@ -104,7 +104,7 @@ Follow [GETTING_STARTED.md](GETTING_STARTED.md) for step-by-step implementation.
 
 ### 4. Integrate with Your Workflow
 
-See [INTEGRATION.md](INTEGRATION.md) for how to use LCF with Scrum, Agile, or DevOps.
+See [INTEGRATION.md](INTEGRATION.md) for how to use Context Mesh with Scrum, Agile, or DevOps.
 
 ## 📚 Documentation
 
@@ -122,11 +122,11 @@ See [INTEGRATION.md](INTEGRATION.md) for how to use LCF with Scrum, Agile, or De
 ### Reference
 - **[GLOSSARY.md](GLOSSARY.md)** - Key terms and concepts
 - **[FAQ.md](FAQ.md)** - Common questions and answers
-- **[COMPARISON.md](COMPARISON.md)** - LCF vs other frameworks
+- **[COMPARISON.md](COMPARISON.md)** - Context Mesh vs other frameworks
 
 ## 🎓 The 5 AI-First Principles
 
-LCF implements these core principles:
+Context Mesh implements these core principles:
 
 1. **Context as Primary Creation** - Context is the primary artifact, code is its expression
 2. **Intent-Driven Architecture** - Architecture flows from intent, not implementation
@@ -136,7 +136,7 @@ LCF implements these core principles:
 
 See [PRINCIPLES.md](PRINCIPLES.md) for detailed explanations.
 
-## 🔄 How LCF Works
+## 🔄 How Context Mesh Works
 
 ```
 Intent
@@ -157,7 +157,7 @@ Each step:
 
 ## 🤝 Contributing
 
-LCF is in active development. Contributions, feedback, and use cases are welcome!
+Context Mesh is in active development. Contributions, feedback, and use cases are welcome!
 
 ## 📄 License
 
@@ -165,7 +165,7 @@ LCF is in active development. Contributions, feedback, and use cases are welcome
 
 ## 🙏 Acknowledgments
 
-LCF is inspired by:
+Context Mesh is inspired by:
 - The 5 Philosophical Principles of AI-First Development
 - PaellaDoc framework concepts
 - Agile and Scrum methodologies

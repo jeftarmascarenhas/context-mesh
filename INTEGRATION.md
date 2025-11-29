@@ -1,10 +1,10 @@
-# LCF Integration Guide
+# Context Mesh Integration Guide
 
-LCF is designed to work alongside existing methodologies like Scrum, Kanban, and DevOps. This guide shows how to integrate LCF with your current workflow.
+Context Mesh is designed to work alongside existing methodologies like Scrum, Kanban, and DevOps. This guide shows how to integrate Context Mesh with your current workflow.
 
 ## Integration Philosophy
 
-**LCF is NOT a replacement** for Scrum, Kanban, or DevOps. Instead, it:
+**Context Mesh is NOT a replacement** for Scrum, Kanban, or DevOps. Instead, it:
 - **Complements** existing methodologies
 - **Adds** context preservation and AI-First practices
 - **Enhances** existing workflows with context awareness
@@ -14,9 +14,9 @@ LCF is designed to work alongside existing methodologies like Scrum, Kanban, and
 
 ### Overview
 
-Scrum provides the team structure and events. LCF adds context preservation and AI-First practices to each Scrum event.
+Scrum provides the team structure and events. Context Mesh adds context preservation and AI-First practices to each Scrum event.
 
-### Scrum Roles + LCF
+### Scrum Roles + Context Mesh
 
 **Product Owner**:
 - Leads Step 1 (Intent) for product intent
@@ -24,16 +24,16 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 - Reviews learnings in Step 3 (Learn)
 
 **Scrum Master**:
-- Facilitates LCF workflow
+- Facilitates Context Mesh workflow
 - Ensures context preservation
-- Helps team follow LCF practices
+- Helps team follow Context Mesh practices
 
 **Development Team**:
-- Executes LCF steps
+- Executes Context Mesh steps
 - Preserves context throughout
 - Collaborates with AI tools
 
-### Scrum Events + LCF
+### Scrum Events + Context Mesh
 
 #### Sprint Planning (Step 1: Intent)
 
@@ -43,13 +43,13 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 - Create sprint goal
 - Plan work
 
-**With LCF**:
+**With Context Mesh**:
 - Review backlog items
 - For each item, define intent (what and why)
 - Create sprint goal aligned with intent
 - Plan work with context preservation in mind
 
-**LCF Enhancements**:
+**Context Mesh Enhancements**:
 - Each backlog item has clear intent
 - Sprint goal traces to project intent
 - Work planned with context in mind
@@ -62,12 +62,12 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 - What will I do today?
 - Any impediments?
 
-**With LCF**:
+**With Context Mesh**:
 - What did I do yesterday? (with context updates)
 - What will I do today? (with context needs)
 - Any impediments? (including context gaps)
 
-**LCF Enhancements**:
+**Context Mesh Enhancements**:
 - Context updates shared
 - Context gaps identified
 - Decisions made documented
@@ -80,14 +80,14 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 - Gather feedback
 - Update backlog
 
-**With LCF**:
+**With Context Mesh**:
 - Demo with intent validation
 - Review context preservation
 - Validate against original intent
 - Extract learnings
 - Update context with feedback
 
-**LCF Enhancements**:
+**Context Mesh Enhancements**:
 - Work validated against intent
 - Context completeness reviewed
 - Learnings captured
@@ -100,24 +100,24 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 - What could improve?
 - Action items
 
-**With LCF**:
+**With Context Mesh**:
 - What went well? (with context insights)
 - What could improve? (including context gaps)
 - Action items (with context updates)
 - Learnings added to context
 - Insights feed back to Intent
 
-**LCF Enhancements**:
+**Context Mesh Enhancements**:
 - Learnings captured in context
 - Insights extracted and documented
 - Context improvements identified
 - Feedback loop to Intent initiated
 
-### Scrum Artifacts + LCF
+### Scrum Artifacts + Context Mesh
 
 #### Product Backlog
 
-**With LCF**:
+**With Context Mesh**:
 - Items linked to intent
 - Items linked to hypotheses
 - Context requirements included
@@ -125,7 +125,7 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 
 #### Sprint Backlog
 
-**With LCF**:
+**With Context Mesh**:
 - Items with context links
 - Context tasks included
 - AI tool tasks defined
@@ -133,13 +133,13 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 
 #### Increment
 
-**With LCF**:
+**With Context Mesh**:
 - Code linked to context
 - Decisions documented
 - Context updated
 - Traceability maintained
 
-### Example: Sprint with LCF
+### Example: Sprint with Context Mesh
 
 **Sprint Planning**:
 1. Review backlog items
@@ -169,9 +169,9 @@ Scrum provides the team structure and events. LCF adds context preservation and 
 
 ### Overview
 
-Kanban provides continuous flow. LCF adds context preservation to each stage of the Kanban board.
+Kanban provides continuous flow. Context Mesh adds context preservation to each stage of the Kanban board.
 
-### Kanban Board + LCF
+### Kanban Board + Context Mesh
 
 **Backlog** (Step 1: Intent):
 - Items with intent defined
@@ -198,7 +198,7 @@ Kanban provides continuous flow. LCF adds context preservation to each stage of 
 - Learnings captured
 - Context updated
 
-### Kanban Practices + LCF
+### Kanban Practices + Context Mesh
 
 **Visualize Work**:
 - Add context status to cards
@@ -229,62 +229,62 @@ Kanban provides continuous flow. LCF adds context preservation to each stage of 
 
 ### Overview
 
-DevOps provides the delivery pipeline. LCF adds context preservation throughout the pipeline.
+DevOps provides the delivery pipeline. Context Mesh adds context preservation throughout the pipeline.
 
-### DevOps Pipeline + LCF
+### DevOps Pipeline + Context Mesh
 
 #### Plan (Step 1: Intent)
 
-**With LCF**:
+**With Context Mesh**:
 - Planning with intent
 - Context requirements in plan
 - Context tasks included
 
 #### Code (Step 2: Build)
 
-**With LCF**:
+**With Context Mesh**:
 - Code with context links
 - Decisions documented
 - Context updated
 
 #### Build (Step 2: Build)
 
-**With LCF**:
+**With Context Mesh**:
 - Build with context
 - Context validation in build
 - Context artifacts included
 
 #### Test (Step 2: Build)
 
-**With LCF**:
+**With Context Mesh**:
 - Tests with context
 - Context validation tests
 - Intent validation tests
 
 #### Release (Step 3: Learn)
 
-**With LCF**:
+**With Context Mesh**:
 - Release with context
 - Context included in release
 - Context traceability
 
 #### Deploy (Step 3: Learn)
 
-**With LCF**:
+**With Context Mesh**:
 - Deploy with context
 - Context deployment records
 - Context observability
 
 #### Operate (Step 3: Learn)
 
-**With LCF**:
+**With Context Mesh**:
 - Operations with context
 - Context-aware monitoring
 - Context-linked observability
 
 #### Monitor (Step 3: Learn)
 
-**With LCF**:
+**With Context Mesh**:
 - Monitor with context
 - Context-linked metrics
 - Context-aware alerts
@@ -308,12 +308,12 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 
 ## Integration Patterns
 
-### Pattern 1: LCF + Scrum (Recommended)
+### Pattern 1: Context Mesh + Scrum (Recommended)
 
 **Best for**: Teams using Scrum who want to add AI-First practices
 
 **Structure**:
-- LCF steps align with Scrum events
+- Context Mesh steps align with Scrum events
 - Context preservation in each sprint
 - Learnings feed back to next sprint
 
@@ -322,12 +322,12 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 - Clear integration points
 - Context preserved in sprints
 
-### Pattern 2: LCF + Kanban
+### Pattern 2: Context Mesh + Kanban
 
 **Best for**: Teams using Kanban who want continuous context flow
 
 **Structure**:
-- LCF steps as Kanban stages
+- Context Mesh steps as Kanban stages
 - Context flows with work
 - Continuous context updates
 
@@ -336,12 +336,12 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 - Context always current
 - Flexible structure
 
-### Pattern 3: LCF + DevOps
+### Pattern 3: Context Mesh + DevOps
 
 **Best for**: Teams focused on delivery pipeline
 
 **Structure**:
-- LCF steps in pipeline stages
+- Context Mesh steps in pipeline stages
 - Context in each stage
 - Context in deployment
 
@@ -350,17 +350,17 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 - Full traceability
 - Context in operations
 
-### Pattern 4: LCF Standalone
+### Pattern 4: Context Mesh Standalone
 
 **Best for**: Teams starting fresh or small projects
 
 **Structure**:
-- Pure LCF workflow
+- Pure Context Mesh workflow
 - All 3 steps followed
 - Full context preservation
 
 **Benefits**:
-- Complete LCF experience
+- Complete Context Mesh experience
 - Full context preservation
 - Clear structure
 
@@ -368,23 +368,23 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 
 ### Strategy 1: Gradual Adoption
 
-**Approach**: Add LCF practices gradually
+**Approach**: Add Context Mesh practices gradually
 
 **Steps**:
 1. Start with Step 1 (Intent)
 2. Add Step 2 (Build)
 3. Add Step 3 (Learn)
-4. Full LCF adoption
+4. Full Context Mesh adoption
 
 **Timeline**: 1-2 sprints
 
 ### Strategy 2: Pilot Project
 
-**Approach**: Try LCF on one project first
+**Approach**: Try Context Mesh on one project first
 
 **Steps**:
 1. Select pilot project
-2. Implement full LCF
+2. Implement full Context Mesh
 3. Learn and refine
 4. Roll out to other projects
 
@@ -392,12 +392,12 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 
 ### Strategy 3: Full Adoption
 
-**Approach**: Adopt LCF across all projects
+**Approach**: Adopt Context Mesh across all projects
 
 **Steps**:
-1. Train team on LCF
+1. Train team on Context Mesh
 2. Set up infrastructure
-3. Implement LCF
+3. Implement Context Mesh
 4. Monitor and improve
 
 **Timeline**: 1-3 months
@@ -405,9 +405,9 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 ## Best Practices
 
 1. **Start Small**: Begin with one step or one project
-2. **Team Alignment**: Get team buy-in on LCF
+2. **Team Alignment**: Get team buy-in on Context Mesh
 3. **Tool Support**: Use tools to reduce overhead
-4. **Regular Review**: Review LCF integration regularly
+4. **Regular Review**: Review Context Mesh integration regularly
 5. **Iterate**: Refine integration over time
 6. **Context First**: Always prioritize context preservation
 
@@ -425,7 +425,7 @@ DevOps provides the delivery pipeline. LCF adds context preservation throughout 
 **Solution**:
 - Show value of context preservation
 - Start with small wins
-- Get team input on LCF usage
+- Get team input on Context Mesh usage
 
 ### Challenge 3: Integration Complexity
 

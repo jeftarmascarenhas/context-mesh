@@ -1,10 +1,10 @@
-# Getting Started with LCF
+# Getting Started with Context Mesh
 
-This guide will help you get started with the Living Context Framework (LCF) in your project.
+This guide will help you get started with Context Mesh in your project.
 
 ## Prerequisites
 
-Before starting with LCF, ensure you have:
+Before starting with Context Mesh, ensure you have:
 
 - A development project (new or existing)
 - Git repository (recommended)
@@ -296,7 +296,7 @@ You can use simple markdown files or any documentation system. The key is to:
 3. **Update Continuously**: Keep context up-to-date as you work
 4. **Link Everything**: Link code, decisions, and learnings to intent
 5. **Learn Regularly**: Extract learnings frequently
-6. **Iterate**: Refine your LCF implementation over time
+6. **Iterate**: Refine your Context Mesh implementation over time
 
 ## Context Management Best Practices
 

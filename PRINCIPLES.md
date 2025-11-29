@@ -1,6 +1,6 @@
 # The 5 AI-First Principles
 
-LCF implements the 5 Philosophical Principles of AI-First Development. These principles form the foundation of the framework and guide every step of the workflow.
+Context Mesh implements the 5 Philosophical Principles of AI-First Development. These principles form the foundation of the framework and guide every step of the workflow.
 
 ## Principle 1: Context as Primary Creation
 
@@ -16,7 +16,7 @@ In traditional development, code is primary and documentation is secondary. In A
 - Context evolution is tracked and preserved
 - Context completeness is measured and improved
 
-### How LCF Implements This
+### How Context Mesh Implements This
 
 **In Every Step:**
 - Step 1 (Intent): Initial context creation and intent capture
@@ -60,7 +60,7 @@ Architecture should flow from **intent and purpose**, not from technical impleme
 - Architecture adapts as intent evolves
 - "Why" is as important as "what"
 
-### How LCF Implements This
+### How Context Mesh Implements This
 
 **Intent Capture (Step 1):**
 - Structured intent statements
@@ -106,7 +106,7 @@ Knowledge is not static documentation—it's a **living, evolving entity** that 
 - Knowledge completeness is measured
 - Knowledge feeds back into development
 
-### How LCF Implements This
+### How Context Mesh Implements This
 
 **Living Context Hub:**
 - Central knowledge repository
@@ -156,7 +156,7 @@ Human and AI work together in a **collaborative consciousness** where the bounda
 - Human oversight is built-in
 - AI enhances human creativity
 
-### How LCF Implements This
+### How Context Mesh Implements This
 
 **Defined Roles:**
 
@@ -207,7 +207,7 @@ Decisions must preserve not just **what** was decided, but **why** it was decide
 - Implications are tracked
 - Outcomes update decisions
 
-### How LCF Implements This
+### How Context Mesh Implements This
 
 **ADRs (Architecture Decision Records):**
 Every significant decision is captured with:
@@ -261,7 +261,7 @@ Together, they create a framework where:
 - Human and AI collaborate effectively
 - Decisions are made with full context and preserved for future learning
 
-## Alignment with LCF Steps
+## Alignment with Context Mesh Steps
 
 | Principle | Step 1 (Intent) | Step 2 (Build) | Step 3 (Learn) |
 |-----------|-----------------|----------------|----------------|
@@ -273,6 +273,6 @@ Together, they create a framework where:
 
 ## Further Reading
 
-- [FRAMEWORK.md](FRAMEWORK.md) - How LCF implements these principles
+- [FRAMEWORK.md](FRAMEWORK.md) - How Context Mesh implements these principles
 - [EXAMPLES.md](EXAMPLES.md) - Real-world examples of principles in action
 

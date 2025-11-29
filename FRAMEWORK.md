@@ -1,14 +1,14 @@
-# Living Context Framework (LCF) - Framework Structure
+# Context Mesh - Framework Structure
 
 ## Framework Overview
 
-The Living Context Framework (LCF) is an AI-First development framework that implements the 5 Philosophical Principles of AI-First Development. LCF treats context as the primary creation, with code as its manifestation, enabling sustainable AI-assisted development.
+Context Mesh is an AI-First development framework that implements the 5 Philosophical Principles of AI-First Development. Context Mesh treats context as the primary creation, with code as its manifestation, enabling sustainable AI-assisted development.
 
-**LCF is not a replacement for Scrum or Agile** - it's a complementary framework specifically designed for AI-First development that can be used alongside existing methodologies.
+**Context Mesh is not a replacement for Scrum or Agile** - it's a complementary framework specifically designed for AI-First development that can be used alongside existing methodologies.
 
-## The 3-Step LCF Workflow
+## The 3-Step Context Mesh Workflow
 
-LCF is designed for simplicity and easy adoption, similar to Scrum. The framework consists of three essential steps that preserve context throughout the development lifecycle:
+Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The framework consists of three essential steps that preserve context throughout the development lifecycle:
 
 ```
 ┌─────────────┐
@@ -293,14 +293,14 @@ Every significant decision should be documented with:
 
 ## Integration with Scrum/Agile
 
-LCF can be integrated with Scrum:
+Context Mesh can be integrated with Scrum:
 
 - **Sprint Planning**: Use Step 1 (Intent) for each item
 - **During Sprint**: Use Step 2 (Build)
 - **Sprint Review**: Use Step 3 (Learn)
 - **Retrospective**: Refine context and intent
 
-LCF adds:
+Context Mesh adds:
 - Context preservation throughout
 - AI agent integration
 - Intent-driven development

@@ -1,6 +1,6 @@
-# LCF Examples
+# Context Mesh Examples
 
-Real-world examples of LCF in action, showing how the framework is applied in different scenarios.
+Real-world examples of Context Mesh in action, showing how the framework is applied in different scenarios.
 
 ## Example 1: New Feature Development
 
@@ -294,11 +294,11 @@ API Gateway adds 50ms latency, but overall system is more scalable.
 
 ---
 
-## Example 4: LCF + Scrum Integration
+## Example 4: Context Mesh + Scrum Integration
 
 ### Scenario
 
-A Scrum team adopts LCF for their sprints.
+A Scrum team adopts Context Mesh for their sprints.
 
 ### Sprint Planning (Step 1: Intent)
 

@@ -1,14 +1,14 @@
-# LCF Tooling Guide
+# Context Mesh Tooling Guide
 
-LCF is designed to be **tool-agnostic** - you can implement it with any tools. This guide provides simple recommendations for getting started.
+Context Mesh is designed to be **tool-agnostic** - you can implement it with any tools. This guide provides simple recommendations for getting started.
 
 ## Tooling Philosophy
 
-Keep it simple. LCF works best when you start with basic tools and add complexity only when needed.
+Keep it simple. Context Mesh works best when you start with basic tools and add complexity only when needed.
 
 ## Recommended: File-Based Approach
 
-The simplest and most effective way to start with LCF is using file-based context management.
+The simplest and most effective way to start with Context Mesh is using file-based context management.
 
 ### Tools Needed
 
@@ -77,7 +77,7 @@ As your project grows, you may want to consider:
 2. **Use Git**: Version control your context
 3. **Keep It Simple**: Don't overcomplicate tooling
 4. **Add Tools Gradually**: Only add tools when you need them
-5. **Tool Agnostic**: LCF works with any tools you prefer
+5. **Tool Agnostic**: Context Mesh works with any tools you prefer
 
 ## Further Reading
 
