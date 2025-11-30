@@ -25,11 +25,18 @@ Create a simple directory structure in your project:
 your-project/
 ├── context/
 │   ├── intent/
-│   │   └── initial-intent.md
+│   │   ├── project-intent.md
+│   │   ├── feature-*.md
+│   │   ├── bug-*.md
+│   │   └── refactor-*.md
 │   ├── decisions/
-│   │   └── (decision records)
-│   └── learnings/
-│       └── (learning insights)
+│   │   └── 001-*.md, 002-*.md, ...
+│   ├── knowledge/
+│   │   ├── patterns/
+│   │   └── anti-patterns/
+│   └── evolution/
+│       ├── changelog.md
+│       └── learning-*.md
 └── [your code]
 ```
 

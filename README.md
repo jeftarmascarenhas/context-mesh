@@ -30,7 +30,7 @@ Traditional development treats code as primary and documentation as secondary. *
 
 When AI generates code rapidly, context often disappears:
 
-- Teams waste **32% of developer time** reconstructing lost context
+- Teams waste [**32% of developer time**](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity) reconstructing lost context
 - New developer onboarding takes **3.5x longer** without preserved context
 - Critical decisions lose their reasoning, leading to costly reversals
 - AI assistance becomes dramatically less effective without historical context

@@ -22,7 +22,7 @@ Read the [FRAMEWORK.md](FRAMEWORK.md) to understand the 3-step workflow.
 Create a `context/` directory in your project:
 
 ```bash
-mkdir -p context/{intent,decisions,learnings}
+mkdir -p context/{intent,decisions,knowledge/{patterns,anti-patterns},evolution}
 ```
 
 ### Step 3: Start with Intent
@@ -42,10 +42,6 @@ cat > context/intent/initial-intent.md << 'EOF'
 ## Success Criteria
 - [Criterion 1]
 - [Criterion 2]
-
-## Hypotheses
-- [Hypothesis 1]
-- [Hypothesis 2]
 EOF
 ```
 
@@ -66,11 +62,18 @@ Create the following directory structure:
 your-project/
 ├── context/
 │   ├── intent/
-│   │   └── initial-intent.md
+│   │   ├── project-intent.md
+│   │   ├── feature-*.md
+│   │   ├── bug-*.md
+│   │   └── refactor-*.md
 │   ├── decisions/
-│   │   └── (decision records)
-│   └── learnings/
-│       └── (learning insights)
+│   │   └── 001-*.md, 002-*.md, ...
+│   ├── knowledge/
+│   │   ├── patterns/
+│   │   └── anti-patterns/
+│   └── evolution/
+│       ├── changelog.md
+│       └── learning-*.md
 └── [your code]
 ```
 
@@ -90,7 +93,7 @@ You can use simple markdown files or any documentation system. The key is to:
 
 **Activities**:
 
-1. **Define Intent**:
+1. **Define Intent** (can be initial or refined):
    ```markdown
    # Intent Statement
    
@@ -105,26 +108,21 @@ You can use simple markdown files or any documentation system. The key is to:
    - [Criterion 2]
    ```
 
-2. **Document Hypotheses**:
-   ```markdown
-   # Hypotheses
-   
-   ## Hypothesis 1: [Title]
-   - **If** we [action]
-   - **Then** [expected outcome]
-   - **Because** [reasoning]
-   ```
+2. **Identify or Define Patterns** (for existing/new projects):
+   - **Existing projects**: Identify existing patterns in codebase
+   - **New projects**: Define initial patterns based on team experience
+   - Store in `context/knowledge/patterns/`
 
 3. **Create Initial Context**:
    - Store intent in your context repository
    - Link to project structure
    - Make it accessible to AI tools
 
-**Checklist**:
-- [ ] Intent statement clear and validated
-- [ ] Hypotheses documented
-- [ ] Initial context created
-- [ ] Stakeholders aligned
+**Checklist** (Definition of Done):
+- [ ] Intent statement clear and validated (What + Why)
+- [ ] Initial patterns identified (existing) or defined (new)
+- [ ] Initial context created and stored
+- [ ] Stakeholders aligned on intent
 
 **Tips**:
 - Keep intent simple and focused
@@ -140,9 +138,10 @@ You can use simple markdown files or any documentation system. The key is to:
 **Activities**:
 
 1. **AI Code Generation**:
-   - Use AI tools with full context
-   - Provide context to AI (intent, decisions, existing code)
+   - Use AI tools with full context (intent, decisions, patterns, existing code)
+   - Provide context to AI including patterns from knowledge/
    - Generate code based on intent
+   - Follow established patterns, avoid known anti-patterns
    - Link code to context
 
 2. **Human Supervision**:
@@ -175,9 +174,9 @@ You can use simple markdown files or any documentation system. The key is to:
    - Document code-context relationships
    - Keep context up-to-date
 
-**Checklist**:
+**Checklist** (Definition of Done):
 - [ ] Code implemented using context
-- [ ] Important decisions documented
+- [ ] Important decisions documented (with rationale)
 - [ ] Code linked to context (intent, decisions)
 - [ ] Human review completed
 - [ ] Context updated with implementation details
@@ -193,17 +192,24 @@ You can use simple markdown files or any documentation system. The key is to:
 
 ### Step 3: Learn
 
-**Objective**: Learn from results and update living context.
+**Objective**: Update living context to reflect code changes.
 
 **Activities**:
 
-1. **Observe Results**:
-   - Monitor metrics and logs
-   - Collect user feedback
-   - Track system behavior
-   - Link observability to context
+1. **Update Context** (Primary):
+   - Review what changed in your code
+   - Use AI to help identify what needs documentation updates
+   - Update context to match current codebase state
+   - Update decision records if implementation changed
+   - Update changelog with significant changes
 
-2. **Extract Learnings**:
+2. **Preserve Knowledge** (Important):
+   - Preserve patterns identified during Build
+   - Update patterns based on learnings
+   - Document new anti-patterns discovered
+   - Store in `context/knowledge/`
+
+3. **Document Learnings** (Optional):
    ```markdown
    # Learning: [Title]
    
@@ -215,36 +221,27 @@ You can use simple markdown files or any documentation system. The key is to:
    
    ## Action
    [What should we do?]
-   
-   ## Context Updates
-   - [Update 1]
-   - [Update 2]
    ```
+   - Note what worked well
+   - Document challenges or discoveries
 
-3. **Update Context**:
-   - Add learnings to context
-   - Update decision records with outcomes
-   - Refine intent if needed
-   - Create new hypotheses
+4. **Refine Intent** (If needed):
+   - Adjust intent based on learnings
+   - Create new work items if needed
 
-4. **Feedback Loop**:
-   - Feed insights back to Intent step
-   - Refine intent based on outcomes
-   - Create new work items from learnings
-   - Improve processes
-
-**Checklist**:
-- [ ] Results observed and analyzed
-- [ ] Learnings extracted and validated
-- [ ] Living context updated with learnings
-- [ ] Intent refined if needed
-- [ ] Feedback loop to Intent initiated
+**Checklist** (Definition of Done):
+- [ ] Context updated to reflect code changes
+- [ ] Context aligned with current codebase
+- [ ] Changelog updated with significant changes
+- [ ] Patterns preserved/updated in knowledge/ (if applicable)
+- [ ] Decision records updated if outcomes differ (optional)
+- [ ] Learnings documented (optional)
+- [ ] Intent refined if needed (optional)
 
 **Tips**:
-- Observe results continuously
-- Extract learnings regularly
-- Update context immediately
-- Use learnings to improve
+- Update context as you make code changes
+- Use AI to help identify what needs updating
+- Keep context simple and current
 
 ---
 
@@ -304,6 +301,14 @@ You can use simple markdown files or any documentation system. The key is to:
 - Use simple markdown files
 - Don't overcomplicate structure
 - Focus on what matters
+- **Use Git for versioning** - Don't create files for every small change
+
+### File Creation vs Updates
+
+**Create new file**: Only for new scopes (new feature, new bug, new decision)
+**Update existing file**: For refinements, outcomes, evolution (Git versions it)
+
+**Rule**: If it's the same scope, update the file. Git preserves history.
 
 ### Update Continuously
 - Update context during Build
@@ -314,7 +319,8 @@ You can use simple markdown files or any documentation system. The key is to:
 - Link code to intent
 - Link decisions to intent
 - Link learnings to intent
-- Create traceability
+- Link patterns to decisions and learnings
+- Create traceability: Intent → Decision → Learning → Pattern
 
 ### Version Control
 - Use Git for context versioning

@@ -219,7 +219,7 @@ Every significant decision is captured with:
 - **Outcomes**: What happened? (updated in Step 3)
 
 **Decision Capture:**
-- Step 1 (Intent): Intent and hypothesis decisions
+- Step 1 (Intent): Intent decisions
 - Step 2 (Build): Architectural and implementation decisions
 - Step 3 (Learn): Improvement decisions, decision outcomes updated
 

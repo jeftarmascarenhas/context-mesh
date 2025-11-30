@@ -15,6 +15,9 @@ A development philosophy where AI tools are integrated throughout the developmen
 
 ## C
 
+### Changelog
+A document that records significant changes to the codebase. Updated in Step 3 (Learn) to document what changed and why.
+
 ### Context
 The knowledge, information, and understanding that surrounds and informs development work. In Context Mesh, context is the primary artifact.
 
@@ -57,11 +60,6 @@ A mechanism that feeds learnings and insights from later steps back to earlier s
 ### Governance
 The framework of rules, processes, and standards that guide how Context Mesh is implemented and how context is managed.
 
-## H
-
-### Hypothesis
-A testable assumption about how to achieve intent. Hypotheses are documented in Step 1 (Intent) and validated in Step 3 (Learn).
-
 ## I
 
 ### Intent
@@ -72,13 +70,16 @@ An architectural approach where architecture is designed to fulfill intent, rath
 
 ## K
 
+### Knowledge
+The accumulated patterns, anti-patterns, and learnings that evolve with the system. Stored in `context/knowledge/` and used throughout all steps.
+
 ### Knowledge Graph
 A graph structure that represents knowledge as nodes (entities) and edges (relationships), showing how context artifacts are connected.
 
 ## L
 
 ### Learn
-Step 3 of Context Mesh, where learnings from results are extracted, context is updated, and insights feed back to Intent.
+Step 3 of Context Mesh, where context is updated to reflect code changes, learnings are documented, and insights feed back to Intent.
 
 ### Living Context
 Context that evolves and updates continuously, staying current with the system it describes.
@@ -92,6 +93,12 @@ The AI-First development framework that implements the 5 Philosophical Principle
 A smaller ADR that documents implementation-level decisions, as opposed to architectural decisions.
 
 ## P
+
+### Pattern
+A documented solution that works well, with context about when to use it, why it works, and examples. Patterns are stored in `context/knowledge/patterns/` and used during Build.
+
+### Anti-pattern
+A documented solution to avoid, with context about why it's problematic and what problems it causes. Anti-patterns are stored in `context/knowledge/anti-patterns/` and used during Build to avoid known issues.
 
 ### Principle
 A fundamental truth or belief that guides the framework. Context Mesh is based on 5 AI-First principles.

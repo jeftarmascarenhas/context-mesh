@@ -29,16 +29,12 @@ log in, and manage their accounts.
 - Passwords are hashed and stored securely
 - Session management works correctly
 - Security best practices followed
-
-## Hypotheses
-- **Hypothesis 1**: JWT-based authentication will provide stateless, scalable authentication
-- **Hypothesis 2**: bcrypt for password hashing will securely store passwords
 ```
 
 ### Step 2: Build
 
 **Implementation**:
-- AI generates authentication code based on context (intent, hypotheses)
+- AI generates authentication code based on context (intent)
 - Code includes JWT implementation
 - Password hashing with bcrypt
 - Human reviews and approves
@@ -66,7 +62,6 @@ Use JWT tokens for authentication.
 
 ## Related
 - Intent: User Authentication Feature
-- Hypothesis 1: JWT-based Authentication
 ```
 
 **Context Updates**:
@@ -99,13 +94,11 @@ Sign-up takes 200ms longer than expected.
 
 ## Context Updates
 - Updated decision record with performance notes
-- Created new hypothesis about password hashing optimization
 - Refined intent: Added performance criteria
 ```
 
 **Feedback to Intent**:
 - Intent refined with performance criteria
-- New hypothesis created for optimization
 - Context updated with learnings
 
 ---
@@ -222,10 +215,6 @@ Refactor monolithic application into microservices architecture.
 - Services communicate via APIs
 - No breaking changes for users
 - Performance maintained or improved
-
-## Hypotheses
-- **Hypothesis 1**: API Gateway pattern will simplify service communication
-- **Hypothesis 2**: Independent deployment will improve team velocity
 ```
 
 ### Step 2: Build
@@ -259,7 +248,6 @@ Adopt microservices architecture with API Gateway pattern.
 
 ## Related
 - Intent: Microservices Architecture
-- Hypothesis 1: API Gateway pattern
 ```
 
 ### Step 3: Learn
@@ -288,7 +276,6 @@ API Gateway adds 50ms latency, but overall system is more scalable.
 
 ## Context Updates
 - Updated decision record with performance notes
-- Created new hypothesis about API Gateway optimization
 - Refined intent: Added latency tolerance criteria
 ```
 
