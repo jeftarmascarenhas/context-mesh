@@ -105,8 +105,16 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 
 **Activities**:
 - Define intent (what and why)
-- Optionally refine intent (team discussion, stakeholder alignment)
+  - Can start minimal: basic description (e.g., "Weather application")
+  - Use AI to help expand and structure intent
+  - Use prompts to generate context from minimal input
+- Optionally include decisions, DoD, patterns, DevOps in Step 1
+  - Can create comprehensive context in Step 1 (faster Build phase)
+  - Or start minimal and expand as needed (more iterative)
 - Create initial context
+  - AI can help generate context structure
+  - Review and refine AI-generated context
+  - Use Plan, Approve, Execute pattern (see below)
 - Identify or define initial patterns:
   - **For existing projects**: Identify existing patterns in codebase
   - **For new projects**: Define initial patterns based on team experience
@@ -121,6 +129,8 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 - Assist in structuring intent
 - Suggest context organization
 - Analyze similar projects for insights
+- Generate context from prompts (when asked)
+- Explain what it will create before executing (Plan, Approve, Execute)
 
 **Outputs**:
 - Clear Intent Statement
@@ -163,8 +173,17 @@ Decisions are **not required before starting Build**, but may exist if created i
 - Follows established patterns, avoids known anti-patterns
 
 **Activities**:
-- AI generates code based on context (intent, existing decisions/patterns if any)
-- Human supervises and validates AI work
+- Plan before building:
+  - Load necessary context files (selective loading for focus)
+  - Ask AI to explain what it will build and how
+  - Review AI's planning approach
+- Approve before executing:
+  - Review and approve plan (or request changes)
+  - AI executes only with your approval
+- Execute with context:
+  - AI generates code based on approved plan
+  - Can generate everything at once or part by part
+  - Human supervises and validates AI work
 - Document implementation decisions (created during Build, or use existing from Step 1)
 - Follow established patterns from knowledge/ (if available)
 - Avoid known anti-patterns from knowledge/ (if available)
@@ -187,7 +206,8 @@ Decisions are **not required before starting Build**, but may exist if created i
 - Make critical decisions
 
 **AI Role**:
-- Generate code based on context
+- Explain planning approach before generating code
+- Generate code based on context (after approval)
 - Suggest technical solutions
 - Review code for context alignment
 - Propose improvements
@@ -226,7 +246,9 @@ Decisions are **not required before starting Build**, but may exist if created i
 
 **Activities**:
 1. **Update Context** (Primary):
-   - Review code changes
+   - Plan: Ask AI to identify what changed
+   - Approve: Review AI's analysis of changes
+   - Execute: Update context with your approval
    - Use AI to help identify what changed
    - Update context to match current codebase
    - Update decision records if implementation differed
@@ -261,9 +283,11 @@ Decisions are **not required before starting Build**, but may exist if created i
 - Validate context accuracy
 
 **AI Role**:
+- Explain what changed before updating context (Plan, Approve, Execute)
 - Help identify what changed in code
 - Suggest what needs updating in context
 - Assist in updating documentation
+- Propose context improvements
 
 **Outputs**:
 - Updated Living Context
@@ -520,6 +544,37 @@ Context Mesh applies to **any type of work**:
 - **Build**: AI builds, human supervises
 - **Learn**: AI analyzes, human validates
 
+### Plan, Approve, Execute Pattern
+
+Context Mesh uses a **Plan, Approve, Execute** pattern for all AI-assisted work:
+
+1. **Plan**: AI explains what it will do (or you ask AI to plan)
+   - AI describes approach before executing
+   - You understand what will happen
+   - AI can explain context creation, code generation, or updates
+
+2. **Approve**: You review and approve (or request changes)
+   - Review AI's plan
+   - Approve if acceptable
+   - Request changes if needed
+   - Maintain control over execution
+
+3. **Execute**: AI executes only with your approval
+   - AI acts only after approval
+   - Reduces rework
+   - Ensures alignment with your intent
+
+**This pattern applies to:**
+- Context creation/updates (Step 1, Step 3)
+- Code generation (Step 2)
+- Any AI-assisted task
+
+**Why this matters:**
+- You maintain control
+- AI explains before acting
+- You can refine before execution
+- Reduces rework and improves quality
+
 ---
 
 ## Decision Documentation
@@ -539,6 +594,76 @@ Every significant decision should be documented with:
 - Important implementation choices
 
 **Format**: Simple markdown or structured format in your context repository.
+
+---
+
+## Practical Flexibility
+
+Context Mesh adapts to your needs and workflow. Different approaches are equally valid:
+
+### Starting Points
+
+**Minimal Start:**
+- Start with basic intent: "Weather application"
+- Use AI with prompts to expand context
+- AI generates: intent structure, decisions, patterns
+- Review, refine, and approve before proceeding
+- More iterative, learn as you go
+
+**Comprehensive Start:**
+- Include decisions, DoD, patterns, DevOps, Deployments and others in Step 1
+- Create complete context before Build
+- Faster Build phase, more upfront work
+- Better for larger projects or when you have clear requirements
+
+**Existing Projects:**
+- Use AI to analyze existing code
+- Generate context from codebase
+- AI identifies patterns, decisions, architecture
+- Then follow normal workflow
+
+### AI-Assisted Workflow
+
+**Using Prompts:**
+- "Create context for [project description]"
+- "Generate decisions for [feature]"
+- "Update context based on [changes]"
+- AI generates context, you review and refine
+
+**Selective Context Loading:**
+- Load only necessary context files per task
+- Faster AI processing
+- More focused results
+- Useful for feature-by-feature development
+
+**Feature-by-Feature Approach:**
+- Complete Step 1 for all features
+- Refine all intents before Build
+- Build feature by feature
+- Learn after each feature
+- Update context before next feature
+
+### When to Use Each Approach
+
+**Minimal Start** works well for:
+- Exploratory projects
+- Learning as you go
+- Quick prototypes
+- When requirements are unclear
+
+**Comprehensive Start** works well for:
+- Large projects
+- Clear requirements
+- Team projects
+- When you want faster Build phase
+
+**Existing Projects** approach works for:
+- Legacy codebases
+- Taking over projects
+- Refactoring initiatives
+- Understanding existing systems
+
+All approaches are valid - choose based on your needs.
 
 ---
 
