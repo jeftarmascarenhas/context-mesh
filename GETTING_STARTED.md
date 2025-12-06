@@ -89,11 +89,15 @@ You can use simple markdown files or any documentation system. The key is to:
 
 ### Step 1: Intent
 
-**Objective**: Capture intent and initialize living context.
+**Objective**: Plan and prepare context before building. This is the **planning phase** where you define what to build, create feature intents, make technical decisions, and prepare everything needed for efficient Build phase.
 
 **Activities**:
 
 1. **Define Intent** (can be initial or refined):
+   - Create `project-intent.md` for overall project scope
+   - Create `feature-*.md` for each new feature
+   - Create `bug-*.md` for each bug fix
+   - Create `refactor-*.md` for refactoring work
    ```markdown
    # Intent Statement
    
@@ -108,18 +112,26 @@ You can use simple markdown files or any documentation system. The key is to:
    - [Criterion 2]
    ```
 
-2. **Identify or Define Patterns** (for existing/new projects):
+2. **Create Technical Decisions** (recommended in Step 1):
+   - Plan technical decisions when you know the approach
+   - Create `decisions/*.md` files before Build
+   - Makes Build phase faster (AI has decisions ready)
+   - See [FRAMEWORK.md](FRAMEWORK.md) for decision format
+
+3. **Identify or Define Patterns** (for existing/new projects):
    - **Existing projects**: Identify existing patterns in codebase
    - **New projects**: Define initial patterns based on team experience
    - Store in `context/knowledge/patterns/`
 
-3. **Create Initial Context**:
+4. **Create Initial Context**:
    - Store intent in your context repository
    - Link to project structure
    - Make it accessible to AI tools
 
 **Checklist** (Definition of Done):
 - [ ] Intent statement clear and validated (What + Why)
+- [ ] Feature/Bug/Refactor intent created (if applicable)
+- [ ] Technical decisions created (if known) - **Recommended** (makes Build faster)
 - [ ] Initial patterns identified (existing) or defined (new)
 - [ ] Initial context created and stored
 - [ ] Stakeholders aligned on intent
@@ -150,7 +162,10 @@ You can use simple markdown files or any documentation system. The key is to:
    - Approve implementation decisions
    - Ensure code quality
 
-3. **Document Decisions**:
+3. **Create or Update Decisions**:
+   - Use decisions from Step 1 if they exist (recommended approach)
+   - Create new decisions if technical choices emerge during Build
+   - Update existing decisions if implementation approach differs from plan
    ```markdown
    # Decision: [Title]
    
@@ -166,6 +181,9 @@ You can use simple markdown files or any documentation system. The key is to:
    ## Alternatives
    - [Alternative 1]
    - [Alternative 2]
+   
+   ## Outcomes
+   (Updated in Step 3: Learn after implementation)
    ```
 
 4. **Update Context**:
@@ -200,7 +218,8 @@ You can use simple markdown files or any documentation system. The key is to:
    - Review what changed in your code
    - Use AI to help identify what needs documentation updates
    - Update context to match current codebase state
-   - Update decision records if implementation changed
+   - Update decision records with outcomes (what actually happened)
+   - Create new improvement decisions if learnings suggest better approaches
    - Update changelog with significant changes
 
 2. **Preserve Knowledge** (Important):
@@ -234,7 +253,8 @@ You can use simple markdown files or any documentation system. The key is to:
 - [ ] Context aligned with current codebase
 - [ ] Changelog updated with significant changes
 - [ ] Patterns preserved/updated in knowledge/ (if applicable)
-- [ ] Decision records updated if outcomes differ (optional)
+- [ ] Decision records updated with outcomes (optional)
+- [ ] New improvement decisions created if needed (optional)
 - [ ] Learnings documented (optional)
 - [ ] Intent refined if needed (optional)
 

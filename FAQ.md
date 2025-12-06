@@ -114,6 +114,68 @@ This is a common concern. Solutions:
 - Link everything to intent
 - Update continuously
 
+### When should I use project-intent.md vs feature-*.md vs bug-*.md?
+
+**Use `project-intent.md` for:**
+- Overall project vision and purpose
+- High-level project goals and objectives
+- General project scope (not individual features)
+- Project-wide principles and guidelines
+
+**Update `project-intent.md` only when:**
+- Project scope changes significantly (adding/removing major areas)
+- High-level goals or objectives change
+- Project principles or strategic direction changes
+
+**Use `feature-*.md` for:**
+- Each new feature (create `feature-*.md` file)
+- Updating existing features (update the existing `feature-*.md` file)
+- Do NOT update `project-intent.md` for individual features
+
+**Use `bug-*.md` for:**
+- Each bug fix (create `bug-*.md` file)
+- Do NOT update `project-intent.md` for bugs
+
+**Rule of thumb**: `project-intent.md` = overall scope. Features/bugs = individual files.
+
+### What should I do when a feature is removed or replaced?
+
+**Deprecate, don't delete**. When a feature is removed or replaced:
+
+1. Update the `feature-*.md` file
+2. Add "Status: Deprecated" section with date and reason
+3. Link to replacement feature if applicable
+4. Keep the file for history and traceability
+
+**Example:**
+```markdown
+## Status: Deprecated (2024-01-15)
+This feature was replaced by feature-new-approach.md.
+
+## Reason
+[Why it was deprecated]
+```
+
+Git preserves all history, so deprecated files remain accessible and provide valuable context.
+
+### What should I do when a bug is fixed?
+
+**Mark as resolved, don't delete**. When a bug is fixed:
+
+1. Update the `bug-*.md` file
+2. Add "Status: Resolved" section with date and resolution details
+3. Link to related commits or changelog
+4. Keep the file for history and traceability
+
+**Example:**
+```markdown
+## Status: Resolved (2024-01-15)
+Bug fixed in commit abc123. See: changelog.md
+
+## Resolution
+[How it was fixed]
+```
+
 ## AI-Human Collaboration Questions
 
 ### Do I need AI tools to use Context Mesh?
@@ -158,6 +220,16 @@ Create Decision Records for:
 - Significant implementation decisions
 
 Minor decisions can use simple notes or inline documentation.
+
+### When should I create Decision Records?
+
+**Decisions can be created in any step**, but the framework recommends planning them in Step 1 (Intent) for faster Build phase:
+
+- **Step 1 (Intent) - Recommended**: Plan technical decisions when you know the approach. This makes Build faster since AI has decisions ready.
+- **Step 2 (Build)**: Create decisions if technical choices emerge during implementation (common for bug fixes or when discovering better approaches).
+- **Step 3 (Learn)**: Update decisions with outcomes or create improvement decisions based on learnings.
+
+The framework is flexible - create decisions when it makes sense for your workflow.
 
 ### How detailed should Decision Records be?
 

@@ -28,7 +28,7 @@ Each step in Context Mesh has a **Definition of Done** - a clear checklist that 
 
 **The 3 Core Artifacts:**
 1. **Intent** - What and why (Step 1)
-2. **Decisions** - How and why we chose (Step 2)
+2. **Decisions** - How and why we chose (can be created in any step, recommended in Step 1)
 3. **Learnings** - What we learned (Step 3)
 
 Each step's DoD ensures these artifacts are created and maintained.
@@ -45,7 +45,7 @@ context/
 │   ├── bug-*.md
 │   └── refactor-*.md
 │
-├── decisions/       # Step 2: Decision records
+├── decisions/       # Decisions (can be created in any step, recommended in Step 1)
 │   └── 001-*.md, 002-*.md, ...
 │
 ├── knowledge/       # Patterns, anti-patterns (all steps)
@@ -90,10 +90,12 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 
 ### Step 1: Intent
 
-**Purpose**: Capture intent and initialize living context.
+**Purpose**: Plan and prepare context before building. This is the **planning phase** where you define what to build, create feature intents, make technical decisions, and prepare everything needed for efficient Build phase.
 
 **What it does**: 
 - Defines what you want to build and why
+- Creates feature/bug/refactoring intents
+- Makes technical decisions (recommended to plan here)
 - Creates initial living context
 - Identifies or defines initial patterns (for existing/new projects)
 
@@ -104,21 +106,36 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 **Both approaches are valid** - choose based on your project needs.
 
 **Activities**:
-- Define intent (what and why)
+- **Define Intent** (what and why):
+  - Create `project-intent.md` for overall project scope
+  - Create `feature-*.md` for each new feature
+  - Create `bug-*.md` for each bug fix
+  - Create `refactor-*.md` for refactoring work
   - Can start minimal: basic description (e.g., "Weather application")
   - Use AI to help expand and structure intent
   - Use prompts to generate context from minimal input
-- Optionally include decisions, DoD, patterns, DevOps in Step 1
+
+- **Create Decisions** (recommended in Step 1):
+  - **Best Practice**: Create technical decisions in Step 1 when you know the approach
+  - Plan decisions before Build for faster implementation
+  - Decisions can be created in any step, but planning in Step 1 makes Build more efficient
+  - Create `decisions/*.md` files for significant technical choices
   - Can create comprehensive context in Step 1 (faster Build phase)
   - Or start minimal and expand as needed (more iterative)
-- Create initial context
+
+- **Create Initial Context**:
   - AI can help generate context structure
   - Review and refine AI-generated context
   - Use Plan, Approve, Execute pattern (see below)
-- Identify or define initial patterns:
+
+- **Identify or Define Initial Patterns**:
   - **For existing projects**: Identify existing patterns in codebase
   - **For new projects**: Define initial patterns based on team experience
-- Align stakeholders
+  - Store in `context/knowledge/patterns/`
+
+- **Align Stakeholders**:
+  - Ensure everyone understands the intent
+  - Validate decisions with team if needed
 
 **Human Role**:
 - Lead intent capture
@@ -133,12 +150,15 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 - Explain what it will create before executing (Plan, Approve, Execute)
 
 **Outputs**:
-- Clear Intent Statement
+- Clear Intent Statement (`project-intent.md` or `feature-*.md`/`bug-*.md`)
+- Technical Decisions (if planned) - `decisions/*.md`
 - Initial Living Context
 - Initial Patterns (if identified or defined)
 
 **Definition of Done**:
 - [ ] Intent statement is clear and validated (What + Why) - **Required**
+- [ ] Feature/Bug/Refactor intent created (if applicable) - **Required**
+- [ ] Technical decisions created (if known) - **Recommended** (makes Build faster)
 - [ ] Initial context created and stored
 - [ ] Initial patterns identified (existing projects) or defined (new projects) - **Optional**
 - [ ] Stakeholders aligned on intent
@@ -151,26 +171,27 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 
 ### Step 2: Build
 
-**Purpose**: AI builds with context, human supervises, and decisions are documented.
+**Purpose**: **Construction phase** - AI builds code with context, human supervises, and decisions are documented or updated as needed.
 
 **Prerequisites** (from Step 1):
-- ✅ Intent Statement (What + Why) - **Required**
+- ✅ Intent Statement (What + Why) - **Required** (`feature-*.md`, `bug-*.md`, or `project-intent.md`)
+- ✅ Technical Decisions (if planned in Step 1) - **Recommended** (makes Build faster)
 - ✅ Initial patterns (if known) - **Optional, can identify during Build**
-- ✅ Intent decisions (if made) - **Optional**
 
-**Note**: Decisions can be created in any step:
-- **Step 1**: Intent decisions (approach, strategy) - Optional
-- **Step 2**: Implementation decisions (technical) - Most common
-- **Step 3**: Improvement decisions (refinements) - Optional
+**Note**: Decisions can be created or updated in any step:
+- **Step 1 (Intent)**: Plan decisions (approach, strategy) - **Recommended** for faster Build
+- **Step 2 (Build)**: Create or update decisions if technical choices emerge during implementation
+- **Step 3 (Learn)**: Update decisions with outcomes or create improvement decisions
 
-Decisions are **not required before starting Build**, but may exist if created in Step 1.
+**Flexibility**: If you planned decisions in Step 1, you can still create new decisions or update existing ones in Step 2 if you discover better approaches or new technical choices during implementation.
 
 **What it does**:
-- AI generates code using living context (including patterns/anti-patterns)
+- AI generates code using living context (intent, decisions, patterns/anti-patterns)
 - Human supervises and validates
-- Decisions are documented in context
+- Decisions are created or updated in context (if not planned in Step 1, or if better approaches are discovered)
 - Context is continuously updated
 - Follows established patterns, avoids known anti-patterns
+- Can create new decisions if technical choices emerge during implementation
 
 **Activities**:
 - Plan before building:
@@ -184,7 +205,10 @@ Decisions are **not required before starting Build**, but may exist if created i
   - AI generates code based on approved plan
   - Can generate everything at once or part by part
   - Human supervises and validates AI work
-- Document implementation decisions (created during Build, or use existing from Step 1)
+- Create or update implementation decisions:
+  - Use decisions from Step 1 if they exist (recommended approach)
+  - Create new decisions if technical choices emerge during Build
+  - Update existing decisions if implementation approach differs from plan
 - Follow established patterns from knowledge/ (if available)
 - Avoid known anti-patterns from knowledge/ (if available)
 - Identify new patterns during implementation (optional)
@@ -236,11 +260,13 @@ Decisions are **not required before starting Build**, but may exist if created i
 
 ### Step 3: Learn
 
-**Purpose**: Update living context to reflect code changes.
+**Purpose**: **Learning phase** - Update living context to reflect code changes, document learnings, and refine decisions and intent based on outcomes.
 
 **What it does**:
 - Updates context to reflect actual code changes
 - Documents learnings from development process
+- Updates decisions with outcomes (what actually happened)
+- Creates or updates improvement decisions if needed
 - Refines intent if needed
 - Creates feedback loop to Intent
 
@@ -251,7 +277,8 @@ Decisions are **not required before starting Build**, but may exist if created i
    - Execute: Update context with your approval
    - Use AI to help identify what changed
    - Update context to match current codebase
-   - Update decision records if implementation differed
+   - Update decision records with outcomes (what actually happened)
+   - Create new improvement decisions if learnings suggest better approaches
    - Update changelog with significant changes
 
 2. **Preserve Knowledge** (Important):
@@ -270,7 +297,8 @@ Decisions are **not required before starting Build**, but may exist if created i
 
 **Context Artifacts**:
 - Updated Context (reflecting code changes)
-- Updated Decision Records (if outcomes differ)
+- Updated Decision Records (with outcomes from implementation)
+- New Improvement Decisions (if learnings suggest better approaches)
 - Changelog entries (documenting what changed)
 - Learning Notes (optional)
 - Preserved Patterns (if identified during Build)
@@ -496,7 +524,13 @@ Update existing file when it's the **same scope** (Git will version it):
 - Creating `001-jwt-outcomes.md` → Just add outcomes to original
 - Creating pattern version files → Just update original pattern
 
-**Remember**: Git is your version control. Use it. Create files only for new scopes.
+**Deprecating (NOT Removing):**
+- When a feature is removed or replaced → Mark as deprecated in the file, do NOT delete
+- When a bug is resolved → Mark as resolved in the file, do NOT delete
+- Keep files for history and traceability
+- Git preserves all history, so deprecated files remain accessible
+
+**Remember**: Git is your version control. Use it. Create files only for new scopes. Deprecate, don't delete.
 
 ---
 
@@ -520,6 +554,193 @@ Context Mesh applies to **any type of work**:
 - Step 3: Learn, preserve patterns
 
 **All follow the same 3-step pattern** - Context Mesh is work-agnostic.
+
+---
+
+## Project Intent vs Features, Bugs, and Refactoring
+
+Understanding when to use `project-intent.md` versus individual feature/bug files is crucial for maintaining clear context organization.
+
+### Project Intent (`project-intent.md`)
+
+**Purpose**: Defines the overall project scope, goals, and high-level objectives.
+
+**Use `project-intent.md` for:**
+- Overall project vision and purpose
+- High-level project goals and objectives
+- General project scope (not individual features)
+- Project-wide principles and guidelines
+- Strategic direction
+
+**Update `project-intent.md` when:**
+- Project scope changes significantly (adding/removing major areas)
+- High-level goals or objectives change
+- Project principles or strategic direction changes
+
+**Do NOT update `project-intent.md` for:**
+- Adding individual features (create `feature-*.md` instead)
+- Fixing bugs (create `bug-*.md` instead)
+- Updating existing features (update `feature-*.md` instead)
+- Technical decisions (create `decisions/*.md` instead)
+
+**Example `project-intent.md`:**
+```markdown
+# Project Intent: MVP Ecommerce
+
+## What
+MVP de ecommerce para validar modelo de negócio com funcionalidades essenciais.
+
+## Why
+- Validar demanda do mercado
+- Testar modelo de receita
+- Entregar valor rápido aos usuários
+
+## Scope
+- Catálogo de produtos
+- Carrinho e checkout
+- Integração de pagamento
+- Gestão básica de pedidos
+
+## Success Criteria (Project Level)
+- Usuário consegue comprar produto end-to-end
+- Pagamento processado com sucesso
+- Sistema estável e seguro
+```
+
+### Features (`feature-*.md`)
+
+**Purpose**: Defines individual feature requirements, goals, and success criteria.
+
+**Create `feature-*.md` when:**
+- Starting a new feature
+- Each feature gets its own file (e.g., `feature-carrinho.md`, `feature-checkout.md`)
+
+**Update `feature-*.md` when:**
+- Refining feature requirements
+- Adding new functionality to existing feature
+- Changing feature scope or success criteria
+- Same feature, just evolving
+
+**Deprecate (do NOT delete) `feature-*.md` when:**
+- Feature is removed or replaced
+- Mark as deprecated but keep file for history:
+  ```markdown
+  ## Status: Deprecated (2024-01-15)
+  This feature was replaced by [new feature]. See: feature-new-approach.md
+  
+  ## Reason
+  [Why it was deprecated]
+  ```
+
+**Example `feature-*.md`:**
+```markdown
+# Intent: Feature - Carrinho de Compras
+
+## What
+Sistema de carrinho que permite usuários adicionarem produtos, visualizarem itens e prosseguirem para checkout.
+
+## Why
+- Necessário para completar fluxo de compra
+- Funcionalidade essencial do ecommerce
+
+## Success Criteria
+- Usuário adiciona produto ao carrinho
+- Carrinho persiste entre sessões
+- Usuário visualiza total e itens
+- Usuário pode remover itens
+
+## Related
+- Project Intent: project-intent.md
+- Decision: 003-cart-storage.md (if exists)
+```
+
+### Bugs (`bug-*.md`)
+
+**Purpose**: Defines bug description, impact, and fix requirements.
+
+**Create `bug-*.md` when:**
+- Starting a bug fix
+- Each bug gets its own file (e.g., `bug-carrinho-perdendo-itens.md`)
+
+**Update `bug-*.md` when:**
+- Refining bug understanding
+- Adding root cause analysis
+- Updating fix approach
+- Same bug, just more information
+
+**Deprecate (do NOT delete) `bug-*.md` when:**
+- Bug is fixed and no longer relevant
+- Mark as resolved but keep file for history:
+  ```markdown
+  ## Status: Resolved (2024-01-15)
+  Bug fixed in commit [hash]. See: changelog.md
+  
+  ## Resolution
+  [How it was fixed]
+  ```
+
+**Example `bug-*.md`:**
+```markdown
+# Intent: Fix Bug - Carrinho Perdendo Itens
+
+## What
+Corrigir bug onde carrinho perde itens ao recarregar página.
+
+## Why
+- Bug crítico afetando UX
+- Usuários perdendo produtos do carrinho
+- Impacto direto em conversão
+
+## Success Criteria
+- Carrinho persiste após reload
+- Itens não são perdidos
+- Teste automatizado criado
+
+## Related
+- Feature: feature-carrinho.md
+- Decision: (will be created if needed during Build)
+```
+
+### Practical Workflow
+
+**New Feature:**
+1. **Step 1 (Intent)**: Create `feature-*.md` (do NOT update `project-intent.md`)
+2. **Step 2 (Build)**: Implement feature, create decisions if needed
+3. **Step 3 (Learn)**: Update feature intent with learnings
+
+**Update Existing Feature:**
+1. **Step 1 (Intent)**: Update existing `feature-*.md` (do NOT create new file)
+2. **Step 2 (Build)**: Implement updates, create decisions if needed
+3. **Step 3 (Learn)**: Update feature intent with learnings
+
+**Bug Fix:**
+1. **Step 1 (Intent)**: Create `bug-*.md` (do NOT update `project-intent.md`)
+2. **Step 2 (Build)**: Fix bug, create decisions if needed
+3. **Step 3 (Learn)**: Mark bug as resolved, update related feature if needed
+
+**Deprecate Feature/Bug:**
+1. Update the `feature-*.md` or `bug-*.md` file
+2. Add "Status: Deprecated" or "Status: Resolved" section
+3. Keep file for history (do NOT delete)
+4. Link to replacement if applicable
+
+**Change Project Scope:**
+1. Update `project-intent.md` (this is the exception)
+2. Create new `feature-*.md` files for new major areas
+3. Update related features if scope change affects them
+
+### Quick Reference Table
+
+| Situation | File to Create/Update | Action |
+|----------|----------------------|--------|
+| New Feature | `feature-*.md` | Create new file |
+| Update Feature | `feature-*.md` (existing) | Update existing file |
+| Deprecate Feature | `feature-*.md` (existing) | Mark as deprecated, keep file |
+| Bug Fix | `bug-*.md` | Create new file |
+| Update Bug Understanding | `bug-*.md` (existing) | Update existing file |
+| Resolve Bug | `bug-*.md` (existing) | Mark as resolved, keep file |
+| Change Project Scope | `project-intent.md` | Update (only for scope changes) |
+| Technical Decision | `decisions/*.md` | Create new file |
 
 ---
 
@@ -587,6 +808,26 @@ Every significant decision should be documented with:
 - **Alternatives**: What else did we consider?
 - **Outcomes**: What happened? (updated in Learn step)
 
+### When to Create Decisions
+
+**Decisions can be created in any step**, but the framework recommends planning them in Step 1 (Intent) for faster Build phase:
+
+**Step 1 (Intent) - Recommended:**
+- Plan technical decisions when you know the approach
+- Create `decisions/*.md` files before Build
+- Makes Build phase faster (AI has decisions ready)
+- Best for: Architectural decisions, technology choices, design patterns
+
+**Step 2 (Build) - Flexible:**
+- Create decisions if technical choices emerge during implementation
+- Update existing decisions if implementation approach differs from plan
+- Best for: Implementation-level decisions discovered during coding
+
+**Step 3 (Learn) - Outcomes:**
+- Update decisions with outcomes (what actually happened)
+- Create improvement decisions if learnings suggest better approaches
+- Best for: Documenting results and improvements
+
 **When to Document**:
 - Architectural decisions
 - Technology choices
@@ -594,6 +835,36 @@ Every significant decision should be documented with:
 - Important implementation choices
 
 **Format**: Simple markdown or structured format in your context repository.
+
+**Example Decision File** (`decisions/001-jwt-authentication.md`):
+```markdown
+# Decision: JWT-based Authentication
+
+## Context
+We need to implement user authentication. We considered JWT tokens vs. session-based authentication.
+
+## Decision
+Use JWT tokens for authentication.
+
+## Rationale
+- Stateless authentication scales better
+- Works well with microservices architecture
+- Industry standard approach
+- Supports mobile apps easily
+
+## Alternatives Considered
+- Session-based: More complex, requires session storage
+- OAuth: Overkill for our use case
+
+## Outcomes
+(Updated in Step 3: Learn after implementation)
+- JWT implementation successful
+- Token validation fast (< 5ms)
+- Password hashing adds 200ms latency (acceptable)
+
+## Related
+- Intent: feature-authentication.md
+```
 
 ---
 
