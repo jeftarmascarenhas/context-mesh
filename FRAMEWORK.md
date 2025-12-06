@@ -277,6 +277,126 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
   - Use decisions from Step 1 if they exist (recommended approach)
   - Create new decisions if technical choices emerge during Build
   - Update existing decisions if implementation approach differs from plan
+
+### Writing Prompts for AI Code Generation
+
+**Context Mesh Philosophy**: Since **context is the primary artifact**, prompts should be **simple and reference the context**. The context files contain all the details (tech stack, patterns, anti-patterns, requirements, decisions).
+
+### Approach Hierarchy for Code Generation
+
+Context Mesh offers three approaches for generating code with AI, in order of recommendation:
+
+#### 1. ✅ Simple Prompts (Recommended - Default)
+
+**Use when**: Context is sufficient for the task
+
+**Example**:
+```
+Implement authentication following @context/intent/feature-user-auth.md
+and @context/decisions/002-auth-approach.md
+```
+
+**Advantages**:
+- ✅ Context is primary (Context Mesh philosophy)
+- ✅ Less maintenance (update context, not prompts)
+- ✅ Single source of truth
+- ✅ More reliable (AI reads complete context)
+- ✅ Aligned with framework philosophy
+
+**When to use**: Always when possible. This is the recommended default approach.
+
+---
+
+#### 2. ✅ AI Agents (agent-*.md) (Advanced - When Needed)
+
+**Use when**: Need structured/reusable execution, or working with a team
+
+**Example**:
+```
+Execute @agents/agent-backend.md for payment feature
+```
+
+**Advantages**:
+- ✅ Reusable (same pattern for multiple features)
+- ✅ Modular (execute specific parts)
+- ✅ Structured (DoD, conventions, scope)
+- ✅ Complements Context Mesh (execution + context)
+- ✅ Ideal for teams (shared patterns)
+
+**When to use**:
+- Complex projects with multiple features
+- Teams working together
+- Reusable execution patterns
+- When you need structure beyond context
+
+**See**: [ADVANCED.md](ADVANCED.md) for details on agent files.
+
+---
+
+#### 3. ⚠️ Detailed Prompts (Avoid - Temporary Only)
+
+**Use when**: Testing, temporary override, or initial learning
+
+**Example** (not recommended):
+```
+Create auth service layer (services/auth.service.ts),
+create auth routes (routes/auth.routes.ts) with signup, login, logout,
+implement JWT middleware, create DTOs with validation...
+```
+
+**Disadvantages**:
+- ❌ Duplicates information from context
+- ❌ Hard to maintain (changes in two places)
+- ❌ Goes against philosophy (context is not primary)
+- ❌ Less reliable (AI may not read complete context)
+
+**When to use**:
+- Only temporarily for testing
+- Temporary override of context
+- Initial learning (then migrate to simple prompts)
+
+**Recommendation**: If you need detailed prompts frequently, consider creating an `agent-*.md` file instead.
+
+---
+
+### Decision: Which Approach to Use?
+
+| Situation | Recommended Approach | Why |
+|-----------|---------------------|-----|
+| Simple project, single feature | **Simple Prompts** | Context is sufficient |
+| Complex project, multiple features | **AI Agents (agent-*.md)** | Structured and reusable execution |
+| Team collaboration | **AI Agents (agent-*.md)** | Shared patterns |
+| Temporary test, override | **Detailed Prompt** | Acceptable, but temporary |
+| Initial learning | **Simple Prompts** | Start simple |
+
+### Practical Examples
+
+**Example 1 - Simple Prompt (Recommended):**
+```
+Create the project structure following @context/decisions/001-tech-stack.md
+and @context/decisions/003-database-schema.md
+```
+
+**Example 2 - Agent File (Advanced):**
+```
+Execute @agents/agent-backend.md for authentication feature
+```
+
+**Example 3 - Detailed Prompt (Avoid):**
+```
+Create backend/ folder with Express + TypeScript + Prisma setup,
+frontend/ folder with React + TypeScript + Vite setup,
+following the tech stack decision in @context/decisions/001-tech-stack.md...
+```
+*This example repeats what's already in context. Use Example 1 instead.*
+
+### Final Recommendation
+
+1. **Start with Simple Prompts** - This is the default approach
+2. **Add AI Agents (agent-*.md)** - When you need structure or reusability
+3. **Avoid Detailed Prompts** - Use only temporarily, or create an agent file
+
+**Remember**: Context is primary. If you're writing long prompts, consider adding that information to context or creating an agent file.
 - Follow established patterns from knowledge/ (if available)
 - Avoid known anti-patterns from knowledge/ (if available)
 - Identify new patterns during implementation (optional)

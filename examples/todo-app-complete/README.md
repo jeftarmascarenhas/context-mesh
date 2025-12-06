@@ -68,7 +68,256 @@ This example demonstrates the complete Context Mesh workflow:
 3. **Decisions updated** with outcomes
 4. **Intent refined** based on learnings
 
+## 🤖 Building with AI Agents (Cursor/Copilot)
+
+This example is designed to be built using AI agents like Cursor or GitHub Copilot. The context provided is sufficient for an AI agent to generate the complete application.
+
+### Step 1: Load Context into AI Agent
+
+**In Cursor:**
+1. Open Cursor Chat (`Cmd/Ctrl + L` or click the chat icon)
+2. Click "Attach Files" or drag and drop the entire `context/` folder
+3. Or reference specific files: `@context/intent/project-intent.md`
+
+**In GitHub Copilot Chat:**
+1. Open Copilot Chat (View → Copilot Chat)
+2. Reference files using: `# context/intent/project-intent.md`
+3. Load multiple files by referencing them in sequence
+
+**Recommended Context Loading Order:**
+1. `@context/intent/project-intent.md` - Overall project goals
+2. `@context/decisions/001-tech-stack.md` - Technology choices
+3. `@context/decisions/002-auth-approach.md` - Authentication approach
+4. `@context/decisions/003-database-schema.md` - Database design
+5. `@context/intent/feature-user-auth.md` - Auth feature requirements
+6. `@context/intent/feature-todo-crud.md` - Todo CRUD requirements
+7. `@context/knowledge/patterns/api-design.md` - API patterns
+8. `@context/knowledge/anti-patterns/avoid-direct-db.md` - What to avoid
+
+### Step 2: Use These Prompts
+
+> **💡 Context Mesh Philosophy**: Since context is the primary artifact, prompts should be **simple and reference the context**. The context files contain all the details (tech stack, patterns, anti-patterns, requirements).
+> 
+> **Approach Hierarchy:**
+> 1. **✅ Simple Prompts** (Recommended - Default) - Start here
+> 2. **✅ AI Agents (agent-*.md)** (Advanced) - When you need structured/reusable execution
+> 3. **⚠️ Detailed Prompts** (Avoid) - Only for temporary tests
+> 
+> See [FRAMEWORK.md](../../FRAMEWORK.md) for complete guidance on choosing the right approach.
+
+**Initial Setup Prompt:**
+```
+Create the project structure following @context/decisions/001-tech-stack.md
+and @context/decisions/003-database-schema.md
+```
+
+**Build Authentication Prompt:**
+```
+Implement authentication following @context/intent/feature-user-auth.md
+and @context/decisions/002-auth-approach.md
+```
+
+**Build Todo CRUD Prompt:**
+```
+Implement Todo CRUD following @context/intent/feature-todo-crud.md
+```
+
+**Build Frontend Integration Prompt:**
+```
+Create frontend following @context/knowledge/patterns/api-design.md
+and integrate with the backend API
+```
+
+**Why Simple Prompts?**
+
+- ✅ **Context is primary**: All details are in context files
+- ✅ **Single source of truth**: Changes in context automatically reflect
+- ✅ **Less maintenance**: Update context, not prompts
+- ✅ **More reliable**: AI reads complete context, not just prompt summary
+- ✅ **Aligned with Context Mesh philosophy**: Context drives code generation
+
+**When to Use Detailed Prompts:**
+
+You can create more detailed prompts if:
+- You need specific execution instructions not in context
+- You're testing a specific approach
+- You want to override context temporarily
+- You're learning and want explicit steps
+
+But remember: **the recommendation is to put details in context, not prompts**.
+
+### Step 3: Verify Against Context
+
+After each generation, verify the code:
+- ✅ Follows decisions from `context/decisions/`
+- ✅ Matches patterns from `context/knowledge/patterns/`
+- ✅ Avoids anti-patterns from `context/knowledge/anti-patterns/`
+- ✅ Meets success criteria from `context/intent/`
+- ✅ Uses service layer pattern (not direct DB access in routes)
+
+---
+
+## 📁 Complete Project Structure
+
+After building, your project should have this structure:
+
+```
+todo-app/
+├── context/                    # Context Mesh (already exists)
+│   ├── intent/
+│   ├── decisions/
+│   ├── knowledge/
+│   └── evolution/
+├── backend/
+│   ├── src/
+│   │   ├── routes/
+│   │   │   ├── auth.routes.ts
+│   │   │   └── todos.routes.ts
+│   │   ├── services/
+│   │   │   ├── auth.service.ts
+│   │   │   └── todo.service.ts
+│   │   ├── middleware/
+│   │   │   ├── auth.middleware.ts
+│   │   │   └── error.middleware.ts
+│   │   ├── dto/
+│   │   │   ├── auth.dto.ts
+│   │   │   └── todo.dto.ts
+│   │   └── app.ts
+│   ├── prisma/
+│   │   ├── schema.prisma
+│   │   └── migrations/
+│   ├── .env
+│   ├── .env.example
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── auth/
+│   │   │   │   ├── Login.tsx
+│   │   │   │   ├── Signup.tsx
+│   │   │   │   └── Logout.tsx
+│   │   │   └── todos/
+│   │   │       ├── TodoList.tsx
+│   │   │       ├── TodoItem.tsx
+│   │   │       └── TodoForm.tsx
+│   │   ├── pages/
+│   │   │   ├── Home.tsx
+│   │   │   └── Todos.tsx
+│   │   ├── services/
+│   │   │   └── api.ts
+│   │   ├── context/
+│   │   │   └── AuthContext.tsx
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── .env
+│   ├── .env.example
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── vite.config.ts
+└── README.md
+```
+
+---
+
+## 🚀 Quick Start: Build This App
+
+### Prerequisites
+- Node.js 18+ installed
+- PostgreSQL installed and running
+- Cursor IDE or GitHub Copilot enabled
+- Git (optional, for version control)
+
+### Step-by-Step Build Process
+
+#### 1. Setup Project Directory
+
+```bash
+# Create project directory
+mkdir todo-app
+cd todo-app
+
+# Copy the context folder from this example
+cp -r /path/to/examples/todo-app-complete/context ./
+```
+
+#### 2. Load Context in AI Agent
+
+**In Cursor:**
+- Open Cursor Chat (`Cmd/Ctrl + L`)
+- Attach the `context/` folder
+- Or use: `@context/intent/project-intent.md`
+
+**In GitHub Copilot:**
+- Open Copilot Chat
+- Reference: `# context/intent/project-intent.md`
+
+#### 3. Generate Project Structure
+
+Use this simple prompt in your AI agent:
+```
+Create the project structure following @context/decisions/001-tech-stack.md
+and @context/decisions/003-database-schema.md
+```
+
+The context files contain all the details - tech stack, database schema, etc.
+
+#### 4. Setup Backend
+
+After AI generates the structure, run:
+```bash
+cd backend
+npm install
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+#### 5. Build Authentication
+
+Use this simple prompt:
+```
+Implement authentication following @context/intent/feature-user-auth.md
+and @context/decisions/002-auth-approach.md
+```
+
+The context files contain all requirements, success criteria, and technical approach.
+
+#### 6. Build Todo CRUD
+
+Use this simple prompt:
+```
+Implement Todo CRUD following @context/intent/feature-todo-crud.md
+```
+
+The context file contains all requirements, success criteria, and security needs.
+
+#### 7. Build Frontend
+
+Use this simple prompt:
+```
+Create frontend following @context/knowledge/patterns/api-design.md
+and integrate with the backend API
+```
+
+The API pattern file contains all endpoint structures, request/response formats, and error handling.
+
+#### 8. Test the Application
+
+```bash
+# Start backend
+cd backend
+npm run dev
+
+# Start frontend (in another terminal)
+cd frontend
+npm run dev
+```
+
+---
+
 ## 📖 How to Use This Example
+
+### For Learning Context Mesh
 
 1. **Read the files in order**:
    - Start with `context/intent/project-intent.md`
@@ -85,6 +334,10 @@ This example demonstrates the complete Context Mesh workflow:
    - Use as a template
    - Modify structure as needed
    - Keep it simple
+
+### For Building the App
+
+Follow the "Building with AI Agents" section above to actually build the application using the context provided.
 
 ## 🎓 Key Takeaways
 

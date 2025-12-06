@@ -64,17 +64,47 @@ AI Agents are structured definitions that specify how AI should execute specific
 
 ### When to Use AI Agents
 
-Use AI Agents when:
+**Use AI Agents (agent-*.md) when**:
 - ✅ You have complex build processes
 - ✅ You want to modularize execution
 - ✅ You need reusable execution patterns
 - ✅ You're working with a team
 - ✅ You want to execute specific parts of the build
+- ✅ You find yourself writing detailed prompts repeatedly
 
 **Don't use AI Agents when**:
-- ❌ Your project is simple (basic Context Mesh is enough)
-- ❌ You're just starting (keep it simple)
+- ❌ Your project is simple (use simple prompts instead)
+- ❌ You're just starting (start with simple prompts)
 - ❌ You prefer ad-hoc execution
+- ❌ Context alone is sufficient (simple prompts work)
+
+### AI Agents vs Simple Prompts vs Detailed Prompts
+
+**Hierarchy of Approaches**:
+
+1. **✅ Simple Prompts** (Recommended - Default)
+   - Use when: Context is sufficient
+   - Example: `"Implement authentication following @context/intent/feature-user-auth.md"`
+   - Start here for all projects
+
+2. **✅ AI Agents (agent-*.md)** (Advanced - When Needed)
+   - Use when: Need structured/reusable execution, teams, complex projects
+   - Example: `"Execute @agents/agent-backend.md for payment feature"`
+   - Add when simple prompts aren't enough
+
+3. **⚠️ Detailed Prompts** (Avoid - Temporary Only)
+   - Use when: Testing, temporary override, learning
+   - Not recommended: Duplicates context, hard to maintain
+   - If needed frequently, create an agent file instead
+
+**Decision Guide**:
+- **Simple project, single feature** → Use **Simple Prompts**
+- **Complex project, multiple features** → Use **AI Agents**
+- **Team collaboration** → Use **AI Agents**
+- **Temporary test** → **Detailed Prompt** (acceptable, but temporary)
+- **Learning** → Start with **Simple Prompts**
+
+**Key Principle**: If you're writing detailed prompts repeatedly, create an `agent-*.md` file instead. This makes the pattern reusable and structured.
 
 ### Structure
 

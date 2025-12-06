@@ -195,9 +195,28 @@ Context Mesh Workflow
 1. **AI Code Generation**:
    - Use AI tools with full context (intent, decisions, patterns, existing code)
    - Provide context to AI including patterns from knowledge/
+   - **Use simple prompts that reference context files** (context is primary, prompts should be minimal)
    - Generate code based on intent
    - Follow established patterns, avoid known anti-patterns
    - Link code to context
+
+   **Approach Hierarchy:**
+   
+   **1. Simple Prompts (Recommended - Start Here):**
+   ```
+   Implement authentication following @context/intent/feature-user-auth.md
+   and @context/decisions/002-auth-approach.md
+   ```
+   The context files contain all details - the prompt just directs the AI to the right context.
+   
+   **2. AI Agents (Advanced - When Needed):**
+   For complex projects or teams, use `agents/agent-*.md` files for structured execution.
+   See [ADVANCED.md](ADVANCED.md) for details.
+   
+   **3. Detailed Prompts (Avoid):**
+   Avoid writing long prompts that repeat context. If needed frequently, create an agent file instead.
+   
+   **Start simple, add complexity only when needed.**
 
 2. **Human Supervision**:
    - Review AI-generated code
