@@ -21,6 +21,7 @@ This is a **complete end-to-end example** demonstrating how to use Context Mesh 
 ```
 todo-app-complete/
 ├── README.md                    # This file
+├── AGENTS.md                    # Router for AI agents (references Context Mesh)
 ├── context/                     # Context Mesh structure
 │   ├── intent/
 │   │   ├── project-intent.md   # Overall project intent
@@ -72,7 +73,16 @@ This example demonstrates the complete Context Mesh workflow:
 
 This example is designed to be built using AI agents like Cursor or GitHub Copilot. The context provided is sufficient for an AI agent to generate the complete application.
 
+**Recommended**: Use `AGENTS.md` as the entry point. It acts as a router that references all Context Mesh files automatically.
+
 ### Step 1: Load Context into AI Agent
+
+**Option A: Using AGENTS.md (Recommended)**
+- Open Cursor/Copilot Chat
+- Load `AGENTS.md` - it automatically references all Context Mesh files
+- AI agents will load the relevant context files automatically
+
+**Option B: Direct Context Loading**
 
 **In Cursor:**
 1. Open Cursor Chat (`Cmd/Ctrl + L` or click the chat icon)
@@ -243,14 +253,16 @@ cp -r /path/to/examples/todo-app-complete/context ./
 
 #### 2. Load Context in AI Agent
 
-**In Cursor:**
-- Open Cursor Chat (`Cmd/Ctrl + L`)
-- Attach the `context/` folder
-- Or use: `@context/intent/project-intent.md`
+**Option A: Using AGENTS.md (Recommended)**
+- Open Cursor/Copilot Chat
+- Load `AGENTS.md` - it automatically references all Context Mesh files
+- AI agents will load the relevant context files automatically
 
-**In GitHub Copilot:**
-- Open Copilot Chat
-- Reference: `# context/intent/project-intent.md`
+**Option B: Direct Context Loading**
+- **In Cursor**: Open Cursor Chat (`Cmd/Ctrl + L`), attach the `context/` folder
+- **In GitHub Copilot**: Open Copilot Chat, reference `# context/intent/project-intent.md`
+
+**Note**: `AGENTS.md` acts as a router that references Context Mesh files. It's the recommended approach.
 
 #### 3. Generate Project Structure
 
