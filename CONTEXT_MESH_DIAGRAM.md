@@ -4,11 +4,11 @@
 
 ```mermaid
 graph TD
-    Start([Start]) --> Intent[Step 1: Intent<br/>Define Intent<br/>Create Context]
+    Start([Start]) --> Intent[Step 1: Intent<br/>Planning Phase<br/>Define Intent<br/>Create Features/Decisions]
     
-    Intent --> Build[Step 2: Build<br/>AI Builds<br/>Human Supervises<br/>Document Decisions]
+    Intent --> Build[Step 2: Build<br/>Construction Phase<br/>AI Builds Code<br/>Human Supervises]
     
-    Build --> Learn[Step 3: Learn<br/>Observe Results<br/>Extract Learnings<br/>Update Context]
+    Build --> Learn[Step 3: Learn<br/>Learning Phase<br/>Update Context<br/>Refine Decisions]
     
     Learn -->|Feedback Loop| Intent
     
@@ -33,8 +33,8 @@ graph TD
 graph LR
     subgraph CM["Context Mesh"]
         direction TB
-        Intent[Step 1: Intent] --> Build[Step 2: Build]
-        Build --> Learn[Step 3: Learn]
+        Intent[Step 1: Intent<br/>Planning Phase] --> Build[Step 2: Build<br/>Construction Phase]
+        Build --> Learn[Step 3: Learn<br/>Learning Phase]
         Learn -->|Feedback| Intent
     end
     
@@ -68,19 +68,22 @@ If you want to create a visual diagram similar to the original circular design, 
 1. **Step 1: Intent** (Blue/Teal segment)
    - Position: Top-left to top
    - Text: "Intent"
-   - Subtitle: "Define Intent & Create Context"
+   - Subtitle: "Planning Phase"
+   - Description: "Define Intent, Create Features/Decisions"
    - Arrow pointing clockwise to next step
 
 2. **Step 2: Build** (Orange segment)
    - Position: Top-right to bottom-right
    - Text: "Build"
-   - Subtitle: "AI Builds, Human Supervises"
+   - Subtitle: "Construction Phase"
+   - Description: "AI Builds Code, Human Supervises"
    - Arrow pointing clockwise to next step
 
 3. **Step 3: Learn** (Green segment)
    - Position: Bottom-left to top-left
    - Text: "Learn"
-   - Subtitle: "Learn & Update Context"
+   - Subtitle: "Learning Phase"
+   - Description: "Update Context, Refine Decisions"
    - Arrow pointing back to Step 1 (feedback loop)
 
 **Connections:**
