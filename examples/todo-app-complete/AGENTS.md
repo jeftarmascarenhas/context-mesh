@@ -18,13 +18,29 @@ This `AGENTS.md` file demonstrates how AGENTS.md integrates with Context Mesh. I
 ### Frontend
 - Install dependencies: `cd frontend && npm install`
 - Start dev server: `npm run dev`
-- Run tests: `npm test`
+- Run tests: `npm test` (watch mode) or `npm test -- --coverage` (with coverage)
 - Build for production: `npm run build`
 
+### Testing
+- Backend tests: `cd backend && npm test` (watch) or `npm test -- --coverage`
+- Frontend tests: `cd frontend && npm test` (watch) or `npm test -- --coverage`
+- Coverage target: Minimum 70% (branches, functions, lines, statements)
+- See `@context/decisions/005-testing-strategy.md` for testing patterns
+
+### CI/CD
+- Test workflows locally: `act -W .github/workflows/backend.yml` (requires `act` installed)
+- Workflows run automatically on push and PR
+- Backend deploys to Railway on push to `main` (if CI passes)
+- Frontend deploys to Vercel on push to `main` (if CI passes)
+- See `@context/decisions/006-ci-cd-pipeline.md` for CI/CD details
+
 ### Database
-- Start PostgreSQL: `docker-compose up -d` (if using Docker)
-- Or use local PostgreSQL instance
-- Connection string: `DATABASE_URL=postgresql://user:password@localhost:5432/todoapp`
+- Start PostgreSQL: `docker-compose up -d` (uses Docker Compose)
+- Stop PostgreSQL: `docker-compose down`
+- View logs: `docker-compose logs -f postgres`
+- Reset database: `docker-compose down -v && docker-compose up -d`
+- Connection string: `DATABASE_URL=postgresql://todoapp:todoapp_password@localhost:5432/todoapp`
+- See `@context/decisions/004-dev-environment.md` for details
 
 ---
 
@@ -52,14 +68,23 @@ When working on this project, AI agents **must** load Context Mesh files for str
 - `@context/decisions/001-tech-stack.md` - Technology stack (React, Express, Prisma, PostgreSQL)
 - `@context/decisions/002-auth-approach.md` - Authentication approach (JWT, bcrypt, httpOnly cookies)
 - `@context/decisions/003-database-schema.md` - Database schema (Prisma models)
+- `@context/decisions/004-dev-environment.md` - Development environment (Docker Compose, prerequisites)
+- `@context/decisions/005-testing-strategy.md` - Testing strategy (Jest, React Testing Library, coverage)
+- `@context/decisions/006-ci-cd-pipeline.md` - CI/CD pipeline (GitHub Actions, workflows)
+- `@context/decisions/007-deployment-platforms.md` - Deployment platforms (Railway, Vercel)
 
 ### Knowledge and Patterns (Load as Needed)
 - `@context/knowledge/patterns/api-design.md` - API design pattern (endpoints, request/response format)
+- `@context/knowledge/patterns/docker-compose.md` - Docker Compose configuration pattern
+- `@context/knowledge/patterns/github-actions.md` - GitHub Actions workflow pattern
+- `@context/knowledge/patterns/testing.md` - Unit testing pattern (backend and frontend)
 - `@context/knowledge/anti-patterns/avoid-direct-db.md` - Anti-pattern to avoid (service layer pattern)
 
 ### Feature-Specific Context (Load When Working on Feature)
 - `@context/intent/feature-user-auth.md` - User authentication requirements
 - `@context/intent/feature-todo-crud.md` - Todo CRUD requirements
+- `@context/intent/feature-testing.md` - Testing implementation requirements
+- `@context/intent/feature-ci-cd.md` - CI/CD pipeline requirements
 - `@context/intent/bug-todo-persistence.md` - Bug fix requirements (if fixing bugs)
 
 ### Evolution (Reference When Needed)
@@ -127,6 +152,10 @@ Before starting work, load relevant Context Mesh files:
 **Load based on task:**
 - Working on auth? → `@context/intent/feature-user-auth.md` + `@context/decisions/002-auth-approach.md`
 - Working on todos? → `@context/intent/feature-todo-crud.md` + `@context/decisions/003-database-schema.md`
+- Setting up environment? → `@context/decisions/004-dev-environment.md` + `@context/knowledge/patterns/docker-compose.md`
+- Working on tests? → `@context/intent/feature-testing.md` + `@context/decisions/005-testing-strategy.md` + `@context/knowledge/patterns/testing.md`
+- Working on CI/CD? → `@context/intent/feature-ci-cd.md` + `@context/decisions/006-ci-cd-pipeline.md` + `@context/knowledge/patterns/github-actions.md`
+- Working on deployment? → `@context/decisions/007-deployment-platforms.md`
 - Working on API? → `@context/knowledge/patterns/api-design.md`
 - Avoiding mistakes? → `@context/knowledge/anti-patterns/avoid-direct-db.md`
 
@@ -226,8 +255,11 @@ Before completing work:
 - [ ] Decisions from Context Mesh are respected
 - [ ] Service layer pattern used (no direct DB access in routes)
 - [ ] API follows pattern from `@context/knowledge/patterns/api-design.md`
-- [ ] Tests passing
+- [ ] Unit tests written and passing (70% coverage minimum)
+- [ ] Tests run successfully (`npm test`)
 - [ ] Linter passing
+- [ ] Docker Compose database setup working (if applicable)
+- [ ] CI/CD workflows configured (if applicable)
 - [ ] Context updated if implementation differs from plan
 - [ ] Code linked to relevant intent/decisions
 
@@ -267,6 +299,24 @@ and @context/decisions/002-auth-approach.md
 Implement Todo CRUD following @context/intent/feature-todo-crud.md
 ```
 
+**Example - Docker Compose:**
+```
+Create docker-compose.yml following @context/decisions/004-dev-environment.md
+and @context/knowledge/patterns/docker-compose.md
+```
+
+**Example - Testing:**
+```
+Implement unit tests following @context/intent/feature-testing.md
+and @context/decisions/005-testing-strategy.md
+```
+
+**Example - CI/CD:**
+```
+Create GitHub Actions workflows following @context/intent/feature-ci-cd.md
+and @context/decisions/006-ci-cd-pipeline.md
+```
+
 See [README.md](README.md) for more prompt examples.
 
 ---
@@ -293,17 +343,34 @@ See [README.md](README.md) for more prompt examples.
 
 ### Backend (.env)
 ```
-DATABASE_URL=postgresql://user:password@localhost:5432/todoapp
+DATABASE_URL=postgresql://todoapp:todoapp_password@localhost:5432/todoapp
 JWT_SECRET=your-secret-key-here
 JWT_EXPIRES_IN=7d
 PORT=3000
 NODE_ENV=development
 ```
 
+**Production (Railway)**:
+- Set in Railway dashboard
+- `DATABASE_URL` auto-set by Railway PostgreSQL
+- `JWT_SECRET` must be set manually (generate secure secret)
+
 ### Frontend (.env)
 ```
 VITE_API_URL=http://localhost:3000/api/v1
 ```
+
+**Production (Vercel)**:
+- Set in Vercel dashboard
+- `VITE_API_URL` should point to Railway backend URL
+
+### CI/CD Secrets (GitHub)
+Configure in GitHub repository settings (Settings → Secrets and variables → Actions):
+- `RAILWAY_TOKEN` - Railway API token (for backend deployment)
+- `VERCEL_TOKEN` - Vercel API token (for frontend deployment)
+- `VERCEL_ORG_ID` - Vercel organization ID
+- `VERCEL_PROJECT_ID` - Vercel project ID
+- `VITE_API_URL` - Frontend API URL (for build)
 
 ---
 

@@ -97,12 +97,19 @@ This example is designed to be built using AI agents like Cursor or GitHub Copil
 **Recommended Context Loading Order:**
 1. `@context/intent/project-intent.md` - Overall project goals
 2. `@context/decisions/001-tech-stack.md` - Technology choices
-3. `@context/decisions/002-auth-approach.md` - Authentication approach
-4. `@context/decisions/003-database-schema.md` - Database design
-5. `@context/intent/feature-user-auth.md` - Auth feature requirements
-6. `@context/intent/feature-todo-crud.md` - Todo CRUD requirements
-7. `@context/knowledge/patterns/api-design.md` - API patterns
-8. `@context/knowledge/anti-patterns/avoid-direct-db.md` - What to avoid
+3. `@context/decisions/004-dev-environment.md` - Development environment setup
+4. `@context/decisions/002-auth-approach.md` - Authentication approach
+5. `@context/decisions/003-database-schema.md` - Database design
+6. `@context/intent/feature-user-auth.md` - Auth feature requirements
+7. `@context/intent/feature-todo-crud.md` - Todo CRUD requirements
+8. `@context/knowledge/patterns/api-design.md` - API patterns
+9. `@context/knowledge/patterns/docker-compose.md` - Docker Compose setup
+10. `@context/knowledge/anti-patterns/avoid-direct-db.md` - What to avoid
+11. `@context/decisions/005-testing-strategy.md` - Testing approach
+12. `@context/intent/feature-testing.md` - Testing requirements
+13. `@context/decisions/006-ci-cd-pipeline.md` - CI/CD configuration
+14. `@context/intent/feature-ci-cd.md` - CI/CD requirements
+15. `@context/decisions/007-deployment-platforms.md` - Deployment platforms
 
 ### Step 2: Use These Prompts
 
@@ -233,10 +240,20 @@ todo-app/
 ## 🚀 Quick Start: Build This App
 
 ### Prerequisites
-- Node.js 18+ installed
-- PostgreSQL installed and running
-- Cursor IDE or GitHub Copilot enabled
-- Git (optional, for version control)
+
+Before starting, ensure you have the following installed and configured:
+
+**Required**:
+- [ ] **Node.js 18+** installed (`node --version`)
+- [ ] **npm** or **yarn** (comes with Node.js)
+- [ ] **Docker** and **Docker Compose** installed (`docker --version`, `docker-compose --version`)
+- [ ] **Git** installed (`git --version`)
+- [ ] **Cursor IDE** or **GitHub Copilot** enabled
+
+**Optional (for CI/CD testing)**:
+- [ ] **act** (for testing GitHub Actions locally) - See [Testing CI/CD Locally](#testing-cicd-locally)
+
+**Note**: You don't need to install PostgreSQL locally - we use Docker Compose for the database. See [Development Environment Setup](#development-environment-setup) for details.
 
 ### Step-by-Step Build Process
 
@@ -274,17 +291,39 @@ and @context/decisions/003-database-schema.md
 
 The context files contain all the details - tech stack, database schema, etc.
 
-#### 4. Setup Backend
+#### 4. Setup Development Environment
+
+**Start PostgreSQL with Docker Compose**:
+```bash
+# From project root
+docker-compose up -d
+```
+
+This starts PostgreSQL in a Docker container. The database will be available at `localhost:5432`.
+
+**Verify database is running**:
+```bash
+docker-compose ps
+# Should show postgres container running
+```
+
+See [Development Environment Setup](#development-environment-setup) for more details.
+
+#### 5. Setup Backend
 
 After AI generates the structure, run:
 ```bash
 cd backend
 npm install
+
+# Create .env file (copy from .env.example if provided)
+# DATABASE_URL=postgresql://todoapp:todoapp_password@localhost:5432/todoapp
+
 npx prisma migrate dev --name init
 npx prisma generate
 ```
 
-#### 5. Build Authentication
+#### 6. Build Authentication
 
 Use this simple prompt:
 ```
@@ -294,7 +333,7 @@ and @context/decisions/002-auth-approach.md
 
 The context files contain all requirements, success criteria, and technical approach.
 
-#### 6. Build Todo CRUD
+#### 7. Build Todo CRUD
 
 Use this simple prompt:
 ```
@@ -303,7 +342,7 @@ Implement Todo CRUD following @context/intent/feature-todo-crud.md
 
 The context file contains all requirements, success criteria, and security needs.
 
-#### 7. Build Frontend
+#### 8. Build Frontend
 
 Use this simple prompt:
 ```
@@ -313,7 +352,27 @@ and integrate with the backend API
 
 The API pattern file contains all endpoint structures, request/response formats, and error handling.
 
-#### 8. Test the Application
+#### 9. Implement Testing
+
+Use this simple prompt:
+```
+Implement unit tests following @context/intent/feature-testing.md
+and @context/decisions/005-testing-strategy.md
+```
+
+The context files contain all testing requirements, patterns, and examples.
+
+#### 10. Setup CI/CD
+
+Use this simple prompt:
+```
+Create GitHub Actions workflows following @context/intent/feature-ci-cd.md
+and @context/decisions/006-ci-cd-pipeline.md
+```
+
+The context files contain complete workflow configurations for backend and frontend.
+
+#### 11. Test the Application Locally
 
 ```bash
 # Start backend
@@ -324,6 +383,184 @@ npm run dev
 cd frontend
 npm run dev
 ```
+
+---
+
+## 🐳 Development Environment Setup
+
+### Docker Compose for PostgreSQL
+
+The project uses Docker Compose to run PostgreSQL locally. This avoids the need to install PostgreSQL on your machine.
+
+**Start Database**:
+```bash
+docker-compose up -d
+```
+
+**Stop Database**:
+```bash
+docker-compose down
+```
+
+**View Logs**:
+```bash
+docker-compose logs -f postgres
+```
+
+**Reset Database** (removes all data):
+```bash
+docker-compose down -v
+docker-compose up -d
+```
+
+**Connection String**:
+```
+DATABASE_URL=postgresql://todoapp:todoapp_password@localhost:5432/todoapp
+```
+
+See `@context/decisions/004-dev-environment.md` and `@context/knowledge/patterns/docker-compose.md` for complete details.
+
+---
+
+## 🧪 Testing
+
+### Running Tests
+
+**Backend**:
+```bash
+cd backend
+npm test              # Run tests in watch mode
+npm test -- --coverage  # Run tests with coverage report
+```
+
+**Frontend**:
+```bash
+cd frontend
+npm test              # Run tests in watch mode
+npm test -- --coverage  # Run tests with coverage report
+```
+
+### Test Coverage
+
+The project requires **minimum 70% code coverage** for:
+- Branches
+- Functions
+- Lines
+- Statements
+
+See `@context/decisions/005-testing-strategy.md` and `@context/knowledge/patterns/testing.md` for testing patterns and examples.
+
+---
+
+## 🚀 CI/CD Pipeline
+
+### GitHub Actions Workflows
+
+The project includes GitHub Actions workflows for:
+- **Backend**: `.github/workflows/backend.yml` - Tests, lints, and deploys to Railway
+- **Frontend**: `.github/workflows/frontend.yml` - Tests, lints, builds, and deploys to Vercel
+
+### Testing CI/CD Locally
+
+You can test GitHub Actions workflows locally using `act`:
+
+**Install act**:
+```bash
+# macOS
+brew install act
+
+# Linux
+curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
+
+# Windows (via Chocolatey)
+choco install act-cli
+```
+
+**Run Workflow Locally**:
+```bash
+# Test backend workflow
+act -W .github/workflows/backend.yml
+
+# Test frontend workflow
+act -W .github/workflows/frontend.yml
+
+# Run specific job
+act -j test -W .github/workflows/backend.yml
+
+# Use secrets (if needed)
+act -W .github/workflows/backend.yml --secret RAILWAY_TOKEN=your_token
+```
+
+**Limitations**:
+- Deployment steps may not work locally (require actual services)
+- Some actions may not be compatible with `act`
+- Use for syntax validation and basic testing
+
+**What You Need to Test CI/CD**:
+- GitHub repository (public or private)
+- GitHub Actions enabled (automatic for public repos)
+- Secrets configured in GitHub (for deployment):
+  - `RAILWAY_TOKEN` (backend deployment)
+  - `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` (frontend deployment)
+  - `VITE_API_URL` (frontend build)
+
+See `@context/decisions/006-ci-cd-pipeline.md` and `@context/knowledge/patterns/github-actions.md` for complete details.
+
+---
+
+## 🌐 Deployment
+
+### Railway (Backend)
+
+**Setup**:
+1. Create account at https://railway.app
+2. Sign up with GitHub
+3. Create new project → Deploy from GitHub repo
+4. Select repository and `backend` directory
+5. Add PostgreSQL database (Railway → New → Database → PostgreSQL)
+6. Set environment variables in Railway dashboard:
+   - `NODE_ENV=production`
+   - `JWT_SECRET=<generate-secure-secret>`
+   - `JWT_EXPIRES_IN=7d`
+   - `DATABASE_URL` (auto-set by Railway)
+
+**Deployment**:
+- Automatic on push to `main` branch (via GitHub Actions)
+- Or manual: Railway dashboard → Deploy
+
+### Vercel (Frontend)
+
+**Setup**:
+1. Create account at https://vercel.com
+2. Sign up with GitHub
+3. Import repository
+4. Configure:
+   - Root directory: `frontend`
+   - Framework preset: Vite
+   - Build command: `npm run build`
+   - Output directory: `dist`
+5. Set environment variables:
+   - `VITE_API_URL=https://your-backend.railway.app/api/v1`
+
+**Deployment**:
+- Automatic on push to `main` branch (via GitHub Actions)
+- Preview deployments for PRs
+- Production URL: `https://your-project.vercel.app`
+
+### Required Secrets for CI/CD
+
+Configure these in GitHub repository settings (Settings → Secrets and variables → Actions):
+
+**Backend**:
+- `RAILWAY_TOKEN`: Get from Railway dashboard → Account → Tokens
+
+**Frontend**:
+- `VERCEL_TOKEN`: Get from Vercel dashboard → Settings → Tokens
+- `VERCEL_ORG_ID`: Get from Vercel dashboard → Settings → General
+- `VERCEL_PROJECT_ID`: Get from Vercel project settings
+- `VITE_API_URL`: Your Railway backend URL (e.g., `https://your-backend.railway.app/api/v1`)
+
+See `@context/decisions/007-deployment-platforms.md` for complete deployment guide.
 
 ---
 

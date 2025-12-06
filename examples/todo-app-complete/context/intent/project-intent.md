@@ -27,7 +27,10 @@ Build a simple, modern Todo application that allows users to:
 - Basic CRUD operations for todos
 - Simple UI with React
 - RESTful API with Node.js
-- PostgreSQL database
+- PostgreSQL database (Docker Compose for local development)
+- Unit tests for backend and frontend (70% coverage minimum)
+- CI/CD pipeline with GitHub Actions
+- Automated deployment to Railway (backend) and Vercel (frontend)
 
 ### Out of Scope (Future Phases)
 - Real-time collaboration
@@ -49,8 +52,11 @@ Build a simple, modern Todo application that allows users to:
 ### Non-Functional
 - [ ] API response time < 200ms
 - [ ] Application loads in < 2 seconds
-- [ ] Code coverage > 70%
+- [ ] Code coverage > 70% (backend and frontend)
 - [ ] All security best practices followed
+- [ ] CI/CD pipeline runs on every push and PR
+- [ ] Automated deployment to production (Railway + Vercel)
+- [ ] Application works locally with Docker Compose for database
 
 ## Constraints
 
@@ -63,6 +69,12 @@ Build a simple, modern Todo application that allows users to:
 
 - [Feature: User Authentication](feature-user-auth.md)
 - [Feature: Todo CRUD](feature-todo-crud.md)
+- [Feature: Testing](feature-testing.md)
+- [Feature: CI/CD](feature-ci-cd.md)
 - [Decision: Tech Stack](../decisions/001-tech-stack.md)
 - [Decision: Database Schema](../decisions/003-database-schema.md)
+- [Decision: Dev Environment](../decisions/004-dev-environment.md)
+- [Decision: Testing Strategy](../decisions/005-testing-strategy.md)
+- [Decision: CI/CD Pipeline](../decisions/006-ci-cd-pipeline.md)
+- [Decision: Deployment Platforms](../decisions/007-deployment-platforms.md)
 

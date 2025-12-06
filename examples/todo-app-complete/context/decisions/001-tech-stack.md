@@ -29,7 +29,11 @@ We need to choose the technology stack for the Todo application. The stack must:
 
 **Development Tools**:
 - ESLint + Prettier for code quality
-- Jest for testing
+- Jest for testing (backend and frontend)
+- React Testing Library for frontend component testing
+- Supertest for API testing
+- GitHub Actions for CI/CD
+- Docker Compose for local PostgreSQL database
 - Git for version control
 
 ## Rationale
@@ -76,6 +80,9 @@ We need to choose the technology stack for the Todo application. The stack must:
 - [Project Intent](../intent/project-intent.md)
 - [Decision: Authentication Approach](002-auth-approach.md)
 - [Decision: Database Schema](003-database-schema.md)
+- [Decision: Dev Environment](004-dev-environment.md)
+- [Decision: Testing Strategy](005-testing-strategy.md)
+- [Decision: CI/CD Pipeline](006-ci-cd-pipeline.md)
 
 ## Status
 
