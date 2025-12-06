@@ -2,6 +2,21 @@
 
 Real-world examples of Context Mesh in action, showing how the framework is applied in different scenarios.
 
+## 🎯 Complete End-to-End Example
+
+**New to Context Mesh?** Start here with a complete example:
+
+- **[Todo App Complete Example](examples/todo-app-complete/)** - A full end-to-end demonstration showing:
+  - Complete project structure with Context Mesh
+  - Intent phase (project intent, features, bugs, decisions)
+  - Build phase (implementation with decisions)
+  - Learn phase (context updates, learnings, changelog)
+  - All artifacts: intents, decisions, patterns, learnings
+
+This example demonstrates the **complete workflow** from planning to learning, with all Context Mesh artifacts in action.
+
+---
+
 ## Example 1: New Feature Development
 
 ### Scenario

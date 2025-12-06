@@ -13,9 +13,25 @@ Before starting with Context Mesh, ensure you have:
 
 ## Quick Start (5 Minutes)
 
+### 📋 Quick Start Checklist
+
+```
+🚀 Getting Started
+├── ☐ Read FRAMEWORK.md (understand 3-step workflow)
+├── ☐ Create context/ directory structure
+├── ☐ Create your first project-intent.md
+└── ☐ Ready to start Intent phase!
+```
+
+**Progress**: [ ] 0/4 completed
+
+---
+
 ### Step 1: Understand the Framework
 
 Read the [FRAMEWORK.md](FRAMEWORK.md) to understand the 3-step workflow.
+
+⏱️ **Time**: ~15 minutes
 
 ### Step 2: Initialize Context
 
@@ -25,12 +41,14 @@ Create a `context/` directory in your project:
 mkdir -p context/{intent,decisions,knowledge/{patterns,anti-patterns},evolution}
 ```
 
+⏱️ **Time**: ~30 seconds
+
 ### Step 3: Start with Intent
 
 Create your first intent document:
 
 ```bash
-cat > context/intent/initial-intent.md << 'EOF'
+cat > context/intent/project-intent.md << 'EOF'
 # Project Intent
 
 ## What
@@ -45,12 +63,16 @@ cat > context/intent/initial-intent.md << 'EOF'
 EOF
 ```
 
+⏱️ **Time**: ~5 minutes
+
 ### Step 4: Follow the Workflow
 
 Proceed through the 3 steps:
-1. Intent ✅ (you just did this)
-2. Build
-3. Learn
+1. ✅ **Intent** (you just did this)
+2. ⏳ **Build** (next step)
+3. ⏳ **Learn** (after build)
+
+**Next**: Continue to [Step-by-Step Implementation](#step-by-step-implementation) below for detailed guidance.
 
 ## Detailed Setup
 
@@ -89,6 +111,18 @@ You can use simple markdown files or any documentation system. The key is to:
 - Version control your context (using Git)
 
 ## Step-by-Step Implementation
+
+### 📍 Your Progress
+
+```
+Context Mesh Workflow
+├── ✅ Setup Complete
+├── ⏳ Step 1: Intent (Current)
+├── ⬜ Step 2: Build
+└── ⬜ Step 3: Learn
+```
+
+---
 
 ### Step 1: Intent
 
@@ -132,12 +166,18 @@ You can use simple markdown files or any documentation system. The key is to:
    - Make it accessible to AI tools
 
 **Checklist** (Definition of Done):
-- [ ] Intent statement clear and validated (What + Why)
-- [ ] Feature/Bug/Refactor intent created (if applicable)
-- [ ] Technical decisions created (if known) - **Recommended** (makes Build faster)
-- [ ] Initial patterns identified (existing) or defined (new)
-- [ ] Initial context created and stored
-- [ ] Stakeholders aligned on intent
+
+```
+✅ Intent Phase Checklist
+├── ☐ Intent statement clear and validated (What + Why)
+├── ☐ Feature/Bug/Refactor intent created (if applicable)
+├── ☐ Technical decisions created (if known) - ⭐ Recommended (makes Build faster)
+├── ☐ Initial patterns identified (existing) or defined (new)
+├── ☐ Initial context created and stored
+└── ☐ Stakeholders aligned on intent
+```
+
+**Progress**: [ ] 0/6 completed
 
 **Tips**:
 - Keep intent simple and focused
@@ -196,12 +236,18 @@ You can use simple markdown files or any documentation system. The key is to:
    - Keep context up-to-date
 
 **Checklist** (Definition of Done):
-- [ ] Code implemented using context
-- [ ] Important decisions documented (with rationale)
-- [ ] Code linked to context (intent, decisions)
-- [ ] Human review completed
-- [ ] Context updated with implementation details
-- [ ] Code validated against intent
+
+```
+✅ Build Phase Checklist
+├── ☐ Code implemented using context
+├── ☐ Important decisions documented (with rationale)
+├── ☐ Code linked to context (intent, decisions)
+├── ☐ Human review completed
+├── ☐ Context updated with implementation details
+└── ☐ Code validated against intent
+```
+
+**Progress**: [ ] 0/6 completed
 
 **Tips**:
 - Always provide full context to AI
@@ -252,14 +298,20 @@ You can use simple markdown files or any documentation system. The key is to:
    - Create new work items if needed
 
 **Checklist** (Definition of Done):
-- [ ] Context updated to reflect code changes
-- [ ] Context aligned with current codebase
-- [ ] Changelog updated with significant changes
-- [ ] Patterns preserved/updated in knowledge/ (if applicable)
-- [ ] Decision records updated with outcomes (optional)
-- [ ] New improvement decisions created if needed (optional)
-- [ ] Learnings documented (optional)
-- [ ] Intent refined if needed (optional)
+
+```
+✅ Learn Phase Checklist
+├── ☐ Context updated to reflect code changes (Required)
+├── ☐ Context aligned with current codebase (Required)
+├── ☐ Changelog updated with significant changes (Required)
+├── ☐ Patterns preserved/updated in knowledge/ (If applicable)
+├── ☐ Decision records updated with outcomes (Optional)
+├── ☐ New improvement decisions created if needed (Optional)
+├── ☐ Learnings documented (Optional)
+└── ☐ Intent refined if needed (Optional)
+```
+
+**Progress**: [ ] 0/8 completed (3 required, 5 optional)
 
 **Tips**:
 - Update context as you make code changes
