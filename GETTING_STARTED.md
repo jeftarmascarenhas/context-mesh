@@ -60,7 +60,8 @@ Create the following directory structure:
 
 ```
 your-project/
-├── context/
+├── AGENTS.md          # Optional: Router for AI agents (references Context Mesh)
+├── context/           # Context Mesh: strategic context
 │   ├── intent/
 │   │   ├── project-intent.md
 │   │   ├── feature-*.md
@@ -76,6 +77,8 @@ your-project/
 │       └── learning-*.md
 └── [your code]
 ```
+
+**Note**: `AGENTS.md` is optional but recommended. It acts as a router that references Context Mesh files, providing operational instructions (setup, commands, conventions) while Context Mesh provides strategic context (intent, decisions, knowledge). See [TOOLS.md](TOOLS.md) for details.
 
 ### 2. Context Management
 

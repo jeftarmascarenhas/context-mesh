@@ -116,8 +116,11 @@ See [INTEGRATION.md](INTEGRATION.md) for how to use Context Mesh with Scrum, Agi
 ### Implementation Guides
 - **[GETTING_STARTED.md](GETTING_STARTED.md)** - Step-by-step implementation guide
 - **[INTEGRATION.md](INTEGRATION.md)** - Integration with Scrum, Agile, DevOps
-- **[TOOLS.md](TOOLS.md)** - Tooling considerations and recommendations
+- **[TOOLS.md](TOOLS.md)** - Tooling considerations and recommendations (includes AGENTS.md integration)
 - **[EXAMPLES.md](EXAMPLES.md)** - Real-world examples and use cases
+
+### Advanced
+- **[ADVANCED.md](ADVANCED.md)** - Advanced patterns and extensions (AI Agents, modular workflows)
 
 ### Reference
 - **[GLOSSARY.md](GLOSSARY.md)** - Key terms and concepts

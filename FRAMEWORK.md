@@ -63,6 +63,74 @@ context/
 - Works with any tools (or no tools)
 - Flexible - add subdirectories as needed
 
+---
+
+## AGENTS.md Integration
+
+Context Mesh works seamlessly with the **[AGENTS.md](https://agents.md/)** standard, an open format used by over 20,000 open-source projects to guide AI coding agents.
+
+### How They Work Together
+
+**AGENTS.md** acts as a **router** that uses **Context Mesh** as the central knowledge hub:
+
+- **AGENTS.md** = Operational instructions (how to work in the project)
+  - Setup commands
+  - Development workflow
+  - Code style and conventions
+  - Testing instructions
+  - Project structure
+
+- **Context Mesh** = Strategic context (what to build and why)
+  - Intent (what and why)
+  - Decisions (how and why we chose)
+  - Knowledge (patterns, learnings)
+
+**Together**: AGENTS.md routes AI agents to the right Context Mesh files, providing both operational guidance and strategic context.
+
+### Recommended Structure
+
+```
+project/
+├── AGENTS.md          # Router: operational instructions + references to Context Mesh
+├── context/           # Context Mesh: strategic context (intent, decisions, knowledge)
+│   ├── intent/
+│   ├── decisions/
+│   └── knowledge/
+└── agents/            # Optional: specialized agent definitions (see ADVANCED.md)
+    └── agent-*.md
+```
+
+### AGENTS.md References Context Mesh
+
+Your `AGENTS.md` should reference Context Mesh files:
+
+```markdown
+## Context Files to Load
+
+When working on this project, AI agents should load:
+
+- @context/intent/project-intent.md (overall project goals)
+- @context/decisions/001-tech-stack.md (technology choices)
+- @context/decisions/002-database.md (database design)
+- @context/knowledge/patterns/*.md (coding patterns)
+```
+
+This way, AGENTS.md provides the **operational how-to**, while Context Mesh provides the **strategic why and what**.
+
+### Benefits
+
+- ✅ **Widely Adopted**: AGENTS.md is used by 20k+ projects
+- ✅ **Complementary**: AGENTS.md (operational) + Context Mesh (strategic)
+- ✅ **Router Pattern**: AGENTS.md routes to Context Mesh files
+- ✅ **AI-Friendly**: Both formats are designed for AI agents
+- ✅ **Flexible**: Use AGENTS.md alone, Context Mesh alone, or both together
+
+**Note**: AGENTS.md is **optional** but **recommended** for better AI agent experience. Context Mesh works perfectly without it, but together they provide complete guidance.
+
+See [TOOLS.md](TOOLS.md) for more details on AGENTS.md integration.
+
+---
+
 ## The 3-Step Context Mesh Workflow
 
 Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The framework consists of three essential steps that preserve context throughout the development lifecycle:
@@ -973,3 +1041,15 @@ Context Mesh adds:
 3. **Learn and Update**: Update context to reflect code changes, document learnings
 
 See [GETTING_STARTED.md](GETTING_STARTED.md) for detailed implementation guide.
+
+## Advanced Patterns
+
+For larger projects or teams, Context Mesh offers advanced patterns:
+
+- **AI Agents Structure**: Organize execution patterns with agent definitions
+- **Modular Workflows**: Execute specific parts of the build process
+- **Team Collaboration**: Share agents and context across team members
+
+See [ADVANCED.md](ADVANCED.md) for advanced patterns and extensions.
+
+**Note**: Advanced patterns are **optional**. Start with basic Context Mesh, add complexity only when needed.

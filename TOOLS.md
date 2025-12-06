@@ -23,7 +23,8 @@ Create a simple directory structure in your project:
 
 ```
 your-project/
-├── context/
+├── AGENTS.md          # Optional: Router for AI agents (references Context Mesh)
+├── context/           # Context Mesh: strategic context
 │   ├── intent/
 │   │   ├── project-intent.md
 │   │   ├── feature-*.md
@@ -77,6 +78,97 @@ As your project grows, you may want to consider:
 - **GitHub Copilot** - AI pair programmer
 - **Codeium** - AI coding assistant
 - **Tabnine** - AI code completion
+
+---
+
+## AGENTS.md Integration
+
+**[AGENTS.md](https://agents.md/)** is an open format used by over 20,000 open-source projects to guide AI coding agents. It works seamlessly with Context Mesh.
+
+### How They Work Together
+
+**AGENTS.md** acts as a **router** that uses **Context Mesh** as the central knowledge hub:
+
+- **AGENTS.md** provides operational instructions:
+  - Setup commands (`pnpm install`, `npm run dev`)
+  - Development workflow
+  - Code style and conventions
+  - Testing instructions
+  - Project structure
+  - Build and deployment steps
+
+- **Context Mesh** provides strategic context:
+  - Intent (what to build and why)
+  - Decisions (how and why we chose)
+  - Knowledge (patterns, learnings)
+
+**Together**: AGENTS.md routes AI agents to Context Mesh files, providing both operational guidance and strategic context.
+
+### Example AGENTS.md Structure
+
+```markdown
+# AGENTS.md
+
+## Setup Commands
+- Install deps: `pnpm install`
+- Start dev server: `pnpm dev`
+- Run tests: `pnpm test`
+
+## Code Style
+- TypeScript strict mode
+- Single quotes, no semicolons
+- Use functional patterns where possible
+
+## Context Files to Load
+
+When working on this project, AI agents should load Context Mesh files:
+
+- @context/intent/project-intent.md (overall project goals)
+- @context/decisions/001-tech-stack.md (technology choices)
+- @context/decisions/002-database.md (database design)
+- @context/knowledge/patterns/*.md (coding patterns)
+
+## Development Workflow
+
+1. Load Context Mesh files (see above)
+2. Follow patterns from @context/knowledge/patterns/
+3. Reference decisions from @context/decisions/
+4. Update context after changes
+```
+
+### Benefits
+
+- ✅ **Widely Adopted**: Used by 20k+ projects
+- ✅ **AI-Friendly**: Designed specifically for AI coding agents
+- ✅ **Complementary**: AGENTS.md (operational) + Context Mesh (strategic)
+- ✅ **Router Pattern**: AGENTS.md routes to Context Mesh files
+- ✅ **Tool Agnostic**: Works with any AI development tool
+
+### When to Use AGENTS.md
+
+**Recommended when**:
+- ✅ You want better AI agent experience
+- ✅ You have complex setup/build processes
+- ✅ You want to document operational instructions
+- ✅ You're working with a team
+
+**Optional**: Context Mesh works perfectly without AGENTS.md, but together they provide complete guidance.
+
+### Configuration
+
+Most AI tools automatically detect and use `AGENTS.md`:
+
+- **Cursor**: Automatically loads AGENTS.md
+- **Aider**: Configure in `.aider.conf.yml`: `read: AGENTS.md`
+- **Gemini CLI**: Configure in `.gemini/settings.json`: `{ "contextFileName": "AGENTS.md" }`
+
+See [AGENTS.md website](https://agents.md/) for more details and examples.
+
+### Example AGENTS.md
+
+See [examples/AGENTS.md.example](../examples/AGENTS.md.example) for a complete example of AGENTS.md integrated with Context Mesh.
+
+---
 
 ## Best Practices
 

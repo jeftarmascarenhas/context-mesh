@@ -485,3 +485,5 @@ See: feature-new-approach.md for migration guide.
 - [FRAMEWORK.md](FRAMEWORK.md) - Framework details
 - [GETTING_STARTED.md](GETTING_STARTED.md) - Getting started
 - [INTEGRATION.md](INTEGRATION.md) - Integration guides
+- [TOOLS.md](TOOLS.md) - AGENTS.md integration
+- [examples/AGENTS.md.example](../examples/AGENTS.md.example) - Example AGENTS.md with Context Mesh
