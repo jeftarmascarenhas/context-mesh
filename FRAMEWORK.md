@@ -277,6 +277,12 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
   - Use decisions from Step 1 if they exist (recommended approach)
   - Create new decisions if technical choices emerge during Build
   - Update existing decisions if implementation approach differs from plan
+- Follow established patterns from knowledge/ (if available)
+- Avoid known anti-patterns from knowledge/ (if available)
+- Identify new patterns during implementation (optional)
+- Update context continuously
+- Review code quality
+- Validate against intent
 
 ### Writing Prompts for AI Code Generation
 
@@ -397,12 +403,6 @@ following the tech stack decision in @context/decisions/001-tech-stack.md...
 3. **Avoid Detailed Prompts** - Use only temporarily, or create an agent file
 
 **Remember**: Context is primary. If you're writing long prompts, consider adding that information to context or creating an agent file.
-- Follow established patterns from knowledge/ (if available)
-- Avoid known anti-patterns from knowledge/ (if available)
-- Identify new patterns during implementation (optional)
-- Update context continuously
-- Review code quality
-- Validate against intent
 
 **Context Artifacts**:
 - Implementation Code (with context links)

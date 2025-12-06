@@ -166,7 +166,7 @@ See [AGENTS.md website](https://agents.md/) for more details and examples.
 
 ### Example AGENTS.md
 
-See [examples/AGENTS.md.example](../examples/AGENTS.md.example) for a complete example of AGENTS.md integrated with Context Mesh.
+See [examples/AGENTS.md.example](examples/AGENTS.md.example) for a complete example of AGENTS.md integrated with Context Mesh.
 
 ---
 
