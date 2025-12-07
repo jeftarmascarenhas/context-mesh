@@ -1,8 +1,8 @@
 <div align="center">
 
-![Context Mesh Logo](images/context-mesh-logo.png)
-
-# Context Mesh
+<!-- ![Context Mesh Logo](images/context-mesh-icon-medium.png) -->
+<a href="#">
+<img src="./images/context-mesh-icon-medium.png" height="269" alt="Context Mesh" aria-label="context-mesh.org" style="display: flex;align-items: center;"><h1>Context Mesh</h1></a>
 
 **The AI-First Development Framework for Sustainable Context Preservation**
 
