@@ -91,7 +91,7 @@ model Todo {
 
 ## Status
 
-- **Created**: 2024-01-15 (Intent phase)
+- **Created**: 2025-12-02 (Phase: Intent)
 - **Status**: Accepted
-- **Updated**: 2024-01-20 (Learn phase - added outcomes)
+- **Updated**: 2025-12-05 (Phase: Learn) - Added outcomes
 

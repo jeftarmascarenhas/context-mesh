@@ -667,6 +667,162 @@ This creates traceability: Intent → Decision → Learning → Pattern
 
 ---
 
+## Status and Dates
+
+Status and dates are important metadata that help track the lifecycle of context files and provide traceability.
+
+### Why Status and Dates Matter
+
+**Traceability**:
+- Know when something was created or updated
+- Track the evolution of context over time
+- Understand the current state of each artifact
+
+**Context for AI**:
+- AI agents can understand relevance and current state
+- Helps AI prioritize which context to use
+- Provides historical context for decision-making
+
+**Team Collaboration**:
+- Team members understand what's active vs deprecated
+- Clear indication of work item status
+- Better project visibility
+
+### Status Section Format
+
+Every context file should include a Status section at the end:
+
+```markdown
+## Status
+
+- **Created**: YYYY-MM-DD (Phase: Intent/Build/Learn)
+- **Status**: [Status Type]
+- **Updated**: YYYY-MM-DD (Phase: Intent/Build/Learn) - [reason] (optional)
+```
+
+**When to Update**:
+- **Created**: Always include when file is first created
+- **Status**: Update when status changes (e.g., Draft → In Progress → Completed)
+- **Updated**: Add when you make significant updates (not every small change)
+
+### Status Types
+
+#### For Intent Files (feature-*.md, bug-*.md, refactor-*.md, project-intent.md)
+
+| Status | When to Use | Description |
+|--------|-------------|-------------|
+| **Draft** | Initial creation | Intent is being planned, not yet finalized |
+| **In Progress** | During Build | Work item is actively being developed |
+| **Completed** | After Build | Work item is implemented and working |
+| **Deprecated** | Feature removed/replaced | Feature is no longer used (keep file for history) |
+| **Resolved** | Bug fixed | Bug has been fixed (keep file for history) |
+
+**Example**:
+```markdown
+## Status
+
+- **Created**: 2024-01-15 (Phase: Intent)
+- **Status**: Completed
+- **Updated**: 2024-01-18 (Phase: Learn) - Added learnings
+```
+
+#### For Decision Files (decisions/*.md)
+
+| Status | When to Use | Description |
+|--------|-------------|-------------|
+| **Proposed** | Initial creation | Decision is proposed, awaiting approval |
+| **Accepted** | Decision approved | Decision is accepted and being used |
+| **Superseded** | Replaced by another | Decision replaced by a newer decision |
+| **Deprecated** | No longer valid | Decision is no longer applicable |
+
+**Example**:
+```markdown
+## Status
+
+- **Created**: 2024-01-15 (Phase: Intent)
+- **Status**: Accepted
+- **Updated**: 2024-01-20 (Phase: Learn) - Added outcomes
+```
+
+#### For Knowledge Files (patterns/*.md, anti-patterns/*.md)
+
+| Status | When to Use | Description |
+|--------|-------------|-------------|
+| **Active** | Currently in use | Pattern/anti-pattern is actively used |
+| **Deprecated** | No longer recommended | Pattern should not be used anymore |
+| **Superseded** | Replaced by another | Pattern replaced by a better one |
+
+**Example**:
+```markdown
+## Status
+
+- **Created**: 2024-01-15 (Phase: Build)
+- **Status**: Active
+```
+
+#### For Learning Files (learning-*.md)
+
+| Status | When to Use | Description |
+|--------|-------------|-------------|
+| **Active** | Current learning | Learning is still relevant |
+| **Archived** | Historical reference | Learning is kept for historical context |
+
+**Example**:
+```markdown
+## Status
+
+- **Created**: 2024-01-18 (Phase: Learn)
+- **Status**: Active
+```
+
+### Best Practices
+
+1. **Always Include Created Date**: Every file should have a creation date
+2. **Update Status When It Changes**: Keep status current to reflect reality
+3. **Add Updated Date for Significant Changes**: Not every small edit, but major updates
+4. **Include Phase**: Indicates which Context Mesh step the change happened in
+5. **Be Consistent**: Use the same format across all files
+
+### Examples
+
+**Feature Intent (Completed)**:
+```markdown
+## Status
+
+- **Created**: 2024-01-15 (Phase: Intent)
+- **Status**: Completed
+- **Updated**: 2024-01-18 (Phase: Learn) - Added implementation learnings
+```
+
+**Decision (Accepted with Outcomes)**:
+```markdown
+## Status
+
+- **Created**: 2024-01-15 (Phase: Intent)
+- **Status**: Accepted
+- **Updated**: 2024-01-20 (Phase: Learn) - Added outcomes from implementation
+```
+
+**Bug (Resolved)**:
+```markdown
+## Status
+
+- **Created**: 2024-01-22 (Phase: Build)
+- **Status**: Resolved
+- **Updated**: 2024-01-23 (Phase: Learn) - Bug fixed and verified
+```
+
+**Feature (Deprecated)**:
+```markdown
+## Status
+
+- **Created**: 2024-01-15 (Phase: Intent)
+- **Status**: Deprecated (2024-02-01)
+- **Reason**: Replaced by feature-new-approach.md
+```
+
+---
+
 ## Avoiding Overdocumentation
 
 **Key Principle**: Use Git for versioning. Create new files only for new scopes.

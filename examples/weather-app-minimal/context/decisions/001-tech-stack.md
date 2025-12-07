@@ -183,6 +183,6 @@ weather-app-minimal/
 
 ## Status
 
-- **Created**: 2024-01-20 (Intent phase)
+- **Created**: 2025-12-07 (Phase: Intent)
 - **Status**: Accepted
 

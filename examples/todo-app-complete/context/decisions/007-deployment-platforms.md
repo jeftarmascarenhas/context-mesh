@@ -238,6 +238,6 @@ VITE_API_URL=https://your-backend.railway.app/api/v1
 
 ## Status
 
-- **Created**: 2024-01-20 (Intent phase)
+- **Created**: 2025-12-06 (Phase: Intent)
 - **Status**: Accepted
 

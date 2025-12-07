@@ -42,8 +42,7 @@
 
 ## Status
 
-- **Created**: 2024-01-22 (during Learn phase)
-- **Phase**: Intent → Build → Learn
-- **Fixed**: 2024-01-22
-- **Root Cause**: Missing database transaction commit
+- **Created**: 2025-12-07 (Phase: Learn)
+- **Status**: Resolved
+- **Updated**: 2025-12-07 (Phase: Learn) - Bug fixed (root cause: missing database transaction commit)
 

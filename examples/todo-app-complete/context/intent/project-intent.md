@@ -78,3 +78,8 @@ Build a simple, modern Todo application that allows users to:
 - [Decision: CI/CD Pipeline](../decisions/006-ci-cd-pipeline.md)
 - [Decision: Deployment Platforms](../decisions/007-deployment-platforms.md)
 
+## Status
+
+- **Created**: 2025-12-01 (Phase: Intent)
+- **Status**: Completed
+

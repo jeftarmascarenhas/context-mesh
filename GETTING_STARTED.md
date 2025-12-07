@@ -147,6 +147,11 @@ Context Mesh Workflow
    ## Success Criteria
    - [Criterion 1]
    - [Criterion 2]
+   
+   ## Status
+   
+   - **Created**: YYYY-MM-DD (Phase: Intent)
+   - **Status**: Draft
    ```
 
 2. **Create Technical Decisions** (recommended in Step 1):
@@ -403,6 +408,38 @@ Context Mesh Workflow
 **Update existing file**: For refinements, outcomes, evolution (Git versions it)
 
 **Rule**: If it's the same scope, update the file. Git preserves history.
+
+### Status and Dates
+
+Every context file should include a **Status** section to track lifecycle and provide traceability.
+
+**Why it matters**:
+- Know when something was created or updated
+- Track the evolution of context over time
+- Understand the current state of each artifact
+- Help AI agents understand relevance and current state
+
+**Format**:
+```markdown
+## Status
+
+- **Created**: YYYY-MM-DD (Phase: Intent/Build/Learn)
+- **Status**: [Status Type]
+- **Updated**: YYYY-MM-DD (Phase: Intent/Build/Learn) - [reason] (optional)
+```
+
+**Status Types**:
+- **Intent Files** (feature-*.md, bug-*.md): Draft, In Progress, Completed, Deprecated, Resolved
+- **Decision Files** (decisions/*.md): Proposed, Accepted, Superseded, Deprecated
+- **Knowledge Files** (patterns/*.md): Active, Deprecated, Superseded
+- **Learning Files** (learning-*.md): Active, Archived
+
+**When to Update**:
+- **Created**: Always include when file is first created
+- **Status**: Update when status changes (e.g., Draft → In Progress → Completed)
+- **Updated**: Add when you make significant updates (not every small change)
+
+See [FRAMEWORK.md](FRAMEWORK.md) for complete details on Status and Dates.
 
 ### Update Continuously
 - Update context during Build

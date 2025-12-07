@@ -273,6 +273,6 @@ act -W .github/workflows/backend.yml --secret RAILWAY_TOKEN=your_token
 
 ## Status
 
-- **Created**: 2024-01-20 (Intent phase)
+- **Created**: 2025-12-06 (Phase: Intent)
 - **Status**: Accepted
 

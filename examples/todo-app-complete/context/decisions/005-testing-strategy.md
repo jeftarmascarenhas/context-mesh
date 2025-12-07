@@ -258,6 +258,6 @@ jest.mock('../services/api', () => ({
 
 ## Status
 
-- **Created**: 2024-01-20 (Intent phase)
+- **Created**: 2025-12-05 (Phase: Intent)
 - **Status**: Accepted
 
