@@ -50,8 +50,8 @@ Context Mesh transforms how you develop software by making **context the primary
 
 ### 📊 Real Impact
 
-- **32% less time** wasted reconstructing lost context ([McKinsey Research](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity))
-- **3.5x faster** onboarding for new developers
+- **Less time** wasted reconstructing lost context ([McKinsey Research](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity) shows developers spend significant time on context recovery)
+- **Faster** onboarding for new developers
 - **Dramatically improved** AI code generation quality
 - **Zero context loss** - every decision preserved with rationale
 
@@ -61,11 +61,11 @@ Context Mesh transforms how you develop software by making **context the primary
 
 ### For Development Teams
 
-- **32% reduction** in time wasted on context reconstruction ([McKinsey Research](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity))
-- **3.5x faster** developer onboarding
+- **Reduced time** wasted on context reconstruction ([McKinsey Research](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity) shows developers spend significant time on context recovery)
+- **Faster** developer onboarding
 - **Dramatically improved** code quality and maintainability
-- **40% faster** delivery cycles
-- **90% reduction** in time for heavy documentation tasks
+- **Faster** delivery cycles
+- **Reduced time** for heavy documentation tasks
 
 ### For Organizations
 
@@ -77,14 +77,11 @@ Context Mesh transforms how you develop software by making **context the primary
 
 ### ROI Example
 
-A team of 10 developers saves ~13 hours/week (32% of 40h) = **$520k/year**  
-(at $100/hour average developer cost)
+**Theoretical Calculation:**
+A team of 10 developers saving time on context reconstruction (based on research showing developers spend significant time on context recovery) can result in substantial cost savings. The exact ROI depends on your team size, hourly rates, and specific context challenges.
 
 **Real-World Results:**
-- ✅ **90% reduction** in legacy code documentation time (160h → 8h) - Global Tier-1 Bank
-- ✅ **40% increase** in development productivity - Insurance Company
-- ✅ **60% automation accuracy** in legacy code transformation (COBOL → Java)
-- ✅ **10 days** for complete monolith-to-micro-frontends migration (typically takes months)
+- ✅ **10 days** for complete monolith-to-micro-frontends migration (typically takes months) - 2 developers using Context Mesh
 
 ## 🧠 The Core Philosophy
 
@@ -179,17 +176,12 @@ Context Mesh is being used in production by teams building and modernizing real-
 
 ---
 
-**Enterprise Legacy Modernization** 📊
-- Global Tier-1 Bank: **90% reduction** in legacy code documentation time (160h → 8h)
-- Insurance Company: **40% increase** in development productivity
-- COBOL to Java Transformation: **60% automation accuracy** in code transformation
-
-**Common Results Across Teams:**
-- ✅ **40% faster** delivery cycles
-- ✅ **90% reduction** in time for heavy documentation tasks
-- ✅ **3-4x faster** development cycles
-- ✅ **60% reduction** in migration/refactoring time
-- ✅ **Faster onboarding** - new developers productive in days instead of weeks
+**Common Benefits Teams Experience:**
+- ✅ **Faster delivery cycles** - Context preservation reduces time spent on understanding and reconstruction
+- ✅ **Reduced documentation overhead** - Context Mesh structure makes documentation part of the workflow
+- ✅ **Faster development cycles** - AI tools work more effectively with rich context
+- ✅ **Faster onboarding** - New developers productive in days instead of weeks
+- ✅ **Better code quality** - Decisions and patterns preserved with full context
 
 ### Use Cases in Production
 
