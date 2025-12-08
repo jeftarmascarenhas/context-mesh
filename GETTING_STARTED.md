@@ -11,9 +11,61 @@ Before starting with Context Mesh, ensure you have:
 - AI development tools (Cursor, GitHub Copilot, etc.)
 - Team familiar with Agile/Scrum concepts (helpful but not required)
 
-## Quick Start (5 Minutes)
+## Quick Start (Choose Your Path)
 
-### 📋 Quick Start Checklist
+Context Mesh can be initialized in two ways. Choose the approach that works best for you:
+
+### Option A: AI-Assisted Init (Recommended - 2 minutes) ⚡
+
+**Fastest way to get started** - Use AI to create the complete Context Mesh structure automatically.
+
+#### Step 1: Use a Prompt Template
+
+Copy and adapt a prompt from [prompts/](prompts/) based on your scenario:
+
+- **New Project**: Use [prompts/new-project.md](prompts/new-project.md)
+- **Existing Project**: Use [prompts/existing-project.md](prompts/existing-project.md)
+- **Freelance Project**: Use [prompts/freelance-project.md](prompts/freelance-project.md)
+
+See [prompts/README.md](prompts/README.md) for a complete guide to all available prompts.
+
+**Example for New Project:**
+```
+Create a Context Mesh structure for a [PROJECT_TYPE] project following 
+the Context Mesh framework.
+
+Project details:
+- Name: [YOUR_PROJECT_NAME]
+- Type: [web app / API / mobile app / etc]
+- Tech Stack: [if known]
+- Main Features: [list features]
+
+Create:
+1. The complete context/ directory structure
+2. Initial project-intent.md with What, Why, and Success Criteria
+3. A basic AGENTS.md file referencing the context files
+4. Initial changelog.md
+
+Follow the structure from @examples/todo-app-complete/context/ as reference.
+```
+
+#### Step 2: Review and Refine
+
+1. Review the generated files
+2. Refine `project-intent.md` with your specific details
+3. Add any additional decisions or patterns as needed
+
+⏱️ **Total Time**: ~2 minutes
+
+**✅ Done!** You're ready to start using Context Mesh. Continue to [Step-by-Step Implementation](#step-by-step-implementation) below.
+
+---
+
+### Option B: Manual Setup (5 minutes) 📝
+
+**Prefer to create files manually?** Follow these steps:
+
+#### 📋 Quick Start Checklist
 
 ```
 🚀 Getting Started
@@ -25,15 +77,13 @@ Before starting with Context Mesh, ensure you have:
 
 **Progress**: [ ] 0/4 completed
 
----
-
-### Step 1: Understand the Framework
+#### Step 1: Understand the Framework
 
 Read the [FRAMEWORK.md](FRAMEWORK.md) to understand the 3-step workflow.
 
 ⏱️ **Time**: ~15 minutes
 
-### Step 2: Initialize Context
+#### Step 2: Initialize Context
 
 Create a `context/` directory in your project:
 
@@ -43,7 +93,7 @@ mkdir -p context/{intent,decisions,knowledge/{patterns,anti-patterns},evolution}
 
 ⏱️ **Time**: ~30 seconds
 
-### Step 3: Start with Intent
+#### Step 3: Start with Intent
 
 Create your first intent document:
 
@@ -60,12 +110,16 @@ cat > context/intent/project-intent.md << 'EOF'
 ## Success Criteria
 - [Criterion 1]
 - [Criterion 2]
+
+## Status
+- **Created**: YYYY-MM-DD (Phase: Intent)
+- **Status**: Draft
 EOF
 ```
 
 ⏱️ **Time**: ~5 minutes
 
-### Step 4: Follow the Workflow
+#### Step 4: Follow the Workflow
 
 Proceed through the 3 steps:
 1. ✅ **Intent** (you just did this)
@@ -460,6 +514,7 @@ See [FRAMEWORK.md](FRAMEWORK.md) for complete details on Status and Dates.
 
 ## Next Steps
 
+- **Quick Init**: See [prompts/](prompts/) for AI-assisted initialization templates
 - Read [INTEGRATION.md](INTEGRATION.md) for detailed integration guides
 - Check [TOOLS.md](TOOLS.md) for tooling recommendations
 - See [EXAMPLES.md](EXAMPLES.md) for real-world examples

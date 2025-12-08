@@ -110,9 +110,26 @@ See [FRAMEWORK.md](FRAMEWORK.md) for complete details.
 
 ---
 
-## 🚀 Quick Start (30 minutes)
+## 🚀 Quick Start
 
 Ready to fix the Context Crisis? Get started now:
+
+### ⚡ Fastest Path (2 minutes)
+
+**Don't want to create the structure manually?** Use AI to bootstrap it:
+
+1. **📋 Choose a prompt** from [prompts/](prompts/) based on your scenario
+2. **📝 Copy the prompt** from the prompt file
+3. **🤖 Use AI** (Cursor, Copilot, Claude) to generate the complete Context Mesh structure
+4. **✅ Review** and refine the generated files
+
+**That's it!** You're ready to use Context Mesh.
+
+[👉 See Prompt Templates →](prompts/README.md)
+
+### 📚 Complete Path (30 minutes)
+
+Want to understand everything first? Follow this path:
 
 1. **📘 Read** [FRAMEWORK.md](FRAMEWORK.md) - Understand the 3-step workflow ⏱️ 15 min
 2. **🚀 Follow** [GETTING_STARTED.md](GETTING_STARTED.md) - Hands-on implementation ⏱️ 10 min
@@ -140,6 +157,7 @@ Ready to fix the Context Crisis? Get started now:
 - [PRINCIPLES.md](PRINCIPLES.md) - The 5 AI-First principles explained ⏱️ 15 min
 
 **Want to see it in action?**
+- [prompts/](prompts/) - Quick init prompts for different scenarios ⚡ 2 min
 - [EXAMPLES.md](EXAMPLES.md) - Real-world examples, use cases, and success stories ⏱️ 10 min
 - [examples/](examples/) - Complete end-to-end examples ⏱️ 20 min
 
@@ -162,8 +180,9 @@ Ready to fix the Context Crisis? Get started now:
 | I want to... | Read this |
 |--------------|-----------|
 | Understand what Context Mesh is | [README.md](README.md) (this file) |
-| Learn how to use it | [FRAMEWORK.md](FRAMEWORK.md) |
+| Initialize quickly with AI | [prompts/](prompts/) - Prompt templates ⚡ |
 | Start using it now | [GETTING_STARTED.md](GETTING_STARTED.md) |
+| Learn how to use it | [FRAMEWORK.md](FRAMEWORK.md) |
 | See examples | [EXAMPLES.md](EXAMPLES.md) or [examples/](examples/) |
 | Use with Scrum/Agile | [INTEGRATION.md](INTEGRATION.md) |
 | Learn advanced patterns | [ADVANCED.md](ADVANCED.md) |
