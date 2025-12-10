@@ -27,12 +27,12 @@ While Context Mesh works perfectly with just the basic 3-step workflow (Intent, 
 ```
 project/
 ├── AGENTS.md          # Router: operational instructions + Context Mesh references
-├── context/           # Context Mesh: strategic context
-│   ├── intent/
-│   ├── decisions/
-│   └── knowledge/
-└── agents/            # Optional: specialized agent definitions (agent-*.md)
-    └── agent-*.md
+└── context/           # Context Mesh: strategic context
+    ├── intent/
+    ├── decisions/
+    ├── knowledge/
+    └── agents/        # Optional: specialized agent definitions (agent-*.md)
+        └── agent-*.md
 ```
 
 **AGENTS.md** should include a section like:
@@ -108,22 +108,21 @@ AI Agents are structured definitions that specify how AI should execute specific
 
 ### Structure
 
-Create an `agents/` directory alongside your `context/` directory and `AGENTS.md`:
+Create an `agents/` directory inside your `context/` directory:
 
 ```
 project/
 ├── AGENTS.md          # Router: operational instructions + Context Mesh references
-├── context/           # Context Mesh (what and why)
-│   ├── intent/
-│   ├── decisions/
-│   └── knowledge/
-│
-└── agents/            # Specialized AI Agents (how to execute specific parts)
-    ├── agent-planner.md
-    ├── agent-developer.md
-    ├── agent-reviewer.md
-    ├── agent-devops.md
-    └── agent-insights.md
+└── context/           # Context Mesh (what and why)
+    ├── intent/
+    ├── decisions/
+    ├── knowledge/
+    └── agents/        # Specialized AI Agents (how to execute specific parts)
+        ├── agent-planner.md
+        ├── agent-developer.md
+        ├── agent-reviewer.md
+        ├── agent-devops.md
+        └── agent-insights.md
 ```
 
 **Relationship**:
@@ -233,7 +232,7 @@ Context Mesh defines five standard agent types based on the framework's AI Agent
 - Help create decisions when approach is known
 - Organize context structure
 
-**Example** (`agents/agent-planner.md`):
+**Example** (`context/agents/agent-planner.md`):
 ```markdown
 # Agent: Planner
 
@@ -283,7 +282,7 @@ Assist in planning and creating structured context during Step 1 (Intent).
 - Link code to context
 - Update context with implementation details
 
-**Example** (`agents/agent-developer.md`):
+**Example** (`context/agents/agent-developer.md`):
 ```markdown
 # Agent: Developer
 
@@ -342,7 +341,7 @@ Generate code based on context, following patterns and decisions during Step 2 (
 - Identify anti-patterns
 - Suggest improvements
 
-**Example** (`agents/agent-reviewer.md`):
+**Example** (`context/agents/agent-reviewer.md`):
 ```markdown
 # Agent: Reviewer
 
@@ -398,7 +397,7 @@ Review code for quality and context alignment during Step 2 (Build).
 - Ensure deployment traceability
 - Link deployment to context
 
-**Example** (`agents/agent-devops.md`):
+**Example** (`context/agents/agent-devops.md`):
 ```markdown
 # Agent: DevOps
 
@@ -451,7 +450,7 @@ Manage deployment, configure observability, and ensure deployment traceability d
 - Update context with outcomes
 - Suggest intent refinements
 
-**Example** (`agents/agent-insights.md`):
+**Example** (`context/agents/agent-insights.md`):
 ```markdown
 # Agent: Insights
 
@@ -509,7 +508,7 @@ Analyze metrics, extract learnings, and update context during Step 3 (Learn).
 
 **Pattern 1: Complete Build**
 ```
-1. Load: @agents/agent-developer.md
+1. Load: @context/agents/agent-developer.md
 2. Load: @context/intent/feature-*.md
 3. Load: @context/decisions/*.md
 4. Execute: "Generate the feature following the Developer agent instructions"
@@ -517,16 +516,16 @@ Analyze metrics, extract learnings, and update context during Step 3 (Learn).
 
 **Pattern 2: Modular Execution with Specialized Agents**
 ```
-1. Load: @agents/agent-backend.md (specialized agent)
+1. Load: @context/agents/agent-backend.md (specialized agent)
 2. Load: @context/intent/feature-*.md
 3. Load: @context/decisions/002-database.md
 4. Execute: "Generate the backend API following agent-backend.md instructions"
-5. Then: Load @agents/agent-reviewer.md and review
+5. Then: Load @context/agents/agent-reviewer.md and review
 ```
 
 **Pattern 2b: Feature-Specific Agent**
 ```
-1. Load: @agents/agent-payment.md (feature-specific agent)
+1. Load: @context/agents/agent-payment.md (feature-specific agent)
 2. Load: @context/intent/feature-payment.md
 3. Execute: "Implement payment feature following agent-payment.md"
 ```
@@ -544,7 +543,7 @@ You can create custom agents for specific needs. Here are examples of specialize
 
 #### Example 1: Backend Specialist (Detailed Format)
 
-**Example**: `agent-backend.md`
+**Example**: `context/agents/agent-backend.md`
 ```markdown
 # Agent: Backend Specialist (NestJS + Prisma)
 
@@ -590,7 +589,7 @@ You can create custom agents for specific needs. Here are examples of specialize
 
 #### Example 2: Frontend Specialist
 
-**Example**: `agent-frontend.md`
+**Example**: `context/agents/agent-frontend.md`
 ```markdown
 # Agent: Frontend Specialist (React + TypeScript)
 
@@ -634,7 +633,7 @@ You can create custom agents for specific needs. Here are examples of specialize
 
 #### Example 3: Database Specialist
 
-**Example**: `agent-database.md`
+**Example**: `context/agents/agent-database.md`
 ```markdown
 # Agent: Database Specialist (Prisma)
 
@@ -675,7 +674,7 @@ You can create custom agents for specific needs. Here are examples of specialize
 
 #### Example 4: Feature-Specific Agent
 
-**Example**: `agent-payment.md`
+**Example**: `context/agents/agent-payment.md`
 ```markdown
 # Agent: Payment Feature Specialist
 
@@ -765,7 +764,7 @@ When working on this project, AI agents should load:
 2. **Map ADRs to Decisions**: Convert `ADR-XXX` references to `context/decisions/XXX-*.md`
 3. **Map Overview to Intent**: Convert `MVP_OVERVIEW.md` to `context/intent/project-intent.md`
 4. **Add Pattern References**: Link to `context/knowledge/patterns/` when applicable
-5. **Update Agent Files**: Update `agents/agent-*.md` files to reference Context Mesh
+5. **Update Agent Files**: Update `context/agents/agent-*.md` files to reference Context Mesh
 6. **Update References Section**: Use Context Mesh file references (`@context/...`)
 
 ### Benefits of Migration
@@ -848,7 +847,7 @@ AI Agents **complement** Context Mesh, they don't replace it:
 
 **With Agents**:
 ```
-1. Load: @agents/agent-developer.md
+1. Load: @context/agents/agent-developer.md
 2. Load: @context/intent/feature-auth.md
 3. Load: @context/decisions/001-jwt.md
 4. Prompt: "Execute Developer agent for authentication feature"
@@ -858,10 +857,10 @@ AI Agents **complement** Context Mesh, they don't replace it:
 
 **With Agents** (modular):
 ```
-1. Load: @agents/agent-developer.md
+1. Load: @context/agents/agent-developer.md
 2. Load: @context/intent/feature-checkout.md
 3. Execute: "Generate API layer only"
-4. Then: Load @agents/agent-reviewer.md
+4. Then: Load @context/agents/agent-reviewer.md
 5. Execute: "Review API layer"
 6. Then: Continue with UI layer...
 ```

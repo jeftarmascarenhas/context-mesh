@@ -2,6 +2,8 @@
 
 This guide will help you get started with Context Mesh in your project.
 
+**Context Mesh is a process framework** with 3 core steps (Intent, Build, Learn) that can be customized to fit your workflow. The framework provides structure while allowing flexibility in implementation to maximize its benefits for your team and project.
+
 ## Prerequisites
 
 Before starting with Context Mesh, ensure you have:
@@ -148,13 +150,15 @@ your-project/
 │   ├── knowledge/
 │   │   ├── patterns/
 │   │   └── anti-patterns/
+│   ├── agents/        # Optional: specialized agent definitions (see ADVANCED.md)
+│   │   └── agent-*.md
 │   └── evolution/
 │       ├── changelog.md
 │       └── learning-*.md
 └── [your code]
 ```
 
-**Note**: `AGENTS.md` is optional but recommended. It acts as a router that references Context Mesh files, providing operational instructions (setup, commands, conventions) while Context Mesh provides strategic context (intent, decisions, knowledge). See [TOOLS.md](TOOLS.md) for details.
+**Note**: `AGENTS.md` is optional but recommended. It acts as a **succinct router** that references Context Mesh files, providing essential operational instructions (setup, commands, conventions) while Context Mesh provides strategic context (intent, decisions, knowledge). **Important**: Keep AGENTS.md updated when context changes to maintain accurate routing for AI agents. See [TOOLS.md](TOOLS.md) for details.
 
 ### 2. Context Management
 
@@ -247,15 +251,32 @@ Context Mesh Workflow
 
 ### Step 2: Build
 
-**Objective**: AI builds with context, human supervises, and decisions are documented.
+**Objective**: AI builds with context, human supervises, and decisions are documented. **Feature implementation must follow DoD and have ADR (decision) before implementation.**
+
+**Prerequisites** (from Step 1):
+- ✅ Intent Statement (What + Why) - **Required** (`feature-*.md`, `bug-*.md`, or `project-intent.md`)
+- ✅ Technical Decision (ADR) - **Required before implementation** (must exist or be created before Build)
+- ✅ Initial patterns (if known) - **Optional, can identify during Build**
+
+**Critical Requirement - ADR Before Implementation**: 
+- Before implementing any feature, **verify if a technical decision (ADR) exists** for the approach needed
+- If no decision exists, **create the decision first** in Step 1 (Intent) or at the start of Step 2 (Build) before proceeding with implementation
+- **Do not start implementation without a documented decision** - this ensures all technical choices are documented with context and rationale
+- Feature implementation must follow the Definition of Done (DoD) for the step
 
 **Activities**:
 
-1. **AI Code Generation**:
+1. **Verify Decision (ADR) exists**:
+   - Check if technical decision exists for the feature
+   - If missing, **create decision first** (document: Context, Decision, Rationale, Alternatives)
+   - Only proceed with implementation after decision is documented
+
+2. **AI Code Generation**:
    - Use AI tools with full context (intent, decisions, patterns, existing code)
    - Provide context to AI including patterns from knowledge/
    - **Use simple prompts that reference context files** (context is primary, prompts should be minimal)
-   - Generate code based on intent
+   - Generate code based on intent and documented decisions
+   - Follow Definition of Done (DoD) for feature implementation
    - Follow established patterns, avoid known anti-patterns
    - Link code to context
 
@@ -269,7 +290,7 @@ Context Mesh Workflow
    The context files contain all details - the prompt just directs the AI to the right context.
    
    **2. AI Agents (Advanced - When Needed):**
-   For complex projects or teams, use `agents/agent-*.md` files for structured execution.
+   For complex projects or teams, use `context/agents/agent-*.md` files for structured execution.
    See [ADVANCED.md](ADVANCED.md) for details.
    
    **3. Detailed Prompts (Avoid):**
@@ -284,8 +305,9 @@ Context Mesh Workflow
    - Ensure code quality
 
 3. **Create or Update Decisions**:
+   - **Verify decision exists before implementation** - if missing, create it first
    - Use decisions from Step 1 if they exist (recommended approach)
-   - Create new decisions if technical choices emerge during Build
+   - Create new decisions if additional technical choices emerge during Build
    - Update existing decisions if implementation approach differs from plan
    ```markdown
    # Decision: [Title]
@@ -317,19 +339,22 @@ Context Mesh Workflow
 
 ```
 ✅ Build Phase Checklist
-├── ☐ Code implemented using context
-├── ☐ Important decisions documented (with rationale)
+├── ☐ Technical decision (ADR) verified or created before implementation - **Required**
+├── ☐ Code implemented using context and following DoD - **Required**
+├── ☐ Important decisions documented (with rationale) - **Required**
 ├── ☐ Code linked to context (intent, decisions)
 ├── ☐ Human review completed
 ├── ☐ Context updated with implementation details
 └── ☐ Code validated against intent
 ```
 
-**Progress**: [ ] 0/6 completed
+**Progress**: [ ] 0/7 completed
 
 **Tips**:
+- **Always verify decision (ADR) exists before implementing** - create it first if missing
 - Always provide full context to AI
 - Document decisions as you make them
+- Follow DoD for feature implementation
 - Review AI-generated code carefully
 - Keep context updated continuously
 

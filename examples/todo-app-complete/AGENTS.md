@@ -1,8 +1,10 @@
 # AGENTS.md - Todo App Example
 
-This `AGENTS.md` file demonstrates how AGENTS.md integrates with Context Mesh. It acts as a **router** that references Context Mesh files for strategic context while providing operational instructions for building the Todo application.
+This `AGENTS.md` file demonstrates how AGENTS.md integrates with Context Mesh. It acts as a **succinct router** that directs AI agents to Context Mesh files for strategic context while providing essential operational instructions.
 
 > **Note**: This is an example for the Todo App. See [AGENTS.md website](https://agents.md/) for the standard format.
+> 
+> **Important**: Keep this file updated when context changes to maintain accurate routing for AI agents and ensure the living context stays synchronized.
 
 ---
 
@@ -57,41 +59,27 @@ This `AGENTS.md` file demonstrates how AGENTS.md integrates with Context Mesh. I
 
 ## Context Files to Load
 
-**This is the key integration point with Context Mesh.**
+**This is the key integration point with Context Mesh. Keep this section updated when context changes.**
 
-When working on this project, AI agents **must** load Context Mesh files for strategic context:
+When working on this project, AI agents should load relevant Context Mesh files:
 
-### Project Overview (Always Load)
-- `@context/intent/project-intent.md` - Overall project goals, scope, and success criteria
+**Always load:**
+- `@context/intent/project-intent.md`
 
-### Technical Decisions (Load as Needed)
-- `@context/decisions/001-tech-stack.md` - Technology stack (React, Express, Prisma, PostgreSQL)
-- `@context/decisions/002-auth-approach.md` - Authentication approach (JWT, bcrypt, httpOnly cookies)
-- `@context/decisions/003-database-schema.md` - Database schema (Prisma models)
-- `@context/decisions/004-dev-environment.md` - Development environment (Docker Compose, prerequisites)
-- `@context/decisions/005-testing-strategy.md` - Testing strategy (Jest, React Testing Library, coverage)
-- `@context/decisions/006-ci-cd-pipeline.md` - CI/CD pipeline (GitHub Actions, workflows)
-- `@context/decisions/007-deployment-platforms.md` - Deployment platforms (Railway, Vercel)
+**Load as needed:**
+- `@context/decisions/001-tech-stack.md`
+- `@context/decisions/002-auth-approach.md`
+- `@context/decisions/003-database-schema.md`
+- `@context/decisions/004-dev-environment.md`
+- `@context/decisions/005-testing-strategy.md`
+- `@context/decisions/006-ci-cd-pipeline.md`
+- `@context/decisions/007-deployment-platforms.md`
+- `@context/knowledge/patterns/*.md`
+- `@context/knowledge/anti-patterns/*.md`
+- `@context/intent/feature-*.md` (when working on specific features)
+- `@context/evolution/changelog.md` (when needed)
 
-### Knowledge and Patterns (Load as Needed)
-- `@context/knowledge/patterns/api-design.md` - API design pattern (endpoints, request/response format)
-- `@context/knowledge/patterns/docker-compose.md` - Docker Compose configuration pattern
-- `@context/knowledge/patterns/github-actions.md` - GitHub Actions workflow pattern
-- `@context/knowledge/patterns/testing.md` - Unit testing pattern (backend and frontend)
-- `@context/knowledge/anti-patterns/avoid-direct-db.md` - Anti-pattern to avoid (service layer pattern)
-
-### Feature-Specific Context (Load When Working on Feature)
-- `@context/intent/feature-user-auth.md` - User authentication requirements
-- `@context/intent/feature-todo-crud.md` - Todo CRUD requirements
-- `@context/intent/feature-testing.md` - Testing implementation requirements
-- `@context/intent/feature-ci-cd.md` - CI/CD pipeline requirements
-- `@context/intent/bug-todo-persistence.md` - Bug fix requirements (if fixing bugs)
-
-### Evolution (Reference When Needed)
-- `@context/evolution/changelog.md` - Project changelog
-- `@context/evolution/learning-001-auth.md` - Learnings from authentication implementation
-
-**How to use**: When an AI agent starts working, it should load the relevant Context Mesh files above to understand the strategic context (what, why, how decided) before executing operational tasks.
+**How to use**: Load relevant Context Mesh files to understand strategic context before executing tasks. All details are in the context files - this file just routes you there.
 
 ---
 
@@ -142,35 +130,9 @@ todo-app/
 
 ## Development Workflow
 
-### Step 1: Load Context (Context Mesh Integration)
-
-Before starting work, load relevant Context Mesh files:
-
-**Always load:**
-- `@context/intent/project-intent.md` - Project overview
-
-**Load based on task:**
-- Working on auth? → `@context/intent/feature-user-auth.md` + `@context/decisions/002-auth-approach.md`
-- Working on todos? → `@context/intent/feature-todo-crud.md` + `@context/decisions/003-database-schema.md`
-- Setting up environment? → `@context/decisions/004-dev-environment.md` + `@context/knowledge/patterns/docker-compose.md`
-- Working on tests? → `@context/intent/feature-testing.md` + `@context/decisions/005-testing-strategy.md` + `@context/knowledge/patterns/testing.md`
-- Working on CI/CD? → `@context/intent/feature-ci-cd.md` + `@context/decisions/006-ci-cd-pipeline.md` + `@context/knowledge/patterns/github-actions.md`
-- Working on deployment? → `@context/decisions/007-deployment-platforms.md`
-- Working on API? → `@context/knowledge/patterns/api-design.md`
-- Avoiding mistakes? → `@context/knowledge/anti-patterns/avoid-direct-db.md`
-
-### Step 2: Follow Context Mesh Workflow
-
-1. **Intent**: Understand what to build (from Context Mesh)
-2. **Build**: Generate code following patterns and decisions from Context Mesh
-3. **Learn**: Update context after changes (if implementation differs from plan)
-
-### Step 3: Execute
-
-- Follow code style and conventions
-- Use **simple prompts** that reference Context Mesh files (see README.md)
-- Run tests before committing
-- Update context if implementation differs from plan
+1. **Load Context**: Load relevant Context Mesh files (see "Context Files to Load" above)
+2. **Follow Context Mesh**: Intent → Build → Learn
+3. **Execute**: Use simple prompts referencing Context Mesh files, run tests, update context if needed
 
 ---
 
@@ -228,53 +190,30 @@ See `@context/decisions/001-tech-stack.md` for complete technology stack.
 
 ## Coding Conventions
 
-### Backend
-
-- **Service Layer Pattern**: Always use service layer, never access Prisma directly from routes
-  - See: `@context/knowledge/anti-patterns/avoid-direct-db.md`
-- **DTOs**: Use DTOs with validation (class-validator)
-- **Error Handling**: Use error middleware
-- **Authentication**: JWT middleware for protected routes
-- **API Format**: Follow `@context/knowledge/patterns/api-design.md`
-
-### Frontend
-
-- **Components**: Functional components with TypeScript
-- **State Management**: React hooks (useState, useContext)
-- **API Calls**: Use Axios service (see `services/api.ts`)
-- **Routing**: React Router with protected routes
-- **Authentication**: Auth context/provider for managing auth state
+See Context Mesh files for details:
+- Backend patterns: `@context/knowledge/patterns/api-design.md`
+- Anti-patterns: `@context/knowledge/anti-patterns/avoid-direct-db.md`
+- Tech stack: `@context/decisions/001-tech-stack.md`
 
 ---
 
 ## Definition of Done
 
-Before completing work:
-
+- [ ] Technical decision (ADR) verified or created before implementation - **Required**
 - [ ] Code follows patterns from Context Mesh
 - [ ] Decisions from Context Mesh are respected
-- [ ] Service layer pattern used (no direct DB access in routes)
-- [ ] API follows pattern from `@context/knowledge/patterns/api-design.md`
-- [ ] Unit tests written and passing (70% coverage minimum)
-- [ ] Tests run successfully (`npm test`)
-- [ ] Linter passing
-- [ ] Docker Compose database setup working (if applicable)
-- [ ] CI/CD workflows configured (if applicable)
+- [ ] Tests passing (70% coverage minimum)
 - [ ] Context updated if implementation differs from plan
-- [ ] Code linked to relevant intent/decisions
 
 ---
 
 ## Common Mistakes to Avoid
 
-| Mistake | Why it's bad | Context Mesh Reference |
-|---------|--------------|----------------------|
-| Direct DB access in routes | Breaks architecture, hard to test | `@context/knowledge/anti-patterns/avoid-direct-db.md` |
-| Ignoring API pattern | Inconsistent API responses | `@context/knowledge/patterns/api-design.md` |
-| Not using service layer | Violates architecture decision | `@context/knowledge/anti-patterns/avoid-direct-db.md` |
-| Not updating context | Context becomes stale | Context Mesh principle |
-| Skipping tests | Reduces quality | Project success criteria |
-| Detailed prompts | Duplicates context | Context Mesh philosophy |
+See `@context/knowledge/anti-patterns/` for details. Key points:
+- Don't ignore decisions from Context Mesh
+- Don't skip creating ADR before implementation
+- Don't use detailed prompts (reference context files instead)
+- Keep context updated
 
 ---
 

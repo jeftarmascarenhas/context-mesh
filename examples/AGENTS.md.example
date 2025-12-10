@@ -67,8 +67,8 @@ root/
 │   └── knowledge/
 │       ├── patterns/
 │       └── anti-patterns/
-├── agents/                 # Optional: specialized agent definitions
-│   └── agent-*.md
+│   └── agents/             # Optional: specialized agent definitions
+│       └── agent-*.md
 ├── apps/
 │   ├── api/                # Backend API
 │   └── web/                # Frontend
@@ -171,10 +171,10 @@ Before completing work:
 
 ## Specialized Agents
 
-For complex projects, see specialized agents in `agents/` directory:
-- `agents/agent-backend.md` - Backend-specific instructions
-- `agents/agent-frontend.md` - Frontend-specific instructions
-- `agents/agent-database.md` - Database-specific instructions
+For complex projects, see specialized agents in `context/agents/` directory:
+- `context/agents/agent-backend.md` - Backend-specific instructions
+- `context/agents/agent-frontend.md` - Frontend-specific instructions
+- `context/agents/agent-database.md` - Database-specific instructions
 
 Each specialized agent references Context Mesh files relevant to its scope.
 

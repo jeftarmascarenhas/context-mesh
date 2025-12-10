@@ -40,8 +40,13 @@ After I answer, create:
    - Success Criteria: Measurable outcomes
    - Related: Links to related features (if any)
    - Status: Created date and Draft status
-2. If technical decisions are needed, create context/decisions/[number]-[decision-name].md files
+2. **If technical decisions are needed, create context/decisions/[number]-[decision-name].md files BEFORE implementation**
+   - **Important**: Technical decisions (ADR) must exist before implementing the feature
+   - If no decision exists for the technical approach, create it first
+   - This ensures all technical choices are documented with context and rationale
 3. If project scope changes, update context/intent/project-intent.md accordingly
+
+**Before implementation**: Verify that technical decision (ADR) exists. If missing, create it first. Feature implementation must follow the Definition of Done (DoD) for the Build step.
 
 Make sure all files follow Context Mesh format with proper Status sections.
 ```
@@ -61,8 +66,12 @@ Make sure all files follow Context Mesh format with proper Status sections.
 ## After Using This Prompt
 
 1. **Review feature intent** - Ensure it accurately describes what you want to build
-2. **Create decisions** - If the prompt identified decisions needed, create those files
-3. **Start building** - Use the feature intent to guide development
+2. **Create decisions (ADR) BEFORE implementation** - If the prompt identified decisions needed, create those files first
+   - **Critical**: Do not start implementation without a documented technical decision (ADR)
+   - Verify decision exists before proceeding to Build step
+3. **Start building** - Use the feature intent and documented decisions to guide development
+   - Follow Definition of Done (DoD) for feature implementation
+   - Ensure ADR exists before implementing
 4. **Update as you build** - Follow Intent → Build → Learn workflow
 5. **Document learnings** - Add to evolution/ after implementation
 
@@ -72,7 +81,9 @@ Make sure all files follow Context Mesh format with proper Status sections.
 
 - **Be specific** - Clear feature description helps with implementation
 - **Link related features** - Helps maintain context relationships
-- **Create decisions early** - Document technical choices before building
+- **Create decisions (ADR) BEFORE building** - Document technical choices before implementation (required)
+- **Verify ADR exists** - Always check if technical decision exists before starting implementation
+- **Follow DoD** - Feature implementation must follow Definition of Done for the Build step
 - **Update project intent** - Keep it aligned with project evolution
 - **Track learnings** - Document what works/doesn't work after building
 
@@ -90,4 +101,5 @@ This feature is complex. Please:
 ```
 
 This helps manage large features with proper context structure.
+
 

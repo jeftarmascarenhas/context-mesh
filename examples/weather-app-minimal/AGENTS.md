@@ -1,8 +1,10 @@
 # AGENTS.md - Weather App Minimal Example
 
-This `AGENTS.md` file demonstrates how AGENTS.md integrates with Context Mesh. It acts as a **router** that references Context Mesh files for strategic context while providing operational instructions for building the Weather application.
+This `AGENTS.md` file demonstrates how AGENTS.md integrates with Context Mesh. It acts as a **succinct router** that directs AI agents to Context Mesh files for strategic context while providing essential operational instructions.
 
 > **Note**: This is an example for the Weather App Minimal. See [AGENTS.md website](https://agents.md/) for the standard format.
+> 
+> **Important**: Keep this file updated when context changes to maintain accurate routing for AI agents and ensure the living context stays synchronized.
 
 ---
 
@@ -44,28 +46,21 @@ Get API key from: https://openweathermap.org/api (free tier)
 
 ## Context Files to Load
 
-**This is the key integration point with Context Mesh.**
+**This is the key integration point with Context Mesh. Keep this section updated when context changes.**
 
-When working on this project, AI agents **must** load Context Mesh files for strategic context:
+When working on this project, AI agents should load relevant Context Mesh files:
 
-### Project Overview (Always Load)
-- `@context/intent/project-intent.md` - Overall project goals, scope, and success criteria
+**Always load:**
+- `@context/intent/project-intent.md`
 
-### Technical Decisions (Load as Needed)
-- `@context/decisions/001-tech-stack.md` - Technology stack (Vite, Fastify, shadcn-ui)
-- `@context/decisions/002-api-integration.md` - API integration (OpenWeatherMap)
+**Load as needed:**
+- `@context/decisions/001-tech-stack.md`
+- `@context/decisions/002-api-integration.md`
+- `@context/knowledge/patterns/*.md`
+- `@context/intent/feature-weather-display.md` (when working on weather feature)
+- `@context/evolution/changelog.md` (when needed)
 
-### Knowledge and Patterns (Load as Needed)
-- `@context/knowledge/patterns/api-design.md` - API design pattern (endpoints, request/response format)
-- `@context/knowledge/patterns/component-structure.md` - Component structure pattern (React, shadcn-ui)
-
-### Feature-Specific Context (Load When Working on Feature)
-- `@context/intent/feature-weather-display.md` - Weather display requirements
-
-### Evolution (Reference When Needed)
-- `@context/evolution/changelog.md` - Project changelog
-
-**How to use**: When an AI agent starts working, it should load the relevant Context Mesh files above to understand the strategic context (what, why, how decided) before executing operational tasks.
+**How to use**: Load relevant Context Mesh files to understand strategic context before executing tasks. All details are in the context files - this file just routes you there.
 
 ---
 
@@ -121,30 +116,9 @@ weather-app-minimal/
 
 ## Development Workflow
 
-### Step 1: Load Context (Context Mesh Integration)
-
-Before starting work, load relevant Context Mesh files:
-
-**Always load:**
-- `@context/intent/project-intent.md` - Project overview
-
-**Load based on task:**
-- Working on backend? → `@context/decisions/001-tech-stack.md` + `@context/decisions/002-api-integration.md` + `@context/knowledge/patterns/api-design.md`
-- Working on frontend? → `@context/decisions/001-tech-stack.md` + `@context/knowledge/patterns/component-structure.md` + `@context/intent/feature-weather-display.md`
-- Working on API? → `@context/knowledge/patterns/api-design.md` + `@context/decisions/002-api-integration.md`
-
-### Step 2: Follow Context Mesh Workflow
-
-1. **Intent**: Understand what to build (from Context Mesh)
-2. **Build**: Generate code following patterns and decisions from Context Mesh
-3. **Learn**: Update context after changes (if implementation differs from plan)
-
-### Step 3: Execute
-
-- Follow code style and conventions
-- Use **simple prompts** that reference Context Mesh files (see README.md)
-- Run and test before completing
-- Update context if implementation differs from plan
+1. **Load Context**: Load relevant Context Mesh files (see "Context Files to Load" above)
+2. **Follow Context Mesh**: Intent → Build → Learn
+3. **Execute**: Use simple prompts referencing Context Mesh files, run tests, update context if needed
 
 ---
 
@@ -168,49 +142,22 @@ Before starting work, load relevant Context Mesh files:
 
 ---
 
-## Architecture Overview
+## Architecture & Conventions
 
-See `@context/decisions/001-tech-stack.md` for complete technology stack.
-
-**Key Technologies:**
-- **Frontend**: Vite + React 18+ with TypeScript, shadcn-ui, Tailwind CSS
-- **Backend**: Node.js 20+ with Fastify, TypeScript, Swagger
-- **API**: OpenWeatherMap (see `@context/decisions/002-api-integration.md`)
-- **API Design**: RESTful API following `@context/knowledge/patterns/api-design.md`
-
----
-
-## Coding Conventions
-
-### Backend
-
-- **Service Layer Pattern**: Use service layer for business logic
-- **Fastify Plugins**: Use plugins for Swagger, CORS
-- **Error Handling**: Follow API design pattern
-- **API Format**: Follow `@context/knowledge/patterns/api-design.md`
-- **Swagger**: Document all endpoints
-
-### Frontend
-
-- **Components**: Functional components with TypeScript
-- **State Management**: React hooks (useState)
-- **API Calls**: Use Axios service (see `services/api.ts`)
-- **UI Components**: Use shadcn-ui components
-- **Styling**: Tailwind CSS (via shadcn-ui)
+See Context Mesh files for details:
+- Tech stack: `@context/decisions/001-tech-stack.md`
+- API integration: `@context/decisions/002-api-integration.md`
+- Patterns: `@context/knowledge/patterns/*.md`
 
 ---
 
 ## Definition of Done
 
-Before completing work:
-
+- [ ] Technical decision (ADR) verified or created before implementation - **Required**
 - [ ] Code follows patterns from Context Mesh
 - [ ] Decisions from Context Mesh are respected
-- [ ] API follows pattern from `@context/knowledge/patterns/api-design.md`
-- [ ] Components follow pattern from `@context/knowledge/patterns/component-structure.md`
 - [ ] Code runs without errors
 - [ ] Context updated if implementation differs from plan
-- [ ] Code linked to relevant intent/decisions
 
 ---
 

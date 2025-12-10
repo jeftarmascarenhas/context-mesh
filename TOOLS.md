@@ -35,6 +35,8 @@ your-project/
 │   ├── knowledge/
 │   │   ├── patterns/
 │   │   └── anti-patterns/
+│   ├── agents/        # Optional: specialized agent definitions (see ADVANCED.md)
+│   │   └── agent-*.md
 │   └── evolution/
 │       ├── changelog.md
 │       └── learning-*.md
@@ -87,24 +89,26 @@ As your project grows, you may want to consider:
 
 ### How They Work Together
 
-**AGENTS.md** acts as a **router** that uses **Context Mesh** as the central knowledge hub:
+**AGENTS.md** acts as a **succinct router** that directs AI agents to Context Mesh files. Keep it minimal - the context files contain all the details:
 
-- **AGENTS.md** provides operational instructions:
-  - Setup commands (`pnpm install`, `npm run dev`)
-  - Development workflow
-  - Code style and conventions
-  - Testing instructions
-  - Project structure
-  - Build and deployment steps
+- **AGENTS.md** provides minimal operational instructions:
+  - Essential setup commands
+  - Basic workflow
+  - Code style basics
+  - **References to Context Mesh files** (this is the key)
 
-- **Context Mesh** provides strategic context:
+- **Context Mesh** provides all strategic context:
   - Intent (what to build and why)
   - Decisions (how and why we chose)
   - Knowledge (patterns, learnings)
 
-**Together**: AGENTS.md routes AI agents to Context Mesh files, providing both operational guidance and strategic context.
+**Together**: AGENTS.md routes AI agents to Context Mesh files, providing operational routing while Context Mesh provides the complete strategic context.
+
+**Important**: AGENTS.md must be **kept updated** to maintain the living context. When context files are added, updated, or removed, update AGENTS.md accordingly to ensure AI agents always have accurate routing to the current context. This keeps the living context synchronized and ensures AI agents can find the right context files.
 
 ### Example AGENTS.md Structure
+
+Keep it **succinct** - focus on routing to Context Mesh:
 
 ```markdown
 # AGENTS.md
@@ -117,24 +121,24 @@ As your project grows, you may want to consider:
 ## Code Style
 - TypeScript strict mode
 - Single quotes, no semicolons
-- Use functional patterns where possible
 
 ## Context Files to Load
 
-When working on this project, AI agents should load Context Mesh files:
+When working on this project, AI agents should load:
 
-- @context/intent/project-intent.md (overall project goals)
-- @context/decisions/001-tech-stack.md (technology choices)
-- @context/decisions/002-database.md (database design)
-- @context/knowledge/patterns/*.md (coding patterns)
+- @context/intent/project-intent.md
+- @context/decisions/001-tech-stack.md
+- @context/decisions/002-database.md
+- @context/knowledge/patterns/*.md
 
 ## Development Workflow
 
 1. Load Context Mesh files (see above)
-2. Follow patterns from @context/knowledge/patterns/
-3. Reference decisions from @context/decisions/
-4. Update context after changes
+2. Follow Context Mesh workflow (Intent → Build → Learn)
+3. Update context after changes
 ```
+
+**Note**: Keep AGENTS.md minimal. All details are in Context Mesh files. Update AGENTS.md when context changes.
 
 ### Benefits
 

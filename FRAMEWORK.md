@@ -2,9 +2,22 @@
 
 ## Framework Overview
 
-Context Mesh is an AI-First development framework that implements the 5 Philosophical Principles of AI-First Development. Context Mesh treats context as the primary creation, with code as its manifestation, enabling sustainable AI-assisted development.
+Context Mesh is a **process framework** for AI-First development that implements the 5 Philosophical Principles of AI-First Development. Context Mesh treats context as the primary creation, with code as its manifestation, enabling sustainable AI-assisted development.
+
+**Context Mesh is a process framework with 3 core steps** (Intent, Build, Learn) that can be **customized** to maximize its benefits for your team and project. The framework provides structure while allowing flexibility in implementation.
 
 **Context Mesh is not a replacement for Scrum or Agile** - it's a complementary framework specifically designed for AI-First development that can be used alongside existing methodologies.
+
+### Customizing Context Mesh
+
+Context Mesh is designed to be **customizable** while maintaining its core structure:
+
+- **Core is fixed**: The 3 steps (Intent, Build, Learn) are the foundation of the framework
+- **Process is flexible**: You can adapt how you execute each step to fit your workflow and team needs
+- **Customize to maximize value**: Adjust the process to get the best results from Context Mesh for your specific context
+- **Works with any methodology**: Integrates seamlessly with Scrum, Kanban, DevOps, or your own development process
+
+The framework provides the essential structure (3 steps) while allowing you to customize the implementation details to fit your needs and maximize the benefits of the Context Mesh process.
 
 ## Using AI as Your Assistant
 
@@ -71,14 +84,12 @@ Context Mesh works seamlessly with the **[AGENTS.md](https://agents.md/)** stand
 
 ### How They Work Together
 
-**AGENTS.md** acts as a **router** that uses **Context Mesh** as the central knowledge hub:
+**AGENTS.md** acts as a **router** that directs AI agents to Context Mesh files. Keep it **succinct** - it should primarily indicate where to find context, not duplicate it:
 
-- **AGENTS.md** = Operational instructions (how to work in the project)
-  - Setup commands
-  - Development workflow
-  - Code style and conventions
-  - Testing instructions
-  - Project structure
+- **AGENTS.md** = Operational router (where to find context)
+  - Essential setup commands
+  - Basic development workflow
+  - References to Context Mesh files
 
 - **Context Mesh** = Strategic context (what to build and why)
   - Intent (what and why)
@@ -92,17 +103,17 @@ Context Mesh works seamlessly with the **[AGENTS.md](https://agents.md/)** stand
 ```
 project/
 ├── AGENTS.md          # Router: operational instructions + references to Context Mesh
-├── context/           # Context Mesh: strategic context (intent, decisions, knowledge)
-│   ├── intent/
-│   ├── decisions/
-│   └── knowledge/
-└── agents/            # Optional: specialized agent definitions (see ADVANCED.md)
-    └── agent-*.md
+└── context/           # Context Mesh: strategic context (intent, decisions, knowledge)
+    ├── intent/
+    ├── decisions/
+    ├── knowledge/
+    └── agents/        # Optional: specialized agent definitions (see ADVANCED.md)
+        └── agent-*.md
 ```
 
 ### AGENTS.md References Context Mesh
 
-Your `AGENTS.md` should reference Context Mesh files:
+Your `AGENTS.md` should be **succinct** and focus on routing AI agents to Context Mesh files. Keep it minimal - the context files contain all the details:
 
 ```markdown
 ## Context Files to Load
@@ -115,7 +126,9 @@ When working on this project, AI agents should load:
 - @context/knowledge/patterns/*.md (coding patterns)
 ```
 
-This way, AGENTS.md provides the **operational how-to**, while Context Mesh provides the **strategic why and what**.
+This way, AGENTS.md provides the **operational how-to** and routing, while Context Mesh provides the **strategic why and what**.
+
+**Important**: AGENTS.md should be **kept updated** to reflect changes in the living context. When context files are added, updated, or removed, update AGENTS.md accordingly to maintain accurate routing for AI agents.
 
 ### Benefits
 
@@ -243,15 +256,21 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 
 **Prerequisites** (from Step 1):
 - ✅ Intent Statement (What + Why) - **Required** (`feature-*.md`, `bug-*.md`, or `project-intent.md`)
-- ✅ Technical Decisions (if planned in Step 1) - **Recommended** (makes Build faster)
+- ✅ Technical Decisions (ADR) - **Required before implementation** (must exist or be created before Build)
 - ✅ Initial patterns (if known) - **Optional, can identify during Build**
+
+**Critical Requirement - ADR Before Implementation**: 
+- Before implementing any feature, **verify if a technical decision (ADR) exists** for the approach needed
+- If no decision exists, **create the decision first** in Step 1 (Intent) or at the start of Step 2 (Build) before proceeding with implementation
+- **Do not start implementation without a documented decision** - this ensures all technical choices are documented with context and rationale
+- Feature implementation must follow the Definition of Done (DoD) for the step
 
 **Note**: Decisions can be created or updated in any step:
 - **Step 1 (Intent)**: Plan decisions (approach, strategy) - **Recommended** for faster Build
-- **Step 2 (Build)**: Create or update decisions if technical choices emerge during implementation
+- **Step 2 (Build)**: **Create decision first** if missing, then implement. Can also update decisions if better approaches are discovered during implementation
 - **Step 3 (Learn)**: Update decisions with outcomes or create improvement decisions
 
-**Flexibility**: If you planned decisions in Step 1, you can still create new decisions or update existing ones in Step 2 if you discover better approaches or new technical choices during implementation.
+**Flexibility**: If you planned decisions in Step 1, you can still create new decisions or update existing ones in Step 2 if you discover better approaches or new technical choices during implementation. However, **always create the decision before implementing** the feature.
 
 **What it does**:
 - AI generates code using living context (intent, decisions, patterns/anti-patterns)
@@ -262,27 +281,36 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 - Can create new decisions if technical choices emerge during implementation
 
 **Activities**:
+- **Verify Decision (ADR) exists**:
+  - Before implementing, check if technical decision exists for the feature
+  - If no decision exists, **create it first** (in Step 1 or start of Step 2)
+  - Decision must document: Context, Decision, Rationale, Alternatives
+  - Only proceed with implementation after decision is documented
 - Plan before building:
-  - Load necessary context files (selective loading for focus)
+  - Load necessary context files (intent, decisions, patterns)
+  - Verify decision (ADR) is available
   - Ask AI to explain what it will build and how
   - Review AI's planning approach
 - Approve before executing:
   - Review and approve plan (or request changes)
+  - Ensure decision (ADR) is in place
   - AI executes only with your approval
 - Execute with context:
-  - AI generates code based on approved plan
+  - AI generates code based on approved plan and documented decisions
+  - Follow Definition of Done (DoD) for feature implementation
   - Can generate everything at once or part by part
   - Human supervises and validates AI work
 - Create or update implementation decisions:
   - Use decisions from Step 1 if they exist (recommended approach)
-  - Create new decisions if technical choices emerge during Build
+  - **If decision was missing, ensure it's created before implementation**
+  - Create new decisions if additional technical choices emerge during Build
   - Update existing decisions if implementation approach differs from plan
 - Follow established patterns from knowledge/ (if available)
 - Avoid known anti-patterns from knowledge/ (if available)
 - Identify new patterns during implementation (optional)
 - Update context continuously
 - Review code quality
-- Validate against intent
+- Validate against intent and DoD
 
 ### Writing Prompts for AI Code Generation
 
@@ -319,7 +347,7 @@ and @context/decisions/002-auth-approach.md
 
 **Example**:
 ```
-Execute @agents/agent-backend.md for payment feature
+Execute @context/agents/agent-backend.md for payment feature
 ```
 
 **Advantages**:
@@ -385,7 +413,7 @@ and @context/decisions/003-database-schema.md
 
 **Example 2 - Agent File (Advanced):**
 ```
-Execute @agents/agent-backend.md for authentication feature
+Execute @context/agents/agent-backend.md for authentication feature
 ```
 
 **Example 3 - Detailed Prompt (Avoid):**
@@ -432,8 +460,9 @@ following the tech stack decision in @context/decisions/001-tech-stack.md...
 - New Patterns Identified (optional)
 
 **Definition of Done**:
-- [ ] Code implemented using context
-- [ ] Important decisions documented (with rationale)
+- [ ] Technical decision (ADR) exists before implementation - **Required**
+- [ ] Code implemented using context and following DoD
+- [ ] Important decisions documented (with rationale) - **Required**
 - [ ] Code linked to context (intent, decisions)
 - [ ] Human review completed
 - [ ] Context updated with implementation details

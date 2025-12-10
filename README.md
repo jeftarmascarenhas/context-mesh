@@ -31,7 +31,12 @@ You're using AI to build faster. But three months later, your own code looks for
 
 ## 🎯 What is Context Mesh?
 
-Context Mesh is a **process methodology** for AI-generated code development. It's not about using AI—it's about making AI-generated code maintainable and scalable through structured context preservation.
+Context Mesh is a **process framework** for AI-generated code development with **3 core steps** (Intent, Build, Learn) that can be customized to fit your workflow. It's not about using AI—it's about making AI-generated code maintainable and scalable through structured context preservation.
+
+**Framework Structure:**
+- **3 Core Steps**: Intent → Build → Learn (the foundation)
+- **Customizable**: Adapt the process to maximize the benefits of Context Mesh for your team and project
+- **Flexible**: Works with any development methodology (Scrum, Kanban, DevOps)
 
 **Key Difference:**
 - ❌ **Just using AI**: Fast development, but context disappears
@@ -97,6 +102,17 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. Jus
    - Refine intent for next iteration
 
 **Each step preserves context** - no more lost decisions or forgotten rationale.
+
+### Customizing Context Mesh
+
+Context Mesh is a **process framework** with 3 core steps, but it's designed to be **customizable**. You can adapt it to maximize the benefits for your team and project:
+
+- **Core is fixed**: The 3 steps (Intent, Build, Learn) are the foundation
+- **Process is flexible**: Adapt how you execute each step to fit your workflow
+- **Customize to maximize value**: Adjust the process to get the best results from Context Mesh
+- **Works with any methodology**: Integrates with Scrum, Kanban, DevOps, or your own process
+
+The framework provides structure while allowing you to customize the implementation to fit your needs.
 
 See [FRAMEWORK.md](FRAMEWORK.md) for complete details.
 

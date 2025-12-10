@@ -73,3 +73,4 @@ Make sure all files follow Context Mesh format with proper Status sections.
 - **You can refine later** - Start minimal, add details as you build
 - **Update continuously** - Context Mesh is a living structure that evolves with your project
 
+

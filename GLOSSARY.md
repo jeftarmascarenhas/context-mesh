@@ -8,7 +8,7 @@ Key terms and concepts used in Context Mesh.
 A document that captures an architectural decision with its context, rationale, alternatives considered, and implications. ADRs are living documents updated with outcomes. **Decisions can be created in any step** (Intent, Build, or Learn), but the framework recommends planning them in Step 1 (Intent) for faster Build phase.
 
 ### AI Agent
-An AI-powered assistant that performs specific tasks within the Context Mesh workflow. Context Mesh defines five agent types: Planner, Developer, Reviewer, DevOps, and Insights. Agents can be structured as files (`agents/agent-*.md`) for advanced patterns. See [ADVANCED.md](ADVANCED.md) for details.
+An AI-powered assistant that performs specific tasks within the Context Mesh workflow. Context Mesh defines five agent types: Planner, Developer, Reviewer, DevOps, and Insights. Agents can be structured as files (`context/agents/agent-*.md`) for advanced patterns. See [ADVANCED.md](ADVANCED.md) for details.
 
 ### AGENTS.md
 An open format used by over 20,000 open-source projects to guide AI coding agents. AGENTS.md works seamlessly with Context Mesh as a **router** that references Context Mesh files for strategic context while providing operational instructions (setup, commands, conventions). See [TOOLS.md](TOOLS.md) for integration details.
