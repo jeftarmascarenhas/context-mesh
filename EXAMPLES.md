@@ -70,7 +70,7 @@ Context Mesh is being used in production by teams building and modernizing real-
 
 *We're working with teams to share detailed case studies and company logos. Coming soon!*
 
-**Using Context Mesh?** [Share your success story →](https://github.com)
+**Using Context Mesh?** [Share your success story →](https://github.com/your-username/context-mesh/discussions)
 
 **Want to be featured?** We'd love to showcase how Context Mesh is helping your team achieve faster, better development.
 
