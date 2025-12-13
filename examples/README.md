@@ -157,6 +157,35 @@ example-name/
 
 ---
 
+## 📋 About AGENTS.md
+
+**AGENTS.md** is an optional but recommended file that acts as a router for AI agents, directing them to Context Mesh files for strategic context while providing operational instructions.
+
+### When to Use AGENTS.md
+
+**If your project already has AGENTS.md:**
+- ✅ Use the existing `AGENTS.md` file
+- ✅ Update it to reference Context Mesh files (see [AGENTS.md.example](../AGENTS.md.example))
+- ✅ Ensure it includes a "Context Files to Load" section
+
+**If your project doesn't have AGENTS.md:**
+- ✅ Follow the example: [AGENTS.md.example](../AGENTS.md.example)
+- ✅ Copy and adapt it to your project needs
+- ✅ Include all relevant Context Mesh file references
+- ✅ Keep it succinct - it should route to Context Mesh, not duplicate it
+
+### Key Points
+
+- **AGENTS.md** = Operational router (setup, commands, workflow, references to Context Mesh)
+- **Context Mesh** = Strategic context (intent, decisions, knowledge, patterns)
+- **Together**: Complete guidance for AI agents - both operational (how) and strategic (what, why)
+
+See [TOOLS.md](../TOOLS.md) for more details on AGENTS.md integration.
+
+---
+
+---
+
 ## 🎓 Learning Path
 
 ### Step 1: Understand Context Mesh

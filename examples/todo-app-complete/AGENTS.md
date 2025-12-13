@@ -173,6 +173,36 @@ todo-app/
 - Changing project structure without updating context
 - Writing detailed prompts that duplicate context information
 
+### Critical: Always Update Context After Changes
+
+**IMPORTANT**: After implementing, creating, or modifying code, AI agents MUST update Context Mesh:
+
+1. **After creating new files/modules**:
+   - Update relevant feature intent if scope changed
+   - Create or update decision if new technical approach was used
+   - Update changelog.md
+
+2. **After modifying existing code**:
+   - Update feature intent if functionality changed
+   - Update decision outcomes if approach differed from plan
+   - Update changelog.md
+
+3. **After completing work**:
+   - Mark feature/bug as completed in intent file
+   - Add outcomes to decision files
+   - Document learnings in evolution/learning-*.md
+   - Update changelog.md
+
+**How to update context:**
+- After implementation, update relevant Context Mesh files:
+  - Mark feature/bug as completed in intent file
+  - Add outcomes to decision files
+  - Update changelog.md
+  - Document learnings if significant
+- You can use AI to help identify what needs updating
+
+**Never leave context stale** - Context Mesh only works if context reflects reality.
+
 ---
 
 ## Architecture Overview
@@ -197,23 +227,35 @@ See Context Mesh files for details:
 
 ---
 
-## Definition of Done
+## Definition of Done (Project/Feature Level)
 
+This is the **project-level DoD** that every feature must meet before being considered complete. This is different from:
+- **Success Criteria**: Functional requirements in `feature-*.md` (acceptance criteria)
+
+Before completing a feature:
 - [ ] Technical decision (ADR) verified or created before implementation - **Required**
 - [ ] Code follows patterns from Context Mesh
 - [ ] Decisions from Context Mesh are respected
 - [ ] Tests passing (70% coverage minimum)
-- [ ] Context updated if implementation differs from plan
+- [ ] **Context updated** - Context Mesh files updated to reflect implementation (Context Mesh requirement)
+- [ ] Feature/bug marked as completed in intent file
+- [ ] Decision outcomes added (if applicable)
+- [ ] Changelog updated
+- [ ] Code linked to relevant intent/decisions
+- [ ] Success Criteria met (from `feature-*.md` - acceptance criteria)
 
 ---
 
 ## Common Mistakes to Avoid
 
-See `@context/knowledge/anti-patterns/` for details. Key points:
-- Don't ignore decisions from Context Mesh
-- Don't skip creating ADR before implementation
-- Don't use detailed prompts (reference context files instead)
-- Keep context updated
+| Mistake | Why it's bad | Context Mesh Reference |
+|---------|--------------|------------------------|
+| Ignoring decisions | Breaks architecture | @context/decisions/ |
+| Using anti-patterns | Creates technical debt | @context/knowledge/anti-patterns/ |
+| **Not updating context after changes** | **Context becomes stale, breaks Context Mesh** | **Always update context after implementation** |
+| Creating files without updating context | Context doesn't reflect reality | Always update after implementation |
+| Skipping tests | Reduces quality | @context/knowledge/patterns/testing.md |
+| Skipping ADR before implementation | Breaks decision architecture | Always create decision before implementing |
 
 ---
 

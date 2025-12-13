@@ -65,6 +65,23 @@ This example demonstrates the complete Context Mesh workflow:
 
 This example is designed to be built using AI agents like Cursor or GitHub Copilot. The context provided is sufficient for an AI agent to generate the complete application.
 
+### About AGENTS.md
+
+**Important**: Before starting, check if your project already has an `AGENTS.md` file:
+
+- **If your project already has AGENTS.md:**
+  - ✅ Use the existing `AGENTS.md` file
+  - ✅ Update it to reference Context Mesh files if needed
+  - ✅ Ensure it includes a "Context Files to Load" section pointing to your `context/` directory
+
+- **If your project doesn't have AGENTS.md:**
+  - ✅ Follow the example: [AGENTS.md.example](../../AGENTS.md.example)
+  - ✅ Copy and adapt it to your project needs
+  - ✅ Include all relevant Context Mesh file references
+  - ✅ Keep it succinct - it should route to Context Mesh, not duplicate it
+
+**This example includes an `AGENTS.md` file** that demonstrates how to integrate AGENTS.md with Context Mesh. You can use it as a reference or adapt it to your own project.
+
 **Recommended**: Use `AGENTS.md` as the entry point. It acts as a router that references all Context Mesh files automatically.
 
 ### Step 1: Load Context into AI Agent
