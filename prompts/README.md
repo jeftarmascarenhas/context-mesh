@@ -1,167 +1,137 @@
-# Context Mesh - Prompt Templates
+# Context Mesh Prompts
 
-Ready-to-use prompts for initializing Context Mesh in different scenarios. These prompts help you bootstrap the Context Mesh structure quickly using AI, without needing to create files and folders manually.
-
-> **💡 Philosophy**: Context Mesh doesn't require tools - just prompts and AI. These templates make it easy to get started by asking questions and analyzing your codebase.
+Ready-to-use prompts to set up and use Context Mesh. Just copy, paste in your AI assistant, and answer questions.
 
 ---
 
-## 📋 Available Prompts
+## How to Use
 
-### 🆕 [New Project](new-project.md)
-**Use when**: Starting a brand new project from scratch
+1. **Choose** the prompt for your scenario (see table below)
+2. **Copy** the prompt from inside the ` ``` ` block
+3. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
+4. **Answer** the questions
+5. **Review** the generated files
+6. **Execute** - Use the "Execute" section in each prompt to build/test
 
-**What it does**: 
-- Asks questions interactively about your project
-- Creates complete Context Mesh structure
-- Generates project-intent.md from your answers
-- Sets up feature intents for main features
-
-**Time**: ~2-5 minutes (depending on how detailed your answers are)
-
----
-
-### 📁 [Existing Project](existing-project.md)
-**Use when**: You have an existing project and want to add Context Mesh
-
-**What it does**:
-- Analyzes your current codebase structure
-- Extracts project intent from existing code
-- Documents technical decisions already made
-- Identifies coding patterns in your codebase
-- Creates complete Context Mesh structure
-
-**Time**: ~3-5 minutes (AI analyzes codebase automatically)
+**That's it.** No need to create files manually. Each prompt includes:
+- Setup instructions
+- Templates embedded in the prompt
+- Execution section to build/test
+- AGENTS.md creation/update instructions
 
 ---
 
-### 💼 [Freelance Project](freelance-project.md)
-**Use when**: Starting a freelance or client project
+## All Prompts
 
-**What it does**:
-- Guides you through documenting client requirements
-- Creates project-intent.md from client brief
-- Sets up feature intents for each deliverable
-- Prepares structure for decision tracking
-- Documents acceptance criteria
+### Setup Prompts
 
-**Time**: ~3-5 minutes (depending on brief complexity)
+Use these to set up Context Mesh in your project:
 
----
+| Scenario | Prompt | Description |
+|----------|--------|-------------|
+| **New project** | [new-project.md](new-project.md) | Starting a project from scratch |
+| **Existing project** | [existing-project.md](existing-project.md) | Adding Context Mesh to existing code |
+| **Freelance/client** | [freelance-project.md](freelance-project.md) | Client project with requirements |
 
-### ➕ [Add Feature](add-feature.md)
-**Use when**: Adding a new feature to an existing Context Mesh project
+### Daily Work Prompts
 
-**What it does**:
-- Asks questions about the new feature
-- Creates feature intent file
-- Identifies if technical decisions are needed
-- Links feature to existing context
-- Updates project-intent.md if scope changes
+Use these as you build:
 
-**Time**: ~1-2 minutes per feature
+| Scenario | Prompt | Description |
+|----------|--------|-------------|
+| **Add feature** | [add-feature.md](add-feature.md) | Adding new functionality |
+| **Update feature** | [update-feature.md](update-feature.md) | Changing existing feature |
+| **Fix bug** | [fix-bug.md](fix-bug.md) | Documenting and fixing a bug |
+| **After implementation** (optional) | [learn-update.md](learn-update.md) | Manual context update (AI does this automatically if AGENTS.md exists) |
+| **Create agent** | [create-agent.md](create-agent.md) | Creating reusable execution pattern |
 
 ---
 
-## 🚀 Quick Start
+## Quick Reference
 
-1. **Choose the right prompt** - Based on your scenario above
-2. **Open the prompt file** - Read the instructions
-3. **Copy the prompt** - From the prompt file
-4. **Paste in your AI assistant** - Cursor, Copilot, Claude, etc.
-5. **Answer questions** - If the prompt is interactive
-6. **Review generated files** - Ensure they match your needs
-7. **Refine as needed** - Add more details or adjust
+```
+Starting a project?
+  → new-project.md or existing-project.md
 
----
+Adding something new?
+  → add-feature.md
 
-## 💡 How These Prompts Work
+Changing something?
+  → update-feature.md
 
-### Interactive Prompts
-Some prompts (New Project, Freelance Project, Add Feature) ask you questions:
-- You answer as the AI asks
-- AI creates context files based on your answers
-- You can refine the generated files afterward
+Fixing a bug?
+  → fix-bug.md
 
-### Analytical Prompts
-Some prompts (Existing Project) analyze your codebase:
-- AI examines project structure automatically
-- Extracts information from code and configuration
-- Creates context files based on analysis
-- You review and refine as needed
+Done implementing?
+  → AI updates context automatically (if AGENTS.md exists)
+  → Or use learn-update.md manually
+
+Need a reusable pattern?
+  → create-agent.md
+```
 
 ---
 
-## 🎯 When to Use Each Prompt
+## The Context Mesh Cycle
 
-| Scenario | Prompt | Why |
-|----------|--------|-----|
-| Starting fresh | [New Project](new-project.md) | Interactive setup for new projects |
-| Adding to existing code | [Existing Project](existing-project.md) | Analyzes and documents what exists |
-| Client work | [Freelance Project](freelance-project.md) | Documents requirements clearly |
-| Adding features | [Add Feature](add-feature.md) | Maintains context for new work |
-
----
-
-## 📝 Tips for Best Results
-
-### For Interactive Prompts
-- **Be specific** - More detail helps create better context
-- **Think ahead** - Consider main features and tech stack
-- **Start minimal** - You can always add more detail later
-- **Review carefully** - Ensure generated files match your vision
-
-### For Analytical Prompts
-- **Review AI analysis** - Verify it correctly understood your project
-- **Fill gaps** - Add any missing context the AI might have missed
-- **Refine decisions** - Add more rationale or alternatives
-- **Document patterns** - Ensure all important patterns are captured
-
-### General Tips
-- **Update continuously** - Context Mesh is a living structure
-- **Follow workflow** - Use Intent → Build → Learn
-- **Link everything** - Connect features, decisions, and learnings
-- **Document learnings** - Add to evolution/ as you discover new patterns
+```
+┌──────────────────────────────────────────────────────────────┐
+│                                                              │
+│   1. INTENT                    2. BUILD                      │
+│   ─────────                    ─────────                     │
+│   new-project.md               (Your AI assistant)           │
+│   existing-project.md          Reference context files       │
+│   add-feature.md               in your prompts               │
+│   update-feature.md                                          │
+│   fix-bug.md                                                 │
+│                                                              │
+│                       3. LEARN                               │
+│                       ────────                               │
+│                       AI updates context automatically       │
+│                       (AGENTS.md guides this)                │
+│                       Or use learn-update.md manually        │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🔄 After Using Prompts
+## What Each Prompt Creates
 
-1. **Review generated files** - Check accuracy and completeness
-2. **Refine as needed** - Add details, adjust structure
-3. **Start using** - Follow the 3-step workflow (Intent → Build → Learn)
-4. **Update continuously** - Keep context aligned with code
-
----
-
-## 🛠️ Compatible AI Tools
-
-These prompts work with:
-- ✅ **Cursor** - Paste in chat
-- ✅ **GitHub Copilot Chat** - Use in chat interface
-- ✅ **Claude Desktop** - Use in conversation
-- ✅ **Any AI coding assistant** - Adapt as needed
+| Prompt | Creates |
+|--------|---------|
+| new-project.md | Full `context/` structure, project-intent.md, feature intents, changelog, **AGENTS.md** |
+| existing-project.md | Full `context/` structure based on codebase analysis, **AGENTS.md** |
+| freelance-project.md | Full `context/` structure with client requirements, **AGENTS.md** |
+| add-feature.md | feature-*.md + decision (ADR) + updates AGENTS.md |
+| update-feature.md | Updated feature-*.md + new decision if needed + updates AGENTS.md |
+| fix-bug.md | bug-*.md + decision if needed + updates AGENTS.md |
+| learn-update.md | Updated status, outcomes, learnings, changelog |
+| create-agent.md | agent-*.md in context/agents/ |
 
 ---
 
-## 📚 Related Documentation
+## Tips
 
-- [GETTING_STARTED.md](../GETTING_STARTED.md) - Detailed setup guide
-- [FRAMEWORK.md](../FRAMEWORK.md) - Complete framework documentation
-- [EXAMPLES.md](../EXAMPLES.md) - Real-world examples
-- [examples/](../examples/) - Complete project examples
-
----
-
-## ❓ Need Help?
-
-- **Not sure which prompt?** - Start with [New Project](new-project.md) or [Existing Project](existing-project.md)
-- **Prompt not working?** - Try being more specific in your answers
-- **Want to customize?** - Adapt the prompts to your specific needs
-- **Have questions?** - See [FAQ.md](../FAQ.md) or [GETTING_STARTED.md](../GETTING_STARTED.md)
+- **Prompts are self-contained** - All templates are inside the prompt
+- **Answer specifically** - More detail = better context
+- **Review generated files** - Verify they match your intent
+- **Keep context updated** - AI updates automatically if AGENTS.md exists, or use learn-update.md manually
 
 ---
 
-**💡 Remember**: Context Mesh doesn't require tools - just structure and AI. These prompts make it easy to bootstrap that structure quickly!
+## Works With
 
+- ✅ Cursor
+- ✅ GitHub Copilot Chat
+- ✅ Claude
+- ✅ ChatGPT
+- ✅ Any AI coding assistant
 
+---
+
+## Need Help?
+
+- **Not sure which prompt?** Start with `new-project.md` or `existing-project.md`
+- **Questions?** See [FAQ.md](../FAQ.md)
+- **More details?** See [GETTING_STARTED.md](../GETTING_STARTED.md)

@@ -1,14 +1,14 @@
 # Prompt: Initialize Context Mesh for Freelance/Client Project
 
-Use this prompt when starting a freelance or client project. This helps you document client requirements clearly and maintain context throughout delivery.
+Use this prompt when starting a freelance or client project to document requirements clearly.
 
 ## How to Use
 
-1. Copy the prompt below
-2. Paste it in your AI assistant (Cursor, Copilot, Claude, etc.)
-3. Answer questions about the client project
-4. Paste the client brief/requirements when asked
-5. Review and refine the generated structure
+1. **Copy the prompt** below
+2. **Paste in your AI assistant** (Cursor, Copilot, Claude, etc.)
+3. **Answer questions** or paste your client brief
+4. **Review** the generated context files
+5. **Execute** - Use the execution prompt below to start building
 
 ---
 
@@ -18,90 +18,311 @@ Use this prompt when starting a freelance or client project. This helps you docu
 I'm starting a freelance/client project and want to use Context Mesh to:
 1. Document client requirements clearly
 2. Track technical decisions
-3. Maintain context throughout the project
+3. Maintain context throughout delivery
 4. Deliver maintainable code
 
-Context Mesh structure:
-- context/intent/ - What and why (project-intent.md, feature-*.md)
-- context/decisions/ - Technical decisions (001-*.md, 002-*.md, ...)
-- context/knowledge/patterns/ - Coding patterns
-- context/knowledge/anti-patterns/ - Patterns to avoid
-- context/evolution/ - Changelog and learnings (changelog.md)
+Context Mesh is a simple framework with 3 steps:
+1. Intent - Define what to build and why
+2. Build - AI generates code, human supervises
+3. Learn - Update context with learnings
 
-Please help me set this up by asking me questions, then create the complete structure.
+Please help me set up Context Mesh for this client project.
 
-Start by asking:
+Ask me:
 1. What is the client/project name?
-2. What type of project is it? (website, web app, mobile app, API, etc.)
-3. Do you have a client brief or requirements document? (If yes, ask me to paste it)
-4. What are the main deliverables/features requested?
+2. What type of project? (website, web app, mobile app, API, etc.)
+3. Do you have a client brief? (If yes, I'll paste it)
+4. What are the main deliverables/features?
 5. What is the timeline/deadline?
-6. Are there any specific technology requirements or constraints?
+6. Any technology requirements or constraints?
 7. What are the acceptance criteria? (How will the client know it's done?)
 
-After I provide the information (especially the client brief), create:
-1. Complete context/ directory structure
-2. context/intent/project-intent.md with:
-   - What: Project description based on client brief
-   - Why: Client's business needs and goals
-   - Success Criteria: Deliverables and acceptance criteria
-3. context/intent/feature-*.md files for each main feature/deliverable mentioned
-4. context/decisions/ folder (will be populated as you make technical decisions)
-5. context/evolution/changelog.md initialized with project start
-6. Optionally, AGENTS.md for project setup and workflow
+After I provide the information, create this folder structure:
 
-For each feature intent, include:
-- What: What needs to be built
-- Why: Why the client needs it (business value)
-- Success Criteria: How to know it's complete
-- Status: Created date and Draft status
+context/
+├── intent/
+│   ├── project-intent.md (from client requirements)
+│   └── feature-[name].md (one per deliverable)
+├── decisions/
+│   └── (will be populated as technical decisions are made)
+├── knowledge/
+│   ├── patterns/
+│   └── anti-patterns/
+├── agents/        # Optional: for reusable execution patterns
+│   └── agent-*.md
+└── evolution/
+    └── changelog.md
 
-Make sure all files follow Context Mesh format with proper Status sections.
+Also create AGENTS.md file at project root following the template below.
+
+Use these templates:
+
+---
+PROJECT-INTENT.MD TEMPLATE (for client projects):
+---
+# Project Intent: [CLIENT/PROJECT_NAME]
+
+## Client
+[Client name/company]
+
+## What
+[Project description based on client brief]
+
+## Why
+[Client's business needs and goals]
+
+## Deliverables
+- [Deliverable 1]
+- [Deliverable 2]
+- [Deliverable 3]
+
+## Acceptance Criteria
+- [Client acceptance criterion 1]
+- [Client acceptance criterion 2]
+
+## Timeline
+- **Deadline**: [Date if provided]
+- **Milestones**: [If any]
+
+## Constraints
+- [Technical constraints]
+- [Budget constraints]
+- [Other constraints]
+
+## Status
+- **Created**: [TODAY'S DATE] (Phase: Intent)
+- **Status**: Draft
+---
+
+---
+FEATURE-[NAME].MD TEMPLATE (for deliverables):
+---
+# Feature: [DELIVERABLE_NAME]
+
+## What
+[What needs to be built]
+
+## Why
+[Why the client needs it - business value]
+
+## Acceptance Criteria
+- [Client criterion 1]
+- [Client criterion 2]
+
+## Related
+- Intent: project-intent.md
+
+## Status
+- **Created**: [TODAY'S DATE] (Phase: Intent)
+- **Status**: Draft
+---
+
+---
+CHANGELOG.MD TEMPLATE:
+---
+# Changelog
+
+## [Unreleased]
+
+### Added
+- Project initialized with Context Mesh
+- Documented client requirements
+- Created deliverable intents: [list deliverables]
+
+### Delivered
+
+### Changed
+
+---
+*Project Start: [TODAY'S DATE]*
+*Deadline: [DEADLINE IF PROVIDED]*
+---
+
+---
+AGENTS.MD TEMPLATE (create this file at project root):
+---
+# AGENTS.md
+
+## Setup Commands
+
+[Based on tech stack - add install, dev, test, build commands]
+Example:
+- Install deps: `npm install`
+- Start dev server: `npm run dev`
+- Run tests: `npm test`
+- Build: `npm run build`
+
+## Code Style
+
+[Based on tech stack - add conventions]
+Example:
+- TypeScript strict mode
+- Single quotes, no semicolons
+- Follow patterns from `@context/knowledge/patterns/`
+
+## Context Files to Load
+
+**This is the key integration point with Context Mesh.**
+
+When working on this project, AI agents should load Context Mesh files for strategic context:
+
+### Project Overview
+- @context/intent/project-intent.md - Overall project goals and scope
+
+### Technical Decisions
+- @context/decisions/001-tech-stack.md - Technology stack choices
+[List other decisions as they're created: 002-*.md, 003-*.md, etc.]
+
+### Knowledge and Patterns
+- @context/knowledge/patterns/*.md - Coding patterns to follow
+- @context/knowledge/anti-patterns/*.md - Patterns to avoid
+
+### Feature-Specific Context
+- @context/intent/feature-*.md - Load relevant feature intents when working on specific features
+- @context/intent/bug-*.md - Load bug intents when fixing bugs
+
+**How to use**: When an AI agent starts working, it should load the relevant Context Mesh files above to understand the strategic context (what, why, how decided) before executing operational tasks.
+
+## Project Structure
+
+```
+root/
+├── AGENTS.md              # This file (router for AI agents)
+├── context/               # Context Mesh: strategic context
+│   ├── intent/
+│   │   ├── project-intent.md
+│   │   ├── feature-*.md
+│   │   └── bug-*.md
+│   ├── decisions/
+│   │   └── 001-*.md, 002-*.md, ...
+│   ├── knowledge/
+│   │   ├── patterns/
+│   │   └── anti-patterns/
+│   ├── agents/            # Optional: specialized agent definitions
+│   │   └── agent-*.md
+│   └── evolution/
+│       ├── changelog.md
+│       └── learning-*.md
+└── [your code]
+```
+
+## Development Workflow
+
+### Step 1: Load Context
+Before starting work, load relevant Context Mesh files:
+- @context/intent/project-intent.md (always)
+- @context/intent/feature-*.md (if working on specific feature)
+- @context/decisions/*.md (relevant decisions)
+- @context/knowledge/patterns/*.md (relevant patterns)
+
+### Step 2: Follow Context Mesh Workflow
+1. **Intent**: Understand what to build (from Context Mesh)
+2. **Build**: Generate code following patterns and decisions
+3. **Learn**: Update context after changes
+
+### Step 3: Execute
+- Follow code style and conventions
+- Run tests before committing
+- **Always update context** - Update Context Mesh files after implementation (see "Critical: Always Update Context After Changes" below)
+
+## AI Agent Behavior
+
+### Allowed
+- Create/edit code following Context Mesh patterns
+- Reference decisions from `@context/decisions/`
+- Follow patterns from `@context/knowledge/patterns/`
+- Update context when implementation differs from plan
+
+### Forbidden
+- Modifying `package.json` or config files without explicit instruction
+- Ignoring decisions from `@context/decisions/`
+- Using anti-patterns from `@context/knowledge/anti-patterns/`
+- Changing project structure without updating context
+
+### Critical: Always Update Context After Changes
+
+**IMPORTANT**: After implementing, creating, or modifying code, AI agents MUST update Context Mesh:
+
+1. **After creating new files/modules**:
+   - Update relevant feature intent if scope changed
+   - Create or update decision if new technical approach was used
+   - Update changelog.md
+
+2. **After modifying existing code**:
+   - Update feature intent if functionality changed
+   - Update decision outcomes if approach differed from plan
+   - Update changelog.md
+
+3. **After completing work**:
+   - Mark feature/bug as completed in intent file
+   - Add outcomes to decision files
+   - Document learnings in evolution/learning-*.md
+   - Update changelog.md
+
+**How to update context:**
+- After implementation, update relevant Context Mesh files:
+  - Mark feature/bug as completed in intent file
+  - Add outcomes to decision files
+  - Update changelog.md
+  - Document learnings if significant
+- You can use AI to help identify what needs updating
+
+**Never leave context stale** - Context Mesh only works if context reflects reality.
+
+## Definition of Done (Project/Feature Level)
+
+This is the **project-level DoD** that every feature must meet before being considered complete. This is different from:
+- **Success Criteria**: Functional requirements in `feature-*.md` (acceptance criteria)
+
+Before completing a feature:
+- [ ] Code follows patterns from Context Mesh
+- [ ] Decisions from Context Mesh are respected
+- [ ] Tests passing
+- [ ] Linter passing
+- [ ] **Context updated** - Context Mesh files updated to reflect implementation
+- [ ] Feature/bug marked as completed in intent file
+- [ ] Decision outcomes added (if applicable)
+- [ ] Changelog updated
+- [ ] Code linked to relevant intent/decisions
+- [ ] Acceptance Criteria met (from `feature-*.md` - client requirements)
+---
+
+Create all files with content based on the client requirements I provide.
 ```
 
 ---
 
-## What This Prompt Does
+## Execute: Start Building
 
-- **Captures client requirements** - Documents what the client wants
-- **Creates feature intents** - One intent file per deliverable/feature
-- **Sets up decision tracking** - Ready for technical decisions as you build
-- **Documents acceptance criteria** - Clear success criteria for each feature
-- **Maintains project context** - Helps you remember decisions throughout delivery
-
----
-
-## After Using This Prompt
-
-1. **Review with client** - Ensure project-intent.md matches their expectations
-2. **Refine feature intents** - Add more detail as you clarify requirements
-3. **Document decisions** - Create decision files as you make technical choices
-4. **Update as you build** - Follow Intent → Build → Learn workflow
-5. **Track learnings** - Document what works/doesn't work in evolution/
-
----
-
-## Tips
-
-- **Get client approval** - Share project-intent.md with client to ensure alignment
-- **Update feature intents** - Refine as requirements become clearer
-- **Document all decisions** - Especially important for client projects
-- **Track changes** - Use changelog.md to document scope changes
-- **Learn continuously** - Document learnings that might help future projects
-
----
-
-## For Projects with Existing Briefs
-
-If you already have a detailed brief, you can paste it directly:
+After Context Mesh is set up, use this simple prompt to start building:
 
 ```
-I have a client brief. Here it is:
-
-[PASTE CLIENT BRIEF HERE]
-
-Please create the Context Mesh structure based on this brief, asking me 
-clarifying questions only if something is unclear.
+Now load the @context files and build the project.
 ```
 
+The AI will:
+1. Load all context files (project-intent.md, feature intents with acceptance criteria)
+2. Generate code following client requirements
+3. Follow patterns from context/knowledge/
 
+---
+
+## What This Prompt Creates
+
+- **Complete Context Mesh structure** - With client requirements
+- **project-intent.md** - Client project intent with acceptance criteria
+- **feature-*.md** - One per deliverable with acceptance criteria
+- **changelog.md** - With project timeline
+- **AGENTS.md** - Router file with Context Mesh integration
+
+---
+
+## Optional: Next Steps
+
+If you want to add more later:
+- **Add a feature**: Use `add-feature.md` prompt
+- **Update a feature**: Use `update-feature.md` prompt
+- **Fix a bug**: Use `fix-bug.md` prompt
+- **Create agent**: Use `create-agent.md` prompt for reusable patterns
+
+**Note**: The AI will automatically update context after implementation if you have AGENTS.md. If not, you can manually use `learn-update.md` prompt.

@@ -1,105 +1,161 @@
-# Prompt: Add Feature to Existing Context Mesh Project
+# Prompt: Add New Feature
 
-Use this prompt when you want to add a new feature to a project that already uses Context Mesh. This helps you create the proper context files for the new feature.
+Use this prompt to add a new feature to a project that already uses Context Mesh.
 
 ## How to Use
 
-1. Copy the prompt below
-2. Paste it in your AI assistant (Cursor, Copilot, Claude, etc.)
-3. Answer questions about the new feature
-4. Review the generated context files
+1. **Copy the prompt** below
+2. **Paste in your AI assistant** (Cursor, Copilot, Claude, etc.)
+3. **Answer questions** about the new feature
+4. **Review** the generated files
 
 ---
 
 ## Prompt
 
 ```
-I'm adding a new feature to my project that already uses Context Mesh. 
-Please help me create the proper context files for this feature.
+I'm adding a new feature to my project that uses Context Mesh.
 
-Context Mesh structure for features:
-- context/intent/feature-[name].md - Feature intent (What, Why, Success Criteria)
-- context/decisions/ - Technical decisions (if needed for this feature)
-- Update context/intent/project-intent.md if this feature changes project scope
+Context Mesh workflow:
+1. Intent - Define what to build and why (create feature intent + decision before coding)
+2. Build - AI generates code following decisions
+3. Learn - Update context after implementation
 
-Please ask me questions about the feature, then create the appropriate context files.
+Please help me create the context files for this new feature.
 
 Ask me:
 1. What is the feature name?
 2. What does this feature do? (What problem does it solve?)
-3. Why are we building this feature? (Business value, user need, etc.)
+3. Why are we building this feature? (Business value, user need)
 4. What are the success criteria? (How will we know it's complete?)
-5. Does this feature relate to any existing features? (If yes, which ones?)
-6. Are there any technical decisions needed? (e.g., authentication approach, database design, API design)
-7. Does this feature change the overall project scope or goals?
+5. Does this relate to existing features? (Which ones?)
+6. What technical approach will you use? (This becomes the decision/ADR)
+7. Does this change the project scope?
 
-After I answer, create:
-1. context/intent/feature-[feature-name].md with:
-   - What: Feature description
-   - Why: Business value and importance
-   - Success Criteria: Measurable outcomes
-   - Related: Links to related features (if any)
-   - Status: Created date and Draft status
-2. **If technical decisions are needed, create context/decisions/[number]-[decision-name].md files BEFORE implementation**
-   - **Important**: Technical decisions (ADR) must exist before implementing the feature
-   - If no decision exists for the technical approach, create it first
-   - This ensures all technical choices are documented with context and rationale
-3. If project scope changes, update context/intent/project-intent.md accordingly
+After I answer, create these files:
 
-**Before implementation**: Verify that technical decision (ADR) exists. If missing, create it first. Feature implementation must follow the Definition of Done (DoD) for the Build step.
+1. context/intent/feature-[name].md - The feature intent
+2. context/decisions/[number]-[decision].md - Technical decision (ADR) for the approach
+3. Update changelog.md - Add the new feature to changelog
+4. Update AGENTS.md - Add the new feature intent to "Context Files to Load" section under "Feature-Specific Context" if it doesn't exist
 
-Make sure all files follow Context Mesh format with proper Status sections.
+IMPORTANT: The technical decision (ADR) must be created BEFORE implementation.
+
+Use these templates:
+
+---
+FEATURE-[NAME].MD TEMPLATE:
+---
+# Feature: [FEATURE_NAME]
+
+## What
+[What this feature does]
+
+## Why
+[Why we need this feature - business value]
+
+## Success Criteria
+- [Criterion 1]
+- [Criterion 2]
+
+## Technical Approach
+See: decisions/[number]-[decision-name].md
+
+## Related
+- Intent: project-intent.md
+- Decision: [number]-[decision-name].md
+- Related Features: [if any]
+
+## Status
+- **Created**: [TODAY'S DATE] (Phase: Intent)
+- **Status**: Draft
+---
+
+---
+DECISIONS/[NUMBER]-[NAME].MD TEMPLATE:
+---
+# Decision: [TECHNICAL APPROACH TITLE]
+
+## Context
+Adding [FEATURE_NAME] feature and need to decide on technical approach.
+
+## Decision
+[What approach was chosen]
+
+## Rationale
+[Why this approach was chosen]
+
+## Alternatives
+- [Alternative 1] - [why not chosen]
+- [Alternative 2] - [why not chosen]
+
+## Implementation Notes
+- [Key implementation detail 1]
+- [Key implementation detail 2]
+
+## Status
+- **Created**: [TODAY'S DATE] (Phase: Intent)
+- **Status**: Accepted
+---
+
+---
+ADD TO CHANGELOG.MD:
+---
+## [Unreleased]
+
+### Added
+- Feature: [FEATURE_NAME] - [brief description]
+---
+
+Create all files based on my answers. Remember: decision (ADR) must exist before implementation starts.
 ```
 
 ---
 
 ## What This Prompt Does
 
-- **Creates feature intent** - Documents what the feature does and why
-- **Identifies decisions needed** - Helps you think about technical choices
-- **Links to existing context** - Connects new feature to existing features
-- **Updates project scope** - Adjusts project-intent.md if needed
-- **Maintains consistency** - Follows Context Mesh format
+- **Creates feature intent** - Documents what and why
+- **Creates technical decision (ADR)** - Documents how (required before implementation)
+- **Updates changelog** - Tracks the new feature
+- **Links everything** - Connects feature to decisions and project
+
+---
+
+## Important: ADR Before Implementation
+
+Context Mesh requires a technical decision (ADR) to exist **before** you start implementing a feature. This ensures:
+- Technical choices are documented
+- Rationale is captured
+- Alternatives are considered
+
+---
+
+## Execute: Build the Feature
+
+After the context files are created, use this simple prompt to build:
+
+```
+Now load the @context files and implement the feature.
+```
+
+The AI will:
+1. Load feature intent and decision files
+2. Generate code following the technical decision
+3. Implement according to the feature intent
 
 ---
 
 ## After Using This Prompt
 
-1. **Review feature intent** - Ensure it accurately describes what you want to build
-2. **Create decisions (ADR) BEFORE implementation** - If the prompt identified decisions needed, create those files first
-   - **Critical**: Do not start implementation without a documented technical decision (ADR)
-   - Verify decision exists before proceeding to Build step
-3. **Start building** - Use the feature intent and documented decisions to guide development
-   - Follow Definition of Done (DoD) for feature implementation
-   - Ensure ADR exists before implementing
-4. **Update as you build** - Follow Intent → Build → Learn workflow
-5. **Document learnings** - Add to evolution/ after implementation
+1. **Review feature intent** - Check if it accurately describes the feature
+2. **Review decision** - Ensure technical approach is documented
+3. **Execute** - Use the execution prompt above to build
+
+**Note**: The AI will automatically update context after implementation if you have AGENTS.md. If not, you can manually use `learn-update.md` prompt.
 
 ---
 
-## Tips
+## Optional: Next Steps
 
-- **Be specific** - Clear feature description helps with implementation
-- **Link related features** - Helps maintain context relationships
-- **Create decisions (ADR) BEFORE building** - Document technical choices before implementation (required)
-- **Verify ADR exists** - Always check if technical decision exists before starting implementation
-- **Follow DoD** - Feature implementation must follow Definition of Done for the Build step
-- **Update project intent** - Keep it aligned with project evolution
-- **Track learnings** - Document what works/doesn't work after building
-
----
-
-## For Complex Features
-
-If the feature is complex, you can ask the AI to break it down:
-
-```
-This feature is complex. Please:
-1. Break it down into smaller sub-features
-2. Create feature intent files for each sub-feature
-3. Link them together in a parent feature intent
-```
-
-This helps manage large features with proper context structure.
-
-
+- **Feature changes?** Use `update-feature.md`
+- **Found a bug?** Use `fix-bug.md`
