@@ -6,10 +6,10 @@
 
 **The AI-First Development Framework for Sustainable Context Preservation**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-username/context-mesh/releases)
-[![Framework](https://img.shields.io/badge/framework-AI--First-purple.svg)](https://github.com/your-username/context-mesh)
-[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/your-username/context-mesh)
-[![Philosophy](https://img.shields.io/badge/philosophy-Context--First-blue.svg)](https://github.com/your-username/context-mesh)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/jeftarmascarenhas/context-mesh/releases)
+[![Framework](https://img.shields.io/badge/framework-AI--First-purple.svg)](https://github.com/jeftarmascarenhas/context-mesh)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/jeftarmascarenhas/context-mesh)
+[![Philosophy](https://img.shields.io/badge/philosophy-Context--First-blue.svg)](https://github.com/jeftarmascarenhas/context-mesh)
 
 > "In the AI era, context isn't supplementary to code—it's the primary creation. Context Mesh makes this philosophy practical."
 
@@ -257,8 +257,8 @@ Context Mesh is inspired by:
 ## 📞 Support
 
 - **Documentation**: See the documentation files in this repository
-- **Issues**: [GitHub Issues](https://github.com/your-username/context-mesh/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/context-mesh/discussions)
+- **Issues**: [GitHub Issues](https://github.com/jeftarmascarenhas/context-mesh/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/jeftarmascarenhas/context-mesh/discussions)
 
 ---
 
