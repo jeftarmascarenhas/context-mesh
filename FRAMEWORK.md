@@ -2,145 +2,52 @@
 
 ## Framework Overview
 
-Context Mesh is a **process framework** for AI-First development that implements the 5 Philosophical Principles of AI-First Development. Context Mesh treats context as the primary creation, with code as its manifestation, enabling sustainable AI-assisted development.
+> **The Problem**: AI-generated code works, but context disappears. Three months later, your own code looks foreign.
 
-**Context Mesh is a process framework with 3 core steps** (Intent, Build, Learn) that can be **customized** to maximize its benefits for your team and project. The framework provides structure while allowing flexibility in implementation.
+**The Solution**: Context Mesh makes context the primary artifact. Code becomes its manifestation, not the other way around.
+
+```mermaid
+graph TD
+    Start([Start]) --> Intent[Step 1: Intent<br/>Planning Phase<br/>Define Intent<br/>Create Features/Decisions]
+    
+    Intent --> Build[Step 2: Build<br/>Construction Phase<br/>AI Builds Code<br/>Human Supervises]
+    
+    Build --> Learn[Step 3: Learn<br/>Learning Phase<br/>Update Context<br/>Refine Decisions]
+    
+    Learn -->|Feedback Loop| Intent
+    
+    Intent -.->|Context| ContextMesh[Living Context<br/>Context Mesh]
+    Build -.->|Context| ContextMesh
+    Learn -.->|Context| ContextMesh
+    
+    ContextMesh -.->|Context Access| Intent
+    ContextMesh -.->|Context Access| Build
+    ContextMesh -.->|Context Access| Learn
+    
+    style Intent fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    style Build fill:#F5A623,stroke:#C7881A,stroke-width:3px,color:#fff
+    style Learn fill:#7ED321,stroke:#5FA315,stroke-width:3px,color:#fff
+    style ContextMesh fill:#9013FE,stroke:#6A0DAD,stroke-width:2px,color:#fff
+    style Start fill:#E8E8E8,stroke:#999,stroke-width:2px
+```
+
+Context Mesh is a **process framework** for AI-First development that implements the 5 Philosophical Principles of AI-First Development. It treats context as the primary creation, with code as its manifestation, enabling sustainable AI-assisted development.
+
+**The 3 Core Steps:**
+1. **Intent** - Define what to build and why (create context)
+2. **Build** - AI generates code following your context (human supervises)
+3. **Learn** - Update context with learnings (refine and improve)
+
+**Why Context Mesh:**
+- ✅ **Context is primary** - AI understands your architecture and patterns
+- ✅ **Decisions preserve full context** - Every choice documented with rationale
+- ✅ **Knowledge evolves with your system** - Living context that stays current
+- ✅ **Works with any methodology** - Integrates with Scrum, Kanban, DevOps, or your own process
+- ✅ **Simple to adopt** - Just 3 steps, similar to Scrum's simplicity
 
 **Context Mesh is not a replacement for Scrum or Agile** - it's a complementary framework specifically designed for AI-First development that can be used alongside existing methodologies.
 
-### Customizing Context Mesh
-
-Context Mesh is designed to be **customizable** while maintaining its core structure:
-
-- **Core is fixed**: The 3 steps (Intent, Build, Learn) are the foundation of the framework
-- **Process is flexible**: You can adapt how you execute each step to fit your workflow and team needs
-- **Customize to maximize value**: Adjust the process to get the best results from Context Mesh for your specific context
-- **Works with any methodology**: Integrates seamlessly with Scrum, Kanban, DevOps, or your own development process
-
-The framework provides the essential structure (3 steps) while allowing you to customize the implementation details to fit your needs and maximize the benefits of the Context Mesh process.
-
-## Using AI as Your Assistant
-
-Context Mesh works with AI tools (Cursor, GitHub Copilot, etc.) as assistants:
-
-- **Step 1 (Intent)**: Use AI to help structure and refine your intent
-- **Step 2 (Build)**: Use AI to generate code based on your context
-- **Step 3 (Learn)**: Use AI to help identify changes and update context
-
-You maintain control - AI assists, you decide.
-
-## Definition of Done (DoD)
-
-Each step in Context Mesh has a **Definition of Done** - a clear checklist that ensures the step is complete and context is preserved.
-
-**Why DoD matters:**
-- Ensures context is never lost
-- Makes it clear when a step is complete
-- Helps maintain quality and consistency
-- Enables team alignment
-
-**The 3 Core Artifacts:**
-1. **Intent** - What and why (Step 1)
-2. **Decisions** - How and why we chose (can be created in any step, recommended in Step 1)
-3. **Learnings** - What we learned (Step 3)
-
-Each step's DoD ensures these artifacts are created and maintained.
-
-## Context Structure
-
-Context Mesh uses a simple directory structure to organize context:
-
-```
-context/
-├── intent/          # Step 1: Intent statements
-│   ├── project-intent.md
-│   ├── feature-*.md
-│   ├── bug-*.md
-│   └── refactor-*.md
-│
-├── decisions/       # Decisions (can be created in any step, recommended in Step 1)
-│   └── 001-*.md, 002-*.md, ...
-│
-├── knowledge/       # Patterns, anti-patterns (all steps)
-│   ├── patterns/
-│   └── anti-patterns/
-│
-└── evolution/       # Step 3: Changelogs, learnings
-    ├── changelog.md
-    └── learning-*.md
-```
-
-**Why this structure:**
-- Simple and clear organization
-- Easy to navigate and maintain
-- Works with any tools (or no tools)
-- Flexible - add subdirectories as needed
-
----
-
-## AGENTS.md Integration
-
-Context Mesh works seamlessly with the **[AGENTS.md](https://agents.md/)** standard, an open format used by over 20,000 open-source projects to guide AI coding agents.
-
-### How They Work Together
-
-**AGENTS.md** acts as a **router** that directs AI agents to Context Mesh files. Keep it **succinct** - it should primarily indicate where to find context, not duplicate it:
-
-- **AGENTS.md** = Operational router (where to find context)
-  - Essential setup commands
-  - Basic development workflow
-  - References to Context Mesh files
-
-- **Context Mesh** = Strategic context (what to build and why)
-  - Intent (what and why)
-  - Decisions (how and why we chose)
-  - Knowledge (patterns, learnings)
-
-**Together**: AGENTS.md routes AI agents to the right Context Mesh files, providing both operational guidance and strategic context.
-
-### Recommended Structure
-
-```
-project/
-├── AGENTS.md          # Router: operational instructions + references to Context Mesh
-└── context/           # Context Mesh: strategic context (intent, decisions, knowledge)
-    ├── intent/
-    ├── decisions/
-    ├── knowledge/
-    └── agents/        # Optional: specialized agent definitions (see ADVANCED.md)
-        └── agent-*.md
-```
-
-### AGENTS.md References Context Mesh
-
-Your `AGENTS.md` should be **succinct** and focus on routing AI agents to Context Mesh files. Keep it minimal - the context files contain all the details:
-
-```markdown
-## Context Files to Load
-
-When working on this project, AI agents should load:
-
-- @context/intent/project-intent.md (overall project goals)
-- @context/decisions/001-tech-stack.md (technology choices)
-- @context/decisions/002-database.md (database design)
-- @context/knowledge/patterns/*.md (coding patterns)
-```
-
-This way, AGENTS.md provides the **operational how-to** and routing, while Context Mesh provides the **strategic why and what**.
-
-**Important**: AGENTS.md should be **kept updated** to reflect changes in the living context. When context files are added, updated, or removed, update AGENTS.md accordingly to maintain accurate routing for AI agents.
-
-### Benefits
-
-- ✅ **Widely Adopted**: AGENTS.md is used by 20k+ projects
-- ✅ **Complementary**: AGENTS.md (operational) + Context Mesh (strategic)
-- ✅ **Router Pattern**: AGENTS.md routes to Context Mesh files
-- ✅ **AI-Friendly**: Both formats are designed for AI agents
-- ✅ **Flexible**: Use AGENTS.md alone, Context Mesh alone, or both together
-
-**Note**: AGENTS.md is **optional** but **recommended** for better AI agent experience. Context Mesh works perfectly without it, but together they provide complete guidance.
-
-See [TOOLS.md](TOOLS.md) for more details on AGENTS.md integration.
+**Customizing Context Mesh**: The framework is designed to be **customizable** while maintaining its core structure. The 3 steps (Intent, Build, Learn) are fixed, but you can adapt how you execute each step to fit your workflow and team needs. Integrates seamlessly with Scrum, Kanban, DevOps, or your own development process.
 
 ---
 
@@ -167,86 +74,73 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
                 └──────→ INTENT (refined)
 ```
 
+### How Human and AI Work Together
+
+The following sequence diagram shows the interaction between Human, AI, and Living Context throughout the 3-step workflow:
+
+```mermaid
+sequenceDiagram
+    participant Human
+    participant AI
+    participant ContextMesh as Living Context
+    
+    Note over Human,ContextMesh: Step 1: Intent
+    Human->>AI: Define intent & requirements
+    AI->>AI: Structure intent
+    AI->>Human: Propose context structure
+    Human->>AI: Approve/refine
+    AI->>ContextMesh: Create intent files
+    AI->>ContextMesh: Create decision files (if planned)
+    
+    Note over Human,ContextMesh: Step 2: Build
+    Human->>AI: Request implementation
+    AI->>ContextMesh: Load context (intent, decisions, patterns)
+    AI->>AI: Plan implementation
+    AI->>Human: Explain plan
+    Human->>AI: Approve plan
+    AI->>AI: Generate code
+    AI->>Human: Present code
+    Human->>AI: Review & validate
+    AI->>ContextMesh: Update context (if needed)
+    
+    Note over Human,ContextMesh: Step 3: Learn
+    Human->>AI: Request context update
+    AI->>AI: Analyze code changes
+    AI->>Human: Propose context updates
+    Human->>AI: Approve updates
+    AI->>ContextMesh: Update decision outcomes
+    AI->>ContextMesh: Update patterns/learnings
+    AI->>ContextMesh: Update changelog
+    ContextMesh->>Human: Refined context available
+    
+    Note over Human,ContextMesh: Feedback Loop
+    Human->>Human: Refine intent based on learnings
+```
+
 ---
 
 ### Step 1: Intent
 
 **Purpose**: Plan and prepare context before building. This is the **planning phase** where you define what to build, create feature intents, make technical decisions, and prepare everything needed for efficient Build phase.
 
-**What it does**: 
-- Defines what you want to build and why
-- Creates feature/bug/refactoring intents
-- Makes technical decisions (recommended to plan here)
-- Creates initial living context
-- Identifies or defines initial patterns (for existing/new projects)
+**What it does**: Defines what you want to build and why, creates feature/bug/refactoring intents, makes technical decisions (recommended to plan here), creates initial living context, and identifies or defines initial patterns.
 
-**Intent can be:**
-- **Initial** (quick start): Basic intent, refine as you learn
-- **Refined** (pre-planned): Detailed intent after team discussion
-
-**Both approaches are valid** - choose based on your project needs.
+**Intent can be Initial** (quick start: basic intent, refine as you learn) or **Refined** (pre-planned: detailed intent after team discussion). Both approaches are valid.
 
 **Activities**:
-- **Define Intent** (what and why):
-  - Create `project-intent.md` for overall project scope
-  - Create `feature-*.md` for each new feature
-  - Create `bug-*.md` for each bug fix
-  - Create `refactor-*.md` for refactoring work
-  - Can start minimal: basic description (e.g., "Weather application")
-  - Use AI to help expand and structure intent
-  - Use prompts to generate context from minimal input
+- **Define Intent**: Create `project-intent.md`, `feature-*.md`, `bug-*.md`, or `refactor-*.md`. Can start minimal (e.g., "Weather application") and use AI to expand and structure intent.
+- **Create Decisions** (recommended in Step 1): Create `decisions/*.md` files for significant technical choices. Best practice: plan decisions before Build for faster implementation. Decisions can be created in any step, but planning in Step 1 makes Build more efficient.
+- **Create Initial Context**: AI can help generate context structure. Review and refine AI-generated context using Plan, Approve, Execute pattern.
+- **Identify or Define Initial Patterns**: For existing projects, identify existing patterns in codebase. For new projects, define initial patterns based on team experience. Store in `context/knowledge/patterns/`.
+- **Align Stakeholders**: Ensure everyone understands the intent and validate decisions with team if needed.
 
-- **Create Decisions** (recommended in Step 1):
-  - **Best Practice**: Create technical decisions in Step 1 when you know the approach
-  - Plan decisions before Build for faster implementation
-  - Decisions can be created in any step, but planning in Step 1 makes Build more efficient
-  - Create `decisions/*.md` files for significant technical choices
-  - Can create comprehensive context in Step 1 (faster Build phase)
-  - Or start minimal and expand as needed (more iterative)
+**Human Role**: Lead intent capture, validate intent clarity, approve initial context.
 
-- **Create Initial Context**:
-  - AI can help generate context structure
-  - Review and refine AI-generated context
-  - Use Plan, Approve, Execute pattern (see below)
+**AI Role**: Assist in structuring intent, suggest context organization, analyze similar projects for insights, generate context from prompts, explain what it will create before executing (Plan, Approve, Execute).
 
-- **Identify or Define Initial Patterns**:
-  - **For existing projects**: Identify existing patterns in codebase
-  - **For new projects**: Define initial patterns based on team experience
-  - Store in `context/knowledge/patterns/`
+**Outputs**: Clear Intent Statement, Technical Decisions (if planned), Initial Living Context, Initial Patterns (if identified or defined).
 
-- **Align Stakeholders**:
-  - Ensure everyone understands the intent
-  - Validate decisions with team if needed
-
-**Human Role**:
-- Lead intent capture
-- Validate intent clarity
-- Approve initial context
-
-**AI Role**:
-- Assist in structuring intent
-- Suggest context organization
-- Analyze similar projects for insights
-- Generate context from prompts (when asked)
-- Explain what it will create before executing (Plan, Approve, Execute)
-
-**Outputs**:
-- Clear Intent Statement (`project-intent.md` or `feature-*.md`/`bug-*.md`)
-- Technical Decisions (if planned) - `decisions/*.md`
-- Initial Living Context
-- Initial Patterns (if identified or defined)
-
-**Definition of Done**:
-- [ ] Intent statement is clear and validated (What + Why) - **Required**
-- [ ] Feature/Bug/Refactor intent created (if applicable) - **Required**
-- [ ] Technical decisions created (if known) - **Recommended** (makes Build faster)
-- [ ] Initial context created and stored
-- [ ] Initial patterns identified (existing projects) or defined (new projects) - **Optional**
-- [ ] Stakeholders aligned on intent
-
-**Principles Applied**:
-- ✅ **Context as Primary Creation** - Context is created first
-- ✅ **Intent-Driven Architecture** - Intent guides everything
+**Principles Applied**: ✅ Context as Primary Creation - Context is created first | ✅ Intent-Driven Architecture - Intent guides everything
 
 ---
 
@@ -254,183 +148,37 @@ Context Mesh is designed for simplicity and easy adoption, similar to Scrum. The
 
 **Purpose**: **Construction phase** - AI builds code with context, human supervises, and decisions are documented or updated as needed.
 
-**Prerequisites** (from Step 1):
-- ✅ Intent Statement (What + Why) - **Required** (`feature-*.md`, `bug-*.md`, or `project-intent.md`)
-- ✅ Technical Decisions (ADR) - **Required before implementation** (must exist or be created before Build)
-- ✅ Initial patterns (if known) - **Optional, can identify during Build**
+**Prerequisites** (from Step 1): Intent Statement (Required), Technical Decisions/ADR (Required before implementation), Initial patterns (Optional).
 
-**Critical Requirement - ADR Before Implementation**: 
-- Before implementing any feature, **verify if a technical decision (ADR) exists** for the approach needed
-- If no decision exists, **create the decision first** in Step 1 (Intent) or at the start of Step 2 (Build) before proceeding with implementation
-- **Do not start implementation without a documented decision** - this ensures all technical choices are documented with context and rationale
-- Feature implementation must follow the Definition of Done (DoD) for the step
+**Critical Requirement - ADR Before Implementation**: Before implementing any feature, **verify if a technical decision (ADR) exists** for the approach needed. If no decision exists, **create the decision first** in Step 1 (Intent) or at the start of Step 2 (Build) before proceeding. **Do not start implementation without a documented decision**. Feature implementation must follow project-level Definition of Done (DoD) and meet Success Criteria.
 
-**Note**: Decisions can be created or updated in any step:
-- **Step 1 (Intent)**: Plan decisions (approach, strategy) - **Recommended** for faster Build
-- **Step 2 (Build)**: **Create decision first** if missing, then implement. Can also update decisions if better approaches are discovered during implementation
-- **Step 3 (Learn)**: Update decisions with outcomes or create improvement decisions
+**Note**: Decisions can be created or updated in any step. Step 1 (Intent) is recommended for faster Build. Step 2 (Build): Create decision first if missing, then implement. Step 3 (Learn): Update decisions with outcomes.
 
-**Flexibility**: If you planned decisions in Step 1, you can still create new decisions or update existing ones in Step 2 if you discover better approaches or new technical choices during implementation. However, **always create the decision before implementing** the feature.
-
-**What it does**:
-- AI generates code using living context (intent, decisions, patterns/anti-patterns)
-- Human supervises and validates
-- Decisions are created or updated in context (if not planned in Step 1, or if better approaches are discovered)
-- Context is continuously updated
-- Follows established patterns, avoids known anti-patterns
-- Can create new decisions if technical choices emerge during implementation
+**What it does**: AI generates code using living context (intent, decisions, patterns/anti-patterns), human supervises and validates, decisions are created or updated, context is continuously updated, follows established patterns, avoids known anti-patterns.
 
 **Activities**:
-- **Verify Decision (ADR) exists**:
-  - Before implementing, check if technical decision exists for the feature
-  - If no decision exists, **create it first** (in Step 1 or start of Step 2)
-  - Decision must document: Context, Decision, Rationale, Alternatives
-  - Only proceed with implementation after decision is documented
-- Plan before building:
-  - Load necessary context files (intent, decisions, patterns)
-  - Verify decision (ADR) is available
-  - Ask AI to explain what it will build and how
-  - Review AI's planning approach
-- Approve before executing:
-  - Review and approve plan (or request changes)
-  - Ensure decision (ADR) is in place
-  - AI executes only with your approval
-- Execute with context:
-  - AI generates code based on approved plan and documented decisions
-  - Follow Definition of Done (DoD) for feature implementation
-  - Can generate everything at once or part by part
-  - Human supervises and validates AI work
-- Create or update implementation decisions:
-  - Use decisions from Step 1 if they exist (recommended approach)
-  - **If decision was missing, ensure it's created before implementation**
-  - Create new decisions if additional technical choices emerge during Build
-  - Update existing decisions if implementation approach differs from plan
-- Follow established patterns from knowledge/ (if available)
-- Avoid known anti-patterns from knowledge/ (if available)
-- Identify new patterns during implementation (optional)
-- Update context continuously
-- Review code quality
-- Validate against intent and DoD
+- **Verify Decision (ADR) exists**: Check if technical decision exists. If not, create it first (must document: Context, Decision, Rationale, Alternatives). Only proceed after decision is documented.
+- **Plan before building**: Load necessary context files (intent, decisions, patterns), verify ADR is available, ask AI to explain what it will build and how, review AI's planning approach.
+- **Approve before executing**: Review and approve plan (or request changes), ensure ADR is in place, AI executes only with your approval.
+- **Execute with context**: AI generates code based on approved plan and documented decisions, follow DoD for feature implementation, human supervises and validates.
+- **Create or update decisions**: Use decisions from Step 1 if they exist, create new decisions if technical choices emerge, update existing decisions if approach differs from plan.
+- **Follow patterns**: Use established patterns from knowledge/, avoid known anti-patterns, identify new patterns during implementation (optional), update context continuously, review code quality, validate against intent and DoD.
 
 ### Writing Prompts for AI Code Generation
 
 **Context Mesh Philosophy**: Since **context is the primary artifact**, prompts should be **simple and reference the context**. The context files contain all the details (tech stack, patterns, anti-patterns, requirements, decisions).
 
-### Approach Hierarchy for Code Generation
+**Approach Hierarchy** (in order of recommendation):
 
-Context Mesh offers three approaches for generating code with AI, in order of recommendation:
+1. **✅ Simple Prompts (Recommended - Default)**: Use when context is sufficient. Example: `Implement authentication following @context/intent/feature-user-auth.md and @context/decisions/002-auth-approach.md`. Advantages: Context is primary, less maintenance, single source of truth, more reliable.
 
-#### 1. ✅ Simple Prompts (Recommended - Default)
+2. **✅ AI Agents (agent-*.md) (Advanced - When Needed)**: Use when you need structured/reusable execution or working with a team. Example: `Execute @context/agents/agent-backend.md for payment feature`. See [ADVANCED.md](ADVANCED.md) for details.
 
-**Use when**: Context is sufficient for the task
+3. **⚠️ Detailed Prompts (Avoid - Temporary Only)**: Use only temporarily for testing or learning. Duplicates information from context, hard to maintain. If needed frequently, create an `agent-*.md` file instead.
 
-**Example**:
-```
-Implement authentication following @context/intent/feature-user-auth.md
-and @context/decisions/002-auth-approach.md
-```
+**Decision Guide**: Simple project → Simple Prompts | Complex project/Team → AI Agents | Temporary test → Detailed Prompt (acceptable, but temporary).
 
-**Advantages**:
-- ✅ Context is primary (Context Mesh philosophy)
-- ✅ Less maintenance (update context, not prompts)
-- ✅ Single source of truth
-- ✅ More reliable (AI reads complete context)
-- ✅ Aligned with framework philosophy
-
-**When to use**: Always when possible. This is the recommended default approach.
-
----
-
-#### 2. ✅ AI Agents (agent-*.md) (Advanced - When Needed)
-
-**Use when**: Need structured/reusable execution, or working with a team
-
-**Example**:
-```
-Execute @context/agents/agent-backend.md for payment feature
-```
-
-**Advantages**:
-- ✅ Reusable (same pattern for multiple features)
-- ✅ Modular (execute specific parts)
-- ✅ Structured (DoD, conventions, scope)
-- ✅ Complements Context Mesh (execution + context)
-- ✅ Ideal for teams (shared patterns)
-
-**When to use**:
-- Complex projects with multiple features
-- Teams working together
-- Reusable execution patterns
-- When you need structure beyond context
-
-**See**: [ADVANCED.md](ADVANCED.md) for details on agent files.
-
----
-
-#### 3. ⚠️ Detailed Prompts (Avoid - Temporary Only)
-
-**Use when**: Testing, temporary override, or initial learning
-
-**Example** (not recommended):
-```
-Create auth service layer (services/auth.service.ts),
-create auth routes (routes/auth.routes.ts) with signup, login, logout,
-implement JWT middleware, create DTOs with validation...
-```
-
-**Disadvantages**:
-- ❌ Duplicates information from context
-- ❌ Hard to maintain (changes in two places)
-- ❌ Goes against philosophy (context is not primary)
-- ❌ Less reliable (AI may not read complete context)
-
-**When to use**:
-- Only temporarily for testing
-- Temporary override of context
-- Initial learning (then migrate to simple prompts)
-
-**Recommendation**: If you need detailed prompts frequently, consider creating an `agent-*.md` file instead.
-
----
-
-### Decision: Which Approach to Use?
-
-| Situation | Recommended Approach | Why |
-|-----------|---------------------|-----|
-| Simple project, single feature | **Simple Prompts** | Context is sufficient |
-| Complex project, multiple features | **AI Agents (agent-*.md)** | Structured and reusable execution |
-| Team collaboration | **AI Agents (agent-*.md)** | Shared patterns |
-| Temporary test, override | **Detailed Prompt** | Acceptable, but temporary |
-| Initial learning | **Simple Prompts** | Start simple |
-
-### Practical Examples
-
-**Example 1 - Simple Prompt (Recommended):**
-```
-Create the project structure following @context/decisions/001-tech-stack.md
-and @context/decisions/003-database-schema.md
-```
-
-**Example 2 - Agent File (Advanced):**
-```
-Execute @context/agents/agent-backend.md for authentication feature
-```
-
-**Example 3 - Detailed Prompt (Avoid):**
-```
-Create backend/ folder with Express + TypeScript + Prisma setup,
-frontend/ folder with React + TypeScript + Vite setup,
-following the tech stack decision in @context/decisions/001-tech-stack.md...
-```
-*This example repeats what's already in context. Use Example 1 instead.*
-
-### Final Recommendation
-
-1. **Start with Simple Prompts** - This is the default approach
-2. **Add AI Agents (agent-*.md)** - When you need structure or reusability
-3. **Avoid Detailed Prompts** - Use only temporarily, or create an agent file
-
-**Remember**: Context is primary. If you're writing long prompts, consider adding that information to context or creating an agent file.
+**Recommendation**: Start with Simple Prompts (default). Add AI Agents when you need structure or reusability. Avoid Detailed Prompts - use only temporarily, or create an agent file. Remember: Context is primary.
 
 **Context Artifacts**:
 - Implementation Code (with context links)
@@ -459,15 +207,6 @@ following the tech stack decision in @context/decisions/001-tech-stack.md...
 - Implementation Documentation
 - New Patterns Identified (optional)
 
-**Definition of Done**:
-- [ ] Technical decision (ADR) exists before implementation - **Required**
-- [ ] Code implemented using context and following DoD
-- [ ] Important decisions documented (with rationale) - **Required**
-- [ ] Code linked to context (intent, decisions)
-- [ ] Human review completed
-- [ ] Context updated with implementation details
-- [ ] Code validated against intent
-
 **Principles Applied**:
 - ✅ **Human-AI Collaborative Consciousness** - Explicit collaboration
 - ✅ **Contextual Decision Architecture** - Decisions with context
@@ -479,135 +218,180 @@ following the tech stack decision in @context/decisions/001-tech-stack.md...
 
 **Purpose**: **Learning phase** - Update living context to reflect code changes, document learnings, and refine decisions and intent based on outcomes.
 
-**What it does**:
-- Updates context to reflect actual code changes
-- Documents learnings from development process
-- Updates decisions with outcomes (what actually happened)
-- Creates or updates improvement decisions if needed
-- Refines intent if needed
-- Creates feedback loop to Intent
+**What it does**: Updates context to reflect actual code changes, documents learnings, updates decisions with outcomes, creates or updates improvement decisions if needed, refines intent if needed, creates feedback loop to Intent.
 
 **Activities**:
-1. **Update Context** (Primary):
-   - Plan: Ask AI to identify what changed
-   - Approve: Review AI's analysis of changes
-   - Execute: Update context with your approval
-   - Use AI to help identify what changed
-   - Update context to match current codebase
-   - Update decision records with outcomes (what actually happened)
-   - Create new improvement decisions if learnings suggest better approaches
-   - Update changelog with significant changes
+1. **Update Context** (Primary): Plan (ask AI to identify what changed), Approve (review AI's analysis), Execute (update context with approval). Update context to match current codebase, update decision records with outcomes, create new improvement decisions if learnings suggest better approaches, update changelog.
+2. **Preserve Knowledge** (Important): Preserve patterns identified during Build, update patterns based on learnings, document new anti-patterns discovered, preserve context around patterns/anti-patterns.
+3. **Document Learnings** (Optional): Note what worked well, document challenges or discoveries.
+4. **Refine Intent** (If needed): Adjust intent based on learnings, create new work items if needed. **Feedback Loop**: Learnings from Step 3 feed back to Step 1 (Intent) for refinement in the next cycle.
 
-2. **Preserve Knowledge** (Important):
-   - Preserve patterns identified during Build
-   - Update patterns based on learnings
-   - Document new anti-patterns discovered
-   - Preserve context around patterns/anti-patterns
+**Human Role**: Review code changes, decide what needs context updates, update context (with AI assistance), validate context accuracy.
 
-3. **Document Learnings** (Optional):
-   - Note what worked well
-   - Document challenges or discoveries
+**AI Role**: Explain what changed before updating context (Plan, Approve, Execute), help identify what changed in code, suggest what needs updating in context, assist in updating documentation, propose context improvements.
 
-4. **Refine Intent** (If needed):
-   - Adjust intent based on learnings
-   - Create new work items if needed
+**Outputs**: Updated Living Context, Updated Decision Records (with outcomes), Updated Changelog, Preserved/Updated Patterns, Learning Notes (optional), Refined Intent (if needed).
 
-**Context Artifacts**:
-- Updated Context (reflecting code changes)
-- Updated Decision Records (with outcomes from implementation)
-- New Improvement Decisions (if learnings suggest better approaches)
-- Changelog entries (documenting what changed)
-- Learning Notes (optional)
-- Preserved Patterns (if identified during Build)
-- Refined Intent (if needed)
-
-**Human Role**:
-- Review code changes
-- Decide what needs context updates
-- Update context (with AI assistance)
-- Validate context accuracy
-
-**AI Role**:
-- Explain what changed before updating context (Plan, Approve, Execute)
-- Help identify what changed in code
-- Suggest what needs updating in context
-- Assist in updating documentation
-- Propose context improvements
-
-**Outputs**:
-- Updated Living Context
-- Updated Decision Records (if applicable)
-- Updated Changelog
-- Preserved/Updated Patterns (if applicable)
-- Learning Notes (optional)
-- Refined Intent (if needed)
-
-**Definition of Done**:
-- [ ] Context updated to reflect code changes
-- [ ] Context aligned with current codebase
-- [ ] Changelog updated with significant changes
-- [ ] Patterns preserved/updated in knowledge/ (if applicable)
-- [ ] Decision records updated if outcomes differ (optional)
-- [ ] Learnings documented (optional)
-- [ ] Intent refined if needed (optional)
-
-**Principles Applied**:
-- ✅ **Knowledge as Living Entity** - Knowledge evolves
-- ✅ **Context as Primary Creation** - Context is updated
-- ✅ **Intent-Driven Architecture** - Intent is refined
+**Principles Applied**: ✅ Knowledge as Living Entity - Knowledge evolves | ✅ Context as Primary Creation - Context is updated | ✅ Intent-Driven Architecture - Intent is refined
 
 ---
 
-## Feedback Loop
+## Context Structure
 
-### Primary Feedback Loop: Learn → Intent
+Now that you understand the 3-step workflow, let's explore how context is organized and structured.
 
-**Mechanism**: Insights from Step 3 (Learn) feed directly back to Step 1 (Intent)
+Context Mesh uses a simple directory structure to organize context:
 
-**Refinement happens:**
-- **Before Step 1**: Team refines intent before starting (optional)
-- **After Step 3**: Refine intent based on learnings (feedback loop)
-- **Result**: Refined intent feeds back to Step 1 for next cycle
+```
+context/
+├── intent/          # Step 1: Intent statements
+│   ├── project-intent.md
+│   ├── feature-*.md
+│   ├── bug-*.md
+│   └── refactor-*.md
+│
+├── decisions/       # Decisions (can be created in any step, recommended in Step 1)
+│   └── 001-*.md, 002-*.md, ...
+│
+├── knowledge/       # Patterns, anti-patterns (all steps)
+│   ├── patterns/
+│   └── anti-patterns/
+│
+├── agents/          # Reusable execution patterns (optional)
+│   └── agent-*.md
+│
+└── evolution/       # Step 3: Changelogs, learnings
+    ├── changelog.md
+    └── learning-*.md
+```
 
-**Flow**:
-1. Learnings from results → Intent refinement
-2. Outcome analysis → Intent refinement
-3. Context evolution → Enhanced intent
-4. Updated decisions → Better future decisions
-5. Patterns preserved → Better future implementations
+**Why this structure:**
+- Simple and clear organization
+- Easy to navigate and maintain
+- Works with any tools (or no tools)
+- Flexible - add subdirectories as needed
 
-**Context Updates**:
-- Living context automatically evolves
-- Intent statements refined
-- Decision records updated with outcomes
-- Patterns updated with learnings
-- Changelog updated
-- New work items created from learnings
+**Living Context**: This structure creates a **living knowledge repository** that stores intent, decisions, implementation details, learnings, patterns, and anti-patterns. It evolves continuously as the system changes, maintains full traceability from intent to code to outcomes, and preserves patterns with their context. Context is versioned (using Git), searchable, and always up-to-date.
 
 ---
 
-## Living Context
+## Using AI as Your Assistant
 
-Living Context is the central knowledge repository that:
+Context Mesh works with AI tools (Cursor, GitHub Copilot, etc.) as assistants:
 
-- **Stores**: Intent, decisions, implementation details, learnings, patterns, anti-patterns
-- **Evolves**: Continuously updates as system changes
-- **Traces**: Full traceability from intent to code to outcomes
-- **Connects**: Links intent → decisions → code → learnings
-- **Preserves**: Patterns and anti-patterns with their context
+- **Step 1 (Intent)**: Use AI to help structure and refine your intent
+- **Step 2 (Build)**: Use AI to generate code based on your context
+- **Step 3 (Learn)**: Use AI to help identify changes and update context
 
-**Key Characteristics**:
-- Always up-to-date
-- Versioned (using Git or similar)
-- Searchable and queryable
-- Linked relationships between artifacts
+You maintain control - AI assists, you decide.
 
-**How to Maintain**:
-- Update context during Build step
-- Update context during Learn step
-- Keep context simple and focused
-- Link everything to intent
-- Preserve patterns and anti-patterns in knowledge/
+---
+
+## AI-Human Collaboration
+
+**Collaboration Pattern**: **Intent** - Human leads, AI assists | **Build** - AI builds, human supervises | **Learn** - AI analyzes, human validates.
+
+**Human Responsibilities**: Lead intent capture and validation, supervise AI execution, review and approve work, validate learnings and insights, make critical decisions.
+
+**AI Responsibilities**: Generate code based on context, suggest solutions and improvements, review code for quality, help identify what needs updating in context, propose context updates.
+
+**Plan, Approve, Execute Pattern**: Context Mesh uses this pattern for all AI-assisted work. 1) **Plan** - AI explains what it will do (context creation, code generation, or updates). 2) **Approve** - You review and approve (or request changes), maintain control over execution. 3) **Execute** - AI executes only with your approval. This pattern applies to context creation/updates (Step 1, Step 3), code generation (Step 2), and any AI-assisted task. **Why it matters**: You maintain control, AI explains before acting, you can refine before execution, reduces rework and improves quality.
+
+---
+
+## Definition of Done (DoD)
+
+Context Mesh uses **Definition of Done** at the project/feature level - criteria that every feature must meet before being considered complete. This typically includes: code implemented and working, tests passing, code review completed, **context updated** (Context Mesh requirement), documentation updated, and deployed (if applicable).
+
+**Note**: Project-level DoD is defined by your team/project, not by Context Mesh. Context Mesh adds the requirement to update context as part of your DoD.
+
+**Success Criteria vs DoD:**
+- **Success Criteria** (in `feature-*.md` files) = Acceptance Criteria - What the feature needs to do functionally (e.g., "User can login", "Data is saved")
+- **Definition of Done** = Process criteria that must be met (e.g., "Tests passing", "Code reviewed", "Context updated")
+
+---
+
+## Working with Features, Bugs, and Refactoring
+
+With the fundamentals in place, here's how to apply Context Mesh to different types of work.
+
+Context Mesh applies to **any type of work**. All follow the same 3-step pattern:
+- **New Feature**: Step 1: Define feature intent → Step 2: Build with context → Step 3: Learn and update context
+- **Bug Fix**: Step 1: Define fix intent → Step 2: Fix bug, document decision → Step 3: Learn, update context
+- **Refactoring**: Step 1: Define refactoring intent → Step 2: Refactor, document decisions → Step 3: Learn, preserve patterns
+
+---
+
+## Project Intent vs Features, Bugs, and Refactoring
+
+Understanding when to use `project-intent.md` versus individual feature/bug files is crucial for maintaining clear context organization.
+
+**Project Intent (`project-intent.md`)**: Defines overall project scope, goals, and high-level objectives. Use for project vision, high-level goals, general scope (not individual features), project-wide principles, strategic direction. **Update when**: Project scope changes significantly, high-level goals change, strategic direction changes. **Do NOT update for**: Adding individual features (create `feature-*.md`), fixing bugs (create `bug-*.md`), updating existing features (update `feature-*.md`), technical decisions (create `decisions/*.md`).
+
+**Features (`feature-*.md`)**: Defines individual feature requirements, goals, and success criteria. Create when starting a new feature (each feature gets its own file). Update when refining requirements, adding functionality, changing scope. Deprecate (do NOT delete) when feature is removed/replaced - mark as deprecated but keep file for history.
+
+**Bugs (`bug-*.md`)**: Defines bug description, impact, and fix requirements. Create when starting a bug fix (each bug gets its own file). Update when refining bug understanding, adding root cause analysis. Deprecate (do NOT delete) when bug is fixed - mark as resolved but keep file for history.
+
+**Practical Workflow**: New Feature → Create `feature-*.md` (Step 1), implement (Step 2), update with learnings (Step 3). Update Existing Feature → Update existing `feature-*.md` (do NOT create new file). Bug Fix → Create `bug-*.md` (Step 1), fix bug (Step 2), mark as resolved (Step 3). Change Project Scope → Update `project-intent.md` (exception), create new `feature-*.md` files for new major areas.
+
+**Quick Reference Table**:
+
+| Situation | File to Create/Update | Action |
+|----------|----------------------|--------|
+| New Feature | `feature-*.md` | Create new file |
+| Update Feature | `feature-*.md` (existing) | Update existing file |
+| Deprecate Feature | `feature-*.md` (existing) | Mark as deprecated, keep file |
+| Bug Fix | `bug-*.md` | Create new file |
+| Update Bug Understanding | `bug-*.md` (existing) | Update existing file |
+| Resolve Bug | `bug-*.md` (existing) | Mark as resolved, keep file |
+| Change Project Scope | `project-intent.md` | Update (only for scope changes) |
+| Technical Decision | `decisions/*.md` | Create new file |
+
+---
+
+## Decision Documentation
+
+Every significant decision should be documented with: **Context** (what was the situation?), **Decision** (what did we decide?), **Rationale** (why did we decide this?), **Alternatives** (what else did we consider?), **Outcomes** (what happened? - updated in Learn step).
+
+**When to Create Decisions**: Decisions can be created in any step, but the framework recommends planning them in Step 1 (Intent) for faster Build phase. **Step 1 (Intent) - Recommended**: Plan technical decisions when you know the approach, create `decisions/*.md` files before Build, best for architectural decisions, technology choices, design patterns. **Step 2 (Build) - Flexible**: Create decisions if technical choices emerge during implementation, update existing decisions if approach differs from plan, best for implementation-level decisions. **Step 3 (Learn) - Outcomes**: Update decisions with outcomes, create improvement decisions if learnings suggest better approaches.
+
+**When to Document**: Architectural decisions, technology choices, design patterns, important implementation choices. **Format**: Simple markdown or structured format in your context repository. See examples in [GETTING_STARTED.md](GETTING_STARTED.md) or [examples/](examples/).
+
+---
+
+## Context File Organization
+
+**File Creation Rules**: Create new file for new scope (new work item → new intent file, new decision → new decision file, new pattern → new knowledge file, important learning → new learning file). Update existing file for same scope (refine intent, add outcomes to decision, update pattern, add changelog entry).
+
+**File Naming Conventions**:
+- **Intent Files**: `project-intent.md`, `feature-*.md`, `bug-*.md`, `refactor-*.md`
+- **Decision Files**: `001-*.md`, `002-*.md`, ... (sequential numbering)
+- **Knowledge Files**: `patterns/*.md`, `anti-patterns/*.md`
+- **Evolution Files**: `changelog.md`, `learning-*.md`
+
+**Linking and Traceability**: All files should link to related files for full traceability. Include a "Related" section linking to intent, decisions, learnings, and patterns. This creates traceability: Intent → Decision → Learning → Pattern.
+
+---
+
+## Status and Dates
+
+Status and dates help track the lifecycle of context files and provide traceability for AI agents and team collaboration.
+
+**Status Section Format** (include at end of every context file):
+```markdown
+## Status
+- **Created**: YYYY-MM-DD (Phase: Intent/Build/Learn)
+- **Status**: [Status Type]
+- **Updated**: YYYY-MM-DD (Phase: Intent/Build/Learn) - [reason] (optional)
+```
+
+**Status Types**:
+- **Intent Files**: Draft, In Progress, Completed, Deprecated, Resolved
+- **Decision Files**: Proposed, Accepted, Superseded, Deprecated
+- **Knowledge Files**: Active, Deprecated, Superseded
+- **Learning Files**: Active, Archived
+
+**Best Practices**: Always include created date, update status when it changes, add updated date for significant changes, include phase (which Context Mesh step), be consistent across all files.
 
 ---
 
@@ -616,239 +400,12 @@ Living Context is the central knowledge repository that:
 Patterns and anti-patterns are knowledge that evolves with the system and guide development.
 
 **When Patterns are Established**:
+- **For New Projects** (Step 1: Intent): Define initial patterns based on team experience or best practices. Start with minimal set, evolve as you learn.
+- **For Existing Projects** (Step 1: Intent): Identify existing patterns in the codebase, document patterns that are working well, identify anti-patterns that should be avoided.
+- **During Build** (Step 2): Use established patterns from knowledge/, follow patterns when implementing, avoid known anti-patterns, optionally identify new patterns during implementation.
+- **During Learn** (Step 3): Preserve patterns identified during Build, update patterns based on learnings, document new anti-patterns discovered, refine pattern context based on outcomes.
 
-**For New Projects** (Step 1: Intent):
-- Define initial patterns based on team experience or best practices
-- Start with minimal set, evolve as you learn
-
-**For Existing Projects** (Step 1: Intent):
-- Identify existing patterns in the codebase
-- Document patterns that are working well
-- Identify anti-patterns that should be avoided
-
-**During Build** (Step 2):
-- Use established patterns from knowledge/
-- Follow patterns when implementing
-- Avoid known anti-patterns
-- Optionally identify new patterns during implementation
-
-**During Learn** (Step 3):
-- Preserve patterns identified during Build
-- Update patterns based on learnings
-- Document new anti-patterns discovered
-- Refine pattern context based on outcomes
-
-**Pattern Documentation**:
-- **Pattern**: What it is, when to use it, why it works, examples
-- **Anti-pattern**: What to avoid, why it's problematic, what problems it causes
-- Both include context and link to decisions and learnings
-
----
-
-## Context File Organization
-
-### File Creation Rules
-
-**Create New File:**
-- New work item (feature, bug, refactoring) → new intent file
-- New significant decision → new decision file
-- New pattern/anti-pattern → new knowledge file
-- Important learning → new learning file
-
-**Update Existing File:**
-- Refine intent → update or create refined version
-- Add outcomes to decision → update decision file
-- Update pattern with learnings → update pattern file
-- Add entry to changelog → update changelog.md
-
-### File Naming Conventions
-
-**Intent Files:**
-- `project-intent.md` - Main project intent
-- `feature-*.md` - Feature intents (e.g., `feature-dark-mode.md`)
-- `bug-*.md` - Bug fix intents (e.g., `bug-login-timeout.md`)
-- `refactor-*.md` - Refactoring intents (e.g., `refactor-auth.md`)
-
-**Decision Files:**
-- `001-*.md`, `002-*.md`, ... - Sequential numbering (e.g., `001-jwt-authentication.md`)
-
-**Knowledge Files:**
-- `patterns/*.md` - Pattern files (e.g., `jwt-auth-pattern.md`)
-- `anti-patterns/*.md` - Anti-pattern files (e.g., `avoid-global-state.md`)
-
-**Evolution Files:**
-- `changelog.md` - Main changelog (always updated)
-- `learning-*.md` - Learning files (e.g., `learning-api-timeout.md`)
-
-### Linking and Traceability
-
-All files should link to related files for full traceability:
-
-```markdown
-## Related
-- Intent: feature-dark-mode.md
-- Decision: 002-theme-storage.md
-- Learning: learning-theme-performance.md
-- Pattern: theme-management-pattern.md
-```
-
-This creates traceability: Intent → Decision → Learning → Pattern
-
----
-
-## Status and Dates
-
-Status and dates are important metadata that help track the lifecycle of context files and provide traceability.
-
-### Why Status and Dates Matter
-
-**Traceability**:
-- Know when something was created or updated
-- Track the evolution of context over time
-- Understand the current state of each artifact
-
-**Context for AI**:
-- AI agents can understand relevance and current state
-- Helps AI prioritize which context to use
-- Provides historical context for decision-making
-
-**Team Collaboration**:
-- Team members understand what's active vs deprecated
-- Clear indication of work item status
-- Better project visibility
-
-### Status Section Format
-
-Every context file should include a Status section at the end:
-
-```markdown
-## Status
-
-- **Created**: YYYY-MM-DD (Phase: Intent/Build/Learn)
-- **Status**: [Status Type]
-- **Updated**: YYYY-MM-DD (Phase: Intent/Build/Learn) - [reason] (optional)
-```
-
-**When to Update**:
-- **Created**: Always include when file is first created
-- **Status**: Update when status changes (e.g., Draft → In Progress → Completed)
-- **Updated**: Add when you make significant updates (not every small change)
-
-### Status Types
-
-#### For Intent Files (feature-*.md, bug-*.md, refactor-*.md, project-intent.md)
-
-| Status | When to Use | Description |
-|--------|-------------|-------------|
-| **Draft** | Initial creation | Intent is being planned, not yet finalized |
-| **In Progress** | During Build | Work item is actively being developed |
-| **Completed** | After Build | Work item is implemented and working |
-| **Deprecated** | Feature removed/replaced | Feature is no longer used (keep file for history) |
-| **Resolved** | Bug fixed | Bug has been fixed (keep file for history) |
-
-**Example**:
-```markdown
-## Status
-
-- **Created**: 2024-01-15 (Phase: Intent)
-- **Status**: Completed
-- **Updated**: 2024-01-18 (Phase: Learn) - Added learnings
-```
-
-#### For Decision Files (decisions/*.md)
-
-| Status | When to Use | Description |
-|--------|-------------|-------------|
-| **Proposed** | Initial creation | Decision is proposed, awaiting approval |
-| **Accepted** | Decision approved | Decision is accepted and being used |
-| **Superseded** | Replaced by another | Decision replaced by a newer decision |
-| **Deprecated** | No longer valid | Decision is no longer applicable |
-
-**Example**:
-```markdown
-## Status
-
-- **Created**: 2024-01-15 (Phase: Intent)
-- **Status**: Accepted
-- **Updated**: 2024-01-20 (Phase: Learn) - Added outcomes
-```
-
-#### For Knowledge Files (patterns/*.md, anti-patterns/*.md)
-
-| Status | When to Use | Description |
-|--------|-------------|-------------|
-| **Active** | Currently in use | Pattern/anti-pattern is actively used |
-| **Deprecated** | No longer recommended | Pattern should not be used anymore |
-| **Superseded** | Replaced by another | Pattern replaced by a better one |
-
-**Example**:
-```markdown
-## Status
-
-- **Created**: 2024-01-15 (Phase: Build)
-- **Status**: Active
-```
-
-#### For Learning Files (learning-*.md)
-
-| Status | When to Use | Description |
-|--------|-------------|-------------|
-| **Active** | Current learning | Learning is still relevant |
-| **Archived** | Historical reference | Learning is kept for historical context |
-
-**Example**:
-```markdown
-## Status
-
-- **Created**: 2024-01-18 (Phase: Learn)
-- **Status**: Active
-```
-
-### Best Practices
-
-1. **Always Include Created Date**: Every file should have a creation date
-2. **Update Status When It Changes**: Keep status current to reflect reality
-3. **Add Updated Date for Significant Changes**: Not every small edit, but major updates
-4. **Include Phase**: Indicates which Context Mesh step the change happened in
-5. **Be Consistent**: Use the same format across all files
-
-### Examples
-
-**Feature Intent (Completed)**:
-```markdown
-## Status
-
-- **Created**: 2024-01-15 (Phase: Intent)
-- **Status**: Completed
-- **Updated**: 2024-01-18 (Phase: Learn) - Added implementation learnings
-```
-
-**Decision (Accepted with Outcomes)**:
-```markdown
-## Status
-
-- **Created**: 2024-01-15 (Phase: Intent)
-- **Status**: Accepted
-- **Updated**: 2024-01-20 (Phase: Learn) - Added outcomes from implementation
-```
-
-**Bug (Resolved)**:
-```markdown
-## Status
-
-- **Created**: 2024-01-22 (Phase: Build)
-- **Status**: Resolved
-- **Updated**: 2024-01-23 (Phase: Learn) - Bug fixed and verified
-```
-
-**Feature (Deprecated)**:
-```markdown
-## Status
-
-- **Created**: 2024-01-15 (Phase: Intent)
-- **Status**: Deprecated (2024-02-01)
-- **Reason**: Replaced by feature-new-approach.md
-```
+**Pattern Documentation**: **Pattern** - What it is, when to use it, why it works, examples. **Anti-pattern** - What to avoid, why it's problematic, what problems it causes. Both include context and link to decisions and learnings.
 
 ---
 
@@ -907,337 +464,72 @@ Update existing file when it's the **same scope** (Git will version it):
 
 ---
 
-## Working with Features, Bugs, and Refactoring
+## AGENTS.md Integration
 
-Context Mesh applies to **any type of work**:
+For teams and advanced use cases, Context Mesh integrates with additional tools and standards.
 
-**New Feature:**
-- Step 1: Define feature intent
-- Step 2: Build feature with context
-- Step 3: Learn and update context
+Context Mesh works seamlessly with the **[AGENTS.md](https://agents.md/)** standard, an open format used by over 20,000 open-source projects to guide AI coding agents.
 
-**Bug Fix:**
-- Step 1: Define fix intent (what bug, why fix)
-- Step 2: Fix bug, document decision
-- Step 3: Learn, update context, update changelog
+**AGENTS.md** acts as a **router** that directs AI agents to Context Mesh files. Keep it **succinct** - it should primarily indicate where to find context, not duplicate it:
 
-**Refactoring:**
-- Step 1: Define refactoring intent
-- Step 2: Refactor, document decisions
-- Step 3: Learn, preserve patterns
+- **AGENTS.md** = Operational router (setup commands, workflow, references to Context Mesh files)
+- **Context Mesh** = Strategic context (intent, decisions, knowledge, patterns)
 
-**All follow the same 3-step pattern** - Context Mesh is work-agnostic.
+**Together**: AGENTS.md routes AI agents to the right Context Mesh files, providing both operational guidance and strategic context.
 
----
+**Structure**: `AGENTS.md` at project root references `context/` directory. Your `AGENTS.md` should include a "Context Files to Load" section listing relevant context files (e.g., `@context/intent/project-intent.md`, `@context/decisions/001-tech-stack.md`).
 
-## Project Intent vs Features, Bugs, and Refactoring
+**Important**: AGENTS.md should be **kept updated** to reflect changes in the living context. When context files are added, updated, or removed, update AGENTS.md accordingly:
+- New feature intents → Add to "Feature-Specific Context" section
+- New decisions → Add to "Technical Decisions" section
+- New patterns → Add to "Knowledge and Patterns" section
+- Deprecated features → Update or remove references
 
-Understanding when to use `project-intent.md` versus individual feature/bug files is crucial for maintaining clear context organization.
+**Note**: AGENTS.md is **optional** but **recommended** for better AI agent experience. Context Mesh works perfectly without it, but together they provide complete guidance.
 
-### Project Intent (`project-intent.md`)
-
-**Purpose**: Defines the overall project scope, goals, and high-level objectives.
-
-**Use `project-intent.md` for:**
-- Overall project vision and purpose
-- High-level project goals and objectives
-- General project scope (not individual features)
-- Project-wide principles and guidelines
-- Strategic direction
-
-**Update `project-intent.md` when:**
-- Project scope changes significantly (adding/removing major areas)
-- High-level goals or objectives change
-- Project principles or strategic direction changes
-
-**Do NOT update `project-intent.md` for:**
-- Adding individual features (create `feature-*.md` instead)
-- Fixing bugs (create `bug-*.md` instead)
-- Updating existing features (update `feature-*.md` instead)
-- Technical decisions (create `decisions/*.md` instead)
-
-**Example `project-intent.md`:**
-```markdown
-# Project Intent: MVP Ecommerce
-
-## What
-MVP de ecommerce para validar modelo de negócio com funcionalidades essenciais.
-
-## Why
-- Validar demanda do mercado
-- Testar modelo de receita
-- Entregar valor rápido aos usuários
-
-## Scope
-- Catálogo de produtos
-- Carrinho e checkout
-- Integração de pagamento
-- Gestão básica de pedidos
-
-## Success Criteria (Project Level)
-- Usuário consegue comprar produto end-to-end
-- Pagamento processado com sucesso
-- Sistema estável e seguro
-```
-
-### Features (`feature-*.md`)
-
-**Purpose**: Defines individual feature requirements, goals, and success criteria.
-
-**Create `feature-*.md` when:**
-- Starting a new feature
-- Each feature gets its own file (e.g., `feature-carrinho.md`, `feature-checkout.md`)
-
-**Update `feature-*.md` when:**
-- Refining feature requirements
-- Adding new functionality to existing feature
-- Changing feature scope or success criteria
-- Same feature, just evolving
-
-**Deprecate (do NOT delete) `feature-*.md` when:**
-- Feature is removed or replaced
-- Mark as deprecated but keep file for history:
-  ```markdown
-  ## Status: Deprecated (2024-01-15)
-  This feature was replaced by [new feature]. See: feature-new-approach.md
-  
-  ## Reason
-  [Why it was deprecated]
-  ```
-
-**Example `feature-*.md`:**
-```markdown
-# Intent: Feature - Carrinho de Compras
-
-## What
-Sistema de carrinho que permite usuários adicionarem produtos, visualizarem itens e prosseguirem para checkout.
-
-## Why
-- Necessário para completar fluxo de compra
-- Funcionalidade essencial do ecommerce
-
-## Success Criteria
-- Usuário adiciona produto ao carrinho
-- Carrinho persiste entre sessões
-- Usuário visualiza total e itens
-- Usuário pode remover itens
-
-## Related
-- Project Intent: project-intent.md
-- Decision: 003-cart-storage.md (if exists)
-```
-
-### Bugs (`bug-*.md`)
-
-**Purpose**: Defines bug description, impact, and fix requirements.
-
-**Create `bug-*.md` when:**
-- Starting a bug fix
-- Each bug gets its own file (e.g., `bug-carrinho-perdendo-itens.md`)
-
-**Update `bug-*.md` when:**
-- Refining bug understanding
-- Adding root cause analysis
-- Updating fix approach
-- Same bug, just more information
-
-**Deprecate (do NOT delete) `bug-*.md` when:**
-- Bug is fixed and no longer relevant
-- Mark as resolved but keep file for history:
-  ```markdown
-  ## Status: Resolved (2024-01-15)
-  Bug fixed in commit [hash]. See: changelog.md
-  
-  ## Resolution
-  [How it was fixed]
-  ```
-
-**Example `bug-*.md`:**
-```markdown
-# Intent: Fix Bug - Carrinho Perdendo Itens
-
-## What
-Corrigir bug onde carrinho perde itens ao recarregar página.
-
-## Why
-- Bug crítico afetando UX
-- Usuários perdendo produtos do carrinho
-- Impacto direto em conversão
-
-## Success Criteria
-- Carrinho persiste após reload
-- Itens não são perdidos
-- Teste automatizado criado
-
-## Related
-- Feature: feature-carrinho.md
-- Decision: (will be created if needed during Build)
-```
-
-### Practical Workflow
-
-**New Feature:**
-1. **Step 1 (Intent)**: Create `feature-*.md` (do NOT update `project-intent.md`)
-2. **Step 2 (Build)**: Implement feature, create decisions if needed
-3. **Step 3 (Learn)**: Update feature intent with learnings
-
-**Update Existing Feature:**
-1. **Step 1 (Intent)**: Update existing `feature-*.md` (do NOT create new file)
-2. **Step 2 (Build)**: Implement updates, create decisions if needed
-3. **Step 3 (Learn)**: Update feature intent with learnings
-
-**Bug Fix:**
-1. **Step 1 (Intent)**: Create `bug-*.md` (do NOT update `project-intent.md`)
-2. **Step 2 (Build)**: Fix bug, create decisions if needed
-3. **Step 3 (Learn)**: Mark bug as resolved, update related feature if needed
-
-**Deprecate Feature/Bug:**
-1. Update the `feature-*.md` or `bug-*.md` file
-2. Add "Status: Deprecated" or "Status: Resolved" section
-3. Keep file for history (do NOT delete)
-4. Link to replacement if applicable
-
-**Change Project Scope:**
-1. Update `project-intent.md` (this is the exception)
-2. Create new `feature-*.md` files for new major areas
-3. Update related features if scope change affects them
-
-### Quick Reference Table
-
-| Situation | File to Create/Update | Action |
-|----------|----------------------|--------|
-| New Feature | `feature-*.md` | Create new file |
-| Update Feature | `feature-*.md` (existing) | Update existing file |
-| Deprecate Feature | `feature-*.md` (existing) | Mark as deprecated, keep file |
-| Bug Fix | `bug-*.md` | Create new file |
-| Update Bug Understanding | `bug-*.md` (existing) | Update existing file |
-| Resolve Bug | `bug-*.md` (existing) | Mark as resolved, keep file |
-| Change Project Scope | `project-intent.md` | Update (only for scope changes) |
-| Technical Decision | `decisions/*.md` | Create new file |
+See [TOOLS.md](TOOLS.md) for more details on AGENTS.md integration.
 
 ---
 
-## AI-Human Collaboration
+## Agents (agent-*.md)
 
-### Human Responsibilities
-- Lead intent capture and validation
-- Supervise AI execution
-- Review and approve work
-- Validate learnings and insights
-- Make critical decisions
+Agents are simple reusable execution patterns stored in `context/agents/`. They're markdown files that define how to execute specific tasks by referencing Context Mesh files (intent, decisions, patterns) and providing step-by-step execution instructions.
 
-### AI Responsibilities
-- Generate code based on context
-- Suggest solutions and improvements
-- Review code for quality
-- Help identify what needs updating in context
-- Propose context updates
+**Key principle**: Agents should **reference** context, not duplicate it. All details are in context files - agents just tell AI how to execute.
 
-### Collaboration Pattern
-- **Intent**: Human leads, AI assists
-- **Build**: AI builds, human supervises
-- **Learn**: AI analyzes, human validates
+**When to create an agent:**
+- ✅ You find yourself writing the same detailed prompt repeatedly
+- ✅ You want to standardize how certain tasks are done
+- ✅ You're working with a team and want shared execution patterns
+- ✅ You have a complex task that needs structured steps
 
-### Plan, Approve, Execute Pattern
+**Don't create an agent when:**
+- ❌ Simple prompts work fine (just reference context files)
+- ❌ The task is one-time only
+- ❌ Context files already have all the information needed
 
-Context Mesh uses a **Plan, Approve, Execute** pattern for all AI-assisted work:
-
-1. **Plan**: AI explains what it will do (or you ask AI to plan)
-   - AI describes approach before executing
-   - You understand what will happen
-   - AI can explain context creation, code generation, or updates
-
-2. **Approve**: You review and approve (or request changes)
-   - Review AI's plan
-   - Approve if acceptable
-   - Request changes if needed
-   - Maintain control over execution
-
-3. **Execute**: AI executes only with your approval
-   - AI acts only after approval
-   - Reduces rework
-   - Ensures alignment with your intent
-
-**This pattern applies to:**
-- Context creation/updates (Step 1, Step 3)
-- Code generation (Step 2)
-- Any AI-assisted task
-
-**Why this matters:**
-- You maintain control
-- AI explains before acting
-- You can refine before execution
-- Reduces rework and improves quality
-
----
-
-## Decision Documentation
-
-Every significant decision should be documented with:
-
-- **Context**: What was the situation?
-- **Decision**: What did we decide?
-- **Rationale**: Why did we decide this?
-- **Alternatives**: What else did we consider?
-- **Outcomes**: What happened? (updated in Learn step)
-
-### When to Create Decisions
-
-**Decisions can be created in any step**, but the framework recommends planning them in Step 1 (Intent) for faster Build phase:
-
-**Step 1 (Intent) - Recommended:**
-- Plan technical decisions when you know the approach
-- Create `decisions/*.md` files before Build
-- Makes Build phase faster (AI has decisions ready)
-- Best for: Architectural decisions, technology choices, design patterns
-
-**Step 2 (Build) - Flexible:**
-- Create decisions if technical choices emerge during implementation
-- Update existing decisions if implementation approach differs from plan
-- Best for: Implementation-level decisions discovered during coding
-
-**Step 3 (Learn) - Outcomes:**
-- Update decisions with outcomes (what actually happened)
-- Create improvement decisions if learnings suggest better approaches
-- Best for: Documenting results and improvements
-
-**When to Document**:
-- Architectural decisions
-- Technology choices
-- Design patterns
-- Important implementation choices
-
-**Format**: Simple markdown or structured format in your context repository.
-
-**Example Decision File** (`decisions/001-jwt-authentication.md`):
+**Simple Agent Format:**
 ```markdown
-# Decision: JWT-based Authentication
-
-## Context
-We need to implement user authentication. We considered JWT tokens vs. session-based authentication.
-
-## Decision
-Use JWT tokens for authentication.
-
-## Rationale
-- Stateless authentication scales better
-- Works well with microservices architecture
-- Industry standard approach
-- Supports mobile apps easily
-
-## Alternatives Considered
-- Session-based: More complex, requires session storage
-- OAuth: Overkill for our use case
-
-## Outcomes
-(Updated in Step 3: Learn after implementation)
-- JWT implementation successful
-- Token validation fast (< 5ms)
-- Password hashing adds 200ms latency (acceptable)
-
-## Related
-- Intent: feature-authentication.md
+# Agent: [Agent Name]
+## Purpose
+[What this agent does - one sentence]
+## Context Files to Load
+- @context/intent/feature-[name].md
+- @context/decisions/[number]-[name].md
+- @context/knowledge/patterns/[pattern].md
+## Execution Steps
+1. Load context files listed above
+2. [Step 1 - what to do]
+3. [Step 2 - what to do]
+## Output
+- [What this agent produces]
 ```
+
+**Using agents**: Reference in your prompt: `Execute @context/agents/agent-[name].md for [feature]`. The AI will read the agent file, load referenced context files, follow execution steps, and produce outputs.
+
+**Creating agents**: Create manually in `context/agents/` or use the `create-agent.md` prompt (see [prompts/](prompts/)). Keep agents simple - they're just reusable prompts that reference your context.
+
+**For advanced agent patterns** (specialized agents, team collaboration, complex workflows), see [ADVANCED.md](ADVANCED.md) for detailed agent structures, standard agent types (Planner, Developer, Reviewer, DevOps, Insights), and advanced execution patterns.
 
 ---
 
@@ -1245,67 +537,12 @@ Use JWT tokens for authentication.
 
 Context Mesh adapts to your needs and workflow. Different approaches are equally valid:
 
-### Starting Points
+**Starting Points**:
+- **Minimal Start**: Start with basic intent (e.g., "Weather application"), use AI with prompts to expand context, more iterative, learn as you go. Works well for exploratory projects, learning as you go, quick prototypes, when requirements are unclear.
+- **Comprehensive Start**: Include decisions, DoD, patterns, DevOps in Step 1, create complete context before Build, faster Build phase. Works well for large projects, clear requirements, team projects.
+- **Existing Projects**: Use AI to analyze existing code, generate context from codebase, AI identifies patterns/decisions/architecture, then follow normal workflow. Works well for legacy codebases, taking over projects, refactoring initiatives.
 
-**Minimal Start:**
-- Start with basic intent: "Weather application"
-- Use AI with prompts to expand context
-- AI generates: intent structure, decisions, patterns
-- Review, refine, and approve before proceeding
-- More iterative, learn as you go
-
-**Comprehensive Start:**
-- Include decisions, DoD, patterns, DevOps, Deployments and others in Step 1
-- Create complete context before Build
-- Faster Build phase, more upfront work
-- Better for larger projects or when you have clear requirements
-
-**Existing Projects:**
-- Use AI to analyze existing code
-- Generate context from codebase
-- AI identifies patterns, decisions, architecture
-- Then follow normal workflow
-
-### AI-Assisted Workflow
-
-**Using Prompts:**
-- "Create context for [project description]"
-- "Generate decisions for [feature]"
-- "Update context based on [changes]"
-- AI generates context, you review and refine
-
-**Selective Context Loading:**
-- Load only necessary context files per task
-- Faster AI processing
-- More focused results
-- Useful for feature-by-feature development
-
-**Feature-by-Feature Approach:**
-- Complete Step 1 for all features
-- Refine all intents before Build
-- Build feature by feature
-- Learn after each feature
-- Update context before next feature
-
-### When to Use Each Approach
-
-**Minimal Start** works well for:
-- Exploratory projects
-- Learning as you go
-- Quick prototypes
-- When requirements are unclear
-
-**Comprehensive Start** works well for:
-- Large projects
-- Clear requirements
-- Team projects
-- When you want faster Build phase
-
-**Existing Projects** approach works for:
-- Legacy codebases
-- Taking over projects
-- Refactoring initiatives
-- Understanding existing systems
+**AI-Assisted Workflow**: Use prompts like "Create context for [project description]", "Generate decisions for [feature]", "Update context based on [changes]". Use selective context loading (load only necessary files per task) for faster AI processing and more focused results. Feature-by-feature approach: Complete Step 1 for all features, refine all intents before Build, build feature by feature, learn after each feature.
 
 All approaches are valid - choose based on your needs.
 
@@ -1313,211 +550,18 @@ All approaches are valid - choose based on your needs.
 
 ## Security by Design
 
-Security in Context Mesh is built into the framework from the ground up, not added as an afterthought. This section defines essential security principles for Context Mesh.
+Security in Context Mesh is built into the framework from the ground up. Essential security principles:
 
-### Security Principles
+**Security Principles**:
+1. **Security by Design**: Security considered at every step (requirements in Step 1, considerations in Step 2, monitoring in Step 3)
+2. **Context Security**: Living Context contains sensitive information - requires access controls, encryption for sensitive context, context classification (public, internal, confidential, secret), version control (Git)
+3. **Traceability**: All security-relevant actions must be traceable - context changes tracked (Git), security decisions documented, deployments recorded
+4. **Least Privilege**: Access to context and systems follows principle of least privilege - minimum necessary permissions, regular access reviews, least privilege for AI tools
+5. **Defense in Depth**: Multiple layers of security protection (network, application, data, access control, monitoring)
 
-#### 1. Security by Design
+**Security in Each Step**: **Step 1 (Intent)** - Identify security requirements, document security constraints, define security success criteria, classify context sensitivity. **Step 2 (Build)** - Implement security controls, follow security best practices, document security decisions, review code for security issues. **Step 3 (Learn)** - Monitor security metrics, review security incidents, update security practices, refine security requirements.
 
-Security is considered at every step of the Context Mesh workflow.
-
-**Implementation**:
-- Security requirements captured in Step 1 (Intent)
-- Security considerations during Step 2 (Build)
-- Security monitoring in Step 3 (Learn)
-
-#### 2. Context Security
-
-The Living Context contains sensitive information and must be protected.
-
-**Requirements**:
-- Access controls for context access
-- Encryption for sensitive context
-- Context classification (public, internal, confidential, secret)
-- Version control for context (using Git)
-
-#### 3. Traceability
-
-All security-relevant actions must be traceable.
-
-**Requirements**:
-- All context changes tracked (via Git)
-- All security decisions documented
-- All deployments recorded
-
-#### 4. Least Privilege
-
-Access to context and systems follows the principle of least privilege.
-
-**Requirements**:
-- Minimum necessary permissions
-- Regular access reviews
-- Principle of least privilege for AI tools
-
-#### 5. Defense in Depth
-
-Multiple layers of security protection.
-
-**Layers**:
-- Network security
-- Application security
-- Data security
-- Access control
-- Monitoring and alerting
-
-### Security in Each Step
-
-#### Step 1: Intent
-- Identify security requirements
-- Document security constraints
-- Define security success criteria
-- Classify context sensitivity
-
-#### Step 2: Build
-- Implement security controls
-- Follow security best practices
-- Document security decisions
-- Review code for security issues
-
-#### Step 3: Learn
-- Monitor security metrics
-- Review security incidents
-- Update security practices
-- Refine security requirements
-
-### Security Best Practices
-
-1. **Start with Security**: Consider security from the beginning
-2. **Document Security Decisions**: Capture security rationale
-3. **Regular Reviews**: Review security practices regularly
-4. **Keep Context Secure**: Protect sensitive context
-5. **Monitor Continuously**: Monitor security in production
-
----
-
-## Framework Diagrams
-
-Visual representations of the Context Mesh workflow and structure.
-
-### Mermaid Diagram (Flow)
-
-```mermaid
-graph TD
-    Start([Start]) --> Intent[Step 1: Intent<br/>Planning Phase<br/>Define Intent<br/>Create Features/Decisions]
-    
-    Intent --> Build[Step 2: Build<br/>Construction Phase<br/>AI Builds Code<br/>Human Supervises]
-    
-    Build --> Learn[Step 3: Learn<br/>Learning Phase<br/>Update Context<br/>Refine Decisions]
-    
-    Learn -->|Feedback Loop| Intent
-    
-    Intent -.->|Context| ContextMesh[Living Context<br/>Context Mesh]
-    Build -.->|Context| ContextMesh
-    Learn -.->|Context| ContextMesh
-    
-    ContextMesh -.->|Context Access| Intent
-    ContextMesh -.->|Context Access| Build
-    ContextMesh -.->|Context Access| Learn
-    
-    style Intent fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
-    style Build fill:#F5A623,stroke:#C7881A,stroke-width:3px,color:#fff
-    style Learn fill:#7ED321,stroke:#5FA315,stroke-width:3px,color:#fff
-    style ContextMesh fill:#9013FE,stroke:#6A0DAD,stroke-width:2px,color:#fff
-    style Start fill:#E8E8E8,stroke:#999,stroke-width:2px
-```
-
-### Circular Flow Diagram (Alternative)
-
-```mermaid
-graph LR
-    subgraph CM["Context Mesh"]
-        direction TB
-        Intent[Step 1: Intent<br/>Planning Phase] --> Build[Step 2: Build<br/>Construction Phase]
-        Build --> Learn[Step 3: Learn<br/>Learning Phase]
-        Learn -->|Feedback| Intent
-    end
-    
-    ContextMesh[Living Context<br/>Context Mesh] -.->|Influences| Intent
-    ContextMesh -.->|Influences| Build
-    ContextMesh -.->|Influences| Learn
-    
-    Intent -.->|Updates| ContextMesh
-    Build -.->|Updates| ContextMesh
-    Learn -.->|Updates| ContextMesh
-    
-    style Intent fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
-    style Build fill:#F5A623,stroke:#C7881A,stroke-width:3px,color:#fff
-    style Learn fill:#7ED321,stroke:#5FA315,stroke-width:3px,color:#fff
-    style ContextMesh fill:#9013FE,stroke:#6A0DAD,stroke-width:2px,color:#fff
-```
-
-### Visual Description for Image Generation
-
-If you want to create a visual diagram similar to the original circular design, here's a detailed description:
-
-**Circular Diagram Layout:**
-
-**Center Core:**
-- Text: "Context Mesh"
-- Subtitle: "Living Context"
-- Thin gray ring around the center
-
-**Three Main Steps (arranged in a circle, clockwise):**
-
-1. **Step 1: Intent** (Blue/Teal segment)
-   - Position: Top-left to top
-   - Text: "Intent"
-   - Subtitle: "Planning Phase"
-   - Description: "Define Intent, Create Features/Decisions"
-   - Arrow pointing clockwise to next step
-
-2. **Step 2: Build** (Orange segment)
-   - Position: Top-right to bottom-right
-   - Text: "Build"
-   - Subtitle: "Construction Phase"
-   - Description: "AI Builds Code, Human Supervises"
-   - Arrow pointing clockwise to next step
-
-3. **Step 3: Learn** (Green segment)
-   - Position: Bottom-left to top-left
-   - Text: "Learn"
-   - Subtitle: "Learning Phase"
-   - Description: "Update Context, Refine Decisions"
-   - Arrow pointing back to Step 1 (feedback loop)
-
-**Connections:**
-- Small arrows from center "Living Context" pointing outward to each step
-- Feedback arrow from Step 3 back to Step 1 (completing the cycle)
-- Each step connected to the next with arrows
-
-**Color Scheme:**
-- Intent: Blue/Teal (#4A90E2)
-- Build: Orange (#F5A623)
-- Learn: Green (#7ED321)
-- Center: Purple/Dark Blue (#9013FE)
-- Background: Light gray/white
-
-### Tools to Generate Images
-
-You can use these tools to create visual diagrams:
-
-1. **Mermaid Live Editor**: https://mermaid.live/
-   - Paste the Mermaid code above
-   - Export as PNG/SVG
-
-2. **Draw.io / diagrams.net**: https://app.diagrams.net/
-   - Create circular diagram manually
-   - Use the description above as reference
-
-3. **Figma / Canva**: 
-   - Create custom circular diagram
-   - Use the color scheme and layout described
-
-4. **AI Image Generators** (DALL-E, Midjourney, etc.):
-   - Use the description above as prompt
-   - Request: "Circular diagram with 3 segments..."
-
-**Recommended Approach**: Use **Mermaid Live Editor** (https://mermaid.live/) because it's free, easy to use, the code is already provided, and it matches the style of technical documentation.
+**Security Best Practices**: Start with security from the beginning, document security decisions, regular reviews, keep context secure, monitor continuously in production.
 
 ---
 

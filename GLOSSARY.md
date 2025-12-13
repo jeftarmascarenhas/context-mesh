@@ -45,7 +45,12 @@ The practice of versioning context artifacts, similar to code versioning, to tra
 ## D
 
 ### Definition of Done
-A checklist of criteria that must be met before a step or work item is considered complete. Each Context Mesh step has its own Definition of Done.
+A checklist of criteria that must be met before a work item is considered complete. 
+
+In Context Mesh:
+- **DoD for Features**: Project-level criteria that every feature must meet (tests, review, context updated, etc.)
+- **Success Criteria** (in feature intents) = Acceptance Criteria - what the feature needs to do functionally
+- **DoD** = Process and quality criteria - how you know it's done
 
 ### DevOps Agent
 An AI agent responsible for managing deployment, configuring observability, and ensuring deployment traceability.
