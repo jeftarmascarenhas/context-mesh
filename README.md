@@ -6,26 +6,31 @@
 
 **The AI-First Development Framework for Sustainable Context Preservation**
 
-[![Framework](https://img.shields.io/badge/framework-AI--First-purple.svg)](https://github.com)
-[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com)
-[![Philosophy](https://img.shields.io/badge/philosophy-Context--First-blue.svg)](https://github.com)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-username/context-mesh/releases)
+[![Framework](https://img.shields.io/badge/framework-AI--First-purple.svg)](https://github.com/your-username/context-mesh)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/your-username/context-mesh)
+[![Philosophy](https://img.shields.io/badge/philosophy-Context--First-blue.svg)](https://github.com/your-username/context-mesh)
 
 > "In the AI era, context isn't supplementary to code—it's the primary creation. Context Mesh makes this philosophy practical."
 
-[The Problem](#-the-problem-context-crisis) • [What is Context Mesh?](#-what-is-context-mesh) • [Why Context Mesh?](#-why-context-mesh) • [Quick Start](#-quick-start)
+[The Problem](#-the-problem-context-crisis) • [What is Context Mesh?](#-what-is-context-mesh) • [The 3-Step Workflow](#-the-3-step-context-mesh-workflow) • [Quick Start](#-quick-start)
 
 </div>
 
 ## 🚨 The Problem: Context Crisis
 
-You're using AI to build faster. But three months later, your own code looks foreign.
+You're using AI to build faster. You prompt, AI generates, code works. You ship features in days instead of weeks. Everything seems perfect.
+
+But three months later, you open that codebase and it looks foreign. Why did we choose this approach? What was the reasoning behind that decision? Why does this pattern exist here but not there? The context is gone. The decisions are forgotten. The rationale is lost.
+
+You spend hours reconstructing what you already knew. Your team struggles to understand code that was clear when it was written. New developers take weeks to onboard instead of days. Every change feels risky because you're working blind.
 
 **The Reality:**
 - **70% of developers** struggle with understanding existing code ([Stack Overflow 2023](https://survey.stackoverflow.co/2023/))
 - **32% of developer time** wasted reconstructing lost context ([McKinsey Research](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity))
 - **AI-generated code works**, but becomes impossible to maintain and scale
 
-**This isn't just documentation** - it's a fundamental process problem. Context Mesh fixes it.
+**This isn't just documentation** - it's a fundamental process problem. Context Mesh fixes it by making context the primary artifact. Code becomes its manifestation, not the other way around.
 
 ---
 
@@ -46,45 +51,34 @@ Context Mesh is a **process framework** for AI-generated code development with *
 
 ---
 
-## 🚀 Why Context Mesh?
-
-### The Inversion
-
-```
-Traditional: Code → Documentation (often incomplete)
-Context Mesh: Context → Code (always complete)
-```
-
-Traditional development treats code as primary and documentation as secondary. **AI-First Development inverts this paradigm**:
-
-| Traditional | Context Mesh |
-|------------|--------------|
-| Code is primary | **Context is primary** |
-| Documentation is secondary | **Code is manifestation of context** |
-| Knowledge is static | **Knowledge evolves with system** |
-| Decisions lose context | **Decisions preserve full context** |
-| Human-AI friction | **Seamless human-AI collaboration** |
-
-### What This Means for You
-
-When context is primary:
-- ✅ AI understands your architecture and patterns
-- ✅ Code generation follows your decisions
-- ✅ Code remains comprehensible months later
-- ✅ New developers onboard in days, not weeks
-- ✅ Changes are made with full context
-
----
-
 ## 📋 The 3-Step Context Mesh Workflow
 
-Context Mesh is designed for simplicity and easy adoption, similar to Scrum. Just **3 simple steps**:
+Here's how it works in practice. Context Mesh is designed for simplicity and easy adoption, similar to Scrum. Just **3 simple steps**:
 
-<div align="center">
-
-![Context Mesh Flow](images/context-mesh-flow.png)
-
-</div>
+```mermaid
+graph TD
+    Start([Start]) --> Intent[Step 1: Intent<br/>Planning Phase<br/>Define Intent<br/>Create Features/Decisions]
+    
+    Intent --> Build[Step 2: Build<br/>Construction Phase<br/>AI Builds Code<br/>Human Supervises]
+    
+    Build --> Learn[Step 3: Learn<br/>Learning Phase<br/>Update Context<br/>Refine Decisions]
+    
+    Learn -->|Feedback Loop| Intent
+    
+    Intent -.->|Context| ContextMesh[Living Context<br/>Context Mesh]
+    Build -.->|Context| ContextMesh
+    Learn -.->|Context| ContextMesh
+    
+    ContextMesh -.->|Context Access| Intent
+    ContextMesh -.->|Context Access| Build
+    ContextMesh -.->|Context Access| Learn
+    
+    style Intent fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    style Build fill:#F5A623,stroke:#C7881A,stroke-width:3px,color:#fff
+    style Learn fill:#7ED321,stroke:#5FA315,stroke-width:3px,color:#fff
+    style ContextMesh fill:#9013FE,stroke:#6A0DAD,stroke-width:2px,color:#fff
+    style Start fill:#E8E8E8,stroke:#999,stroke-width:2px
+```
 
 1. **🎯 Intent** - Define what to build and why (create context)
    - Plan what to build and why
@@ -118,11 +112,51 @@ See [FRAMEWORK.md](FRAMEWORK.md) for complete details.
 
 ---
 
+## 🚀 Why Context Mesh?
+
+### The Inversion
+
+```
+Traditional: Code → Documentation (often incomplete)
+Context Mesh: Context → Code (always complete)
+```
+
+Traditional development treats code as primary and documentation as secondary. **AI-First Development inverts this paradigm**:
+
+| Traditional | Context Mesh |
+|------------|--------------|
+| Code is primary | **Context is primary** |
+| Documentation is secondary | **Code is manifestation of context** |
+| Knowledge is static | **Knowledge evolves with system** |
+| Decisions lose context | **Decisions preserve full context** |
+| Human-AI friction | **Seamless human-AI collaboration** |
+
+### What This Means for You
+
+When context is primary:
+- ✅ AI understands your architecture and patterns
+- ✅ Code generation follows your decisions
+- ✅ Code remains comprehensible months later
+- ✅ New developers onboard in days, not weeks
+- ✅ Changes are made with full context
+
+---
+
 ## ✅ Real-World Results
 
 ✅ **10 days** for complete monolith-to-micro-frontends migration (typically takes months) - 2 developers using Context Mesh
 
 [See more success stories →](EXAMPLES.md#-success-stories)
+
+---
+
+## 🎯 Key Features
+
+- 🧬 **Living Context** - Context evolves with your code, versioned like code
+- 🤝 **AI-Human Collaboration** - Clear roles, seamless workflow
+- 🎯 **Intent-Driven** - Architecture flows from purpose, not implementation
+- 📝 **Decision Preservation** - Every decision with full context and rationale
+- 🔗 **Works with Scrum/Agile** - Complementary, not replacement
 
 ---
 
@@ -154,16 +188,6 @@ Want to understand everything first? Follow this path:
 **✅ After this path, you'll be ready to use Context Mesh in your project!**
 
 [👉 Get Started Now →](GETTING_STARTED.md)
-
----
-
-## 🎯 Key Features
-
-- 🧬 **Living Context** - Context evolves with your code, versioned like code
-- 🤝 **AI-Human Collaboration** - Clear roles, seamless workflow
-- 🎯 **Intent-Driven** - Architecture flows from purpose, not implementation
-- 📝 **Decision Preservation** - Every decision with full context and rationale
-- 🔗 **Works with Scrum/Agile** - Complementary, not replacement
 
 ---
 
@@ -213,7 +237,13 @@ Context Mesh is in active development. Contributions, feedback, and use cases ar
 
 ## 📄 License
 
-[Add your license here]
+[MIT License](LICENSE) - See LICENSE file for details.
+
+## 👤 Creator
+
+**Context Mesh** was created to solve the Context Crisis in AI-First development.
+
+For questions, feedback, or contributions, please open an issue or discussion on GitHub.
 
 ## 🙏 Acknowledgments
 
@@ -226,9 +256,9 @@ Context Mesh is inspired by:
 
 ## 📞 Support
 
-- **Documentation**: See the docs folder
-- **Issues**: [GitHub Issues](https://github.com)
-- **Discussions**: [GitHub Discussions](https://github.com)
+- **Documentation**: See the documentation files in this repository
+- **Issues**: [GitHub Issues](https://github.com/your-username/context-mesh/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/context-mesh/discussions)
 
 ---
 
