@@ -48,9 +48,11 @@ The practice of versioning context artifacts, similar to code versioning, to tra
 A checklist of criteria that must be met before a work item is considered complete. 
 
 In Context Mesh:
-- **DoD for Features**: Project-level criteria that every feature must meet (tests, review, context updated, etc.)
+- **DoD is technical only**: Applied during Step 2 (Build) when code is implemented, not in Step 1 (Intent) or Step 3 (Learn)
+- **DoD for Features**: Project-level criteria that every feature implementation must meet (tests, review, context updated, etc.)
 - **Success Criteria** (in feature intents) = Acceptance Criteria - what the feature needs to do functionally
-- **DoD** = Process and quality criteria - how you know it's done
+- **DoD** = Process and quality criteria - how you know implementation is done
+- **Steps 1 and 3**: Have flexible "Outputs" instead of rigid DoD, as they are more iterative and adaptive
 
 ### DevOps Agent
 An AI agent responsible for managing deployment, configuring observability, and ensuring deployment traceability.

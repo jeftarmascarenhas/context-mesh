@@ -269,12 +269,17 @@ Before starting work, load relevant Context Mesh files:
 
 **Never leave context stale** - Context Mesh only works if context reflects reality.
 
-## Definition of Done (Project/Feature Level)
+## Definition of Done (Technical/Feature Level - Step 2: Build Only)
 
-This is the **project-level DoD** that every feature must meet before being considered complete. This is different from:
+**Important**: DoD applies only to **Step 2 (Build)** when implementing features technically. Steps 1 (Intent) and 3 (Learn) don't have DoD - they have flexible "Outputs" instead.
+
+This is the **technical/feature-level DoD** that every feature implementation must meet before being considered complete. This is different from:
 - **Success Criteria**: Functional requirements in `feature-*.md` (acceptance criteria)
 
-Before completing a feature:
+**When to apply**: Only during Step 2 (Build) when implementing code, not during Step 1 (Intent) or Step 3 (Learn).
+
+Before completing a feature implementation (Step 2 - Build):
+- [ ] Technical decision (ADR) verified or created before implementation - **Required**
 - [ ] Code follows patterns from Context Mesh
 - [ ] Decisions from Context Mesh are respected
 - [ ] Tests passing

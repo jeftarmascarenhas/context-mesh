@@ -216,6 +216,8 @@ For specialized agents (backend, frontend, database, etc.), use a more detailed 
 - **Simple format**: Flexible, general-purpose, good for learning
 - **Detailed format**: Strict scope, technical conventions, DoD, better for production teams
 
+**Note on DoD in Agents**: DoD in agent definitions applies to **Step 2 (Build)** when agents are executing technical implementation. Agents used in Step 1 (Intent) or Step 3 (Learn) don't need DoD - they have flexible "Outputs" instead, as those steps are more iterative and adaptive.
+
 ---
 
 ## Standard AI Agents

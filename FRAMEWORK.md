@@ -301,13 +301,32 @@ You maintain control - AI assists, you decide.
 
 ## Definition of Done (DoD)
 
-Context Mesh uses **Definition of Done** at the project/feature level - criteria that every feature must meet before being considered complete. This typically includes: code implemented and working, tests passing, code review completed, **context updated** (Context Mesh requirement), documentation updated, and deployed (if applicable).
+Context Mesh uses **Definition of Done** at the **technical/feature level only** - criteria that every feature implementation must meet before being considered complete. DoD applies to **Step 2 (Build)** where technical implementation happens, not to Step 1 (Intent) or Step 3 (Learn).
 
-**Note**: Project-level DoD is defined by your team/project, not by Context Mesh. Context Mesh adds the requirement to update context as part of your DoD.
+**Key Points:**
+- **DoD is technical only**: Applied during Step 2 (Build) when code is implemented
+- **Steps 1 and 3 don't have DoD**: They have flexible "Outputs" instead, as they are more iterative and adaptive
+- **Project-level DoD**: Defined by your team/project, not by Context Mesh. Context Mesh adds the requirement to update context as part of your DoD
+- **When to apply**: Only when implementing features (Step 2), not during planning (Step 1) or learning (Step 3)
+
+**Typical DoD Criteria** (for Step 2 - Build):
+- Code implemented and working
+- Tests passing
+- Code review completed
+- **Context updated** (Context Mesh requirement)
+- Documentation updated
+- Deployed (if applicable)
 
 **Success Criteria vs DoD:**
 - **Success Criteria** (in `feature-*.md` files) = Acceptance Criteria - What the feature needs to do functionally (e.g., "User can login", "Data is saved")
-- **Definition of Done** = Process criteria that must be met (e.g., "Tests passing", "Code reviewed", "Context updated")
+- **Definition of Done** = Process criteria that must be met during implementation (e.g., "Tests passing", "Code reviewed", "Context updated")
+
+**Why DoD is only for Step 2 (Build):**
+- **Step 1 (Intent)**: More flexible - can be Initial or Refined. Has "Outputs" (Intent Statement, Decisions, Initial Context) but no rigid DoD
+- **Step 2 (Build)**: Technical implementation - needs objective criteria (tests, code quality, etc.) - **DoD applies here**
+- **Step 3 (Learn)**: Iterative and adaptive - has "Outputs" (Updated Context, Learnings) but no rigid DoD
+
+This keeps Context Mesh flexible while ensuring technical quality where it matters most.
 
 ---
 
@@ -539,7 +558,7 @@ Context Mesh adapts to your needs and workflow. Different approaches are equally
 
 **Starting Points**:
 - **Minimal Start**: Start with basic intent (e.g., "Weather application"), use AI with prompts to expand context, more iterative, learn as you go. Works well for exploratory projects, learning as you go, quick prototypes, when requirements are unclear.
-- **Comprehensive Start**: Include decisions, DoD, patterns, DevOps in Step 1, create complete context before Build, faster Build phase. Works well for large projects, clear requirements, team projects.
+- **Comprehensive Start**: Include decisions, patterns, DevOps planning in Step 1, create complete context before Build, faster Build phase. Works well for large projects, clear requirements, team projects. (Note: DoD is defined at project level and applied during Step 2 - Build, not in Step 1)
 - **Existing Projects**: Use AI to analyze existing code, generate context from codebase, AI identifies patterns/decisions/architecture, then follow normal workflow. Works well for legacy codebases, taking over projects, refactoring initiatives.
 
 **AI-Assisted Workflow**: Use prompts like "Create context for [project description]", "Generate decisions for [feature]", "Update context based on [changes]". Use selective context loading (load only necessary files per task) for faster AI processing and more focused results. Feature-by-feature approach: Complete Step 1 for all features, refine all intents before Build, build feature by feature, learn after each feature.
