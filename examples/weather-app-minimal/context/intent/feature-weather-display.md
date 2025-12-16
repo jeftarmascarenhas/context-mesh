@@ -13,7 +13,7 @@ Implement a weather display feature that allows users to search for and view cur
 - Provides practical example of data fetching and display
 
 **Technical Value**:
-- Practice API integration (OpenWeatherMap)
+- Practice API integration (Open-Meteo)
 - Implement clean component structure with React
 - Use shadcn-ui components for modern UI
 - Handle loading and error states
@@ -34,7 +34,7 @@ Implement a weather display feature that allows users to search for and view cur
 
 ### Backend
 - GET `/api/weather?city={city}` endpoint
-- Integrate with OpenWeatherMap API
+- Integrate with Open-Meteo API (geocoding + weather)
 - Validate input (city parameter)
 - Return formatted weather data
 - Swagger documentation for the endpoint
@@ -72,7 +72,7 @@ Implement a weather display feature that allows users to search for and view cur
 
 1. **Backend First**:
    - Create Fastify server with Swagger
-   - Implement weather service (OpenWeatherMap integration)
+   - Implement weather service (Open-Meteo integration: geocoding + weather)
    - Create weather route with validation
    - Test endpoint with Swagger UI
 
@@ -91,7 +91,7 @@ Implement a weather display feature that allows users to search for and view cur
 ## Constraints
 
 - **Time**: Implement in 30-45 minutes
-- **API**: Use OpenWeatherMap free tier
+- **API**: Use Open-Meteo (free, no API key required)
 - **UI**: Use shadcn-ui components only
 - **Complexity**: Happy path only (no complex error handling)
 - **Data**: No persistence needed (stateless)

@@ -26,7 +26,7 @@ Build a simple, modern Weather application that allows users to:
 ### MVP (Minimum Viable Product) - Phase 1
 - Frontend: React + TypeScript + Vite + shadcn-ui
 - Backend: Node.js + Fastify + Swagger
-- Weather API integration: OpenWeatherMap
+- Weather API integration: Open-Meteo (free, no API key)
 - Search weather by city name
 - Display current weather (temperature, description, icon)
 - Simple, clean UI with loading and error states
@@ -64,7 +64,7 @@ Build a simple, modern Weather application that allows users to:
 
 - **Time**: 45-60 minutes for complete implementation
 - **Team**: 1 developer (solo project)
-- **Budget**: Free tier services only (OpenWeatherMap free tier)
+- **Budget**: Free tier services only (Open-Meteo is free and open source)
 - **Technology**: Must use TypeScript, Vite, Fastify, shadcn-ui
 - **Complexity**: Minimal - only happy path, no edge cases or bugs
 

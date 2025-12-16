@@ -8,15 +8,21 @@ All notable changes to the Weather App Minimal project.
 - Initial project setup with Context Mesh structure
 - Frontend: Vite + React + TypeScript + shadcn-ui
 - Backend: Node.js + Fastify + Swagger
-- Weather API integration with OpenWeatherMap
+- Weather API integration with Open-Meteo (free, no API key required)
 - Weather search and display functionality
 - Swagger API documentation
+
+### Changed
+- Updated API integration from OpenWeatherMap to Open-Meteo
+  - No API key required (simplifies setup)
+  - Uses geocoding API + weather API (two-step process)
+  - Maps WMO weather codes to descriptions and icons
 
 ### Context Mesh Artifacts
 - Project intent document
 - Feature intent: Weather Display
 - Decision: Technology Stack (Vite, Fastify, shadcn-ui)
-- Decision: API Integration (OpenWeatherMap)
+- Decision: API Integration (Open-Meteo)
 - Pattern: API Design
 - Pattern: Component Structure
 

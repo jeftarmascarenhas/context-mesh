@@ -44,7 +44,7 @@ export function WeatherCard({ city, temperature, description, icon }: WeatherCar
       </CardHeader>
       <CardContent>
         <div className="flex items-center gap-4">
-          <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt={description} />
+          <span className="text-4xl">{icon}</span>
           <div>
             <p className="text-2xl font-bold">{temperature}°C</p>
             <p className="text-muted-foreground">{description}</p>

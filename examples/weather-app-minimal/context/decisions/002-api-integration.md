@@ -1,9 +1,9 @@
-# Decision: API Integration - OpenWeatherMap
+# Decision: API Integration - Open-Meteo
 
 ## Context
 
 We need to integrate with an external weather API to fetch weather data. Requirements:
-- Free tier available
+- Free tier available (no API key required)
 - Stable and reliable service
 - Good documentation
 - Simple integration
@@ -11,16 +11,17 @@ We need to integrate with an external weather API to fetch weather data. Require
 
 ## Decision
 
-**Use OpenWeatherMap API** for weather data:
-- **Endpoint**: `https://api.openweathermap.org/data/2.5/weather`
+**Use Open-Meteo API** for weather data:
+- **Geocoding Endpoint**: `https://geocoding-api.open-meteo.com/v1/search`
+- **Weather Endpoint**: `https://api.open-meteo.com/v1/forecast`
 - **Method**: GET
-- **Authentication**: API key (free tier: 1,000 calls/day)
+- **Authentication**: None required (free, open source)
 - **Response Format**: JSON
 - **Units**: Metric (Celsius)
-- **Language**: Portuguese (pt_br) for descriptions
 
 **Integration Approach**:
-- Backend calls OpenWeatherMap API
+- Backend calls Open-Meteo Geocoding API to get coordinates from city name
+- Backend calls Open-Meteo Weather API with coordinates
 - Frontend calls our backend API
 - Backend acts as proxy/aggregator
 - Error handling for API failures
@@ -28,45 +29,46 @@ We need to integrate with an external weather API to fetch weather data. Require
 
 ## Rationale
 
-1. **OpenWeatherMap**:
-   - Most stable and known weather API
-   - Free tier: 1,000 calls/day (sufficient for development)
-   - Excellent documentation
-   - Reliable uptime
-   - Used by millions of applications
+1. **Open-Meteo**:
+   - No API key required (free, open source)
+   - Stable and reliable service
+   - Good documentation
+   - Open source and community-driven
+   - Sufficient for development and learning
 
 2. **Backend Proxy**:
-   - Hides API key from frontend (security)
    - Allows data transformation/formatting
    - Centralized error handling
    - Can add caching later (if needed)
    - Better control over API usage
+   - Handles geocoding + weather in one flow
 
-3. **Metric Units**:
+3. **Two-Step Process (Geocoding + Weather)**:
+   - Geocoding API converts city name to coordinates
+   - Weather API uses coordinates for accurate weather data
+   - Standard approach for weather APIs that use coordinates
+
+4. **Metric Units**:
    - Celsius is standard in most countries
    - Easier to understand for users
    - Can add unit conversion later
 
-4. **Portuguese Language**:
-   - Better UX for Portuguese speakers
-   - Can be made configurable later
-
 ## Alternatives Considered
 
-### Alternative 1: Open-Meteo API
-- **Pros**: No API key needed, open source
-- **Cons**: Less known, smaller community
-- **Why Not Chosen**: OpenWeatherMap is more stable and widely used
+### Alternative 1: OpenWeatherMap API
+- **Pros**: Most known, widely used, good documentation
+- **Cons**: Requires API key (free tier: 1,000 calls/day)
+- **Why Not Chosen**: Open-Meteo is free without API key, simpler for learning
 
 ### Alternative 2: WeatherAPI.com
 - **Pros**: Good free tier, good documentation
-- **Cons**: Less known than OpenWeatherMap
-- **Why Not Chosen**: OpenWeatherMap is the industry standard
+- **Cons**: Requires API key, less known than OpenWeatherMap
+- **Why Not Chosen**: Open-Meteo doesn't require API key
 
-### Alternative 3: Frontend calls OpenWeatherMap directly
+### Alternative 3: Frontend calls Open-Meteo directly
 - **Pros**: Simpler architecture
-- **Cons**: API key exposed in frontend (security risk)
-- **Why Not Chosen**: Security best practice is to keep API keys on backend
+- **Cons**: CORS issues, less control, harder to transform data
+- **Why Not Chosen**: Backend proxy provides better control and data transformation
 
 ## Implementation Details
 
@@ -77,42 +79,42 @@ We need to integrate with an external weather API to fetch weather data. Require
 GET /api/weather?city={cityName}
 ```
 
-**OpenWeatherMap Endpoint**:
+**Open-Meteo Geocoding Endpoint** (Step 1):
 ```
-GET https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric&lang=pt_br
+GET https://geocoding-api.open-meteo.com/v1/search?name={city}&count=1
 ```
 
-### Request Example
+**Open-Meteo Weather Endpoint** (Step 2):
+```
+GET https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true
+```
+
+### Request Flow Example
 ```typescript
-// Our backend calls OpenWeatherMap
-GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&units=metric&lang=pt_br
-```
+// Step 1: Get coordinates from city name
+GET https://geocoding-api.open-meteo.com/v1/search?name=London&count=1
 
-### Response Structure (OpenWeatherMap)
-```json
+// Response:
 {
-  "name": "London",
-  "main": {
-    "temp": 15.5,
-    "feels_like": 14.2,
-    "temp_min": 13.0,
-    "temp_max": 17.0,
-    "pressure": 1013,
-    "humidity": 65
-  },
-  "weather": [
-    {
-      "main": "Clear",
-      "description": "céu limpo",
-      "icon": "01d"
-    }
-  ],
-  "wind": {
-    "speed": 3.5,
-    "deg": 180
-  },
-  "sys": {
-    "country": "GB"
+  "results": [{
+    "name": "London",
+    "country": "United Kingdom",
+    "latitude": 51.5074,
+    "longitude": -0.1278
+  }]
+}
+
+// Step 2: Get weather using coordinates
+GET https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current_weather=true
+
+// Response:
+{
+  "current_weather": {
+    "temperature": 15.2,
+    "windspeed": 8.5,
+    "winddirection": 180,
+    "weathercode": 3,
+    "time": "2024-01-15T12:00"
   }
 }
 ```
@@ -123,16 +125,16 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&
   "success": true,
   "data": {
     "city": "London",
-    "country": "GB",
-    "temperature": 15.5,
-    "feelsLike": 14.2,
-    "description": "céu limpo",
-    "icon": "01d",
-    "humidity": 65,
-    "windSpeed": 3.5
+    "country": "United Kingdom",
+    "temperature": 15.2,
+    "windSpeed": 8.5,
+    "windDirection": 180,
+    "weatherCode": 3
   }
 }
 ```
+
+**Note**: Open-Meteo uses WMO weather codes (0-99) instead of icon strings. We'll map these codes to descriptions and icons in our backend.
 
 ### Error Handling
 
@@ -162,30 +164,60 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&
 
 **Backend `.env`**:
 ```env
-OPENWEATHER_API_KEY=your_api_key_here
 PORT=3000
 ```
 
-### API Key Setup
+**Note**: No API key required for Open-Meteo!
 
-1. Create account at https://openweathermap.org/api
-2. Get free API key (1,000 calls/day)
-3. Add to backend `.env` file
-4. Never commit `.env` to Git
+### Weather Code Mapping
+
+Open-Meteo uses WMO weather codes. We'll map them to descriptions:
+
+```typescript
+const weatherCodes: Record<number, { description: string; icon: string }> = {
+  0: { description: "Clear sky", icon: "☀️" },
+  1: { description: "Mainly clear", icon: "🌤️" },
+  2: { description: "Partly cloudy", icon: "⛅" },
+  3: { description: "Overcast", icon: "☁️" },
+  45: { description: "Foggy", icon: "🌫️" },
+  48: { description: "Depositing rime fog", icon: "🌫️" },
+  51: { description: "Light drizzle", icon: "🌦️" },
+  53: { description: "Moderate drizzle", icon: "🌦️" },
+  55: { description: "Dense drizzle", icon: "🌦️" },
+  56: { description: "Light freezing drizzle", icon: "🌨️" },
+  57: { description: "Dense freezing drizzle", icon: "🌨️" },
+  61: { description: "Slight rain", icon: "🌧️" },
+  63: { description: "Moderate rain", icon: "🌧️" },
+  65: { description: "Heavy rain", icon: "🌧️" },
+  71: { description: "Slight snow", icon: "❄️" },
+  73: { description: "Moderate snow", icon: "❄️" },
+  75: { description: "Heavy snow", icon: "❄️" },
+  80: { description: "Slight rain showers", icon: "🌦️" },
+  81: { description: "Moderate rain showers", icon: "🌦️" },
+  82: { description: "Violent rain showers", icon: "🌧️" },
+  85: { description: "Slight snow showers", icon: "🌨️" },
+  86: { description: "Heavy snow showers", icon: "🌨️" },
+  95: { description: "Thunderstorm", icon: "⛈️" },
+  96: { description: "Thunderstorm with slight hail", icon: "⛈️" },
+  99: { description: "Thunderstorm with heavy hail", icon: "⛈️" },
+};
+```
 
 ## Outcomes
 
 **After Implementation**:
-- ✅ OpenWeatherMap API was easy to integrate
-- ✅ Free tier sufficient for development
-- ✅ Response format was clear and well-documented
+- ✅ Open-Meteo API was easy to integrate
+- ✅ No API key required simplifies setup
+- ✅ Geocoding + Weather flow works well
 - ✅ Backend proxy approach worked well
 - ✅ Error handling was straightforward
+- ✅ Weather code mapping provides good UX
 
 **Lessons Learned**:
-- OpenWeatherMap is reliable and well-documented
-- Backend proxy is the right approach for API keys
-- Free tier is sufficient for learning/development
+- Open-Meteo is reliable and well-documented
+- No API key requirement makes it perfect for learning
+- Two-step process (geocoding + weather) is standard
+- Weather code mapping improves user experience
 - Error handling is important for good UX
 
 ## Related

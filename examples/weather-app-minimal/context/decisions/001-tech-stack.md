@@ -30,7 +30,7 @@ We need to choose the technology stack for the Weather App minimal example. The 
 - **TypeScript**: Type safety throughout
 
 **External Services**:
-- **OpenWeatherMap API**: Weather data provider (free tier)
+- **Open-Meteo API**: Weather data provider (free, no API key required)
 
 **Development Tools**:
 - **TypeScript**: For both frontend and backend
@@ -71,11 +71,12 @@ We need to choose the technology stack for the Weather App minimal example. The 
    - Great for learning and development
    - Industry standard
 
-6. **OpenWeatherMap**:
-   - Most stable and known weather API
-   - Free tier available (1,000 calls/day)
+6. **Open-Meteo**:
+   - Free and open source weather API
+   - No API key required
    - Good documentation
    - Reliable service
+   - Perfect for learning and development
 
 ## Alternatives Considered
 

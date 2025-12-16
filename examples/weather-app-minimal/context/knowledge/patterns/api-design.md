@@ -31,13 +31,12 @@ GET /api/weather?city=London
   "success": true,
   "data": {
     "city": "London",
-    "country": "GB",
-    "temperature": 15.5,
-    "feelsLike": 14.2,
-    "description": "céu limpo",
-    "icon": "01d",
-    "humidity": 65,
-    "windSpeed": 3.5
+    "country": "United Kingdom",
+    "temperature": 15.2,
+    "description": "Overcast",
+    "icon": "☁️",
+    "windSpeed": 8.5,
+    "windDirection": 180
   }
 }
 ```
@@ -56,8 +55,8 @@ GET /api/weather?city=London
 ### Error Codes
 
 - `VALIDATION_ERROR` (400) - Invalid input (e.g., missing city parameter)
-- `CITY_NOT_FOUND` (404) - City not found in OpenWeatherMap
-- `API_ERROR` (500) - OpenWeatherMap API error
+- `CITY_NOT_FOUND` (404) - City not found in Open-Meteo geocoding API
+- `API_ERROR` (500) - Open-Meteo API error (geocoding or weather)
 - `INTERNAL_ERROR` (500) - Server error
 
 ### Swagger Documentation
