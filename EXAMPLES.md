@@ -70,24 +70,49 @@ Context Mesh is being used in production by teams building and modernizing real-
 
 *We're working with teams to share detailed case studies and company logos. Coming soon!*
 
-**Using Context Mesh?** [Share your success story →](https://github.com/your-username/context-mesh/discussions)
+**Using Context Mesh?** [Share your success story →](https://github.com/jeftarmascarenhas/context-mesh/discussions)
 
 **Want to be featured?** We'd love to showcase how Context Mesh is helping your team achieve faster, better development.
 
 ---
 
-## 🎯 Complete End-to-End Example
+## 🎯 Complete End-to-End Examples
 
-**New to Context Mesh?** Start here with a complete example:
+**New to Context Mesh?** Start with one of these examples:
 
-- **[Todo App Complete Example](examples/todo-app-complete/)** - A full end-to-end demonstration showing:
-  - Complete project structure with Context Mesh
-  - Intent phase (project intent, features, bugs, decisions)
-  - Build phase (implementation with decisions)
-  - Learn phase (context updates, learnings, changelog)
-  - All artifacts: intents, decisions, patterns, learnings
+### Weather App Minimal (Recommended for Beginners)
 
-This example demonstrates the **complete workflow** from planning to learning, with all Context Mesh artifacts in action.
+**[examples/weather-app-minimal/](examples/weather-app-minimal/)** - 45-60 minutes
+
+- Simple setup, no database
+- Modern stack: Vite + React + Fastify
+- 3 phases with dedicated agents
+
+**Quick Start:**
+```bash
+cd examples/weather-app-minimal
+cat EXECUTION_GUIDE.md  # Follow step-by-step
+```
+
+### Todo App Complete (Full Workflow)
+
+**[examples/todo-app-complete/](examples/todo-app-complete/)** - 2-3 hours
+
+- Full-stack with authentication
+- PostgreSQL + Prisma
+- Testing and CI/CD
+- 7 phases with dedicated agents
+
+**Quick Start:**
+```bash
+cd examples/todo-app-complete
+cat EXECUTION_GUIDE.md  # Follow step-by-step
+```
+
+Both examples include:
+- **EXECUTION_GUIDE.md** - Step-by-step execution with DoD for each phase
+- **Agents** - Execute each phase with `@context/agents/agent-*.md`
+- **Complete context** - Intent, decisions, patterns, evolution
 
 ---
 

@@ -1,253 +1,170 @@
-# AGENTS.md - Example with Context Mesh
+# AGENTS.md - [Project Name]
 
-This is an example `AGENTS.md` file that integrates with Context Mesh. It demonstrates how AGENTS.md acts as a **router** that references Context Mesh files for strategic context while providing operational instructions.
-
-> **Note**: This is an example. Adapt it to your project needs. See [AGENTS.md website](https://agents.md/) for the standard format.
-
----
-
-## Setup Commands
-
-- Install deps: `pnpm install`
-- Start dev server: `pnpm dev`
-- Run tests: `pnpm test`
-- Run linter: `pnpm lint`
+> **For AI Agents**: This project follows the **Context Mesh** framework.
+> Before writing any code, you MUST load and understand the context files.
 
 ---
 
-## Code Style
+## 🧠 Context Mesh Framework
+
+This project uses [Context Mesh](https://github.com/jeftarmascarenhas/ai-first-framework) for AI-First development.
+
+**Workflow**: Intent → Build → Learn
+
+1. **Intent** (Step 1): Understand WHAT and WHY before coding
+2. **Build** (Step 2): Implement following decisions and patterns
+3. **Learn** (Step 3): Update context after implementation
+
+---
+
+## 📂 Context Structure
+
+```
+context/
+├── intent/           # WHAT to build and WHY (load first)
+│   ├── project-intent.md      # Project vision and goals
+│   └── feature-*.md           # Feature requirements + Success Criteria
+├── decisions/        # HOW to build (technical choices)
+│   └── 001-*.md               # Decisions with rationale
+├── knowledge/        # Patterns and anti-patterns
+│   ├── patterns/              # Code patterns to FOLLOW
+│   └── anti-patterns/         # What to AVOID
+├── agents/           # Execution agents for each phase
+│   └── agent-*.md             # Step-by-step instructions + Definition of Done
+└── evolution/        # Project history
+    └── changelog.md           # What changed and why
+```
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# [Adapt these commands to your project]
+pnpm install
+pnpm dev
+pnpm test
+```
+
+---
+
+## 🤖 AI Agent Instructions
+
+### Before Any Implementation
+
+1. **Load project intent**: `@context/intent/project-intent.md`
+2. **Load feature intent**: `@context/intent/feature-*.md` (for the feature you're implementing)
+3. **Load decisions**: `@context/decisions/*.md` (relevant to the feature)
+4. **Load patterns**: `@context/knowledge/patterns/*.md`
+
+### During Implementation
+
+1. **Execute the agent**: `@context/agents/agent-*.md` for the current phase
+2. **Follow patterns**: Use patterns from `@context/knowledge/patterns/`
+3. **Avoid anti-patterns**: Check `@context/knowledge/anti-patterns/`
+4. **Respect decisions**: All technical choices are documented in `@context/decisions/`
+
+### After Implementation
+
+1. **Mark feature as completed** in the intent file
+2. **Add outcomes** to decision files (what worked, what didn't)
+3. **Update changelog.md** with what changed
+
+---
+
+## 📋 Execution Agents
+
+Execute phases in order. Each agent has its own **Definition of Done**.
+
+| Phase | Agent | Purpose |
+|-------|-------|---------|
+| 1 | @context/agents/agent-setup.md | Project structure |
+| 2 | @context/agents/agent-backend.md | Backend implementation |
+| 3 | @context/agents/agent-frontend.md | Frontend implementation |
+| 4 | @context/agents/agent-testing.md | Tests (optional) |
+
+> 💡 Add or remove agents based on your project needs.
+
+---
+
+## 📚 Context Files to Load
+
+**Always load (before any work):**
+- `@context/intent/project-intent.md` - Project vision and constraints
+
+**Load per feature:**
+- `@context/intent/feature-*.md` - Feature requirements (has Success Criteria)
+
+**Load per phase:**
+- `@context/agents/agent-*.md` - Execution steps (has Definition of Done)
+- `@context/decisions/*.md` - Technical decisions
+- `@context/knowledge/patterns/*.md` - Patterns to follow
+
+---
+
+## ✅ Definition of Done (Technical/Build Phase)
+
+Definition of Done is defined in each **agent file** (`agent-*.md`).
+
+General checklist:
+- [ ] Code follows patterns from `@context/knowledge/patterns/`
+- [ ] Build passes without errors
+- [ ] Tests pass (if applicable)
+- [ ] Agent's Definition of Done is complete
+
+---
+
+## ⚠️ AI Agent Rules
+
+### ✅ ALWAYS
+- Load context files before implementing
+- Follow decisions from `@context/decisions/`
+- Use patterns from `@context/knowledge/patterns/`
+- Update context after implementation
+- Check Definition of Done before completing a phase
+
+### ❌ NEVER
+- Ignore documented decisions
+- Use patterns from `@context/knowledge/anti-patterns/`
+- Leave context stale after implementation
+- Skip loading intent files
+- Implement without understanding the WHY
+
+---
+
+## 🔄 Context Update (Critical)
+
+After completing any feature:
+
+```markdown
+1. Update @context/intent/feature-*.md
+   - Mark as completed
+   - Add any learnings
+
+2. Update @context/decisions/*.md
+   - Add outcomes section
+   - Document what worked/didn't
+
+3. Update @context/evolution/changelog.md
+   - What changed
+   - Why it changed
+```
+
+**Never leave context stale. Future AI sessions depend on accurate context.**
+
+---
+
+## 🎨 Code Style
+
+> [Adapt to your project]
 
 - TypeScript strict mode
 - Single quotes, no semicolons
-- Use functional patterns where possible
 - Follow patterns from `@context/knowledge/patterns/`
 
 ---
 
-## Context Files to Load
+## 📖 References
 
-**This is the key integration point with Context Mesh.**
-
-When working on this project, AI agents should load Context Mesh files for strategic context:
-
-### Project Overview
-- @context/intent/project-intent.md - Overall project goals and scope
-
-### Technical Decisions
-- @context/decisions/001-tech-stack.md - Technology stack choices
-- @context/decisions/002-database.md - Database design and patterns
-- @context/decisions/003-api-framework.md - API framework decisions
-- @context/decisions/004-security.md - Security patterns
-- @context/decisions/005-authentication.md - Authentication approach
-
-### Knowledge and Patterns
-- @context/knowledge/patterns/*.md - Coding patterns to follow
-- @context/knowledge/anti-patterns/*.md - Patterns to avoid
-
-### Feature-Specific Context
-- @context/intent/feature-*.md - Load relevant feature intents when working on specific features
-- @context/intent/bug-*.md - Load bug intents when fixing bugs
-
-**How to use**: When an AI agent starts working, it should load the relevant Context Mesh files above to understand the strategic context (what, why, how decided) before executing operational tasks.
-
----
-
-## Project Structure
-
-```
-root/
-├── AGENTS.md              # This file (router for AI agents)
-├── context/               # Context Mesh: strategic context
-│   ├── intent/
-│   │   ├── project-intent.md
-│   │   ├── feature-*.md
-│   │   └── bug-*.md
-│   ├── decisions/
-│   │   └── 001-*.md, 002-*.md, ...
-│   └── knowledge/
-│       ├── patterns/
-│       └── anti-patterns/
-│   └── agents/             # Optional: specialized agent definitions
-│       └── agent-*.md
-├── apps/
-│   ├── api/                # Backend API
-│   └── web/                # Frontend
-└── packages/
-    └── shared/              # Shared utilities
-```
-
----
-
-## Development Workflow
-
-### Step 1: Load Context
-Before starting work, load relevant Context Mesh files:
-- @context/intent/project-intent.md (always)
-- @context/intent/feature-*.md (if working on specific feature)
-- @context/decisions/*.md (relevant decisions)
-- @context/knowledge/patterns/*.md (relevant patterns)
-
-### Step 2: Follow Context Mesh Workflow
-1. **Intent**: Understand what to build (from Context Mesh)
-2. **Build**: Generate code following patterns and decisions
-3. **Learn**: Update context after changes
-
-### Step 3: Execute
-- Follow code style and conventions
-- Run tests before committing
-- **Always update context** - Update Context Mesh files after implementation (see "Critical: Always Update Context After Changes" below)
-
----
-
-## Testing Instructions
-
-- Run tests: `pnpm test`
-- Run specific test: `pnpm test -t "test name"`
-- Run linter: `pnpm lint`
-- Fix any test or type errors before committing
-- Add tests for new code (see @context/knowledge/patterns/testing-pattern.md)
-
----
-
-## AI Agent Behavior
-
-### Allowed
-- Create/edit code following Context Mesh patterns
-- Reference decisions from `@context/decisions/`
-- Follow patterns from `@context/knowledge/patterns/`
-- Update context when implementation differs from plan
-
-### Forbidden
-- Modifying `package.json` or config files without explicit instruction
-- Ignoring decisions from `@context/decisions/`
-- Using anti-patterns from `@context/knowledge/anti-patterns/`
-- Changing project structure without updating context
-
-### Critical: Always Update Context After Changes
-
-**IMPORTANT**: After implementing, creating, or modifying code, AI agents MUST update Context Mesh:
-
-1. **After creating new files/modules**:
-   - Update relevant feature intent if scope changed
-   - Create or update decision if new technical approach was used
-   - Update changelog.md
-
-2. **After modifying existing code**:
-   - Update feature intent if functionality changed
-   - Update decision outcomes if approach differed from plan
-   - Update changelog.md
-
-3. **After completing work**:
-   - Mark feature/bug as completed in intent file
-   - Add outcomes to decision files
-   - Document learnings in evolution/learning-*.md
-   - Update changelog.md
-
-**How to update context:**
-- After implementation, update relevant Context Mesh files:
-  - Mark feature/bug as completed in intent file
-  - Add outcomes to decision files
-  - Update changelog.md
-  - Document learnings if significant
-- You can use AI to help identify what needs updating
-
-**Never leave context stale** - Context Mesh only works if context reflects reality.
-
----
-
-## Architecture Overview
-
-See `@context/decisions/001-tech-stack.md` for complete technology stack.
-
-Key technologies:
-- Backend: See `@context/decisions/003-api-framework.md`
-- Database: See `@context/decisions/002-database.md`
-- Security: See `@context/decisions/004-security.md`
-- Auth: See `@context/decisions/005-authentication.md`
-
----
-
-## Coding Conventions
-
-- Follow patterns from `@context/knowledge/patterns/`
-- Avoid anti-patterns from `@context/knowledge/anti-patterns/`
-- Reference relevant decisions from `@context/decisions/`
-- Update context if conventions change
-
----
-
-## Definition of Done (Technical/Feature Level - Step 2: Build Only)
-
-**Important**: DoD applies only to **Step 2 (Build)** when implementing features technically. Steps 1 (Intent) and 3 (Learn) don't have DoD - they have flexible "Outputs" instead.
-
-This is the **technical/feature-level DoD** that every feature implementation must meet before being considered complete. This is different from:
-- **Success Criteria**: Functional requirements in `feature-*.md` (acceptance criteria)
-
-**When to apply**: Only during Step 2 (Build) when implementing code, not during Step 1 (Intent) or Step 3 (Learn).
-
-Before completing a feature implementation (Step 2 - Build):
-- [ ] Technical decision (ADR) verified or created before implementation - **Required**
-- [ ] Code follows patterns from Context Mesh
-- [ ] Decisions from Context Mesh are respected
-- [ ] Tests passing
-- [ ] Linter passing
-- [ ] **Context updated** - Context Mesh files updated to reflect implementation (Context Mesh requirement)
-- [ ] Feature/bug marked as completed in intent file
-- [ ] Decision outcomes added (if applicable)
-- [ ] Changelog updated
-- [ ] Code linked to relevant intent/decisions
-- [ ] Success Criteria met (from `feature-*.md` - acceptance criteria)
-
----
-
-## Common Mistakes to Avoid
-
-| Mistake | Why it's bad | Context Mesh Reference |
-|---------|--------------|------------------------|
-| Ignoring decisions | Breaks architecture | @context/decisions/ |
-| Using anti-patterns | Creates technical debt | @context/knowledge/anti-patterns/ |
-| **Not updating context after changes** | **Context becomes stale, breaks Context Mesh** | **Always update context after implementation** |
-| Creating files without updating context | Context doesn't reflect reality | Always update after implementation |
-| Skipping tests | Reduces quality | @context/knowledge/patterns/testing-pattern.md |
-
----
-
-## Specialized Agents
-
-For complex projects, see specialized agents in `context/agents/` directory:
-- `context/agents/agent-backend.md` - Backend-specific instructions
-- `context/agents/agent-frontend.md` - Frontend-specific instructions
-- `context/agents/agent-database.md` - Database-specific instructions
-
-Each specialized agent references Context Mesh files relevant to its scope.
-
----
-
-## Integration with Context Mesh
-
-**AGENTS.md** (this file) provides:
-- ✅ Operational instructions (setup, commands, conventions)
-- ✅ Router to Context Mesh files
-- ✅ Development workflow
-
-**Context Mesh** provides:
-- ✅ Strategic context (intent, decisions, knowledge)
-- ✅ Living context that evolves
-- ✅ Full traceability
-
-**Together**: Complete guidance for AI agents - both operational (how) and strategic (what, why).
-
----
-
-## References
-
-- [Context Mesh Framework](https://github.com/your-username/context-mesh) - Framework documentation
-- [AGENTS.md Standard](https://agents.md/) - AGENTS.md format specification
-- Context Mesh files in `context/` directory
-
----
-
-**Last Updated**: 2024-01-15  
-**Maintainer**: [Your Name]  
-**AI Collaborator**: Cursor / GitHub Copilot / etc.
-
+- [Context Mesh Framework](https://github.com/jeftarmascarenhas/ai-first-framework)
+- [AGENTS.md Standard](https://agents.md/)
