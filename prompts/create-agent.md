@@ -55,6 +55,12 @@ AGENT-[NAME].MD TEMPLATE:
 4. [Step 3 - what to do]
 5. [Step 4 - what to do]
 
+## Definition of Done
+Technical criteria that must be met before this agent's task is complete:
+- [ ] [Criterion 1 - e.g., Code compiles without errors]
+- [ ] [Criterion 2 - e.g., Tests pass]
+- [ ] [Criterion 3 - e.g., Context updated]
+
 ## Output
 - [Output 1]
 - [Output 2]

@@ -208,7 +208,7 @@ root/
 │   ├── knowledge/
 │   │   ├── patterns/
 │   │   └── anti-patterns/
-│   ├── agents/            # Optional: specialized agent definitions
+│   ├── agents/           
 │   │   └── agent-*.md
 │   └── evolution/
 │       ├── changelog.md
