@@ -7,7 +7,7 @@
 
 ## 🧠 Context Mesh Framework
 
-This project uses [Context Mesh](https://github.com/jeftarmascarenhas/ai-first-framework) for AI-First development.
+This project uses [Context Mesh](https://github.com/jeftarmascarenhas/context-mesh) for AI-First development.
 
 **Workflow**: Intent → Build → Learn
 
@@ -166,5 +166,5 @@ After completing any feature:
 
 ## 📖 References
 
-- [Context Mesh Framework](https://github.com/jeftarmascarenhas/ai-first-framework)
+- [Context Mesh Framework](https://github.com/jeftarmascarenhas/context-mesh)
 - [AGENTS.md Standard](https://agents.md/)
