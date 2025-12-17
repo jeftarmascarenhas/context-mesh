@@ -4,7 +4,7 @@ Use this prompt to add Context Mesh to an existing codebase. This creates living
 
 ## How to Use
 
-1. **Copy the prompt** below (inside the ` ``` ` block)
+1. **Copy the prompt** below 
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Let AI analyze** your codebase
 4. **Review** generated files and adjust if needed
