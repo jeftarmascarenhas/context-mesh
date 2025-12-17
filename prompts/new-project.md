@@ -87,6 +87,7 @@ FEATURE-[NAME].MD:
 
 ## Related
 - Intent: project-intent.md
+- Decision: [number]-[decision-name].md (if applicable)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
