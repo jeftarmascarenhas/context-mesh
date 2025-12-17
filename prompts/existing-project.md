@@ -1,38 +1,38 @@
 # Prompt: Add Context Mesh to Existing Project
 
-Use this prompt when you have an existing project and want to add Context Mesh.
+Use this prompt to add Context Mesh to an existing codebase. This creates living documentation of what already exists.
 
 ## How to Use
 
-1. **Copy the prompt** below
+1. **Copy the prompt** below (inside the ` ``` ` block)
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Let AI analyze** your codebase
-4. **Review** generated files
-5. **Continue** - Use the execution prompt to keep building
+4. **Review** generated files and adjust if needed
+5. **Done** - Context Mesh is now your living documentation
 
 ---
 
 ## Prompt
 
 ```
-I have an existing project and want to add Context Mesh to document and maintain context.
+I have an existing project and want to add Context Mesh to document what already exists.
 
-Analyze my codebase:
+Analyze my codebase and extract:
 1. Project structure (directories, files, config)
 2. Technologies used (package.json, requirements.txt, etc.)
-3. Key features/modules
-4. Patterns in the code
-5. Technical decisions already made
+3. Key features/modules already implemented
+4. Patterns found in the code
+5. Technical decisions that were made
 
-Then create this structure:
+Then create this structure to document the existing codebase:
 
 context/
 ├── intent/
-│   ├── project-intent.md (from analysis)
-│   └── feature-[name].md (one per identified feature)
+│   ├── project-intent.md (what the project does - from analysis)
+│   └── feature-[name].md (one per identified feature/module)
 ├── decisions/
 │   ├── 001-tech-stack.md (from package.json, etc.)
-│   └── 002-[other].md (inferred from code)
+│   └── 002-[other].md (other decisions inferred from code)
 ├── knowledge/
 │   ├── patterns/
 │   │   └── [identified-pattern].md
@@ -40,7 +40,7 @@ context/
 ├── agents/
 │   └── (empty for now)
 └── evolution/
-    └── changelog.md
+    └── changelog.md (document current state)
 
 Also create AGENTS.md at project root.
 
@@ -53,23 +53,22 @@ PROJECT-INTENT.MD:
 # Project Intent: [PROJECT_NAME]
 
 ## What
-[What project does - from analysis]
+[What project does - extracted from code analysis]
 
 ## Why
-[Why it exists - inferred from code/docs]
+[Why it exists - inferred from code/docs/README]
 
-## Success Criteria
-- [Inferred criterion 1]
-- [Inferred criterion 2]
+## Current State
+[Current state of the project - what's implemented]
 
 ## Current Features
-- [Feature 1 - from code]
-- [Feature 2 - from code]
+- [Feature 1 - identified from code]
+- [Feature 2 - identified from code]
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
 - **Status**: Active
-- **Note**: Generated from codebase analysis
+- **Note**: Generated from existing codebase analysis
 ---
 
 FEATURE-[NAME].MD:
@@ -77,22 +76,23 @@ FEATURE-[NAME].MD:
 # Feature: [FEATURE_NAME]
 
 ## What
-[What this feature does - from analysis]
+[What this feature does - from code analysis]
 
 ## Why
 [Inferred purpose]
 
 ## Current Implementation
-- [How it's implemented]
+- [How it's currently implemented]
+- [Key files involved]
 
 ## Related
 - Intent: project-intent.md
 - Decision: [number]-[decision-name].md (if applicable)
-- Files: [key files for this feature]
+- Files: [list key files for this feature]
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
-- **Status**: Active
+- **Status**: Active (already implemented)
 ---
 
 DECISIONS/001-TECH-STACK.MD:
@@ -106,10 +106,10 @@ Existing project with established technologies.
 - Frontend: [detected]
 - Backend: [detected]
 - Database: [detected]
-- Dependencies: [key deps]
+- Key Dependencies: [key deps from package.json, etc.]
 
 ## Rationale
-[Inferred from code patterns]
+[Inferred from code patterns and choices]
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
@@ -125,10 +125,14 @@ PATTERNS/[PATTERN-NAME].MD:
 [What this pattern is]
 
 ## When to Use
-[When to apply]
+[When to apply this pattern]
 
 ## Example
-[Code example from codebase]
+[Code example from the codebase]
+
+## Files Using This Pattern
+- [file1.ts]
+- [file2.ts]
 
 ## Status
 - **Created**: [TODAY'S DATE]
@@ -139,18 +143,24 @@ CHANGELOG.MD:
 ---
 # Changelog
 
-## [Current State]
+## [Current State] - Context Mesh Added
 
-### Existing Features
-- [Feature 1]
-- [Feature 2]
+### Existing Features (documented)
+- [Feature 1] - [brief description]
+- [Feature 2] - [brief description]
 
-### Tech Stack
+### Tech Stack (documented)
 - [Technology 1]
 - [Technology 2]
 
+### Patterns Identified
+- [Pattern 1]
+- [Pattern 2]
+
 ---
 *Context Mesh added: [TODAY'S DATE]*
+*This changelog documents the state when Context Mesh was added.*
+*Future changes will be tracked below.*
 ---
 
 AGENTS.MD (at project root):
@@ -158,28 +168,27 @@ AGENTS.MD (at project root):
 # AGENTS.md
 
 ## Setup Commands
-[From package.json, README, etc.]
+[Extracted from package.json, README, Makefile, etc.]
 - Install: `[detected command]`
 - Dev: `[detected command]`
 - Test: `[detected command]`
 - Build: `[detected command]`
 
 ## Code Style
-[From codebase analysis]
+[Extracted from codebase analysis]
 - [Detected convention 1]
 - [Detected convention 2]
 - Follow patterns from `@context/knowledge/patterns/`
 
 ## Context Files to Load
 
-Before starting work, load:
+Before starting any work, load relevant context:
 - @context/intent/project-intent.md (always)
 - @context/intent/feature-*.md (for specific feature)
 - @context/decisions/*.md (relevant decisions)
 - @context/knowledge/patterns/*.md (patterns to follow)
 
 ## Project Structure
-
 root/
 ├── AGENTS.md
 ├── context/
@@ -196,63 +205,85 @@ root/
 - Load context before implementing
 - Follow decisions from @context/decisions/
 - Use patterns from @context/knowledge/patterns/
-- Update context after implementation
+- Update context after any changes
 
 ### Never
 - Ignore documented decisions
 - Use anti-patterns from @context/knowledge/anti-patterns/
-- Leave context stale
+- Leave context stale after changes
 
-### After Implementation (Critical)
+### After Any Changes (Critical)
 AI must update Context Mesh after changes:
-- Mark feature/bug as completed in intent file
-- Add outcomes to decision files
+- Update relevant feature intent if functionality changed
+- Add outcomes to decision files if approach differed
 - Update changelog.md
 - Create learning-*.md if significant insights
 
 ## Definition of Done (Build Phase)
 
-Before completing implementation:
+Before completing any implementation:
 - [ ] ADR exists before implementation
-- [ ] Code follows Context Mesh patterns
+- [ ] Code follows documented patterns
 - [ ] Decisions respected
 - [ ] Tests passing
-- [ ] Context updated
+- [ ] Context updated to reflect changes
 - [ ] Changelog updated
-- [ ] Success Criteria met
 ---
 
-Analyze my codebase and create all files with appropriate content.
-```
-
----
-
-## Execute: Continue Building
-
-After Context Mesh is added:
-
-```
-Load @context files and continue building.
+Analyze my codebase and create all files with content based on what you find.
+Important: This is documentation of what EXISTS, not what needs to be built.
 ```
 
 ---
 
 ## What This Prompt Creates
 
-- `context/` folder with complete structure
-- `project-intent.md` - Extracted from codebase
-- `feature-*.md` - One per identified feature
-- `decisions/*.md` - Inferred from code
-- `patterns/*.md` - Patterns found in code
-- `changelog.md` - Current state
-- `AGENTS.md` - AI agent router
+This prompt documents your **existing codebase** as living context:
+
+- `context/intent/project-intent.md` - What the project does (extracted)
+- `context/intent/feature-*.md` - Each existing feature documented
+- `context/decisions/*.md` - Technical decisions already made
+- `context/knowledge/patterns/*.md` - Patterns found in your code
+- `context/evolution/changelog.md` - Current state documented
+- `AGENTS.md` - AI agent router for future work
 
 ---
 
-## Next Steps
+## After Running This Prompt
 
-- **Add feature**: Use `add-feature.md`
-- **Fix bug**: Use `fix-bug.md`
-- **Update feature**: Use `update-feature.md`
+Your project now has **living documentation**. From here:
 
-**Note**: AI updates context automatically if AGENTS.md exists.
+| I want to... | Use this prompt |
+|--------------|-----------------|
+| Add a new feature | [add-feature.md](add-feature.md) |
+| Update existing feature | [update-feature.md](update-feature.md) |
+| Fix a bug | [fix-bug.md](fix-bug.md) |
+| Update context after changes | AI does automatically, or use [learn-update.md](learn-update.md) |
+
+---
+
+## Tips
+
+1. **Review generated files** - AI inference may need adjustments
+2. **Add missing context** - Add any context AI couldn't infer
+3. **Keep it updated** - Context Mesh only works if it reflects reality
+4. **Don't over-document** - Focus on what matters for future development
+
+---
+
+## Why This Matters
+
+Without Context Mesh:
+```
+"Why was this built this way?" → Hours reconstructing context
+```
+
+With Context Mesh:
+```
+"Why was this built this way?" → Check @context/decisions/
+```
+
+Your existing codebase now has preserved context for:
+- Future you
+- New team members
+- AI assistants
