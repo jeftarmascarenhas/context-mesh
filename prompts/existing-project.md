@@ -4,7 +4,7 @@ Use this prompt when you have an existing project and want to add Context Mesh.
 
 ## How to Use
 
-1. **Copy the prompt** below (inside the ` ``` ` block)
+1. **Copy the prompt** below
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Let AI analyze** your codebase
 4. **Review** generated files
@@ -87,6 +87,7 @@ FEATURE-[NAME].MD:
 
 ## Related
 - Intent: project-intent.md
+- Decision: [number]-[decision-name].md (if applicable)
 - Files: [key files for this feature]
 
 ## Status
@@ -178,7 +179,7 @@ Before starting work, load:
 - @context/knowledge/patterns/*.md (patterns to follow)
 
 ## Project Structure
-```
+
 root/
 ├── AGENTS.md
 ├── context/
@@ -188,7 +189,6 @@ root/
 │   ├── agents/
 │   └── evolution/
 └── [existing code]
-```
 
 ## AI Agent Rules
 
