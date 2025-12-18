@@ -168,9 +168,20 @@ Use these prompts as you work:
 
 ## Real Results
 
-> **10 days** to migrate a complex monolith to micro-frontends (2 developers)
-> 
-> *This typically takes months.*
+> **15 days** to migrate the **front-end** of a React monolith into **10 micro front-ends** (2 developers, real production work)
+>
+> Breakdown: **4–5 days in Intent (planning)** + remaining days in **Build + Learn** (continuous context updates during Build/Learn)
+
+The monolith was an **AI automation platform** with **10 internal tools**. The code was hard to understand and had **no consistent standards**.
+
+**What changed in the Build step:**
+- Migrated each tool to a **newer React** baseline
+- Switched UI from **Material UI → shadcn/ui**
+- Introduced **React Query** (previously not used)
+- Adopted `@module-federation/vite` for micro front-end composition
+
+**Another example:**
+- Built [`context-mesh.org`](https://context-mesh.org) with **2–3 hours** in Intent planning and **< 1 hour** in Build, then Learn to keep context current
 
 **What teams report:**
 - ✅ Faster development cycles

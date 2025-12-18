@@ -140,6 +140,16 @@ We need to choose the technology stack for the Weather App minimal example. The 
   }
 }
 ```
+```ts
+export default async function corsPlugin(fastify: FastifyInstance) {
+  await fastify.register(cors, {
+    origin: "*", // Allow all origins in development
+  });
+}
+// use the plugins in app.ts in right order
+sweggerPlugin(fastify)
+corsPlugin(fastify)
+````
 
 ### Project Structure
 ```

@@ -41,20 +41,28 @@ Context Mesh is being used in production by teams building and modernizing real-
 
 ### Real-World Success Story
 
-**Enterprise Software Platform Migration** 🏢
-- **2 developers** migrated a **complex monolithic application** to micro front-ends in **10 days**
-- Application included multiple tools: code documentation, backlog management, testing, code review, AI-powered development chat, functional testing, user management, and cost control
-- **Legacy codebase** with complex interdependencies
-- **Result**: Complete migration in 10 days using Context Mesh for context extraction and planning
+**AI Automation Platform Front-End Migration** 🏢
+- **2 developers** migrated the **front-end** of a complex React monolith into **10 micro front-ends** in **15 days**
+- The monolith was an **automation platform for software development workflows using AI**, containing **10 internal tools**
+- **Legacy codebase**: medium-to-high complexity per tool, hard to understand, **no consistent standards**
+- **Result**: Migration completed in 15 days by planning each tool with Context Mesh, then building with AI using that context
 
 **How Context Mesh Made It Possible:**
-- Extracted context from each tool/module into Context Mesh structure
-- Each micro front-end has its own repository with preserved context
-- **Intent phase** used for complete planning and decision-making before build
-- Some micro front-ends had new UI designs (Figma) - Context Mesh worked seamlessly with design workflows
-- Context preservation enabled rapid development without losing architectural knowledge
+- Ran **Intent (plan)** for each tool before coding (about **4–5 days** total)
+- Used **Build + Learn** for the remaining time, updating context whenever needed
+- Each micro front-end got its own preserved context (intent, decisions, patterns, evolution)
+- AI could implement changes safely because the technical approach and standards were documented up front
 
-**Key Achievement**: What typically takes months of planning and migration was completed in **10 days** with just 2 developers, thanks to Context Mesh's structured approach to context preservation.
+**What changed in the Build step:**
+- Migrated each tool to a **newer React** baseline
+- Switched UI from **Material UI → shadcn/ui**
+- Introduced **React Query** (previously not used)
+- Adopted `@module-federation/vite` for micro front-end composition
+
+**Key Achievement**: What typically takes months of planning and migration was completed in **15 days** with just 2 developers, thanks to Context Mesh's structured approach to context preservation.
+
+**Another real example:**
+- Built [`context-mesh.org`](https://context-mesh.org) with **2–3 hours** in Intent planning and **< 1 hour** in Build, then Learn to keep context current
 
 ### Common Benefits Teams Experience
 
