@@ -1,5 +1,10 @@
 # Context Mesh Frequently Asked Questions
 
+> ❓ **Reference** - Look here when you have questions. You don't need to read it all upfront.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 Common questions about Context Mesh.
 
 ## General Questions

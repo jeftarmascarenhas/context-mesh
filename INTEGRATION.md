@@ -1,5 +1,10 @@
 # Context Mesh Integration Guide
 
+> 📚 **Deep Dive** - This is optional reading. You can use Context Mesh without reading this.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 Context Mesh is designed to work alongside existing methodologies like Scrum, Kanban, and DevOps. This guide shows how to integrate Context Mesh with your current workflow.
 
 ## Integration Philosophy

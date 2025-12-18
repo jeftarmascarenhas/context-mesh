@@ -1,5 +1,10 @@
 # Context Mesh Tooling Guide
 
+> 📚 **Deep Dive** - This is optional reading. You can use Context Mesh without reading this.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 Context Mesh is designed to be **tool-agnostic** - you can implement it with any tools. This guide provides simple recommendations for getting started.
 
 ## Tooling Philosophy

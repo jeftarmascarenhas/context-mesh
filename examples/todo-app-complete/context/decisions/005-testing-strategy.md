@@ -7,7 +7,7 @@ We need to implement testing for the Todo application to ensure:
 - Regression prevention
 - Confidence in refactoring
 - CI/CD pipeline validation
-- Meet project success criteria (70% code coverage)
+- Meet project acceptance criteria (70% code coverage)
 
 ## Decision
 

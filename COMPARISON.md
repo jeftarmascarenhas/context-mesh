@@ -1,5 +1,10 @@
 # Context Mesh vs Other Frameworks
 
+> 📚 **Deep Dive** - This is optional reading. You can use Context Mesh without reading this.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 A comparison of Context Mesh with other development frameworks and methodologies.
 
 ## Comparison Overview

@@ -26,7 +26,7 @@
 - Check backend save logic
 - Check database connection and transactions
 
-## Success Criteria
+## Acceptance Criteria
 
 - [ ] Todos persist after page refresh
 - [ ] Todos are visible in database

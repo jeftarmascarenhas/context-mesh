@@ -2,9 +2,15 @@
 
 Use this prompt when starting a freelance or client project.
 
+**Why use this for client work?** Captures client requirements as living documentation:
+- Client name, deliverables, deadlines
+- Acceptance criteria (how client knows it's done)
+- Technical constraints
+- Clear scope to avoid scope creep
+
 ## How to Use
 
-1. **Copy the prompt** below (inside the ` ``` ` block)
+1. **Copy** the prompt below
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Answer** questions or paste client brief
 4. **Review** generated files
@@ -98,6 +104,7 @@ FEATURE-[NAME].MD (deliverable):
 
 ## Related
 - Intent: project-intent.md
+- Decision: [number]-[decision-name].md (if applicable)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
@@ -206,13 +213,13 @@ Load @context files and build the project.
 
 ---
 
-## What This Prompt Creates
+## What This Prompt Does
 
-- `context/` folder with complete structure
-- `project-intent.md` - Client requirements
-- `feature-*.md` - One per deliverable
-- `changelog.md` - With timeline
-- `AGENTS.md` - AI agent router
+- **Creates `context/` folder** with complete structure
+- **Creates `project-intent.md`** - Documents client requirements
+- **Creates `feature-*.md`** - One per deliverable
+- **Creates `changelog.md`** - With project timeline
+- **Creates `AGENTS.md`** - AI agent router at project root
 
 ---
 

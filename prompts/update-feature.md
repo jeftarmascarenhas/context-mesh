@@ -1,6 +1,19 @@
 # Prompt: Update Feature
 
-Copy → Paste in AI → Answer → Files updated
+Use this prompt to update an existing feature in a project with Context Mesh.
+
+**When to use?** When you need to change an already implemented feature:
+- New requirements
+- Changed scope
+- Different technical approach
+
+## How to Use
+
+1. **Copy** the prompt below
+2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
+3. **Answer** the questions
+4. **Review** updated files
+5. **Implement** - Use the execution prompt to make changes
 
 ---
 
@@ -13,7 +26,7 @@ Analyze the existing @context/ and ask me:
 1. Which feature is being updated? (name or file)
 2. What is changing?
 3. Why is this change needed?
-4. Do success criteria change?
+4. Do acceptance criteria change?
 5. Does this need a new technical decision?
 
 Then:

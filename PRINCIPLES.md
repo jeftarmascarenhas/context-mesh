@@ -1,5 +1,10 @@
 # The 5 AI-First Principles
 
+> 📚 **Deep Dive** - This is optional reading. You can use Context Mesh without reading this.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 Context Mesh implements the 5 Philosophical Principles of AI-First Development. These principles form the foundation of the framework and guide every step of the workflow.
 
 ## Principle 1: Context as Primary Creation

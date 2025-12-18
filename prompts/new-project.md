@@ -2,9 +2,15 @@
 
 Use this prompt when starting a brand new project from scratch.
 
+**What gets created?** A `context/` folder structure that captures:
+- **Intent** - What you're building and why
+- **Decisions** - Technical choices (ADRs)
+- **Knowledge** - Patterns and anti-patterns
+- **Evolution** - Changelog and learnings
+
 ## How to Use
 
-1. **Copy the prompt** below (inside the ` ``` ` block)
+1. **Copy** the prompt below
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Answer** the questions
 4. **Review** generated files
@@ -24,7 +30,7 @@ Ask me:
 4. Why is this important? (business value)
 5. Main features to build?
 6. Tech stack? (if known)
-7. Success criteria?
+7. Acceptance criteria?
 
 Then create this structure:
 
@@ -58,7 +64,7 @@ PROJECT-INTENT.MD:
 ## Why
 [Business value, problem it solves]
 
-## Success Criteria
+## Acceptance Criteria
 - [Criterion 1]
 - [Criterion 2]
 
@@ -81,7 +87,7 @@ FEATURE-[NAME].MD:
 ## Why
 [Why we need it]
 
-## Success Criteria
+## Acceptance Criteria
 - [Criterion 1]
 - [Criterion 2]
 
@@ -199,7 +205,7 @@ Before completing implementation:
 - [ ] Tests passing
 - [ ] Context updated
 - [ ] Changelog updated
-- [ ] Success Criteria met
+- [ ] Acceptance Criteria met
 ---
 
 Create all files based on my answers.
@@ -217,14 +223,14 @@ Load @context files and build the project.
 
 ---
 
-## What This Prompt Creates
+## What This Prompt Does
 
-- `context/` folder with complete structure
-- `project-intent.md` - Main intent
-- `feature-*.md` - One per feature
-- `001-tech-stack.md` - If tech stack provided
-- `changelog.md` - Initial changelog
-- `AGENTS.md` - AI agent router
+- **Creates `context/` folder** with complete structure
+- **Creates `project-intent.md`** - Main project intent
+- **Creates `feature-*.md`** - One per feature you defined
+- **Creates `001-tech-stack.md`** - If tech stack was provided
+- **Creates `changelog.md`** - Initial changelog
+- **Creates `AGENTS.md`** - AI agent router at project root
 
 ---
 

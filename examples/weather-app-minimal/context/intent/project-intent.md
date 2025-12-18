@@ -42,7 +42,7 @@ Build a simple, modern Weather application that allows users to:
 - Testing (optional for minimal example)
 - CI/CD (optional for minimal example)
 
-## Success Criteria
+## Acceptance Criteria
 
 ### Functional
 - [ ] Users can search for weather by city name

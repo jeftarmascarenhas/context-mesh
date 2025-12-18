@@ -10,7 +10,7 @@ Implement comprehensive unit testing for both backend API and frontend React com
 - Catch bugs before they reach production
 - Enable safe refactoring
 - Reduce maintenance costs
-- Meet project success criteria (70% code coverage)
+- Meet project acceptance criteria (70% code coverage)
 
 **Technical Value**:
 - Validate code quality automatically
@@ -42,7 +42,7 @@ Implement comprehensive unit testing for both backend API and frontend React com
 - Visual regression tests
 - Performance tests
 
-## Success Criteria
+## Acceptance Criteria
 
 ### Functional
 - [ ] All API routes have unit tests

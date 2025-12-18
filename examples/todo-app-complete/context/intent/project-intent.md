@@ -39,7 +39,7 @@ Build a simple, modern Todo application that allows users to:
 - Todo sharing
 - Reminders/notifications
 
-## Success Criteria
+## Acceptance Criteria
 
 ### Functional
 - [ ] Users can sign up and log in

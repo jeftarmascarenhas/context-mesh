@@ -6,10 +6,11 @@ Ready-to-use prompts. Copy, paste in your AI assistant, answer questions, done.
 
 ## How to Use
 
-1. **Copy** the prompt from inside the ` ``` ` block
+1. **Copy** the prompt (inside the ``` block)
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Answer** the questions
-4. **Review** the generated files
+4. **Review** generated files
+5. **Execute** (if applicable)
 
 That's it.
 

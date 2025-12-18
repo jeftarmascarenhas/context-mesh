@@ -56,7 +56,7 @@ Follow [EXECUTION_GUIDE.md](EXECUTION_GUIDE.md) for complete test.
 | Build fails | Check TypeScript errors with `pnpm run build` |
 | API errors | Check .env file has all variables |
 
-## Success Criteria
+## Acceptance Criteria
 
 - [ ] All phases complete
 - [ ] Build passes

@@ -1,5 +1,10 @@
 # Context Mesh - Advanced Patterns
 
+> 📚 **Deep Dive** - This is optional reading. You can use Context Mesh without reading this.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 This document covers advanced patterns and extensions for Context Mesh. These patterns are **optional** and can be adopted as your project grows or when you need more structure.
 
 ## Overview

@@ -1,5 +1,10 @@
 # Context Mesh Glossary
 
+> 📖 **Reference** - Use this as a quick lookup for terms. You don't need to read it all.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 Key terms and concepts used in Context Mesh.
 
 ## A
@@ -50,7 +55,7 @@ A checklist of criteria that must be met before a work item is considered comple
 In Context Mesh:
 - **DoD is technical only**: Applied during Step 2 (Build) when code is implemented, not in Step 1 (Intent) or Step 3 (Learn)
 - **DoD for Features**: Project-level criteria that every feature implementation must meet (tests, review, context updated, etc.)
-- **Success Criteria** (in feature intents) = Acceptance Criteria - what the feature needs to do functionally
+- **Acceptance Criteria** (in feature intents) - what the feature needs to do functionally (how you know the feature is complete)
 - **DoD** = Process and quality criteria - how you know implementation is done
 - **Steps 1 and 3**: Have flexible "Outputs" instead of rigid DoD, as they are more iterative and adaptive
 

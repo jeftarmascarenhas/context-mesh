@@ -23,7 +23,7 @@ This project uses [Context Mesh](https://github.com/jeftarmascarenhas/context-me
 context/
 ├── intent/           # WHAT to build and WHY (load first)
 │   ├── project-intent.md      # Project vision and goals
-│   └── feature-*.md           # Feature requirements + Success Criteria
+│   └── feature-*.md           # Feature requirements + Acceptance Criteria
 ├── decisions/        # HOW to build (technical choices)
 │   └── 001-*.md               # Decisions with rationale
 ├── knowledge/        # Patterns and anti-patterns
@@ -93,7 +93,7 @@ Execute phases in order. Each agent has its own **Definition of Done**.
 - `@context/intent/project-intent.md` - Project vision and constraints
 
 **Load per feature:**
-- `@context/intent/feature-*.md` - Feature requirements (has Success Criteria)
+- `@context/intent/feature-*.md` - Feature requirements (has Acceptance Criteria)
 
 **Load per phase:**
 - `@context/agents/agent-*.md` - Execution steps (has Definition of Done)

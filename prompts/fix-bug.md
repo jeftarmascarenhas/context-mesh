@@ -1,6 +1,19 @@
 # Prompt: Fix Bug
 
-Copy → Paste in AI → Answer → Files created
+Use this prompt to document and fix a bug in a project with Context Mesh.
+
+**Why document bugs?** Tracking bugs in context preserves:
+- What went wrong and why
+- Root cause analysis
+- How it was fixed (prevents similar bugs)
+
+## How to Use
+
+1. **Copy** the prompt below
+2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
+3. **Answer** the questions
+4. **Review** generated files
+5. **Fix** - Use the execution prompt to fix the bug
 
 ---
 

@@ -47,7 +47,7 @@ Implement a weather display feature that allows users to search for and view cur
 - Multiple cities
 - Weather maps
 
-## Success Criteria
+## Acceptance Criteria
 
 ### Functional
 - [ ] User can enter city name in search field

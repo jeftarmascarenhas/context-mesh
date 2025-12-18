@@ -1,8 +1,20 @@
 # Prompt: Update Context (Learn Step)
 
-Use after implementing to keep context current.
+Use this prompt after implementing to update context with outcomes and learnings.
 
-**Note:** If you have AGENTS.md configured, AI does this automatically. This prompt is for manual updates.
+**What is the Learn step?** The third step of Context Mesh (Intent → Build → **Learn**):
+- Mark work as complete
+- Record what actually happened vs planned
+- Capture patterns and learnings for future work
+
+> **Note:** If you have AGENTS.md configured, AI does this automatically. This prompt is for manual updates.
+
+## How to Use
+
+1. **Copy** the prompt below
+2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
+3. **Answer** the questions
+4. **Review** updates
 
 ---
 

@@ -1,10 +1,17 @@
 # Prompt: Create Agent
 
-Use this prompt to create a reusable agent (execution pattern) for your Context Mesh project.
+Use this prompt to create a reusable agent for your Context Mesh project.
+
+**What is an agent?** A reusable execution pattern (markdown file) that:
+- References context files (intent, decisions, patterns)
+- Provides step-by-step instructions for a specific task
+- Standardizes how certain tasks are done
+
+**Example:** An "agent-backend-api.md" that defines how to create API endpoints following your patterns.
 
 ## How to Use
 
-1. **Copy the prompt** below
+1. **Copy** the prompt below
 2. **Paste in your AI assistant** (Cursor, Copilot, Claude, etc.)
 3. **Answer questions** about the agent
 4. **Review** the generated agent file

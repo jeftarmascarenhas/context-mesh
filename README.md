@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="context-mesh.org">
+<a href="https://context-mesh.org">
 <img src="./images/context-mesh-icon-medium.png" height="200" alt="Context Mesh" aria-label="context-mesh.org">
 </a>
 

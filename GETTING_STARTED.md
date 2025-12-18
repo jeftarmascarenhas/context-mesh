@@ -104,7 +104,7 @@ Implement user authentication following @context/intent/feature-user-auth.md
 ```
 
 AI sees:
-- Feature intent (what + why + success criteria)
+- Feature intent (what + why + acceptance criteria)
 - Decision (JWT approach + rationale)
 - Existing patterns in `context/knowledge/patterns/`
 

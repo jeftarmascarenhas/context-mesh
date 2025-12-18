@@ -43,7 +43,7 @@ Implement a complete CI/CD pipeline using GitHub Actions that automatically test
 - Automated rollback on errors
 - Performance testing in CI
 
-## Success Criteria
+## Acceptance Criteria
 
 ### Functional
 - [ ] CI runs on every push and PR

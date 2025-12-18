@@ -1,5 +1,11 @@
 # Context Mesh Examples
 
+> 📚 **Deep Dive** - This is optional reading. You can start using Context Mesh without reading this.
+> Start with [README.md](README.md) and [GETTING_STARTED.md](GETTING_STARTED.md).
+> For hands-on examples, see [examples/](examples/).
+
+---
+
 Real-world examples of Context Mesh in action, showing how the framework is applied in different scenarios.
 
 ---
@@ -137,7 +143,7 @@ log in, and manage their accounts.
 - Current system lacks proper authentication
 - Security is a critical requirement
 
-## Success Criteria
+## Acceptance Criteria
 - Users can sign up with email and password
 - Users can log in securely
 - Passwords are hashed and stored securely
@@ -253,7 +259,7 @@ Fix the bug preventing users from logging in.
 - Users cannot access the application
 - Business impact is high
 
-## Success Criteria
+## Acceptance Criteria
 - Users can log in successfully
 - Bug root cause identified and fixed
 - Prevention measures in place
@@ -355,7 +361,7 @@ Refactor monolithic application into microservices architecture.
 - Teams need independence
 - Technology diversity required
 
-## Success Criteria
+## Acceptance Criteria
 - Services are independently deployable
 - Services communicate via APIs
 - No breaking changes for users
@@ -519,7 +525,7 @@ Replace old feature with new, improved approach.
 - New approach provides better UX
 - Technical improvements available
 
-## Success Criteria
+## Acceptance Criteria
 - New feature implemented
 - Old feature deprecated
 - Migration path for existing users

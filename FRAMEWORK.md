@@ -1,5 +1,10 @@
 # Context Mesh - Framework Structure
 
+> 📘 **Complete Reference** - This is the full framework documentation.
+> For a quick start, see [GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 ## Framework Overview
 
 > **The Problem**: AI-generated code works, but context disappears. Three months later, your own code looks foreign.
@@ -150,7 +155,7 @@ sequenceDiagram
 
 **Prerequisites** (from Step 1): Intent Statement (Required), Technical Decisions/ADR (Required before implementation), Initial patterns (Optional).
 
-**Critical Requirement - ADR Before Implementation**: Before implementing any feature, **verify if a technical decision (ADR) exists** for the approach needed. If no decision exists, **create the decision first** in Step 1 (Intent) or at the start of Step 2 (Build) before proceeding. **Do not start implementation without a documented decision**. Feature implementation must follow project-level Definition of Done (DoD) and meet Success Criteria.
+**Critical Requirement - ADR Before Implementation**: Before implementing any feature, **verify if a technical decision (ADR) exists** for the approach needed. If no decision exists, **create the decision first** in Step 1 (Intent) or at the start of Step 2 (Build) before proceeding. **Do not start implementation without a documented decision**. Feature implementation must follow project-level Definition of Done (DoD) and meet Acceptance Criteria.
 
 **Note**: Decisions can be created or updated in any step. Step 1 (Intent) is recommended for faster Build. Step 2 (Build): Create decision first if missing, then implement. Step 3 (Learn): Update decisions with outcomes.
 
@@ -317,8 +322,8 @@ Context Mesh uses **Definition of Done** at the **technical/feature level only**
 - Documentation updated
 - Deployed (if applicable)
 
-**Success Criteria vs DoD:**
-- **Success Criteria** (in `feature-*.md` files) = Acceptance Criteria - What the feature needs to do functionally (e.g., "User can login", "Data is saved")
+**Acceptance Criteria vs DoD:**
+- **Acceptance Criteria** (in `feature-*.md` files) - What the feature needs to do functionally (e.g., "User can login", "Data is saved")
 - **Definition of Done** = Process criteria that must be met during implementation (e.g., "Tests passing", "Code reviewed", "Context updated")
 
 **Why DoD is only for Step 2 (Build):**
@@ -347,7 +352,7 @@ Understanding when to use `project-intent.md` versus individual feature/bug file
 
 **Project Intent (`project-intent.md`)**: Defines overall project scope, goals, and high-level objectives. Use for project vision, high-level goals, general scope (not individual features), project-wide principles, strategic direction. **Update when**: Project scope changes significantly, high-level goals change, strategic direction changes. **Do NOT update for**: Adding individual features (create `feature-*.md`), fixing bugs (create `bug-*.md`), updating existing features (update `feature-*.md`), technical decisions (create `decisions/*.md`).
 
-**Features (`feature-*.md`)**: Defines individual feature requirements, goals, and success criteria. Create when starting a new feature (each feature gets its own file). Update when refining requirements, adding functionality, changing scope. Deprecate (do NOT delete) when feature is removed/replaced - mark as deprecated but keep file for history.
+**Features (`feature-*.md`)**: Defines individual feature requirements, goals, and acceptance criteria. Create when starting a new feature (each feature gets its own file). Update when refining requirements, adding functionality, changing scope. Deprecate (do NOT delete) when feature is removed/replaced - mark as deprecated but keep file for history.
 
 **Bugs (`bug-*.md`)**: Defines bug description, impact, and fix requirements. Create when starting a bug fix (each bug gets its own file). Update when refining bug understanding, adding root cause analysis. Deprecate (do NOT delete) when bug is fixed - mark as resolved but keep file for history.
 
@@ -578,7 +583,7 @@ Security in Context Mesh is built into the framework from the ground up. Essenti
 4. **Least Privilege**: Access to context and systems follows principle of least privilege - minimum necessary permissions, regular access reviews, least privilege for AI tools
 5. **Defense in Depth**: Multiple layers of security protection (network, application, data, access control, monitoring)
 
-**Security in Each Step**: **Step 1 (Intent)** - Identify security requirements, document security constraints, define security success criteria, classify context sensitivity. **Step 2 (Build)** - Implement security controls, follow security best practices, document security decisions, review code for security issues. **Step 3 (Learn)** - Monitor security metrics, review security incidents, update security practices, refine security requirements.
+**Security in Each Step**: **Step 1 (Intent)** - Identify security requirements, document security constraints, define security acceptance criteria, classify context sensitivity. **Step 2 (Build)** - Implement security controls, follow security best practices, document security decisions, review code for security issues. **Step 3 (Learn)** - Monitor security metrics, review security incidents, update security practices, refine security requirements.
 
 **Security Best Practices**: Start with security from the beginning, document security decisions, regular reviews, keep context secure, monitor continuously in production.
 

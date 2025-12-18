@@ -106,7 +106,7 @@ Execute phases in order. Each agent has its own **Definition of Done**.
 - `@context/intent/project-intent.md` - Project vision and constraints
 
 **Load per feature:**
-- `@context/intent/feature-*.md` - Feature requirements (has Success Criteria)
+- `@context/intent/feature-*.md` - Feature requirements (has Acceptance Criteria)
 
 **Load per phase:**
 - `@context/agents/agent-*.md` - Execution steps (has Definition of Done)

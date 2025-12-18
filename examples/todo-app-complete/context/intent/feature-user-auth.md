@@ -14,7 +14,7 @@ Implement user authentication system allowing users to:
 
 **Technical Need**: Foundation for user-specific data isolation and future features (sharing, permissions).
 
-## Success Criteria
+## Acceptance Criteria
 
 - [ ] User can sign up with email/password
 - [ ] User can log in with email/password

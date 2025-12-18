@@ -1,6 +1,12 @@
 # Prompt: Add Context Mesh to Existing Project
 
-Use this prompt to add Context Mesh to an existing codebase. This creates living documentation of what already exists.
+Use this prompt to add Context Mesh to an existing codebase.
+
+**What does this do?** AI analyzes your code and creates living documentation:
+- Extracts what the project does and why
+- Documents existing features
+- Identifies patterns already in your code
+- Creates a foundation for future changes
 
 ## How to Use
 
@@ -236,16 +242,16 @@ Important: This is documentation of what EXISTS, not what needs to be built.
 
 ---
 
-## What This Prompt Creates
+## What This Prompt Does
 
-This prompt documents your **existing codebase** as living context:
+Documents your **existing codebase** as living context:
 
-- `context/intent/project-intent.md` - What the project does (extracted)
-- `context/intent/feature-*.md` - Each existing feature documented
-- `context/decisions/*.md` - Technical decisions already made
-- `context/knowledge/patterns/*.md` - Patterns found in your code
-- `context/evolution/changelog.md` - Current state documented
-- `AGENTS.md` - AI agent router for future work
+- **Creates `project-intent.md`** - What the project does (extracted from code)
+- **Creates `feature-*.md`** - Each existing feature documented
+- **Creates `decisions/*.md`** - Technical decisions already made
+- **Creates `patterns/*.md`** - Patterns found in your code
+- **Creates `changelog.md`** - Current state documented
+- **Creates `AGENTS.md`** - AI agent router for future work
 
 ---
 

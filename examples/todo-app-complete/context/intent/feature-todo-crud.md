@@ -15,7 +15,7 @@ Implement complete CRUD (Create, Read, Update, Delete) operations for todo items
 
 **User Value**: Enables users to organize and track their tasks efficiently.
 
-## Success Criteria
+## Acceptance Criteria
 
 - [ ] User can create a new todo
 - [ ] User can view all their todos

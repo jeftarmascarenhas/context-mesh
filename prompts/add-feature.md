@@ -1,6 +1,18 @@
 # Prompt: Add Feature
 
-Copy → Paste in AI → Answer → Files created
+Use this prompt to add a new feature to a project that already has Context Mesh.
+
+**What is a feature?** A distinct piece of functionality (e.g., "user authentication", "payment processing", "dark mode"). Each feature gets:
+- **Intent file** (`feature-*.md`) - Documents WHAT and WHY
+- **Decision file** (`decisions/*.md`) - Documents HOW (technical approach, also called ADR)
+
+## How to Use
+
+1. **Copy** the prompt below
+2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
+3. **Answer** the questions
+4. **Review** generated files
+5. **Build** - Use the execution prompt to implement
 
 ---
 
@@ -12,7 +24,7 @@ Add a new feature to this Context Mesh project.
 Analyze the existing @context/ and ask me:
 1. Feature name
 2. What it does and why we need it
-3. Success criteria
+3. Acceptance criteria
 4. Technical approach (becomes the decision/ADR)
 
 Then create:
