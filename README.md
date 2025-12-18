@@ -30,7 +30,7 @@ This isn't an AI model problem. **It's a context problem.**
 
 ## The Solution: Context Mesh
 
-Context Mesh is a simple 3-step framework that makes AI generate consistent, maintainable code by preserving context.
+Context Mesh is a simple 3-step framework that **standardizes AI-assisted development** by planning first and preserving context in your repo.
 
 ```
 ❌ Without Context Mesh:
@@ -39,6 +39,7 @@ Context Mesh is a simple 3-step framework that makes AI generate consistent, mai
 
 ✅ With Context Mesh:
    "Implement login following @context/intent/feature-user-auth.md"
+   → You planned first (intent + decision) before writing code
    → Feature defines WHAT and WHY
    → Feature references decision with HOW (tech approach)
    → AI generates code following YOUR patterns, YOUR decisions
@@ -57,6 +58,8 @@ feature-user-auth.md          →  "What: User authentication"
 ```
 
 One simple prompt loads all the context AI needs.
+
+> **Tool-agnostic note:** In Cursor you can reference files with `@path`. In other AI tools, attach or paste the referenced files (intent/decisions) so the model can read them.
 
 ---
 
@@ -78,25 +81,56 @@ One simple prompt loads all the context AI needs.
 
 That's it. Each step preserves context for the next.
 
+### What Each Step Produces (In Practice)
+
+#### 1) Intent (Plan First)
+
+You write down **WHAT** you're building, **WHY** it matters, and **how you know it's done** (acceptance criteria). If the feature needs a non-trivial approach, you also capture the **Decision (ADR)** before writing code.
+
+```
+context/
+├── intent/
+│   ├── project-intent.md           # high-level goals + constraints
+│   └── feature-user-auth.md        # what/why + acceptance criteria
+└── decisions/
+    └── 002-auth.md                 # how (approach) + rationale (ADR)
+```
+
+#### 2) Build (AI + Human)
+
+You implement by referencing the intent (and any relevant decisions/patterns). AI generates code that matches your standards; you review and ship.
+
+#### 3) Learn (Keep Context Alive)
+
+After shipping, you update context with what actually happened (outcomes, gotchas, changes to approach). This prevents context drift over time.
+
+### Plan First (What That Actually Means)
+
+Before you build, you capture the minimum context that AI usually has to guess:
+- **Intent**: what you're building and why (plus acceptance criteria)
+- **Decision (ADR)**: the technical approach and rationale
+
+You can write these files manually, or use the ready-to-use prompts.
+
 ---
 
 ## Quick Start (2 minutes)
 
 ### Option 1: New Project
 
-```bash
-# Copy this prompt to your AI assistant (Cursor, Copilot, Claude)
-```
-
-👉 **[prompts/new-project.md](prompts/new-project.md)** - AI creates the entire Context Mesh structure
+1. Open **[prompts/new-project.md](prompts/new-project.md)**
+2. **Copy** the prompt (inside the ``` block)
+3. **Paste** into your AI assistant (Cursor, Copilot, Claude, etc.)
+4. **Answer** the questions
+5. **Review** generated files (`context/` + `AGENTS.md`)
 
 ### Option 2: Existing Project
 
-```bash
-# AI analyzes your codebase and creates context
-```
-
-👉 **[prompts/existing-project.md](prompts/existing-project.md)** - Add Context Mesh to existing code
+1. Open **[prompts/existing-project.md](prompts/existing-project.md)**
+2. **Copy** the prompt (inside the ``` block)
+3. **Paste** into your AI assistant
+4. Let it **analyze your codebase** and generate living context
+5. **Review** generated files (`context/` + `AGENTS.md`)
 
 ### After Setup
 
@@ -107,6 +141,7 @@ Use these prompts as you work:
 | Add a feature | [add-feature.md](prompts/add-feature.md) |
 | Fix a bug | [fix-bug.md](prompts/fix-bug.md) |
 | Update a feature | [update-feature.md](prompts/update-feature.md) |
+| Update context (Learn step) | [learn-update.md](prompts/learn-update.md) |
 
 ---
 
@@ -165,6 +200,7 @@ When context is primary:
 - Decisions preserve their "why"
 - Code follows your patterns
 - Knowledge evolves with your system
+- You repeat less in prompts (less re-explaining), and the AI infers less
 
 ---
 
