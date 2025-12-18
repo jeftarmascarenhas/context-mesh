@@ -87,6 +87,8 @@ That's it. Each step preserves context for the next.
 
 You write down **WHAT** you're building, **WHY** it matters, and **how you know it's done** (acceptance criteria). If the feature needs a non-trivial approach, you also capture the **Decision (ADR)** before writing code.
 
+This is the **minimum viable Context Mesh**: intent + decision (so AI stops guessing).
+
 ```
 context/
 ├── intent/
@@ -94,6 +96,27 @@ context/
 │   └── feature-user-auth.md        # what/why + acceptance criteria
 └── decisions/
     └── 002-auth.md                 # how (approach) + rationale (ADR)
+```
+
+**Optional (recommended) full structure:** Add more context as your project grows.
+
+```
+your-project/
+├── context/
+│   ├── intent/                     # what + why (requirements)
+│   │   ├── project-intent.md
+│   │   ├── feature-*.md
+│   │   └── bug-*.md
+│   ├── decisions/                  # how (ADRs)
+│   │   └── 001-*.md
+│   ├── knowledge/                  # standards that make AI consistent
+│   │   ├── patterns/
+│   │   └── anti-patterns/
+│   ├── agents/                     # optional: reusable execution playbooks
+│   │   └── agent-*.md
+│   └── evolution/                  # what changed over time
+│       └── changelog.md
+└── AGENTS.md                       # agent router (optional but recommended)
 ```
 
 #### 2) Build (AI + Human)
@@ -104,13 +127,11 @@ You implement by referencing the intent (and any relevant decisions/patterns). A
 
 After shipping, you update context with what actually happened (outcomes, gotchas, changes to approach). This prevents context drift over time.
 
-### Plan First (What That Actually Means)
+### Use the Steps, Adapt the Structure
 
-Before you build, you capture the minimum context that AI usually has to guess:
-- **Intent**: what you're building and why (plus acceptance criteria)
-- **Decision (ADR)**: the technical approach and rationale
-
-You can write these files manually, or use the ready-to-use prompts.
+Keep the **3 steps** (Intent → Build → Learn), but feel free to adapt the structure to your reality:
+- Rename folders/files, add fields, integrate with Scrum/Kanban, etc.
+- The goal is consistent AI output via **versioned context**, not rigid file layouts.
 
 ---
 
