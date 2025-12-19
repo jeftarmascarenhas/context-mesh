@@ -163,6 +163,90 @@ This feature was replaced by feature-new-approach.md.
 
 Git preserves all history, so deprecated files remain accessible and provide valuable context.
 
+### When should I update a feature file vs create a new one?
+
+**General Rule**: Update the same file when it's the same feature evolving. Only create a new file when it's a completely different feature.
+
+**Update `feature-*.md` (same file)** when:
+- Adding functionality to existing feature (e.g., adding OAuth to auth feature)
+- Refining requirements or acceptance criteria
+- Changing technical approach (create new decision file, update feature file)
+- Expanding scope of same feature
+
+**Create new `feature-*.md`** when:
+- It's a completely different feature (not an evolution)
+- Replacing feature entirely (then deprecate old one)
+- Splitting one feature into multiple features
+
+**Example - Update same file:**
+```
+feature-user-auth.md:
+- Original: Email/password auth
+- Update 1: Add password reset
+- Update 2: Add OAuth (Google, GitHub)
+- Update 3: Add MFA
+→ All updates to same file, Git preserves history
+```
+
+**Example - Create new file:**
+```
+feature-user-auth.md (deprecated)
+feature-auth-v2.md (new, complete replacement)
+→ Different architecture, completely new approach
+```
+
+**How to document significant changes in same file:**
+Add a "Change History" section to track major updates:
+```markdown
+## Change History
+
+### 2024-03-15 - OAuth Integration
+- What: Added OAuth providers
+- Why: User request
+- Impact: New decision 005-oauth.md created
+```
+
+**Remember**: Git is your version control. Use it. Update same file for same feature evolution. Create new file only for truly different features.
+
+### When I update a feature and execute the agent, will AI only make the necessary changes?
+
+**Yes, if you guide it correctly.** When updating an existing feature, the AI should:
+
+1. **Analyze existing code first** - Understand what's already implemented
+2. **Identify what needs to change** - Compare updated intent with current code
+3. **Make incremental changes only** - Modify only what's necessary
+4. **Preserve existing code** - Don't regenerate code that doesn't need to change
+
+**How to ensure AI makes only necessary changes:**
+
+When executing after updating a feature, use this prompt:
+
+```
+Update the existing feature following @context/intent/feature-[name].md.
+
+IMPORTANT: This is an UPDATE to existing code, not a new implementation.
+- First, analyze the existing code for this feature
+- Identify what needs to change based on the updated intent
+- Make ONLY the necessary modifications
+- Preserve existing code that doesn't need to change
+- Follow the "Changes from Original" section if present in the intent file
+```
+
+**Best practices:**
+- Always mention "UPDATE" or "MODIFY" in your prompt, not "IMPLEMENT" or "CREATE"
+- Reference the existing code explicitly: "Update the existing [feature name] feature"
+- If the intent file has a "Changes from Original" section, the AI will follow it
+- Review the AI's plan before it executes (Plan, Approve, Execute pattern)
+
+**Example:**
+```
+❌ Bad: "Implement user authentication following @context/intent/feature-user-auth.md"
+→ AI might regenerate everything
+
+✅ Good: "Update the existing user authentication feature following @context/intent/feature-user-auth.md. Make only the necessary changes to add OAuth support."
+→ AI will analyze existing code and add only OAuth
+```
+
 ### What should I do when a bug is fixed?
 
 **Mark as resolved, don't delete**. When a bug is fixed:

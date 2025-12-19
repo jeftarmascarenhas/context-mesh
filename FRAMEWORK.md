@@ -89,6 +89,26 @@ Both approaches are valid.
 4. **Execute with context** - AI generates code based on approved plan and documented decisions
 5. **Follow patterns** - Use established patterns, avoid known anti-patterns
 
+**Updating Existing Features:**
+
+When updating an existing feature (not creating new):
+- **Analyze existing code first** - AI should understand what's already implemented
+- **Make incremental changes only** - Modify only what needs to change based on updated intent
+- **Preserve existing code** - Don't regenerate code that doesn't need to change
+- **Reference "Changes from Original"** - If present in the intent file, follow it explicitly
+- **Update related files** - Update tests, documentation, and related code as needed
+
+**Example for AI when updating:**
+```
+Update the existing feature following @context/intent/feature-[name].md.
+
+IMPORTANT: This is an UPDATE to existing code, not a new implementation.
+- First, analyze the existing code for this feature
+- Identify what needs to change based on the updated intent
+- Make ONLY the necessary modifications
+- Preserve existing code that doesn't need to change
+```
+
 **Writing Prompts for AI Code Generation:**
 
 Since **context is the primary artifact**, prompts should be **simple and reference the context**.
@@ -189,6 +209,82 @@ context/
 - When a feature is removed → Mark as deprecated, do NOT delete
 - When a bug is resolved → Mark as resolved, do NOT delete
 - Keep files for history and traceability
+
+### When to Update vs Create New File (Feature Evolution)
+
+**Key Principle**: Use Git for versioning. Update the same file when it's the same feature evolving. Only create a new file when it's a completely different feature.
+
+| Scenario | Action | Example |
+|----------|--------|---------|
+| **Feature refinement** | Update `feature-*.md` | Adding new fields to user auth, changing UI, adding validation |
+| **Feature scope expansion** | Update `feature-*.md` | Adding OAuth to existing auth feature |
+| **Technical approach change** | Update `feature-*.md` + Create new decision | Switching from JWT to session-based auth (same feature, different approach) |
+| **Complete feature replacement** | Create new `feature-*.md` + Deprecate old | Replacing old auth system with completely new one (different architecture) |
+| **Feature split** | Create new `feature-*.md` files | Splitting "user management" into "user-auth.md" and "user-profile.md" |
+
+**How AI Should Handle Feature Updates:**
+
+When you update a feature and execute the agent/prompt, the AI should:
+1. **Analyze existing code first** - Understand what's already implemented
+2. **Identify what needs to change** - Compare updated intent with current code
+3. **Make incremental changes only** - Modify only what's necessary
+4. **Preserve existing code** - Don't regenerate code that doesn't need to change
+5. **Follow "Changes from Original" section** - If present in the intent file
+
+**Example prompt for AI:**
+```
+Update the existing feature following @context/intent/feature-[name].md.
+
+IMPORTANT: This is an UPDATE to existing code, not a new implementation.
+- First, analyze the existing code for this feature
+- Identify what needs to change based on the updated intent
+- Make ONLY the necessary modifications
+- Preserve existing code that doesn't need to change
+```
+
+**How to Document Significant Changes in the Same File:**
+
+When updating a feature file with significant changes, add a "Change History" section:
+
+```markdown
+## Change History
+
+### 2024-03-15 - OAuth Integration Added
+- **What changed**: Added OAuth (Google, GitHub) to existing email/password auth
+- **Why**: User request for social login
+- **Impact**: New decision created (005-oauth-integration.md)
+- **Status**: Completed
+
+### 2024-02-10 - MFA Added
+- **What changed**: Added multi-factor authentication
+- **Why**: Security requirement
+- **Impact**: Updated decision 002-auth.md with MFA approach
+- **Status**: Completed
+```
+
+**When to Create a New Feature File:**
+
+Only create a new `feature-*.md` file when:
+- It's a **completely different feature** (not an evolution)
+- The feature is being **replaced entirely** (then deprecate the old one)
+- The feature is being **split into multiple features** (create new files for each)
+
+**Example - When to Update vs Create:**
+
+```
+✅ Update feature-user-auth.md:
+- Add password reset
+- Add email verification
+- Add OAuth providers
+- Change from JWT to sessions
+- Add MFA
+
+❌ Create new file:
+- Replacing auth with completely new system → feature-auth-v2.md (deprecate old)
+- Splitting auth into separate features → feature-login.md + feature-registration.md
+```
+
+**Remember**: Git preserves all history. Updating the same file maintains traceability while keeping context organized. Use Git history to see what changed and when.
 
 ### File Naming Conventions
 

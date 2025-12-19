@@ -7,6 +7,8 @@ Use this prompt to update an existing feature in a project with Context Mesh.
 - Changed scope
 - Different technical approach
 
+**Important**: Update the same `feature-*.md` file (don't create feature-v2.md). Git preserves history. Only create a new file if it's a completely different feature or complete replacement.
+
 ## How to Use
 
 1. **Copy** the prompt below
@@ -45,7 +47,15 @@ Add "Changes from Original" section in intent if relevant.
 After files are updated:
 
 ```
-Implement the changes following @context/intent/feature-[name].md
+Update the existing feature following @context/intent/feature-[name].md.
+
+IMPORTANT: This is an UPDATE to existing code, not a new implementation.
+- First, analyze the existing code for this feature
+- Identify what needs to change based on the updated intent
+- Make ONLY the necessary modifications
+- Preserve existing code that doesn't need to change
+- Follow the "Changes from Original" section if present in the intent file
+- Update only the files that need changes, don't regenerate everything
 ```
 
 ---
