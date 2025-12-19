@@ -181,9 +181,9 @@ root/
 
 ### After Implementation (Critical)
 AI must update Context Mesh after changes:
-- Mark feature/bug as completed in intent file
-- Add outcomes to decision files
-- Update changelog.md
+  - Mark feature/bug as completed in intent file
+  - Add outcomes to decision files
+  - Update changelog.md
 - Create learning-*.md if significant insights
 
 ## Definition of Done (Build Phase)

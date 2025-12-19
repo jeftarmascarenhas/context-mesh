@@ -10,7 +10,7 @@ Use this prompt to add Context Mesh to an existing codebase.
 
 ## How to Use
 
-1. **Copy the prompt** below 
+1. **Copy the prompt** below
 2. **Paste** in your AI assistant (Cursor, Copilot, Claude, etc.)
 3. **Let AI analyze** your codebase
 4. **Review** generated files and adjust if needed
@@ -222,7 +222,7 @@ root/
 AI must update Context Mesh after changes:
 - Update relevant feature intent if functionality changed
 - Add outcomes to decision files if approach differed
-- Update changelog.md
+   - Update changelog.md
 - Create learning-*.md if significant insights
 
 ## Definition of Done (Build Phase)
