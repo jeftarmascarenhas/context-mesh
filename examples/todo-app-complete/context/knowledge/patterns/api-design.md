@@ -90,6 +90,6 @@ See implementation in:
 
 ## Related
 
-- [Feature: Todo CRUD](../intent/feature-todo-crud.md)
-- [Decision: Tech Stack](../decisions/001-tech-stack.md)
+- [Feature: Todo CRUD](../../intent/feature-todo-crud.md)
+- [Decision: Tech Stack](../../decisions/001-tech-stack.md)
 

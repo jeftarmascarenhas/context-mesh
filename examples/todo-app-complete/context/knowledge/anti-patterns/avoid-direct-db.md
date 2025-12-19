@@ -58,5 +58,5 @@ app.post('/api/todos', async (req, res) => {
 ## Related
 
 - [Pattern: API Design](../patterns/api-design.md)
-- [Decision: Tech Stack](../decisions/001-tech-stack.md)
+- [Decision: Tech Stack](../../decisions/001-tech-stack.md)
 

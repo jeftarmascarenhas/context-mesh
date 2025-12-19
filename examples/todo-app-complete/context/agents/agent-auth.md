@@ -96,5 +96,5 @@ curl -X POST http://localhost:3000/api/auth/signup \
 ```
 
 ## After Completion
-Proceed to: **@context/agents/agent-crud.md**
+Proceed to: **@context/agents/agent-todo.md**
 
