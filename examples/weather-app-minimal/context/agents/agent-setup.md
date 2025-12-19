@@ -56,6 +56,32 @@ weather-app-minimal/
 └── .gitignore
 ```
 
+## Plugin Pattern (Important)
+
+Plugins must be **called as functions**, not registered with `fastify.register()`. See `@context/decisions/001-tech-stack.md` for details.
+
+**plugins/cors.ts**:
+```ts
+import { FastifyInstance } from 'fastify';
+import cors from '@fastify/cors';
+
+export default async function corsPlugin(fastify: FastifyInstance) {
+  await fastify.register(cors, { origin: "*" });
+}
+```
+
+**app.ts** - Call plugins as functions:
+```ts
+import corsPlugin from './plugins/cors';
+import swaggerPlugin from './plugins/swagger';
+
+// ✅ Correct: call as function
+await swaggerPlugin(fastify);
+await corsPlugin(fastify);
+
+// ❌ Wrong: do NOT use fastify.register(corsPlugin)
+```
+
 ## Definition of Done
 - [ ] Backend structure created with Fastify + Swagger
 - [ ] Frontend structure created with Vite + React + TypeScript

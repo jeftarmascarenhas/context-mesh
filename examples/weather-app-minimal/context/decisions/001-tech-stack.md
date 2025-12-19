@@ -140,16 +140,38 @@ We need to choose the technology stack for the Weather App minimal example. The 
   }
 }
 ```
+
+### Fastify Plugin Pattern
+
+We use wrapper functions in `plugins/` folder for organization, but **call them as regular functions** (not with `fastify.register()`).
+
+✅ **Correct Pattern**:
 ```ts
+// src/plugins/cors.ts
+import { FastifyInstance } from 'fastify';
+import cors from '@fastify/cors';
+
 export default async function corsPlugin(fastify: FastifyInstance) {
   await fastify.register(cors, {
     origin: "*", // Allow all origins in development
   });
 }
-// use the plugins in app.ts in right order
-sweggerPlugin(fastify)
-corsPlugin(fastify)
-````
+
+// src/app.ts - Call as function, NOT with register()
+import corsPlugin from './plugins/cors';
+import swaggerPlugin from './plugins/swagger';
+
+await swaggerPlugin(fastify);
+await corsPlugin(fastify);
+```
+
+❌ **Anti-Pattern** (common AI mistake):
+```ts
+// This does NOT work without fastify-plugin
+await fastify.register(corsPlugin); // ❌ Fails silently or errors
+```
+
+**Why?** Fastify's `register()` expects plugins wrapped with `fastify-plugin` for proper encapsulation. For simple apps, calling wrapper functions directly is simpler and works correctly.
 
 ### Project Structure
 ```
