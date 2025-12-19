@@ -16,6 +16,22 @@ A minimal Weather App demonstrating Context Mesh workflow in 45-60 minutes.
 
 ---
 
+## How to Execute an Agent
+
+When you see `Execute @context/agents/agent-*.md` in this guide, follow these steps:
+
+1. **Open your AI assistant** (Cursor Chat, GitHub Copilot Chat, or similar)
+2. **Type the command**: `Execute @context/agents/agent-setup.md` (replace with the agent name for each phase)
+3. **Review the generated code** before accepting
+4. **Run verification commands** after accepting the changes
+5. **Check the Definition of Done (DoD)** to ensure everything is complete
+
+**Note**: The `@context/` syntax works in Cursor. For other IDEs, you may need to:
+- Use the full file path: `context/agents/agent-setup.md`
+- Or copy the agent file content and paste it into your AI chat
+
+---
+
 ## Execution Flow
 
 ```
