@@ -30,6 +30,9 @@ Ask me:
 4. Why is this important? (business value)
 5. Main features to build?
 6. Tech stack? (if known)
+   - If tech stack provided, also ask:
+     - Why this tech stack? (Rationale)
+     - What alternatives did you consider?
 7. Acceptance criteria?
 
 Then create this structure:
@@ -111,13 +114,20 @@ Starting [PROJECT_TYPE] project, choosing technologies.
 - Frontend: [if applicable]
 - Backend: [if applicable]
 - Database: [if applicable]
+- Key Dependencies: [if applicable]
 
 ## Rationale
-[Why these technologies]
+[Why these technologies - reasons for choosing this stack]
 
-## Alternatives
-- [Alternative 1]
-- [Alternative 2]
+## Alternatives Considered
+- [Alternative 1] - [Why not chosen]
+- [Alternative 2] - [Why not chosen]
+
+## Outcomes
+[To be updated after implementation in Step 3: Learn]
+
+## Related
+- Intent: [project-intent.md](../intent/project-intent.md)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
