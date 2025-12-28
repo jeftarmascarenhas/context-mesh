@@ -115,7 +115,17 @@ Existing project with established technologies.
 - Key Dependencies: [key deps from package.json, etc.]
 
 ## Rationale
-[Inferred from code patterns and choices]
+[Inferred from code patterns and choices - why these technologies were likely chosen]
+
+## Alternatives Considered
+[If alternatives can be inferred from code/comments/documentation, list them. Otherwise, note: "Alternatives not documented in existing codebase."]
+
+## Outcomes
+[To be updated after future changes in Step 3: Learn]
+
+## Related
+- Intent: [project-intent.md](../intent/project-intent.md)
+- Other decisions: [002-[other].md](002-[other].md) (if applicable)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
