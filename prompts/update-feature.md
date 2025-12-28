@@ -25,19 +25,34 @@ Use this prompt to update an existing feature in a project with Context Mesh.
 I need to update an existing feature in this Context Mesh project.
 
 Analyze the existing @context/ and ask me:
+
+**Feature Update:**
 1. Which feature is being updated? (name or file)
 2. What is changing?
 3. Why is this change needed?
 4. Do acceptance criteria change?
-5. Does this need a new technical decision?
+
+**Technical Decision:**
+5. Does this need a new technical decision? (different approach)
+   - If YES, ask:
+     - Technical approach - What technical solution will be used?
+     - Why this approach? (Rationale) - What are the reasons for choosing this approach?
+     - What alternatives did you consider? - What other options were evaluated and why weren't they chosen?
+     - Technical context - Any constraints, existing patterns, or dependencies that influence this decision?
+6. Does the existing decision need to be updated? (same approach, but rationale/outcomes changed)
+   - If YES, ask what needs to be updated in the existing decision
 
 Then:
 - Update context/intent/feature-[name].md with changes
+  - Add "Changes from Original" section if relevant
 - Create context/decisions/[next-number]-[name].md if new technical approach
+  - Include: Context, Decision, Rationale, Alternatives Considered, Related links, Status
+- Update context/decisions/[existing-number]-[name].md if existing decision needs changes
 - Update changelog.md
+- Update AGENTS.md (Feature-Specific Context section) if feature context changed
 
 Follow the pattern of existing files in @context/.
-Add "Changes from Original" section in intent if relevant.
+Remember: If creating a new decision, it should be complete with all sections (same quality as add-feature.md).
 ```
 
 ---
@@ -63,9 +78,18 @@ IMPORTANT: This is an UPDATE to existing code, not a new implementation.
 ## What This Prompt Does
 
 - **Updates feature intent** - Reflects new requirements
-- **Creates decision if needed** - New technical approach
+- **Creates complete decision if needed** - New technical approach with context, rationale, and alternatives
+- **Updates existing decision if needed** - Updates rationale, outcomes, or other sections
 - **Updates changelog** - Records the change
+- **Updates AGENTS.md** - Keeps references current if feature context changed
 - **Preserves history** - Documents what changed and why
+
+**Decision Quality**: If creating a new decision, the prompt collects all necessary information (same as add-feature.md):
+- Context (situation and requirements)
+- Decision (technical approach details)
+- Rationale (why this approach)
+- Alternatives Considered (other options evaluated)
+- Related links (to features, other decisions, etc.)
 
 ---
 
