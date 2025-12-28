@@ -130,6 +130,51 @@ General checklist:
 - Skip loading intent files
 - Implement without understanding the WHY
 
+### 📝 File Creation Rules (CRITICAL)
+
+**When to CREATE files:**
+- ✅ User explicitly asks to create/implement/add something
+- ✅ User uses prompts like "add feature", "fix bug", "implement"
+- ✅ User explicitly requests: "create", "make", "build", "generate"
+- ✅ Following a Context Mesh prompt (add-feature.md, fix-bug.md, etc.)
+
+**When to NOT create files (Questions/Explanations):**
+- ❌ User asks a question (e.g., "How does X work?", "What is Y?", "Why did we choose Z?")
+- ❌ User asks for explanation or clarification
+- ❌ User asks "What should I do?" or "What's the best approach?"
+- ❌ User is exploring or learning about the codebase
+- ❌ User asks for suggestions or recommendations
+
+**When user asks questions:**
+1. **Answer the question** using context from `@context/` files
+2. **DO NOT create any markdown files** automatically
+3. **You CAN suggest** updating Context Mesh if relevant, but:
+   - Use format: "💡 **Suggestion**: Consider updating `@context/decisions/001-tech-stack.md` with this information..."
+   - **DO NOT create the file** - just suggest it
+   - Let the user decide if they want to update
+
+**Examples:**
+
+❌ **WRONG** (User asks question):
+```
+User: "How does authentication work in this project?"
+AI: [Creates feature-auth.md automatically] ❌ DON'T DO THIS
+```
+
+✅ **CORRECT** (User asks question):
+```
+User: "How does authentication work in this project?"
+AI: "Based on @context/decisions/002-auth-approach.md, we use JWT tokens...
+     💡 **Suggestion**: If this information is outdated, consider updating 
+     the decision file with current implementation details."
+```
+
+✅ **CORRECT** (User explicitly requests):
+```
+User: "Add a new feature for user profiles"
+AI: [Creates feature-user-profiles.md and decision] ✅ CORRECT
+```
+
 ---
 
 ## 🔄 Context Update (Critical)
