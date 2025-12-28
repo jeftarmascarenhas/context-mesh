@@ -7,6 +7,8 @@ Use this prompt to update an existing feature in a project with Context Mesh.
 - Changed scope
 - Different technical approach
 
+**Important**: You can use this prompt even if the feature is already built and deployed. This is Step 1 (Intent) - it plans the changes before implementing them.
+
 **Important**: Update the same `feature-*.md` file (don't create feature-v2.md). Git preserves history. Only create a new file if it's a completely different feature or complete replacement.
 
 ## How to Use
@@ -24,7 +26,9 @@ Use this prompt to update an existing feature in a project with Context Mesh.
 ```
 I need to update an existing feature in this Context Mesh project.
 
-Analyze the existing @context/ and ask me:
+First, analyze the existing @context/ files (feature intents, decisions) to understand the current state.
+
+Then ask me:
 
 **Feature Update:**
 1. Which feature is being updated? (name or file)
