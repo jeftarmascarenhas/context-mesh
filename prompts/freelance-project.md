@@ -30,6 +30,9 @@ Ask me:
 4. Main deliverables/features?
 5. Timeline/deadline?
 6. Tech requirements or constraints?
+   - If tech stack/requirements provided, also ask:
+     - Why this tech stack? (Rationale)
+     - What alternatives did you consider?
 7. Acceptance criteria? (How will client know it's done?)
 
 Then create this structure:
@@ -39,7 +42,7 @@ context/
 │   ├── project-intent.md (from client requirements)
 │   └── feature-[name].md (one per deliverable)
 ├── decisions/
-│   └── (populated as decisions are made)
+│   └── 001-tech-stack.md (if tech requirements provided)
 ├── knowledge/
 │   ├── patterns/
 │   └── anti-patterns/
@@ -109,6 +112,39 @@ FEATURE-[NAME].MD (deliverable):
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
 - **Status**: Draft
+---
+
+DECISIONS/001-TECH-STACK.MD (if tech requirements provided):
+---
+# Decision: Tech Stack
+
+## Context
+Client project [CLIENT/PROJECT_NAME] with specific technical requirements and constraints.
+
+## Decision
+- Frontend: [if applicable]
+- Backend: [if applicable]
+- Database: [if applicable]
+- Key Dependencies: [if applicable]
+- Constraints: [client constraints if any]
+
+## Rationale
+[Why these technologies - reasons for choosing this stack, considering client requirements]
+
+## Alternatives Considered
+- [Alternative 1] - [Why not chosen]
+- [Alternative 2] - [Why not chosen]
+
+## Outcomes
+[To be updated after implementation in Step 3: Learn]
+
+## Related
+- Intent: [project-intent.md](../intent/project-intent.md)
+
+## Status
+- **Created**: [TODAY'S DATE] (Phase: Intent)
+- **Status**: Accepted
+---
 ---
 
 CHANGELOG.MD:
