@@ -307,6 +307,7 @@ Create Decision Records for:
 - Technology choices
 - Design patterns
 - Significant implementation decisions
+- Asset management decisions (where to store images, JSON files, how to organize, external integrations)
 
 Minor decisions can use simple notes or inline documentation.
 
@@ -327,6 +328,45 @@ Decision Records should be:
 - Clear about why the decision was made
 - Documented alternatives and implications
 - Updated with outcomes (in Learn step)
+
+### How do I document asset management decisions?
+
+Assets (images, JSON files, static files, design assets from Figma, etc.) should be documented in decisions when you make technical choices about them:
+
+**Document in `decisions/` when:**
+- Choosing where to store assets (local, CDN, S3, etc.)
+- Deciding asset organization structure
+- Choosing formats (PNG vs SVG, JSON schemas)
+- Setting up external integrations (Figma MCP, design tools)
+- Making optimization decisions
+
+**Document in `knowledge/patterns/` when:**
+- Establishing patterns for asset organization
+- Creating naming conventions
+- Defining asset workflow (design → code)
+
+**Mention in `feature-*.md` when:**
+- Assets are part of a specific feature
+- Feature requires specific assets (images, icons, data files)
+
+**Example Decision:**
+```markdown
+# Decision: Asset Management Strategy
+
+## Context
+We need to manage images, icons, and design assets for the frontend.
+
+## Decision
+- Store images locally in `public/images/`
+- Use Figma MCP for design handoff
+- Optimize images before commit
+- Use SVG for icons, PNG for photos
+
+## Rationale
+- Local storage: faster development, no external dependencies
+- Figma MCP: direct design-to-code workflow
+- Optimization: better performance
+```
 
 ## Integration Questions
 

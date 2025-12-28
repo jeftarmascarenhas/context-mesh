@@ -211,6 +211,16 @@ See [ADVANCED.md](ADVANCED.md) for agent details.
 | **Update context after changes** | Keeps context current (no drift) |
 | **Don't over-document** | Focus on what matters (intent + decisions) |
 
+### Note: Assets and External Resources
+
+Assets (images, JSON files, design assets from Figma, etc.) don't need special handling in Context Mesh. Document them in decisions when you make technical choices:
+
+- **Storage decisions** (local vs CDN) → `decisions/`
+- **Organization patterns** → `knowledge/patterns/`
+- **Feature-specific assets** → Mention in `feature-*.md`
+
+See [FAQ.md](FAQ.md) for examples of asset management decisions.
+
 ---
 
 ## Next Steps

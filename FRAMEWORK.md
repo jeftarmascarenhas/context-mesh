@@ -376,6 +376,7 @@ Understanding when to use `project-intent.md` versus individual feature/bug file
 - Technology choices
 - Design patterns
 - Important implementation choices
+- Asset management decisions (storage, organization, optimization, external integrations like Figma MCP)
 
 **Format**: Simple markdown with Context, Decision, Rationale, Alternatives, Outcomes.
 
