@@ -3,10 +3,12 @@
 Use this prompt when starting a brand new project from scratch.
 
 **What gets created?** A `context/` folder structure that captures:
-- **Intent** - What you're building and why
-- **Decisions** - Technical choices (ADRs)
-- **Knowledge** - Patterns and anti-patterns
-- **Evolution** - Changelog and learnings
+- **Intent** - What you're building and why (project-intent.md, optionally feature intents)
+- **Decisions** - Technical choices (ADRs) - tech stack (if provided), optionally feature decisions
+- **Knowledge** - Patterns and anti-patterns (structure ready)
+- **Evolution** - Changelog and learnings (structure ready)
+
+**Flexibility**: You can create features now or add them later using `add-feature.md`
 
 ## How to Use
 
@@ -28,28 +30,30 @@ Ask me:
 2. Project type? (web app, API, mobile, CLI, library, etc.)
 3. What problem does it solve?
 4. Why is this important? (business value)
-5. Main features to build?
-   - For each feature, also ask:
+5. Project acceptance criteria? (overall project criteria)
+6. Tech stack? (if known)
+   - If tech stack provided, also ask:
+     - Why this tech stack? (Rationale)
+     - What alternatives did you consider?
+7. Do you want to add features now? (y/n)
+   - If YES: For each feature, ask:
+     - Feature name?
      - What does this feature do and why do we need it?
      - Acceptance criteria for this feature?
      - Technical approach for this feature? (What technical solution will be used?)
      - Why this approach? (Rationale)
      - What alternatives did you consider?
-6. Tech stack? (if known)
-   - If tech stack provided, also ask:
-     - Why this tech stack? (Rationale)
-     - What alternatives did you consider?
-7. Project acceptance criteria? (overall project criteria)
+   - If NO: Skip feature creation (user can use add-feature.md later)
 
 Then create this structure:
 
 context/
 ├── intent/
 │   ├── project-intent.md
-│   └── feature-[name].md (one per main feature, with complete information)
+│   └── feature-[name].md (only if user answered YES to question 7, one per feature with complete information)
 ├── decisions/
 │   ├── 001-tech-stack.md (if tech stack provided)
-│   └── [002+]-[feature-name].md (one per feature, starting from 002 if tech-stack exists, or 001 if not)
+│   └── [002+]-[feature-name].md (only if features were created, one per feature, starting from 002 if tech-stack exists, or 001 if not)
 ├── knowledge/
 │   ├── patterns/
 │   └── anti-patterns/
@@ -59,6 +63,8 @@ context/
     └── changelog.md
 
 Also create AGENTS.md at project root.
+
+**Note**: If user answered NO to question 7, inform them: "Project structure created. Use add-feature.md to add features when ready."
 
 ---
 TEMPLATES:
@@ -179,8 +185,8 @@ CHANGELOG.MD:
 ### Added
 - Project initialized with Context Mesh
 - Created project intent
-- Created feature intents: [list]
-- Created feature decisions: [list]
+- Created feature intents: [list if features were created, otherwise omit]
+- Created feature decisions: [list if features were created, otherwise omit]
 
 ### Changed
 
@@ -256,6 +262,11 @@ Before completing implementation:
 ---
 
 Create all files based on my answers.
+
+**Important**: 
+- Always create project-intent.md, structure folders, and AGENTS.md
+- Only create feature files and feature decisions if user answered YES to question 7
+- If user answered NO to question 7, inform them they can use add-feature.md to add features later
 ```
 
 ---
@@ -274,20 +285,31 @@ Load @context files and build the project.
 
 - **Creates `context/` folder** with complete structure
 - **Creates `project-intent.md`** - Main project intent
-- **Creates `feature-*.md`** - One per feature you defined (complete with What, Why, Acceptance Criteria)
-- **Creates `001-tech-stack.md`** - If tech stack was provided
-- **Creates `[next-number]-[feature-name].md`** - One decision per feature (technical approach with rationale and alternatives)
+- **Creates `001-tech-stack.md`** - If tech stack was provided (with rationale and alternatives)
 - **Creates `changelog.md`** - Initial changelog
 - **Creates `AGENTS.md`** - AI agent router at project root
+- **Optionally creates features** - If you answer YES to "add features now":
+  - **Creates `feature-*.md`** - One per feature (complete with What, Why, Acceptance Criteria)
+  - **Creates `[next-number]-[feature-name].md`** - One decision per feature (technical approach with rationale and alternatives)
 
-**Note**: Each feature gets both an intent file (What/Why) and a decision file (How). This ensures features are complete and ready for implementation.
+**Flexibility**: 
+- **Start simple**: Answer NO to features question, then use `add-feature.md` when ready
+- **Start complete**: Answer YES to features question, get everything set up at once
+
+**Note**: If features are created, each feature gets both an intent file (What/Why) and a decision file (How). This ensures features are complete and ready for implementation.
 
 ---
 
 ## Next Steps
 
-- **Add feature**: Use `add-feature.md`
+- **Add feature**: Use `add-feature.md` (if you didn't create features during initialization)
 - **Fix bug**: Use `fix-bug.md`
 - **Update feature**: Use `update-feature.md`
+- **Start building**: Load @context files and begin implementation
 
 **Note**: AI updates context automatically if AGENTS.md exists.
+
+**Why this flexibility?**
+- Some projects benefit from planning all features upfront
+- Others benefit from starting simple and adding features as needed
+- Context Mesh supports both approaches - choose what works for your project
