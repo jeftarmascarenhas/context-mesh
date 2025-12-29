@@ -21,7 +21,12 @@ Use this prompt to add a new feature to a project that already has Context Mesh.
 ```
 Add a new feature to this Context Mesh project.
 
-Analyze the existing @context/ and ask me:
+First, analyze the existing @context/ to check if this feature already exists:
+- Check if feature-[name].md already exists in context/intent/
+- If feature exists, inform me: "This feature already exists. Use update-feature.md to modify it, or choose a different name."
+- If feature does NOT exist, proceed with the questions below.
+
+Then ask me:
 
 **Feature Information:**
 1. Feature name
@@ -60,10 +65,13 @@ and @context/decisions/[number]-[name].md
 
 ## What This Prompt Does
 
+- **Checks if feature exists** - Verifies if feature-[name].md already exists before creating
 - **Creates feature intent** - Documents what and why
 - **Creates complete decision (ADR)** - Documents technical approach with context, rationale, and alternatives (required before implementation)
 - **Updates changelog** - Records the new feature
 - **Updates AGENTS.md** - Keeps references current
+
+**Important**: If the feature already exists, the prompt will inform you to use `update-feature.md` instead. This prevents duplicate features and preserves context.
 
 **Decision Quality**: The prompt collects all necessary information to create a complete ADR with:
 - Context (situation and requirements)
