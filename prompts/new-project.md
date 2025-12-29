@@ -29,20 +29,27 @@ Ask me:
 3. What problem does it solve?
 4. Why is this important? (business value)
 5. Main features to build?
+   - For each feature, also ask:
+     - What does this feature do and why do we need it?
+     - Acceptance criteria for this feature?
+     - Technical approach for this feature? (What technical solution will be used?)
+     - Why this approach? (Rationale)
+     - What alternatives did you consider?
 6. Tech stack? (if known)
    - If tech stack provided, also ask:
      - Why this tech stack? (Rationale)
      - What alternatives did you consider?
-7. Acceptance criteria?
+7. Project acceptance criteria? (overall project criteria)
 
 Then create this structure:
 
 context/
 ├── intent/
 │   ├── project-intent.md
-│   └── feature-[name].md (one per main feature)
+│   └── feature-[name].md (one per main feature, with complete information)
 ├── decisions/
-│   └── 001-tech-stack.md (if tech stack provided)
+│   ├── 001-tech-stack.md (if tech stack provided)
+│   └── [002+]-[feature-name].md (one per feature, starting from 002 if tech-stack exists, or 001 if not)
 ├── knowledge/
 │   ├── patterns/
 │   └── anti-patterns/
@@ -96,11 +103,40 @@ FEATURE-[NAME].MD:
 
 ## Related
 - Intent: project-intent.md
-- Decision: [number]-[decision-name].md (if applicable)
+- Decision: [number]-[feature-name].md (technical approach for this feature)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
 - **Status**: Draft
+---
+
+DECISIONS/[NUMBER]-[FEATURE-NAME].MD (one per feature, starting from 002 if tech-stack exists, or 001 if not):
+---
+# Decision: [FEATURE_NAME] Technical Approach
+
+## Context
+Implementing [FEATURE_NAME] feature for [PROJECT_NAME]. Need to choose technical approach.
+
+## Decision
+[Technical solution that will be used for this feature]
+
+## Rationale
+[Why this approach - reasons for choosing this solution]
+
+## Alternatives Considered
+- [Alternative 1] - [Why not chosen]
+- [Alternative 2] - [Why not chosen]
+
+## Outcomes
+[To be updated after implementation in Step 3: Learn]
+
+## Related
+- Intent: [feature-[name].md](../intent/feature-[name].md)
+- Decision: [001-tech-stack.md](001-tech-stack.md) (if applicable)
+
+## Status
+- **Created**: [TODAY'S DATE] (Phase: Intent)
+- **Status**: Accepted
 ---
 
 DECISIONS/001-TECH-STACK.MD (if tech stack provided):
@@ -144,6 +180,7 @@ CHANGELOG.MD:
 - Project initialized with Context Mesh
 - Created project intent
 - Created feature intents: [list]
+- Created feature decisions: [list]
 
 ### Changed
 
@@ -237,10 +274,13 @@ Load @context files and build the project.
 
 - **Creates `context/` folder** with complete structure
 - **Creates `project-intent.md`** - Main project intent
-- **Creates `feature-*.md`** - One per feature you defined
+- **Creates `feature-*.md`** - One per feature you defined (complete with What, Why, Acceptance Criteria)
 - **Creates `001-tech-stack.md`** - If tech stack was provided
+- **Creates `[next-number]-[feature-name].md`** - One decision per feature (technical approach with rationale and alternatives)
 - **Creates `changelog.md`** - Initial changelog
 - **Creates `AGENTS.md`** - AI agent router at project root
+
+**Note**: Each feature gets both an intent file (What/Why) and a decision file (How). This ensures features are complete and ready for implementation.
 
 ---
 
