@@ -8,7 +8,7 @@
 
 ### Stop blaming the AI model. The problem is missing context.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/jeftarmascarenhas/context-mesh/releases)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/jeftarmascarenhas/context-mesh/releases)
 [![Framework](https://img.shields.io/badge/framework-AI--First-purple.svg)](https://github.com/jeftarmascarenhas/context-mesh)
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/jeftarmascarenhas/context-mesh)
 
