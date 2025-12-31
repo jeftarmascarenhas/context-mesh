@@ -1,43 +1,43 @@
 # Release Guide - Context Mesh v1.1.0
 
-Este guia contém as instruções para criar a release v1.1.0 no GitHub.
+This guide contains instructions for creating the v1.1.0 release on GitHub.
 
-## Pré-requisitos
+## Prerequisites
 
-1. Todos os arquivos devem estar commitados
-2. Repositório deve estar no GitHub
-3. Você deve ter permissões de administrador no repositório
-4. CHANGELOG.md e README.md já foram atualizados
+1. All files must be committed
+2. Repository must be on GitHub
+3. You must have administrator permissions on the repository
+4. CHANGELOG.md and README.md have been updated
 
-## Passo 1: Criar Tag
+## Step 1: Create Tag
 
-No terminal, execute:
+In the terminal, execute:
 
 ```bash
-# Navegue até o diretório do projeto
+# Navigate to the project directory
 cd /Users/jeffmascarenhas/AI-First/ai-first-framework
 
-# Crie a tag
+# Create the tag
 git tag -a v1.1.0 -m "Release v1.1.0: Improved prompts with bidirectional linking and optional patterns"
 
-# Envie a tag para o GitHub
+# Push the tag to GitHub
 git push origin v1.1.0
 ```
 
-## Passo 2: Criar Release no GitHub
+## Step 2: Create Release on GitHub
 
-1. Acesse o repositório no GitHub
-2. Clique na aba **"Releases"** (ou acesse: `https://github.com/jeftarmascarenhas/context-mesh/releases`)
-3. Clique em **"Draft a new release"**
-4. Selecione a tag **v1.1.0** no dropdown
-5. Preencha os campos:
+1. Access the repository on GitHub
+2. Click on the **"Releases"** tab (or access: `https://github.com/jeftarmascarenhas/context-mesh/releases`)
+3. Click **"Draft a new release"**
+4. Select the **v1.1.0** tag from the dropdown
+5. Fill in the fields:
 
-### Título da Release:
+### Release Title:
 ```
 Context Mesh v1.1.0 - Improved Prompts & Bidirectional Linking
 ```
 
-### Descrição da Release:
+### Release Description:
 ```markdown
 ## 🚀 Release v1.1.0 - Improved Prompts & Bidirectional Linking
 
@@ -110,30 +110,30 @@ See [CHANGELOG.md](CHANGELOG.md) for complete list of changes.
 **Questions?** Open an [issue](https://github.com/jeftarmascarenhas/context-mesh/issues) or check [FAQ.md](FAQ.md).
 ```
 
-6. Marque como **"Latest release"**
-7. Clique em **"Publish release"**
+6. Mark as **"Latest release"**
+7. Click **"Publish release"**
 
-## Passo 3: Verificar
+## Step 3: Verify
 
-Após criar a release, verifique:
+After creating the release, verify:
 
-1. ✅ A release aparece na página de releases
-2. ✅ O badge de versão no README aponta para v1.1.0
-3. ✅ A tag v1.1.0 está criada no repositório
-4. ✅ O CHANGELOG.md está atualizado
-5. ✅ A descrição da release está completa
+1. ✅ The release appears on the releases page
+2. ✅ The version badge in README points to v1.1.0
+3. ✅ The v1.1.0 tag is created in the repository
+4. ✅ CHANGELOG.md is updated
+5. ✅ The release description is complete
 
-## Resumo das Mudanças
+## Summary of Changes
 
-### Arquivos Modificados
-- `CHANGELOG.md` - Adicionada seção v1.1.0
-- `README.md` - Versão atualizada para 1.1.0
-- `prompts/new-project.md` - Adicionada pergunta opcional sobre patterns
-- `prompts/add-feature.md` - Instruções explícitas sobre links bidirecionais
-- `prompts/update-feature.md` - Instruções para manter links
-- `prompts/existing-project.md` - Formatos de links corrigidos
-- `prompts/freelance-project.md` - Formatos de links corrigidos
+### Modified Files
+- `CHANGELOG.md` - Added v1.1.0 section
+- `README.md` - Version updated to 1.1.0
+- `prompts/new-project.md` - Added optional question about patterns
+- `prompts/add-feature.md` - Explicit bidirectional linking instructions
+- `prompts/update-feature.md` - Instructions to maintain links
+- `prompts/existing-project.md` - Corrected link formats
+- `prompts/freelance-project.md` - Corrected link formats
 
-### Tipo de Release
-- **MINOR** (v1.1.0): Novas features e melhorias (compatível com v1.0.0)
+### Release Type
+- **MINOR** (v1.1.0): New features and improvements (compatible with v1.0.0)
 
