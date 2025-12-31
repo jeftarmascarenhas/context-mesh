@@ -41,13 +41,25 @@ Then ask me:
 
 Then create:
 - context/intent/feature-[name].md
+  - Include "Related" section with bidirectional links:
+    - [Project Intent](project-intent.md)
+    - [Decision: [Feature Name]](../decisions/[next-number]-[name].md)
 - context/decisions/[next-number]-[name].md (ADR required BEFORE implementing)
   - Include: Context, Decision, Rationale, Alternatives Considered, Related links, Status
+  - Include "Related" section with bidirectional links:
+    - [Project Intent](../intent/project-intent.md)
+    - [Feature: [Feature Name]](../intent/feature-[name].md)
+    - [Decision: Tech Stack](001-tech-stack.md) (if applicable and exists)
 - Update changelog.md
 - Update AGENTS.md (Feature-Specific Context section)
 
 Follow the pattern of existing files in @context/.
 Remember: ADR must exist before implementation starts. The decision file should be complete with all sections.
+
+**Important**: Create bidirectional links between feature and decision files:
+- Feature files must link to their decision files using format: `- [Decision: Name](../decisions/[number]-[name].md)`
+- Decision files must link back to their feature files using format: `- [Feature: Name](../intent/feature-[name].md)`
+- Use markdown link format: `- [Type: Name](path/to/file.md)`
 ```
 
 ---
@@ -78,7 +90,12 @@ and @context/decisions/[number]-[name].md
 - Decision (technical approach details)
 - Rationale (why this approach)
 - Alternatives Considered (other options evaluated)
-- Related links (to features, other decisions, etc.)
+- Related links (bidirectional links to features, other decisions, etc.)
+
+**Bidirectional Links**: The prompt creates proper links between feature and decision files:
+- Feature intent files link to their decision files
+- Decision files link back to their feature files
+- Links use the format: `- [Type: Name](path/to/file.md)`
 
 ---
 

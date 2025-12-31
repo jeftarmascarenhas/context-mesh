@@ -92,8 +92,8 @@ FEATURE-[NAME].MD:
 - [Key files involved]
 
 ## Related
-- Intent: project-intent.md
-- Decision: [number]-[decision-name].md (if applicable)
+- [Project Intent](project-intent.md)
+- [Decision: [Decision Name]](../decisions/[number]-[decision-name].md) (if applicable)
 - Files: [list key files for this feature]
 
 ## Status
@@ -124,8 +124,9 @@ Existing project with established technologies.
 [To be updated after future changes in Step 3: Learn]
 
 ## Related
-- Intent: [project-intent.md](../intent/project-intent.md)
-- Other decisions: [002-[other].md](002-[other].md) (if applicable)
+- [Project Intent](../intent/project-intent.md)
+- [Feature: [Feature Name]](../intent/feature-[name].md) (if applicable)
+- [Decision: [Other Decision]]([number]-[other].md) (if applicable)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
@@ -244,10 +245,20 @@ Before completing any implementation:
 - [ ] Tests passing
 - [ ] Context updated to reflect changes
 - [ ] Changelog updated
+
+---
+
+**Note**: This is a basic AGENTS.md template. For a complete template with advanced features (File Creation Rules, Execution Agents, etc.), see `examples/AGENTS.md.example`.
 ---
 
 Analyze my codebase and create all files with content based on what you find.
 Important: This is documentation of what EXISTS, not what needs to be built.
+
+**Bidirectional Links**: Create proper links between features and decisions:
+- Feature files must link to their decision files using format: `- [Decision: Name](../decisions/[number]-[name].md)`
+- Decision files must link back to their feature files using format: `- [Feature: Name](../intent/feature-[name].md)`
+- Use markdown link format: `- [Type: Name](path/to/file.md)`
+- Links should be bidirectional (feature ↔ decision)
 ```
 
 ---

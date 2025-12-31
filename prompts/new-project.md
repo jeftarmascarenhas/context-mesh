@@ -44,6 +44,13 @@ Ask me:
      - Why this approach? (Rationale)
      - What alternatives did you consider?
    - If NO: Skip feature creation (user can use add-feature.md later)
+8. Do you have any initial patterns or conventions? (y/n) (optional)
+   - If YES: For each pattern, ask:
+     - Pattern name?
+     - What is this pattern? (description)
+     - When to use this pattern?
+     - Example or code structure?
+   - If NO: Skip pattern creation (patterns can be added later via learn-update.md)
 
 Then create this structure:
 
@@ -56,6 +63,7 @@ context/
 │   └── [002+]-[feature-name].md (only if features were created, one per feature, starting from 002 if tech-stack exists, or 001 if not)
 ├── knowledge/
 │   ├── patterns/
+│   │   └── [pattern-name].md (only if user answered YES to question 8)
 │   └── anti-patterns/
 ├── agents/
 │   └── (empty for now)
@@ -64,7 +72,9 @@ context/
 
 Also create AGENTS.md at project root.
 
-**Note**: If user answered NO to question 7, inform them: "Project structure created. Use add-feature.md to add features when ready."
+**Note**: 
+- If user answered NO to question 7, inform them: "Project structure created. Use add-feature.md to add features when ready."
+- If user answered NO to question 8, inform them: "Patterns can be added later via learn-update.md when you discover reusable patterns during implementation."
 
 ---
 TEMPLATES:
@@ -108,8 +118,8 @@ FEATURE-[NAME].MD:
 - [Criterion 2]
 
 ## Related
-- Intent: project-intent.md
-- Decision: [number]-[feature-name].md (technical approach for this feature)
+- [Project Intent](project-intent.md)
+- [Decision: [Feature Name]](../decisions/[number]-[feature-name].md)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
@@ -137,8 +147,9 @@ Implementing [FEATURE_NAME] feature for [PROJECT_NAME]. Need to choose technical
 [To be updated after implementation in Step 3: Learn]
 
 ## Related
-- Intent: [feature-[name].md](../intent/feature-[name].md)
-- Decision: [001-tech-stack.md](001-tech-stack.md) (if applicable)
+- [Project Intent](../intent/project-intent.md)
+- [Feature: [Feature Name]](../intent/feature-[name].md)
+- [Decision: Tech Stack](001-tech-stack.md) (if applicable)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
@@ -169,11 +180,37 @@ Starting [PROJECT_TYPE] project, choosing technologies.
 [To be updated after implementation in Step 3: Learn]
 
 ## Related
-- Intent: [project-intent.md](../intent/project-intent.md)
+- [Project Intent](../intent/project-intent.md)
 
 ## Status
 - **Created**: [TODAY'S DATE] (Phase: Intent)
 - **Status**: Accepted
+---
+
+PATTERNS/[PATTERN-NAME].MD (only if user answered YES to question 8):
+---
+# Pattern: [PATTERN_NAME]
+
+## Description
+[What this pattern is - clear description of the pattern]
+
+## When to Use
+[When to apply this pattern - specific scenarios or contexts]
+
+## Pattern
+[The pattern itself - structure, approach, or convention]
+
+## Example
+[Code example or usage example showing the pattern]
+
+## Related
+- [Project Intent](../intent/project-intent.md)
+- [Decision: Tech Stack](../decisions/001-tech-stack.md) (if applicable)
+- [Feature: [Feature Name]](../intent/feature-[name].md) (if applicable)
+
+## Status
+- **Created**: [TODAY'S DATE]
+- **Status**: Active
 ---
 
 CHANGELOG.MD:
@@ -187,6 +224,7 @@ CHANGELOG.MD:
 - Created project intent
 - Created feature intents: [list if features were created, otherwise omit]
 - Created feature decisions: [list if features were created, otherwise omit]
+- Created patterns: [list if patterns were created, otherwise omit]
 
 ### Changed
 
@@ -259,6 +297,10 @@ Before completing implementation:
 - [ ] Context updated
 - [ ] Changelog updated
 - [ ] Acceptance Criteria met
+
+---
+
+**Note**: This is a basic AGENTS.md template. For a complete template with advanced features (File Creation Rules, Execution Agents, etc.), see `examples/AGENTS.md.example`.
 ---
 
 Create all files based on my answers.
@@ -266,7 +308,15 @@ Create all files based on my answers.
 **Important**: 
 - Always create project-intent.md, structure folders, and AGENTS.md
 - Only create feature files and feature decisions if user answered YES to question 7
+- Only create pattern files if user answered YES to question 8
 - If user answered NO to question 7, inform them they can use add-feature.md to add features later
+- If user answered NO to question 8, inform them patterns can be added later via learn-update.md
+
+**Bidirectional Links**: Create proper links between features and decisions:
+- Feature files must link to their decision files using format: `- [Decision: Name](../decisions/[number]-[name].md)`
+- Decision files must link back to their feature files using format: `- [Feature: Name](../intent/feature-[name].md)`
+- Use markdown link format: `- [Type: Name](path/to/file.md)`
+- Links should be bidirectional (feature ↔ decision)
 ```
 
 ---
@@ -291,12 +341,16 @@ Load @context files and build the project.
 - **Optionally creates features** - If you answer YES to "add features now":
   - **Creates `feature-*.md`** - One per feature (complete with What, Why, Acceptance Criteria)
   - **Creates `[next-number]-[feature-name].md`** - One decision per feature (technical approach with rationale and alternatives)
+- **Optionally creates patterns** - If you answer YES to "initial patterns":
+  - **Creates `patterns/[pattern-name].md`** - Reusable patterns and conventions
 
 **Flexibility**: 
-- **Start simple**: Answer NO to features question, then use `add-feature.md` when ready
-- **Start complete**: Answer YES to features question, get everything set up at once
+- **Start simple**: Answer NO to features/patterns questions, then use `add-feature.md` or `learn-update.md` when ready
+- **Start complete**: Answer YES to features/patterns questions, get everything set up at once
 
-**Note**: If features are created, each feature gets both an intent file (What/Why) and a decision file (How). This ensures features are complete and ready for implementation.
+**Note**: 
+- If features are created, each feature gets both an intent file (What/Why) and a decision file (How). This ensures features are complete and ready for implementation.
+- Patterns can be added at initialization (if you have conventions) or discovered during implementation (via `learn-update.md`).
 
 ---
 

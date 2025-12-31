@@ -49,11 +49,22 @@ Then ask me:
 Then:
 - Update context/intent/feature-[name].md with changes
   - Add "Changes from Original" section if relevant
+  - Update "Related" section if links changed (ensure bidirectional links to decision files)
 - Create context/decisions/[next-number]-[name].md if new technical approach
   - Include: Context, Decision, Rationale, Alternatives Considered, Related links, Status
+  - Include "Related" section with bidirectional links:
+    - [Project Intent](../intent/project-intent.md)
+    - [Feature: [Feature Name]](../intent/feature-[name].md)
+    - [Decision: Tech Stack](001-tech-stack.md) (if applicable)
 - Update context/decisions/[existing-number]-[name].md if existing decision needs changes
+  - Update "Related" section if links changed (ensure bidirectional links to feature files)
 - Update changelog.md
 - Update AGENTS.md (Feature-Specific Context section) if feature context changed
+
+**Important**: Maintain bidirectional links between feature and decision files:
+- Feature files must link to their decision files using format: `- [Decision: Name](../decisions/[number]-[name].md)`
+- Decision files must link back to their feature files using format: `- [Feature: Name](../intent/feature-[name].md)`
+- Use markdown link format: `- [Type: Name](path/to/file.md)`
 
 Follow the pattern of existing files in @context/.
 Remember: If creating a new decision, it should be complete with all sections (same quality as add-feature.md).
