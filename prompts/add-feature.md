@@ -50,6 +50,8 @@ Then create:
     - [Project Intent](../intent/project-intent.md)
     - [Feature: [Feature Name]](../intent/feature-[name].md)
     - [Decision: Tech Stack](001-tech-stack.md) (if applicable and exists)
+- Update context/intent/project-intent.md
+  - Add new feature to "Related" section: [Feature: [Feature Name]](feature-[name].md)
 - Update changelog.md
 - Update AGENTS.md (Feature-Specific Context section)
 
@@ -80,6 +82,7 @@ and @context/decisions/[number]-[name].md
 - **Checks if feature exists** - Verifies if feature-[name].md already exists before creating
 - **Creates feature intent** - Documents what and why
 - **Creates complete decision (ADR)** - Documents technical approach with context, rationale, and alternatives (required before implementation)
+- **Updates project-intent.md** - Adds new feature to "Related" section for traceability
 - **Updates changelog** - Records the new feature
 - **Updates AGENTS.md** - Keeps references current
 
