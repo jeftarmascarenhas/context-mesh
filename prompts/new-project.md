@@ -55,6 +55,7 @@ Ask me:
 Then create this structure:
 
 context/
+├── .context-mesh-framework.md (ALWAYS create - framework rules and patterns)
 ├── intent/
 │   ├── project-intent.md
 │   └── feature-[name].md (only if user answered YES to question 7, one per feature with complete information)
@@ -78,6 +79,25 @@ Also create AGENTS.md at project root.
 
 ---
 TEMPLATES:
+---
+
+.CONTEXT-MESH-FRAMEWORK.MD (ALWAYS create this file):
+---
+**IMPORTANT**: This file should contain the complete Context Mesh framework reference. 
+
+If you have access to the Context Mesh framework repository, copy the content from `context/.context-mesh-framework.md`.
+
+If you don't have access, create a file that includes:
+- Framework overview (3 steps: Intent → Build → Learn)
+- File type separation rules (Feature, Decision, Knowledge, Agent files)
+- Plan, Approve, Execute pattern (MANDATORY)
+- When to create vs not create files
+- Context structure
+- Definition of Done
+- Bidirectional links rules
+- Status section requirements
+
+This file is critical for AI agents to understand and follow Context Mesh rules correctly.
 ---
 
 PROJECT-INTENT.MD:

@@ -21,7 +21,12 @@ Use this prompt to add a new feature to a project that already has Context Mesh.
 ```
 Add a new feature to this Context Mesh project.
 
-First, analyze the existing @context/ to check if this feature already exists:
+**FIRST: Load framework context:**
+- Load @context/.context-mesh-framework.md (if exists) to understand Context Mesh framework rules and file type separation
+- Understand Plan, Approve, Execute pattern
+- Understand when to create vs not create files
+
+Then, analyze the existing @context/ to check if this feature already exists:
 - Check if feature-[name].md already exists in context/intent/
 - If feature exists, inform me: "This feature already exists. Use update-feature.md to modify it, or choose a different name."
 - If feature does NOT exist, proceed with the questions below.
@@ -68,11 +73,42 @@ Remember: ADR must exist before implementation starts. The decision file should 
 
 ## Execute: Build the Feature
 
-After files are created:
+After files are created, use this prompt to implement:
 
 ```
 Implement the feature following @context/intent/feature-[name].md 
 and @context/decisions/[number]-[name].md
+
+**MANDATORY: Follow Plan, Approve, Execute pattern:**
+
+1. **PLAN** (Do this first - DO NOT SKIP):
+   - Load @context/.context-mesh-framework.md (if exists) to understand framework rules
+   - Load @context/intent/project-intent.md (always)
+   - Load @context/intent/feature-[name].md
+   - Load @context/decisions/[number]-[name].md
+   - Load relevant patterns from @context/knowledge/patterns/ (if any)
+   - Load relevant anti-patterns from @context/knowledge/anti-patterns/ (if any)
+   - Analyze existing codebase structure
+   - Verify ADR exists (decision file must exist before implementation)
+   - Explain your implementation approach based on the decision
+   - List ALL files you will create
+   - List ALL files you will modify
+   - Show code structure/architecture you will create
+   - Explain how you'll follow the documented decision and patterns
+   - Present the complete plan clearly
+
+2. **APPROVE** (Wait for approval - DO NOT SKIP):
+   - Ask explicitly: "Should I proceed with this implementation plan?"
+   - DO NOT write any code until user approves
+   - If user requests changes, update plan and ask again
+
+3. **EXECUTE** (Only after approval):
+   - Implement according to approved plan
+   - Follow all context files strictly
+   - Respect decisions from @context/decisions/
+   - Use patterns from @context/knowledge/patterns/
+   - Avoid anti-patterns from @context/knowledge/anti-patterns/
+   - Create/modify only files from approved plan
 ```
 
 ---

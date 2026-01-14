@@ -26,7 +26,12 @@ Use this prompt to update an existing feature in a project with Context Mesh.
 ```
 I need to update an existing feature in this Context Mesh project.
 
-First, analyze the existing @context/ files (feature intents, decisions) to understand the current state.
+**FIRST: Load framework context:**
+- Load @context/.context-mesh-framework.md (if exists) to understand Context Mesh framework rules and file type separation
+- Understand Plan, Approve, Execute pattern
+- Understand when to create vs not create files
+
+Then, analyze the existing @context/ files (feature intents, decisions) to understand the current state.
 
 Then ask me:
 
@@ -74,18 +79,42 @@ Remember: If creating a new decision, it should be complete with all sections (s
 
 ## Execute: Implement Changes
 
-After files are updated:
+After files are updated, use this prompt to implement:
 
 ```
 Update the existing feature following @context/intent/feature-[name].md.
 
-IMPORTANT: This is an UPDATE to existing code, not a new implementation.
-- First, analyze the existing code for this feature
-- Identify what needs to change based on the updated intent
-- Make ONLY the necessary modifications
-- Preserve existing code that doesn't need to change
-- Follow the "Changes from Original" section if present in the intent file
-- Update only the files that need changes, don't regenerate everything
+**MANDATORY: Follow Plan, Approve, Execute pattern:**
+
+1. **PLAN** (Do this first - DO NOT SKIP):
+   - Load @context/.context-mesh-framework.md (if exists) to understand framework rules
+   - Load @context/intent/project-intent.md (always)
+   - Load @context/intent/feature-[name].md (updated version)
+   - Load @context/decisions/[number]-[name].md (relevant decisions)
+   - Load relevant patterns from @context/knowledge/patterns/ (if any)
+   - Analyze existing codebase to understand current implementation
+   - Identify existing files related to this feature
+   - Compare updated intent with current implementation
+   - Explain what needs to change based on updated intent
+   - List ALL files you will modify (only modifications, no new files unless needed)
+   - Show what changes you will make
+   - Explain how you'll preserve existing code that doesn't need to change
+   - Follow "Changes from Original" section if present in intent file
+   - Present the complete plan clearly
+
+2. **APPROVE** (Wait for approval - DO NOT SKIP):
+   - Ask explicitly: "Should I proceed with this update plan?"
+   - DO NOT write any code until user approves
+   - If user requests changes, update plan and ask again
+
+3. **EXECUTE** (Only after approval):
+   - Implement according to approved plan
+   - IMPORTANT: This is an UPDATE, not a new implementation
+   - Make ONLY the necessary modifications
+   - Preserve existing code that doesn't need to change
+   - Update only the files that need changes, don't regenerate everything
+   - Follow all context files strictly
+   - Respect decisions from @context/decisions/
 ```
 
 ---

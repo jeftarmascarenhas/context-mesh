@@ -24,7 +24,12 @@ Use this prompt after implementing to update context with outcomes and learnings
 ```
 I finished implementing and need to update the Context Mesh (Learn step).
 
-**FIRST: Analyze automatically (do not ask questions yet):**
+**FIRST: Load framework context:**
+- Load @context/.context-mesh-framework.md (if exists) to understand Context Mesh framework rules
+- Understand the Learn step purpose and what needs to be updated
+- Understand file type separation rules
+
+**THEN: Analyze automatically (do not ask questions yet):**
 
 1. **Analyze @context/** to identify:
    - Which feature/bug intent files exist and their status
