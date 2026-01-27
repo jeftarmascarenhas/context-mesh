@@ -18,13 +18,42 @@ In the terminal, execute:
 cd /Users/jeffmascarenhas/AI-First/ai-first-framework
 
 # Create the tag
-git tag -a v1.1.0 -m "Release v1.1.0: Improved prompts with bidirectional linking and optional patterns"
+git tag -a v1.1.0 -m "Release v1.1.0: Improved prompts with bidirectional linking, optional patterns, and prompt pack reorganization"
 
 # Push the tag to GitHub
 git push origin v1.1.0
 ```
 
-## Step 2: Create Release on GitHub
+## Step 2: Create ZIP File for Context Mesh Hub
+
+Before creating the release, create a ZIP file containing the prompt pack for Context Mesh Hub:
+
+```bash
+# Navigate to the project directory
+cd /Users/jeffmascarenhas/AI-First/ai-first-framework
+
+# Create ZIP file with the prompt pack
+zip -r context-mesh-core-1.1.0.zip prompt-packs/context-mesh-core/1.1.0/
+
+# Verify the ZIP was created
+ls -lh context-mesh-core-1.1.0.zip
+```
+
+**ZIP Contents:**
+- `prompt-packs/context-mesh-core/1.1.0/` directory with all prompt files:
+  - `new-project.md`
+  - `existing-project.md`
+  - `freelance-project.md`
+  - `add-feature.md`
+  - `update-feature.md`
+  - `fix-bug.md`
+  - `learn-update.md`
+  - `create-agent.md`
+  - `README.md`
+
+**Note:** This ZIP file will be downloaded by the Context Mesh Hub tool for prompt pack distribution.
+
+## Step 3: Create Release on GitHub
 
 1. Access the repository on GitHub
 2. Click on the **"Releases"** tab (or access: `https://github.com/jeftarmascarenhas/context-mesh/releases`)
@@ -41,7 +70,7 @@ Context Mesh v1.1.0 - Improved Prompts & Bidirectional Linking
 ```markdown
 ## 🚀 Release v1.1.0 - Improved Prompts & Bidirectional Linking
 
-This release focuses on improving prompt quality, fixing link consistency, and adding flexibility to project initialization.
+This release focuses on improving prompt quality, fixing link consistency, adding flexibility to project initialization, and reorganizing prompts into a versioned structure for Context Mesh Hub compatibility.
 
 ### ✨ What's New
 
@@ -50,6 +79,10 @@ This release focuses on improving prompt quality, fixing link consistency, and a
   - Add patterns during project initialization
   - Template for pattern files included
   - Maintains flexibility (can be added later)
+- **Prompt Pack Structure** - Reorganized prompts for Context Mesh Hub
+  - Prompts moved to `prompt-packs/context-mesh-core/1.1.0/`
+  - Versioned structure enables prompt pack management
+  - Compatible with Context Mesh Hub tooling
 
 #### Improvements
 - **Bidirectional Linking** across all prompts
@@ -60,6 +93,10 @@ This release focuses on improving prompt quality, fixing link consistency, and a
   - All prompts use consistent link format
   - Templates match examples in repository
   - Better instructions for AI agents
+- **Prompt Organization**
+  - Prompts organized in versioned directory structure
+  - All documentation links updated to new prompt locations
+  - Structure supports future prompt pack versions
 
 #### Fixes
 - Fixed missing bidirectional links between features and decisions
@@ -68,11 +105,16 @@ This release focuses on improving prompt quality, fixing link consistency, and a
 
 ### 📝 Changed Prompts
 
-- `new-project.md` - Added optional patterns, improved hybrid approach
-- `add-feature.md` - Explicit bidirectional linking instructions
-- `update-feature.md` - Link maintenance when updating features
-- `existing-project.md` - Corrected link formats
-- `freelance-project.md` - Corrected link formats
+All prompts are now located in `prompt-packs/context-mesh-core/1.1.0/`:
+
+- `prompt-packs/context-mesh-core/1.1.0/new-project.md` - Added optional patterns, improved hybrid approach
+- `prompt-packs/context-mesh-core/1.1.0/add-feature.md` - Explicit bidirectional linking instructions
+- `prompt-packs/context-mesh-core/1.1.0/update-feature.md` - Link maintenance when updating features
+- `prompt-packs/context-mesh-core/1.1.0/existing-project.md` - Corrected link formats
+- `prompt-packs/context-mesh-core/1.1.0/freelance-project.md` - Corrected link formats
+- `prompt-packs/context-mesh-core/1.1.0/fix-bug.md` - Bug fix prompt
+- `prompt-packs/context-mesh-core/1.1.0/learn-update.md` - Context update prompt
+- `prompt-packs/context-mesh-core/1.1.0/create-agent.md` - Agent creation prompt
 
 ### 🔗 Links Format
 
@@ -87,7 +129,12 @@ All prompts now use standardized format:
 ### 📚 Documentation Updates
 
 - CHANGELOG.md updated with all changes
-- README.md version badge updated to v1.1.0
+- README.md version badge updated to v1.1.0, all prompt links updated to new structure
+- GETTING_STARTED.md - All prompt references updated to `prompt-packs/context-mesh-core/1.1.0/`
+- FRAMEWORK.md - Prompt references updated
+- RELEASE_v1.1.0.md - Updated with prompt reorganization details
+- CONTRIBUTING.md - Updated prompt directory reference
+- .github/pull_request_template.md - Updated prompt directory reference
 - All prompts reference complete AGENTS.md template
 
 ### 🎯 Migration Guide
@@ -110,10 +157,16 @@ See [CHANGELOG.md](CHANGELOG.md) for complete list of changes.
 **Questions?** Open an [issue](https://github.com/jeftarmascarenhas/context-mesh/issues) or check [FAQ.md](FAQ.md).
 ```
 
-6. Mark as **"Latest release"**
-7. Click **"Publish release"**
+6. **Attach ZIP file** (for Context Mesh Hub):
+   - Scroll down to the "Attach binaries" section
+   - Click **"Attach files by dropping them here or selecting them"**
+   - Select the `context-mesh-core-1.1.0.zip` file (created in Step 2)
+   - Wait for upload to complete
 
-## Step 3: Verify
+7. Mark as **"Latest release"**
+8. Click **"Publish release"**
+
+## Step 4: Verify
 
 After creating the release, verify:
 
@@ -122,17 +175,33 @@ After creating the release, verify:
 3. ✅ The v1.1.0 tag is created in the repository
 4. ✅ CHANGELOG.md is updated
 5. ✅ The release description is complete
+6. ✅ The ZIP file (`context-mesh-core-1.1.0.zip`) is attached to the release
+7. ✅ ZIP file can be downloaded from the release assets
 
 ## Summary of Changes
 
 ### Modified Files
 - `CHANGELOG.md` - Added v1.1.0 section
-- `README.md` - Version updated to 1.1.0
+- `README.md` - Version updated to 1.1.0, all prompt links updated
+- `GETTING_STARTED.md` - All prompt references updated to new structure
+- `FRAMEWORK.md` - Prompt references updated
+- `RELEASE_v1.1.0.md` - Updated with prompt reorganization
+- `CONTRIBUTING.md` - Updated prompt directory reference
+- `.github/pull_request_template.md` - Updated prompt directory reference
+- `prompt-packs/context-mesh-core/1.1.0/README.md` - Fixed relative links
+- `context-mesh-site/context/agents/agent-resources.md` - Updated prompt path reference
+- `context-mesh-site/prompts/update-quick-start-page.md` - Updated prompt path references
+
+### Prompt Files (Moved)
+All prompts moved from `prompts/` to `prompt-packs/context-mesh-core/1.1.0/`:
 - `prompt-packs/context-mesh-core/1.1.0/new-project.md` - Added optional question about patterns
 - `prompt-packs/context-mesh-core/1.1.0/add-feature.md` - Explicit bidirectional linking instructions
 - `prompt-packs/context-mesh-core/1.1.0/update-feature.md` - Instructions to maintain links
 - `prompt-packs/context-mesh-core/1.1.0/existing-project.md` - Corrected link formats
 - `prompt-packs/context-mesh-core/1.1.0/freelance-project.md` - Corrected link formats
+- `prompt-packs/context-mesh-core/1.1.0/fix-bug.md`
+- `prompt-packs/context-mesh-core/1.1.0/learn-update.md`
+- `prompt-packs/context-mesh-core/1.1.0/create-agent.md`
 
 ### Release Type
 - **MINOR** (v1.1.0): New features and improvements (compatible with v1.0.0)
