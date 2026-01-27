@@ -177,7 +177,7 @@ When contributing, please follow Context Mesh principles:
 - **GETTING_STARTED.md** - Step-by-step guide
 - **FAQ.md** - Frequently asked questions
 - **EXAMPLES.md** - Real-world examples
-- **prompts/** - Prompt templates
+- **prompt-packs/context-mesh-core/1.1.0/** - Prompt templates
 
 ### Documentation Style
 

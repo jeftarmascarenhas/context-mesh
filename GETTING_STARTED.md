@@ -10,9 +10,9 @@ This guide shows you how to use Context Mesh in practice. For concepts, see [REA
 
 | I'm... | Use this prompt |
 |--------|----------------|
-| Starting a new project | [new-project.md](prompts/new-project.md) |
-| Adding Context Mesh to existing code | [existing-project.md](prompts/existing-project.md) |
-| Working on a client/freelance project | [freelance-project.md](prompts/freelance-project.md) |
+| Starting a new project | [new-project.md](prompt-packs/context-mesh-core/1.1.0/new-project.md) |
+| Adding Context Mesh to existing code | [existing-project.md](prompt-packs/context-mesh-core/1.1.0/existing-project.md) |
+| Working on a client/freelance project | [freelance-project.md](prompt-packs/context-mesh-core/1.1.0/freelance-project.md) |
 
 **What happens:**
 1. Copy the prompt → Paste in your AI assistant → Answer questions
@@ -70,7 +70,7 @@ Let's add user authentication. This shows the complete flow:
 
 ### Step 1: Intent (Plan First)
 
-**Action:** Open [prompts/add-feature.md](prompts/add-feature.md), copy the prompt, paste in your AI assistant.
+**Action:** Open [prompt-packs/context-mesh-core/1.1.0/add-feature.md](prompt-packs/context-mesh-core/1.1.0/add-feature.md), copy the prompt, paste in your AI assistant.
 
 **You answer:**
 - Feature name: `user-auth`
@@ -116,7 +116,7 @@ Implement user authentication following @context/intent/feature-user-auth.md
 
 **If you have `AGENTS.md`:** AI updates automatically.
 
-**If not:** Use [prompts/learn-update.md](prompts/learn-update.md)
+**If not:** Use [prompt-packs/context-mesh-core/1.1.0/learn-update.md](prompt-packs/context-mesh-core/1.1.0/learn-update.md)
 
 **What gets updated:**
 - Feature marked as complete
@@ -147,10 +147,10 @@ Intent → Build → Learn
 
 | I want to... | Do this |
 |--------------|---------|
-| **Add a feature** | Use [add-feature.md](prompts/add-feature.md) → Build → Learn |
-| **Fix a bug** | Use [fix-bug.md](prompts/fix-bug.md) → Build → Learn |
-| **Update a feature** | Use [update-feature.md](prompts/update-feature.md) → Build → Learn |
-| **Update context manually** | Use [learn-update.md](prompts/learn-update.md) |
+| **Add a feature** | Use [add-feature.md](prompt-packs/context-mesh-core/1.1.0/add-feature.md) → Build → Learn |
+| **Fix a bug** | Use [fix-bug.md](prompt-packs/context-mesh-core/1.1.0/fix-bug.md) → Build → Learn |
+| **Update a feature** | Use [update-feature.md](prompt-packs/context-mesh-core/1.1.0/update-feature.md) → Build → Learn |
+| **Update context manually** | Use [learn-update.md](prompt-packs/context-mesh-core/1.1.0/learn-update.md) |
 
 ### When to Use Prompts vs Agents
 
@@ -186,19 +186,19 @@ See [ADVANCED.md](ADVANCED.md) for agent details.
 
 | Prompt | When to Use |
 |--------|-------------|
-| [new-project.md](prompts/new-project.md) | Starting a brand new project |
-| [existing-project.md](prompts/existing-project.md) | Adding Context Mesh to existing code |
-| [freelance-project.md](prompts/freelance-project.md) | Client or freelance work |
+| [new-project.md](prompt-packs/context-mesh-core/1.1.0/new-project.md) | Starting a brand new project |
+| [existing-project.md](prompt-packs/context-mesh-core/1.1.0/existing-project.md) | Adding Context Mesh to existing code |
+| [freelance-project.md](prompt-packs/context-mesh-core/1.1.0/freelance-project.md) | Client or freelance work |
 
 ### Daily Work Prompts
 
 | Prompt | When to Use |
 |--------|-------------|
-| [add-feature.md](prompts/add-feature.md) | Adding a new feature |
-| [update-feature.md](prompts/update-feature.md) | Changing an existing feature |
-| [fix-bug.md](prompts/fix-bug.md) | Fixing a bug |
-| [learn-update.md](prompts/learn-update.md) | Manually updating context after changes |
-| [create-agent.md](prompts/create-agent.md) | Creating a reusable execution pattern |
+| [add-feature.md](prompt-packs/context-mesh-core/1.1.0/add-feature.md) | Adding a new feature |
+| [update-feature.md](prompt-packs/context-mesh-core/1.1.0/update-feature.md) | Changing an existing feature |
+| [fix-bug.md](prompt-packs/context-mesh-core/1.1.0/fix-bug.md) | Fixing a bug |
+| [learn-update.md](prompt-packs/context-mesh-core/1.1.0/learn-update.md) | Manually updating context after changes |
+| [create-agent.md](prompt-packs/context-mesh-core/1.1.0/create-agent.md) | Creating a reusable execution pattern |
 
 ---
 
@@ -232,4 +232,4 @@ See [FAQ.md](FAQ.md) for examples of asset management decisions.
 
 ---
 
-**Ready?** Start with [prompts/new-project.md](prompts/new-project.md) or [prompts/existing-project.md](prompts/existing-project.md)
+**Ready?** Start with [prompt-packs/context-mesh-core/1.1.0/new-project.md](prompt-packs/context-mesh-core/1.1.0/new-project.md) or [prompt-packs/context-mesh-core/1.1.0/existing-project.md](prompt-packs/context-mesh-core/1.1.0/existing-project.md)

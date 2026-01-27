@@ -128,11 +128,11 @@ After creating the release, verify:
 ### Modified Files
 - `CHANGELOG.md` - Added v1.1.0 section
 - `README.md` - Version updated to 1.1.0
-- `prompts/new-project.md` - Added optional question about patterns
-- `prompts/add-feature.md` - Explicit bidirectional linking instructions
-- `prompts/update-feature.md` - Instructions to maintain links
-- `prompts/existing-project.md` - Corrected link formats
-- `prompts/freelance-project.md` - Corrected link formats
+- `prompt-packs/context-mesh-core/1.1.0/new-project.md` - Added optional question about patterns
+- `prompt-packs/context-mesh-core/1.1.0/add-feature.md` - Explicit bidirectional linking instructions
+- `prompt-packs/context-mesh-core/1.1.0/update-feature.md` - Instructions to maintain links
+- `prompt-packs/context-mesh-core/1.1.0/existing-project.md` - Corrected link formats
+- `prompt-packs/context-mesh-core/1.1.0/freelance-project.md` - Corrected link formats
 
 ### Release Type
 - **MINOR** (v1.1.0): New features and improvements (compatible with v1.0.0)

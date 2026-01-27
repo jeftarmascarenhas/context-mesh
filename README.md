@@ -139,7 +139,7 @@ Keep the **3 steps** (Intent → Build → Learn), but feel free to adapt the st
 
 ### Option 1: New Project
 
-1. Open **[prompts/new-project.md](prompts/new-project.md)**
+1. Open **[prompt-packs/context-mesh-core/1.1.0/new-project.md](prompt-packs/context-mesh-core/1.1.0/new-project.md)**
 2. **Copy** the prompt (inside the ``` block)
 3. **Paste** into your AI assistant (Cursor, Copilot, Claude, etc.)
 4. **Answer** the questions
@@ -147,7 +147,7 @@ Keep the **3 steps** (Intent → Build → Learn), but feel free to adapt the st
 
 ### Option 2: Existing Project
 
-1. Open **[prompts/existing-project.md](prompts/existing-project.md)**
+1. Open **[prompt-packs/context-mesh-core/1.1.0/existing-project.md](prompt-packs/context-mesh-core/1.1.0/existing-project.md)**
 2. **Copy** the prompt (inside the ``` block)
 3. **Paste** into your AI assistant
 4. Let it **analyze your codebase** and generate living context
@@ -159,10 +159,10 @@ Use these prompts as you work:
 
 | I want to... | Use this |
 |--------------|----------|
-| Add a feature | [add-feature.md](prompts/add-feature.md) |
-| Fix a bug | [fix-bug.md](prompts/fix-bug.md) |
-| Update a feature | [update-feature.md](prompts/update-feature.md) |
-| Update context (Learn step) | [learn-update.md](prompts/learn-update.md) |
+| Add a feature | [add-feature.md](prompt-packs/context-mesh-core/1.1.0/add-feature.md) |
+| Fix a bug | [fix-bug.md](prompt-packs/context-mesh-core/1.1.0/fix-bug.md) |
+| Update a feature | [update-feature.md](prompt-packs/context-mesh-core/1.1.0/update-feature.md) |
+| Update context (Learn step) | [learn-update.md](prompt-packs/context-mesh-core/1.1.0/learn-update.md) |
 
 ---
 
@@ -240,7 +240,7 @@ When context is primary:
 
 | I want to... | Read this |
 |--------------|-----------|
-| Start now | [prompts/](prompts/) ⚡ |
+| Start now | [prompt-packs/context-mesh-core/1.1.0/](prompt-packs/context-mesh-core/1.1.0/) ⚡ |
 | Understand the framework | [FRAMEWORK.md](FRAMEWORK.md) |
 | See examples | [examples/](examples/) |
 | Use with Scrum/Agile | [INTEGRATION.md](INTEGRATION.md) |
@@ -275,7 +275,7 @@ Context Mesh is in active development. Contributions, feedback, and use cases ar
 
 **Ready to fix the context crisis?**
 
-**[Get Started →](prompts/)** • **[See Examples →](examples/)** • **[Read Framework →](FRAMEWORK.md)**
+**[Get Started →](prompt-packs/context-mesh-core/1.1.0/)** • **[See Examples →](examples/)** • **[Read Framework →](FRAMEWORK.md)**
 
 Made with ❤️ for the AI-First development community
 

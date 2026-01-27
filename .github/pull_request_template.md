@@ -25,7 +25,7 @@
 - [ ] Updated `context/knowledge/` files (patterns/anti-patterns)
 - [ ] Updated `context/evolution/` files (changelog, learnings)
 - [ ] Updated `AGENTS.md`
-- [ ] Updated prompts in `prompts/`
+- [ ] Updated prompts in `prompt-packs/context-mesh-core/1.1.0/`
 - [ ] No Context Mesh files changed
 
 ## Changes Made

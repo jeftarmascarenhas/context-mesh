@@ -110,5 +110,5 @@ Done implementing?
 ## Need Help?
 
 - **Not sure which prompt?** Start with `new-project.md` or `existing-project.md`
-- **Questions?** See [FAQ.md](../FAQ.md)
-- **More details?** See [FRAMEWORK.md](../FRAMEWORK.md)
+- **Questions?** See [FAQ.md](../../FAQ.md)
+- **More details?** See [FRAMEWORK.md](../../FRAMEWORK.md)

@@ -438,7 +438,7 @@ Both include context and link to decisions and learnings.
 
 **Using agents**: Reference in your prompt: `Execute @context/agents/agent-[name].md for [feature]`.
 
-**Creating agents**: Create manually in `context/agents/` or use the `create-agent.md` prompt (see [prompts/](prompts/)).
+**Creating agents**: Create manually in `context/agents/` or use the `create-agent.md` prompt (see [prompt-packs/context-mesh-core/1.1.0/](prompt-packs/context-mesh-core/1.1.0/)).
 
 For advanced agent patterns, see [ADVANCED.md](ADVANCED.md).
 
